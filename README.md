@@ -20,7 +20,7 @@ The plugin adds more than 20 dynamic tags to Elementor to display additional woo
 
 **How to download?**
 
-In the right section the green button: <>Code click, and in the dropdown menu, select the Download ZIP option. The downloaded file just upload it, you can easily install the downloaded file as an plugin within wordpress.
+In the right section the green button: <>Code click, and in the dropdown menu, select the **Download ZIP** option. The downloaded file just upload it, you can easily install the downloaded file as an plugin within wordpress.
 
 Coming sooon...
 
