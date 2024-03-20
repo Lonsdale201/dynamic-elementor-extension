@@ -64,6 +64,11 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * Access Memberships (Woo Membership)
 * Current user any active subscriptions
 
+### ROADMAP
+The v1.1 version will migrate the previously created plugin function: *Elementor Extra Theme Conditions*
+The v1.2 will add many new Woo Membership and subscriptions dynamic tags
+The v1.3 Well, you tell me!
+
 ## CHANGELOG
 
 ### V 1.0 - *2024.03.20*
