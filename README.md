@@ -66,9 +66,9 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 
 ### ROADMAP
 
-- [ ] The v1.1 version will migrate the previously created plugin functions: *Elementor Extra Theme Conditions*
+- [ ] v1.1 version will migrate the previously created plugin functions: *Elementor Extra Theme Conditions*
 - [ ] v1.2 will add many new Woo Membership and subscriptions dynamic tags
-- [ ] Well, you tell me!
+- [ ] v1.3 Well, you tell me!
 
 ## CHANGELOG
 
