@@ -131,7 +131,6 @@ class SpecBadge extends Tag {
             $badges[] = $settings['enable_custom_text'] === 'yes' ? $settings['sold_individually_custom_text'] : __('Sold Individually', 'woocommerce');
         }
     
-        // Biztonságos szöveg kiírása
         $badges_safe = array_map('wp_kses_post', $badges); 
         echo implode(', ', $badges_safe);
     }
