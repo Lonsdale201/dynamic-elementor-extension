@@ -2,10 +2,10 @@
 /**
  * Plugin Name: Dynamic Elementor extension
  * Description: Extra Dynamic tags for woocommerce and more.
- * Version: 0.9
+ * Version: 1.0
  * Author: Soczó Kristóf
  * Author URI: https://github.com/Lonsdale201?tab=repositories
- * Plugin URI: 
+ * Plugin URI: https://github.com/Lonsdale201/dynamic-elementor-extension
  * Text Domain: hw-ele-woo-dynamic
  * Elementor tested up to: 3.20.2
  * Elementor Pro tested up to: 3.20.0
