@@ -15,3 +15,11 @@ The plugin adds more than 20 dynamic tags to Elementor to display additional woo
 
 > [!Note]
 > The plugin supports Woo membership and Subscription and JetEngine.
+
+
+## CHANGELOG
+
+### V 1.0 - *2024.03.20*
+
+* Release the kraken
+
