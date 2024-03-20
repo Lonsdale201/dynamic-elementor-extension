@@ -1,0 +1,29 @@
+{
+    "name": "hellowp/hw-elementor-woo-dynamic",
+    "description": "Extra Dynamic tags for woocommerce",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "HelloWP\\HWEleWooDynamic\\": "dynamic-tags/",
+            "HelloWP\\HWEleWooDynamic\\JEDynamicVisibility\\": "je-dynamic-visibility/",
+            "HelloWP\\HWEleWooDynamic\\WooTags\\": "dynamic-tags/woo-tags",
+            "HelloWP\\HWEleWooDynamic\\WooTags\\Membership\\": "dynamic-tags/woo-membership"
+        }
+    },
+    "authors": [
+        {
+            "name": "Soczó Kristóf",
+            "email": "lonsdale201@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "composer/installers": false,
+            "automattic/jetpack-autoloader": false
+        }
+    }
+}
