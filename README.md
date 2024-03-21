@@ -30,6 +30,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * Featured Badge
 * Product Attributes
 * Product Gallery Image
+* Purchased Badge
 * Product Height
 * Product Weight
 * Product Width
@@ -52,6 +53,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * Customer Details (include shipping and billing selectable user meta)
 * Total Spent
 * Last order (include selectable data)
+* Purchased Products
 
 #### Woo membership
 *You can use it anywhere in your site*
@@ -77,6 +79,10 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 - [ ] v1.3 Well, you tell me!
 
 ## CHANGELOG
+### V 1.03 - *2024.03.21*
+
+* New Dynamic tags: Purchased Products (can output the titles, linkable titles, or the ids -> ideal for shortcodes
+* New Dynamic tags: Purchased Badge
 
 ### V 1.02 - *2024.03.21*
 
