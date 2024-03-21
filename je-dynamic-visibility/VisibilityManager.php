@@ -19,6 +19,7 @@ class VisibilityManager {
     public function register_conditions($conditions_manager) {
         if (class_exists('WC_Memberships')) {
             $conditions_manager->register_condition(new WCAccessMemberships());
+            $conditions_manager->register_condition(new UserMembershipAccessCanView());
         }
 
         if (function_exists('wcs_get_users_subscriptions')) {
