@@ -38,6 +38,7 @@ class TagManager {
         $dynamic_tags->register_tag('HelloWP\HWEleWooDynamic\WooTags\CartTaxValues');
         $dynamic_tags->register_tag('HelloWP\HWEleWooDynamic\WooTags\FreeShippingAmount');
         $dynamic_tags->register_tag('HelloWP\HWEleWooDynamic\WooTags\ProductHeight');
+        $dynamic_tags->register_tag('HelloWP\HWEleWooDynamic\WooTags\ProductLength');
         $dynamic_tags->register_tag('HelloWP\HWEleWooDynamic\WooTags\ProductWidth');
         $dynamic_tags->register_tag('HelloWP\HWEleWooDynamic\WooTags\ProductWeight');
         $dynamic_tags->register_tag('HelloWP\HWEleWooDynamic\WooTags\ProductAttributes');
@@ -56,6 +57,10 @@ class TagManager {
 
         if (class_exists('WC_Memberships')) {
             $dynamic_tags->register_tag('HelloWP\HWEleWooDynamic\WooTags\Membership\ActiveMembership');
+        }
+
+        if (function_exists('wcs_get_users_subscriptions')) {
+            $dynamic_tags->register_tag('HelloWP\HWEleWooDynamic\WooTags\Subscription\ActiveSubscription');
         }
     }
 }
