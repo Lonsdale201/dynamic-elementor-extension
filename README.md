@@ -61,7 +61,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 #### Woo Subscriptions
 *You can use it anywhere in your site*
 
-* Ative Subscription
+* Active Subscription
 
 #### JetEngine Dynamic Visibility
 *You can use it anywhere in your site*
@@ -80,7 +80,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 
 ### V 1.01 - *2024.03.20*
 
-* NEW Dynamic Visibility (User Membership Access Can View), New Dynamic tag (Ative Subscription)
+* NEW Dynamic Visibility (User Membership Access Can View), New Dynamic tag (Active Subscription)
 
 ### V 1.0 - *2024.03.20*
 
