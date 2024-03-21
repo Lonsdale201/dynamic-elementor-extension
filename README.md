@@ -78,6 +78,11 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 
 ## CHANGELOG
 
+### V 1.02 - *2024.03.21*
+
+* Added missing index
+* New Dynamic Tag: Product lenght
+
 ### V 1.01 - *2024.03.20*
 
 * NEW Dynamic Visibility (User Membership Access Can View), New Dynamic tag (Active Subscription)
