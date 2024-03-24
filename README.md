@@ -32,6 +32,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * Product Gallery Image
 * Purchased Badge
 * Product Height
+* Product Shipping Class
 * Product Weight
 * Product Width
 * Sale Time
@@ -71,6 +72,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * Access Memberships (Woo Membership)
 * Current user any active subscriptions (Woo Subscriptions)
 * User Membership Access Can View (Woo Membership)
+* User Reviewed Product
 
 ### ROADMAP
 
