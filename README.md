@@ -82,7 +82,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 
 ## CHANGELOG
 
-### V 1.04 *2024.02.23*
+### V 1.04 *2024.03.23*
 
 * New Dynamic tags: Product Shipping Class
 * New JE Dynamic Visibility condition: User Reviewed Product
