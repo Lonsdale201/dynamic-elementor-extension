@@ -79,6 +79,12 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 - [ ] v1.3 Well, you tell me!
 
 ## CHANGELOG
+
+### V 1.04 *2024.02.23*
+
+* New Dynamic tags: Product Shipping Class
+* New JE Dynamic Visibility condition: User Reviewed Product
+
 ### V 1.03 - *2024.03.21*
 
 * New Dynamic tags: Purchased Products (can output the titles, linkable titles, or the ids -> ideal for shortcodes
