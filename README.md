@@ -74,6 +74,8 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * User Membership Access Can View (Woo Membership)
 * User Reviewed Product
 
+#### JetEngine Macros
+
 ### ROADMAP
 
 - [ ] v1.1 version will migrate the previously created plugin functions: *Elementor Extra Theme Conditions*
@@ -81,6 +83,17 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 - [ ] v1.3 Well, you tell me!
 
 ## CHANGELOG
+
+### V 2.0.1 *2024.03.31.
+
+* A total of 12 Theme conditions were included:
+* User roles, user status (logged in, logged out), Product is on sale, Product is out of stock, product is featured, product is variable, product is external, Product is virtual, product is downloadable, product is subscription, Product is purchased by current user.
+* New Dynamic Tags: My Account menu links (works with the link types like button etc) - work with the custom my account endpoints too (if added via the wc api), Membership Myaccount link (need Woo Membership), Subscriptons myaccount link (Need Woo Subscriptions plugin)
+* New JetEngine Macros (you can use it with thr wuery builder etc): WC Current User Purchased Products, WC Membership Access Posts
+
+* Improved Advanced Sale Badge Dynamic tag: Now can handle if the product is discounted via Woo membership
+* Plugin folder better structure
+* Bug fixed: Stock Quantity Extra dynamic tag - If the product is external no longer return the In Stock text value.
 
 ### V 1.04 *2024.03.23*
 
