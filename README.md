@@ -99,6 +99,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * New JetEngine Macros (you can use it with thr wuery builder etc): **WC Current User Purchased Products**, **WC Membership Access Posts**
 
 * Improved **Advanced Sale Badge Dynamic tag**: Now can handle if the product is discounted via Woo membership, and can handle if the product is variable
+* Improved **Special badge Dynamic tag** added new External option
 * Plugin folder better structure
 * Bug fixed: Stock Quantity Extra dynamic tag - If the product is external no longer return the In Stock text value.
 * Bug fixed: Advanced Sale Badge fixed the issue cause if the product is variable. 
