@@ -26,6 +26,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 *You can use with Loop / Listing, or single product templates*
 
 * Advanced Sale Badge
+* Advanced Product Category *(dont use product single template or loop!)*
 * Advanced Stock
 * Featured Badge
 * Product Attributes
@@ -54,17 +55,20 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * Customer Details (include shipping and billing selectable user meta)
 * Total Spent
 * Last order (include selectable data)
+* My Account menu links
 * Purchased Products
 
 #### Woo membership
 *You can use it anywhere in your site*
 
 * Active Membership
+* Membership Myaccount link
 
 #### Woo Subscriptions
 *You can use it anywhere in your site*
 
 * Active Subscription
+* Subscriptons myaccount link
 
 #### JetEngine Dynamic Visibility
 *You can use it anywhere in your site*
@@ -75,6 +79,9 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * User Reviewed Product
 
 #### JetEngine Macros
+
+* WC Current User Purchased Products
+* WC Membership Access Posts
 
 ### ROADMAP
 
