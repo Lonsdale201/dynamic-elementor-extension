@@ -91,12 +91,12 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 
 ## CHANGELOG
 
-### V 2.0.1 *2024.03.31.
+### V 2.0.1 *2024.03.31.*
 
 * Added total of 12 Elementor Theme conditions were included:
 * User roles, user status (logged in, logged out), Product is on sale, Product is out of stock, product is featured, product is variable, product is external, Product is virtual, product is downloadable, product is subscription, Product is purchased by current user.
 * New Dynamic Tags: **My Account menu links** (works with the link types like button etc) - work with the custom my account endpoints too (if added via the wc api), **Membership Myaccount link** (need Woo Membership), **Subscriptons myaccount link** (Need Woo Subscriptions plugin), **Advanced Product Category**
-* New JetEngine Macros (you can use it with thr wuery builder etc): **WC Current User Purchased Products**, **WC Membership Access Posts**
+* New JetEngine Macros (you can use it with the query builder etc): **WC Current User Purchased Products**, **WC Membership Access Posts**
 
 * Improved **Advanced Sale Badge Dynamic tag**: Now can handle if the product is discounted via Woo membership, and can handle if the product is variable
 * Improved **Special badge Dynamic tag** added new External option
