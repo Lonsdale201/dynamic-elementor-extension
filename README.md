@@ -134,6 +134,10 @@ Added WooCommerce management direct actions: Create new - Products, categories, 
 
 **New Dynamic tags:** Current user role, Next product, Prev product, Next product image, prev product image, Active Membership data (selectable Plans), Current membership datas, Current subscriptions data, Restricted Products View
 
+**Improved**
+Added WooCommerce, and Elementor Dependency
+Added settings link, and documentation link in the plugin meta.
+
 Bugfix:
 Fixed the Missing elementor plugin issue
 
