@@ -40,6 +40,10 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * Special Badge
 * Stock Quantity
 * Stock Quantity Extra
+* Next Product
+* Next Product Image
+* Previous Product
+* Previous Product Image
 
 #### Cart specific dynamic tags
 *You can use it anywhere in your site*
@@ -57,24 +61,30 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * Last order (include selectable data)
 * My Account menu links
 * Purchased Products
+* User Role
 
 #### Woo membership
 *You can use it anywhere in your site*
 
 * Active Membership
+* Active Membership Data
+* Current Membership Data
+* Restricted Products View (beta)
 * Membership Myaccount link
 
 #### Woo Subscriptions
 *You can use it anywhere in your site*
 
 * Active Subscription
+* Active Subscription Data
 * Subscriptons myaccount link
 
 #### JetEngine Dynamic Visibility
 *You can use it anywhere in your site*
 
 * Access Memberships (Woo Membership)
-* Current user any active subscriptions (Woo Subscriptions)
+* Current Membership Expired (Woo Membership) (only for JetEngine listing)
+* Has Active Subscriptions With Selected Statuses (Woo Subscriptions) (Improved!)
 * User Membership Access Can View (Woo Membership)
 * User Reviewed Product
 
@@ -82,6 +92,19 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 
 * WC Current User Purchased Products
 * WC Membership Access Posts
+* WC Current User Active Memberships
+
+#### Elementor Finder
+What is the Elementor finder? 
+https://elementor.com/help/the-finder/
+
+Type WooCommerce, and you will see a new WooCommerce management category with new actions like create new product, category, shipping zone, class etc. Also type Shipping, or Payment, and you will see all your available shipping and payment methods with status, and instance id
+![image](https://github.com/Lonsdale201/dynamic-elementor-extension/assets/23199033/f6c87169-cd74-42a1-b67e-d306e5b8ca5a)
+
+#### Wp Toolbar product info
+
+![image](https://github.com/Lonsdale201/dynamic-elementor-extension/assets/23199033/7762702e-8700-4d3e-9c9a-8ebf0095bd3d)
+This is a small addition that can be useful for development and testing. You can get more important information about a product without having to enter the editor or admin (obviously you have to be logged in to the toolbar)
 
 ### ROADMAP
 
@@ -109,7 +132,7 @@ Added WooCommerce management direct actions: Create new - Products, categories, 
 * Shipping method list and link (with marking of active / inactive status, and id) 
 * Payment methods (with marking of active / inactive status and id)
 
-**New Dynamic tags:** Current user role, Next product, Prev product, Next product image, prev product image, Current membership datas, Current subscriptions data, Restricted Products View
+**New Dynamic tags:** Current user role, Next product, Prev product, Next product image, prev product image, Active Membership data (selectable Plans), Current membership datas, Current subscriptions data, Restricted Products View
 
 Bugfix:
 Fixed the Missing elementor plugin issue
