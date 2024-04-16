@@ -86,10 +86,33 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 ### ROADMAP
 
 - [X] v2.0.0 version will migrate the previously created plugin functions: *Elementor Extra Theme Conditions*
-- [ ] v2.1.0 will add many new Woo Membership and subscriptions dynamic tags
+- [X] v2.1.0 will add many new Woo Membership and subscriptions dynamic tags and settings page
 - [ ] v2.2.0 New Woo Widgets
 
 ## CHANGELOG
+
+### V 2.1.0 *2024.04.16.*
+
+**New features**
+
+* Complete new Settings page to enable disable dynamic tags & others
+* Added one new theme conditions: Current User Not Have Active Subscriptions
+* Added new jetengine macros: WC Current User Active Memberships
+
+**Improved exiting Dynamic visibility:** prev name: Current user any active subscriptions | New name: Has Active Subscriptions With Selected Statuses (Woo subs with selectable status)
+
+**New Dynamic Visibility:** Current Membership Expired (Use with jetengine listing + Query builder)
+
+**Extend Elementor finder:**
+Added WooCommerce management direct actions: Create new - Products, categories, tags, attributes, coupon, shipping zone, shipping class, order
+
+* Shipping method list and link (with marking of active / inactive status, and id) 
+* Payment methods (with marking of active / inactive status and id)
+
+**New Dynamic tags:** Current user role, Next product, Prev product, Next product image, prev product image, Current membership datas, Current subscriptions data, Restricted Products View
+
+Bugfix:
+Fixed the Missing elementor plugin issue
 
 ### V 2.0.1 *2024.03.31.*
 
