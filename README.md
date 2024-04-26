@@ -114,6 +114,12 @@ This is a small addition that can be useful for development and testing. You can
 
 ## CHANGELOG
 
+### V 2.1.1 *2024.04.26.*
+
+* New features: In the settings, now you can insert html, text or shortcode and append to the woo myaccount dashboard (before, or after), and Orders (before or after)
+* Added new dynamic tag: Customer logout (link)
+* Imporved: Added a New items count option in the Last order dynamic tag
+
 ### V 2.1.0 *2024.04.16.*
 
 **New features**
