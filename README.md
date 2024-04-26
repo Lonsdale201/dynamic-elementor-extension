@@ -62,6 +62,7 @@ In the right section the green button: <>Code click, and in the dropdown menu, s
 * My Account menu links
 * Purchased Products
 * User Role
+* Customer logout (link)
 
 #### Woo membership
 *You can use it anywhere in your site*
