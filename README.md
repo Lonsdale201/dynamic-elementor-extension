@@ -2,7 +2,7 @@
 The plugin adds more than 35 dynamic tags to Elementor to display additional woocommerce data. These include product data, customer data, cart values data, (Woo membership compatibility), and customer's own Last order data. Additional custom jetEngine Dynamic visibility conditions
 
 > [!IMPORTANT]
-> Minimum PHP version: 7.4
+> Minimum PHP version: 8.0
 
 > [!IMPORTANT]
 > Minimum Elementor Pro version: 3.17.0
