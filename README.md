@@ -115,6 +115,11 @@ This is a small addition that can be useful for development and testing. You can
 
 ## CHANGELOG
 
+### V 2.1.2 *2024.04.30.*
+
+* Improved the Advanced product Category dynamic tag now supporting multi level display
+* Added new product status option in the wp toolbar (I.e. post status) display. 
+
 ### V 2.1.1 *2024.04.26.*
 
 * New features: In the settings, now you can insert html, text or shortcode and append to the woo myaccount dashboard (before, or after), and Orders (before or after)
