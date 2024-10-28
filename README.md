@@ -23,6 +23,10 @@ In addition to tags, it extends JetEngine's dynamic visibility conditions and in
 
 In the right section the green button: <>Code click, and in the dropdown menu, select the **Download ZIP** option. The downloaded file just upload it, you can easily install the downloaded file as an plugin within wordpress.
 
+## Tutorials, How to & help
+
+Full help and descriptions can be found on github WIki: https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Start-here
+
 #### Woo Product specific dynamic tags
 *You can use with Loop / Listing, or single product templates*
 
