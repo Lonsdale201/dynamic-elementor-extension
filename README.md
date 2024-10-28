@@ -217,7 +217,7 @@ Other Theme Conditions
 
 #### Major UPDATE!
 
-We merged a previous plugin (Dynamic Elementor extension), so now this plugin provides dynamic tags and other add-ons related to Learndash
+We merged a previous plugin **(Dynamic Learndash for Elementor),** so now this plugin provides dynamic tags and other add-ons related to Learndash
 
 New Dynamic tags for WooCommerce
 
