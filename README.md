@@ -1,5 +1,6 @@
 # Dynamic Elementor extension
-The plugin adds more than 50+ dynamic tags to Elementor to display additional woocommerce data. These include product data, customer data, cart values data, (Woo membership compatibility), and customer's own Last order data. Additional custom jetEngine Dynamic visibility conditions
+This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
+In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
 
 > [!IMPORTANT]
 > Minimum PHP version: 8.0
