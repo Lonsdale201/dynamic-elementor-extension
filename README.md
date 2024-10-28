@@ -14,7 +14,7 @@ The plugin adds more than 35 dynamic tags to Elementor to display additional woo
 > Minimum WooCommerce version: 9.0.0
 
 > [!Note]
-> The plugin supports Woo membership and Subscription and JetEngine, and LearnDash
+> The plugin supports Woo membership, Subscription, JetEngine, LearnDash and Name Your Price
 
 ## INSTRUCTIONS
 
