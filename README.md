@@ -313,10 +313,12 @@ Fixed the ACF Taxonomy Meta dynamic tag issue if acf no exist
 
 **Other**
 
-New Required Elementor version:  3.17.0 to -> 3.22.0
-New Required Woo version:  7.0.0 to -> 9.0.0
-No longer Support php 7.4. Only up to 8.0+
-New wp 6.0+ textdomain loading method
+* New Required Elementor version:  3.17.0 to -> 3.22.0
+* New Required Woo version:  7.0.0 to -> 9.0.0
+* No longer Support php 7.4. Only up to 8.0+
+* New wp 6.0+ textdomain loading method
+* Plugin settings page renamed from **Dynamic Extension** to **Dynamic Elements**
+* Changed the manage_cap to Admin role checker (upon request) for the Settings page
 
 -------------------------------------------------------------------------------------------
 
