@@ -22,6 +22,7 @@ In addition to tags, it extends JetEngine's dynamic visibility conditions and in
 **How to download?**
 
 1, method In the right section the green button: <>Code click, and in the dropdown menu, select the **Download ZIP** option. The downloaded file just upload it, you can easily install the downloaded file as an plugin within wordpress.
+
 2, method You can download directly to the latest release. You can access this from the right sidebar in the release section.
 
 
