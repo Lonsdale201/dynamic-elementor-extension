@@ -112,6 +112,7 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 * Required Points
 * Student Limit
 * Topics Numbers
+* Course Content (raw data only the content)
 
 
 #### LearnDash Global
