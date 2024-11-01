@@ -221,6 +221,12 @@ Other Theme Conditions
 
 ## CHANGELOG
 
+### V 2.2.1 *2024.11.01.*
+
+New Learndash dynamic tag
+
+Course Content - This dynamic tag retrive a raw course content, without other course informations
+
 ### V 2.2.0 *2024.10.28.*
 
 #### Major UPDATE!
