@@ -15,7 +15,14 @@ In addition to tags, it extends JetEngine's dynamic visibility conditions and in
 > Minimum WooCommerce version: 9.0.0
 
 > [!Note]
-> The plugin supports Woo membership, Subscription, JetEngine, LearnDash and Name Your Price
+> The plugin supports Woo membership, Subscription, JetEngine, LearnDash, Name Your Price and WooCommerce Tab manager (by SkyVerge)
+
+---
+
+> [!CAUTION]
+> To use this plugin you need 3 required plugins: WooCommerce, Elementor, Elementor pro!!!!
+
+---
 
 ## INSTRUCTIONS
 
@@ -25,10 +32,13 @@ In addition to tags, it extends JetEngine's dynamic visibility conditions and in
 
 2, method You can download directly to the latest release. You can access this from the right sidebar in the release section.
 
+---
 
 ## Tutorials, How to & help
 
 Full help and descriptions can be found on github WIki: https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Start-here
+
+---
 
 #### Woo Product specific dynamic tags
 *You can use with Loop / Listing, or single product templates*
@@ -42,6 +52,7 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 * Purchased Badge
 * Product Height
 * Product Shipping Class
+* Product Tabs (Default / WooCommerce Tab Manager plugin (By SkyVerge)
 * Product Weight
 * Product Width
 * Sale Time
@@ -94,7 +105,7 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 *You can use with Loop / Listing, or single post/course templates*
 
 * Access Expires
-* Awarded Points
+* Awarded on Completion
 * Course Access Type
 * Certificates Link
 * Course Materials
@@ -109,10 +120,11 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 * Last Activity
 * Lessons Number
 * Quiz Numbers
-* Required Points
+* Required Points for Access
 * Student Limit
 * Topics Numbers
-* Course Content (raw data only the content)
+* Course Content
+* Course Part of Groups
 
 
 #### LearnDash Global
@@ -122,6 +134,7 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 * User Enrolled Courses Count
 * User Completed Courses Count
 * User Course Points
+* User Groups Count
 
 #### JetEngine Dynamic Visibility
 *You can use it anywhere in your site*
@@ -132,16 +145,21 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 * User Membership Access Can View (Woo Membership)
 * User Reviewed Product
 
-LeanrDash specific
+**LeanrDash specific**
 
 * Course Access Type
 * Course Certificates Available (not for user)
-* User Has Not Enrolled this Course
-* Current user enrolled course
+* Course Not Enrolled
+* Course Enrolled
 * Not Have Enough Points
-* Reached Student Limit
-* User Completed Current Course
+* Course Reached Student Limit
+* Course Completed
+* Course Part of Any Group
 
+**WWordPress specific**
+
+* Check URL PATH
+* Is Front Page
 
 #### JetEngine Macros
 
@@ -156,6 +174,7 @@ LeanrDash specific
 * LD Course Access Type Query
 * LD Course Prerequisites Query
 * LD User Courses
+* User groups  (Will return all groups, that associated to the current user)
 
 
 #### Elementor Finder
@@ -274,7 +293,8 @@ Renamed some Elements
 
 **Fixed**
 
-Fixed the Wikipedia links, and added new for each sections in the settings page.
+* Fixed the Wikipedia links, and added new for each sections in the settings page.
+* Fixed the Learndash Global section
 
 ---
 
