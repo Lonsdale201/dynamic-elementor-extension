@@ -6,8 +6,19 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'HelloWP\\HWEleWooDynamic\\WooTags\\Subscription\\' => array($baseDir . '/dynamic-tags/woo-subscription'),
     'HelloWP\\HWEleWooDynamic\\WooTags\\Membership\\' => array($baseDir . '/dynamic-tags/woo-membership'),
+    'HelloWP\\HWEleWooDynamic\\WooTags\\LearnDash\\' => array($baseDir . '/dynamic-tags/learndash'),
     'HelloWP\\HWEleWooDynamic\\WooTags\\' => array($baseDir . '/dynamic-tags/woo-tags'),
-    'HelloWP\\HWEleWooDynamic\\JEDynamicVisibility\\' => array($baseDir . '/je-dynamic-visibility'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\' => array($baseDir . '/modules/wp-top-bar'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\WExtends\\' => array($baseDir . '/modules/widget-extends'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\' => array($baseDir . '/modules/theme-conditions'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\' => array($baseDir . '/modules/je-macros'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\Helpers\\' => array($baseDir . '/modules/helpers'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\Finder\\' => array($baseDir . '/modules/finders'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\' => array($baseDir . '/modules/endpoints'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\DynamicVisibility\\' => array($baseDir . '/modules/dynamic-visibility'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\' => array($baseDir . '/modules/dynamic-widgets'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\' => array($baseDir . '/modules'),
     'HelloWP\\HWEleWooDynamic\\' => array($baseDir . '/dynamic-tags'),
 );

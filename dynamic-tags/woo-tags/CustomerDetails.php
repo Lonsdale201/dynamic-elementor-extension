@@ -14,7 +14,7 @@ class CustomerDetails extends Tag {
     }
 
     public function get_title() {
-        return __('Customer Details', 'hw-ele-woo-dynamic');
+        return esc_html__('Customer Details', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,11 +29,11 @@ class CustomerDetails extends Tag {
         $this->add_control(
             'detail_type',
             [
-                'label' => __('Detail Type', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Detail Type', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'billing' => __('Billing Details', 'hw-ele-woo-dynamic'),
-                    'shipping' => __('Shipping Details', 'hw-ele-woo-dynamic'),
+                    'billing' => esc_html__('Billing Details', 'hw-ele-woo-dynamic'),
+                    'shipping' => esc_html__('Shipping Details', 'hw-ele-woo-dynamic'),
                 ],
                 'default' => 'billing',
             ]
@@ -42,17 +42,17 @@ class CustomerDetails extends Tag {
         $this->add_control(
             'billing_detail',
             [
-                'label' => __('Billing Detail', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Billing Detail', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'billing_full_name' => __('Full Name', 'hw-ele-woo-dynamic'),
-                    'billing_first_name' => __('First Name', 'hw-ele-woo-dynamic'),
-                    'billing_last_name' => __('Last Name', 'hw-ele-woo-dynamic'),
-                    'billing_company' => __('Company', 'hw-ele-woo-dynamic'),
-                    'billing_city'  => __('City', 'hw-ele-woo-dynamic'),
-                    'billing_address_1' => __('Address Line 1', 'hw-ele-woo-dynamic'),
-                    'billing_phone' => __('Phone', 'hw-ele-woo-dynamic'),
-                    'billing_email' => __('Email', 'hw-ele-woo-dynamic'),
+                    'billing_full_name' => esc_html__('Full Name', 'hw-ele-woo-dynamic'),
+                    'billing_first_name' => esc_html__('First Name', 'hw-ele-woo-dynamic'),
+                    'billing_last_name' => esc_html__('Last Name', 'hw-ele-woo-dynamic'),
+                    'billing_company' => esc_html__('Company', 'hw-ele-woo-dynamic'),
+                    'billing_city'  => esc_html__('City', 'hw-ele-woo-dynamic'),
+                    'billing_address_1' => esc_html__('Address Line 1', 'hw-ele-woo-dynamic'),
+                    'billing_phone' => esc_html__('Phone', 'hw-ele-woo-dynamic'),
+                    'billing_email' => esc_html__('Email', 'hw-ele-woo-dynamic'),
                 ],
                 'default' => 'billing_full_name',
                 'condition' => [
@@ -64,16 +64,16 @@ class CustomerDetails extends Tag {
         $this->add_control(
             'shipping_detail',
             [
-                'label' => __('Shipping Detail', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Shipping Detail', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'shipping_full_name' => __('Full Name', 'hw-ele-woo-dynamic'),
-                    'shipping_first_name' => __('First Name', 'hw-ele-woo-dynamic'),
-                    'shipping_last_name' => __('Last Name', 'hw-ele-woo-dynamic'),
-                    'shipping_company' => __('Company', 'hw-ele-woo-dynamic'),
-                    'shipping_city'  => __('City', 'hw-ele-woo-dynamic'),
-                    'shipping_address_1' => __('Address Line 1', 'hw-ele-woo-dynamic'),
-                    'shipping_phone' => __('Phone', 'hw-ele-woo-dynamic'),
+                    'shipping_full_name' => esc_html__('Full Name', 'hw-ele-woo-dynamic'),
+                    'shipping_first_name' => esc_html__('First Name', 'hw-ele-woo-dynamic'),
+                    'shipping_last_name' => esc_html__('Last Name', 'hw-ele-woo-dynamic'),
+                    'shipping_company' => esc_html__('Company', 'hw-ele-woo-dynamic'),
+                    'shipping_city'  => esc_html__('City', 'hw-ele-woo-dynamic'),
+                    'shipping_address_1' => esc_html__('Address Line 1', 'hw-ele-woo-dynamic'),
+                    'shipping_phone' => esc_html__('Phone', 'hw-ele-woo-dynamic'),
                 ],
                 'default' => 'shipping_full_name',
                 'condition' => [
@@ -85,11 +85,11 @@ class CustomerDetails extends Tag {
         $this->add_control(
             'name_output_format',
             [
-                'label' => __('Fullname Output', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Fullname Output', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'first_and_last' => __('First Name Last Name', 'hw-ele-woo-dynamic'),
-                    'last_and_first' => __('Last Name First Name', 'hw-ele-woo-dynamic'),
+                    'first_and_last' => esc_html__('First Name Last Name', 'hw-ele-woo-dynamic'),
+                    'last_and_first' => esc_html__('Last Name First Name', 'hw-ele-woo-dynamic'),
                 ],
                 'default' => 'first_and_last',
                 'condition' => [
@@ -102,11 +102,11 @@ class CustomerDetails extends Tag {
         $this->add_control(
             'name_output_format_shipping',
             [
-                'label' => __('Fullname Output', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Fullname Output', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'first_and_last' => __('First Name Last Name', 'hw-ele-woo-dynamic'),
-                    'last_and_first' => __('Last Name First Name', 'hw-ele-woo-dynamic'),
+                    'first_and_last' => esc_html__('First Name Last Name', 'hw-ele-woo-dynamic'),
+                    'last_and_first' => esc_html__('Last Name First Name', 'hw-ele-woo-dynamic'),
                 ],
                 'default' => 'first_and_last',
                 'condition' => [

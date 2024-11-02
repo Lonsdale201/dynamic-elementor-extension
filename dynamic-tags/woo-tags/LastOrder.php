@@ -14,7 +14,7 @@ class LastOrder extends Tag {
     }
 
     public function get_title() {
-        return __('Last Order', 'hw-ele-woo-dynamic');
+        return esc_html__('Last Order', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,17 +29,18 @@ class LastOrder extends Tag {
         $this->add_control(
             'order_data',
             [
-                'label' => __('Order Data', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Order Data', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'id' => __('Order ID', 'hw-ele-woo-dynamic'),
-                    'status' => __('Order Status', 'hw-ele-woo-dynamic'),
-                    'date' => __('Order Date', 'hw-ele-woo-dynamic'),
-                    'items' => __('Order Items', 'hw-ele-woo-dynamic'),
-                    'total_amount' => __('Order Amount', 'hw-ele-woo-dynamic'),
-                    'tax_amount' => __('Order Tax Amount', 'hw-ele-woo-dynamic'),
-                    'shipping_method' => __('Shipping method', 'hw-ele-woo-dynamic'),
-                    'payment_method' => __('Payment method', 'hw-ele-woo-dynamic'),
+                    'id' => esc_html__('Order ID', 'hw-ele-woo-dynamic'),
+                    'status' => esc_html__('Order Status', 'hw-ele-woo-dynamic'),
+                    'date' => esc_html__('Order Date', 'hw-ele-woo-dynamic'),
+                    'items' => esc_html__('Order Items', 'hw-ele-woo-dynamic'),
+                    'item_count' => esc_html__('Item Count', 'hw-ele-woo-dynamic'), 
+                    'total_amount' => esc_html__('Order Amount', 'hw-ele-woo-dynamic'),
+                    'tax_amount' => esc_html__('Order Tax Amount', 'hw-ele-woo-dynamic'),
+                    'shipping_method' => esc_html__('Shipping method', 'hw-ele-woo-dynamic'),
+                    'payment_method' => esc_html__('Payment method', 'hw-ele-woo-dynamic'),
                 ],
                 'default' => 'id',
             ]
@@ -48,10 +49,10 @@ class LastOrder extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => __('Linkable', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Linkable', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => __('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -104,6 +105,10 @@ class LastOrder extends Tag {
                 break;
             default:
                 echo '';
+                break;
+            case 'item_count':
+                $items = $last_order->get_items();
+                echo count($items);
                 break;
             case 'total_amount':
                 $total_amount = $last_order->get_total();

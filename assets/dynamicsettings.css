@@ -1,0 +1,24 @@
+.dynamic-settings-checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-top: 0px;
+}
+
+.dynamic-settings-checkbox-group label {
+    display: block;
+    margin: 0 0 4px 0;
+}
+
+.dynamic-settings-checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container label {
+    margin-left: 0px;
+}

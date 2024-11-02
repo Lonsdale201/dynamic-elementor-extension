@@ -14,7 +14,7 @@ class CartTaxValues extends Tag {
     }
 
     public function get_title() {
-        return __('Cart Tax Values', 'hw-ele-woo-dynamic');
+        return esc_html__('Cart Tax Values', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,10 +29,10 @@ class CartTaxValues extends Tag {
         $this->add_control(
             'show_price_symbol',
             [
-                'label' => __('Show Price Symbol', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Show Price Symbol', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => __('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]

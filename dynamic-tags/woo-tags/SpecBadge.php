@@ -49,6 +49,7 @@ class SpecBadge extends Tag {
                     'sold_individually' => __('Exclude Sold Individually', 'hw-ele-woo-dynamic'),
                     'digital' => __('Exclude Digital', 'hw-ele-woo-dynamic'),
                     'virtual' => __('Exclude Virtual', 'hw-ele-woo-dynamic'),
+                    'external' => __('Exclude External', 'hw-ele-woo-dynamic'),
                 ],
                 'label_block' => true,
                 'description' => __('Since it lists all values, you can specify what not to include in the badge.', 'hw-ele-woo-dynamic'),
@@ -102,6 +103,18 @@ class SpecBadge extends Tag {
                 ],
             ]
         );
+
+        $this->add_control(
+            'external_custom_text',
+            [
+                'label' => __('External Product Custom Text', 'hw-ele-woo-dynamic'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('External', 'hw-ele-woo-dynamic'),
+                'condition' => [
+                    'enable_custom_text' => 'yes',
+                ],
+            ]
+        );
     }
 
     public function render() {
@@ -130,7 +143,11 @@ class SpecBadge extends Tag {
         if ($product->is_sold_individually() && !in_array('sold_individually', $excludes)) {
             $badges[] = $settings['enable_custom_text'] === 'yes' ? $settings['sold_individually_custom_text'] : __('Sold Individually', 'woocommerce');
         }
-    
+
+        if ($product->get_type() === 'external' && !in_array('external', $excludes)) {
+            $badges[] = $settings['enable_custom_text'] === 'yes' ? $settings['external_custom_text'] : __('External', 'woocommerce');
+        }    
+
         $badges_safe = array_map('wp_kses_post', $badges); 
         echo implode(', ', $badges_safe);
     }

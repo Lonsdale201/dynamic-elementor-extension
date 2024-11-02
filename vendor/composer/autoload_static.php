@@ -9,25 +9,80 @@ class ComposerStaticInit0276a9163f92cbe8f2004c8d3b98c0d0
     public static $prefixLengthsPsr4 = array (
         'H' => 
         array (
+            'HelloWP\\HWEleWooDynamic\\WooTags\\Subscription\\' => 45,
             'HelloWP\\HWEleWooDynamic\\WooTags\\Membership\\' => 43,
+            'HelloWP\\HWEleWooDynamic\\WooTags\\LearnDash\\' => 42,
             'HelloWP\\HWEleWooDynamic\\WooTags\\' => 32,
-            'HelloWP\\HWEleWooDynamic\\JEDynamicVisibility\\' => 44,
+            'HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\' => 41,
+            'HelloWP\\HWEleWooDynamic\\Modules\\WExtends\\' => 41,
+            'HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\' => 48,
+            'HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\' => 41,
+            'HelloWP\\HWEleWooDynamic\\Modules\\Helpers\\' => 40,
+            'HelloWP\\HWEleWooDynamic\\Modules\\Finder\\' => 39,
+            'HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\' => 42,
+            'HelloWP\\HWEleWooDynamic\\Modules\\DynamicVisibility\\' => 50,
+            'HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\' => 41,
+            'HelloWP\\HWEleWooDynamic\\Modules\\' => 32,
             'HelloWP\\HWEleWooDynamic\\' => 24,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'HelloWP\\HWEleWooDynamic\\WooTags\\Subscription\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/dynamic-tags/woo-subscription',
+        ),
         'HelloWP\\HWEleWooDynamic\\WooTags\\Membership\\' => 
         array (
             0 => __DIR__ . '/../..' . '/dynamic-tags/woo-membership',
+        ),
+        'HelloWP\\HWEleWooDynamic\\WooTags\\LearnDash\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/dynamic-tags/learndash',
         ),
         'HelloWP\\HWEleWooDynamic\\WooTags\\' => 
         array (
             0 => __DIR__ . '/../..' . '/dynamic-tags/woo-tags',
         ),
-        'HelloWP\\HWEleWooDynamic\\JEDynamicVisibility\\' => 
+        'HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/je-dynamic-visibility',
+            0 => __DIR__ . '/../..' . '/modules/wp-top-bar',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\WExtends\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/widget-extends',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/theme-conditions',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/je-macros',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\Helpers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/helpers',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\Finder\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/finders',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/endpoints',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\DynamicVisibility\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/dynamic-visibility',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/dynamic-widgets',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules',
         ),
         'HelloWP\\HWEleWooDynamic\\' => 
         array (

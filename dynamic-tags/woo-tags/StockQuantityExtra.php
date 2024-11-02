@@ -85,6 +85,10 @@ class StockQuantityExtra extends Tag {
             return;
         }
 
+        if (!$product || $product->is_type('external')) {
+            return;
+        }
+
         $stock_quantity = $product->get_stock_quantity();
         $stock_status = $product->get_stock_status();
         $show_label = $settings['show_label'] === 'yes';
@@ -93,11 +97,11 @@ class StockQuantityExtra extends Tag {
         $visibility = $settings['stock_visibility'];
 
         if ('hide_if_not_specific' === $visibility && $stock_quantity === null) {
-            return; // Nem jelenítünk meg semmit, ha nincs specifikus készlet mennyiség
+            return;
         }
 
         if ('hide_if_outofstock' === $visibility && 'outofstock' === $stock_status) {
-            return; // Nem jelenítünk meg semmit, ha nincs készleten
+            return; 
         }
 
         if ('outofstock' === $stock_status) {

@@ -8,9 +8,20 @@
     "autoload": {
         "psr-4": {
             "HelloWP\\HWEleWooDynamic\\": "dynamic-tags/",
-            "HelloWP\\HWEleWooDynamic\\JEDynamicVisibility\\": "je-dynamic-visibility/",
+            "HelloWP\\HWEleWooDynamic\\Modules\\": "modules/",
+            "HelloWP\\HWEleWooDynamic\\Modules\\DynamicVisibility\\": "modules/dynamic-visibility",
+            "HelloWP\\HWEleWooDynamic\\Modules\\Helpers\\": "modules/helpers",
+            "HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\": "modules/endpoints",
+            "HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\": "modules/theme-conditions",
+            "HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\": "modules/je-macros",
+            "HelloWP\\HWEleWooDynamic\\Modules\\Finder\\": "modules/finders",
+            "HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\": "modules/wp-top-bar",
+            "HelloWP\\HWEleWooDynamic\\Modules\\WExtends\\": "modules/widget-extends",
+            "HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\": "modules/dynamic-widgets",
             "HelloWP\\HWEleWooDynamic\\WooTags\\": "dynamic-tags/woo-tags",
-            "HelloWP\\HWEleWooDynamic\\WooTags\\Membership\\": "dynamic-tags/woo-membership"
+            "HelloWP\\HWEleWooDynamic\\WooTags\\Membership\\": "dynamic-tags/woo-membership",
+            "HelloWP\\HWEleWooDynamic\\WooTags\\LearnDash\\": "dynamic-tags/learndash",
+            "HelloWP\\HWEleWooDynamic\\WooTags\\Subscription\\": "dynamic-tags/woo-subscription"
         }
     },
     "authors": [

@@ -14,7 +14,7 @@ class AdvancedStock extends Tag {
     }
 
     public function get_title() {
-        return __('Advanced Stock', 'hw-ele-woo-dynamic');
+        return esc_html__('Advanced Stock', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,20 +29,20 @@ class AdvancedStock extends Tag {
         $this->add_control(
             'stock_text',
             [
-                'label' => __('Stock Text', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Stock Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'Only {remainingstock} left in stock!',
-                'description' => __('Use {remainingstock} to display the remaining stock quantity.', 'hw-ele-woo-dynamic'),
+                'description' => esc_html__('Use {remainingstock} to display the remaining stock quantity.', 'hw-ele-woo-dynamic'),
             ]
         );
 
         $this->add_control(
             'stock_threshold',
             [
-                'label' => __('Stock Threshold', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Stock Threshold', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 10,
-                'description' => __('Display text when stock quantity is below this threshold.', 'hw-ele-woo-dynamic'),
+                'description' => esc_html__('Display text when stock quantity is below this threshold.', 'hw-ele-woo-dynamic'),
             ]
         );
     }
