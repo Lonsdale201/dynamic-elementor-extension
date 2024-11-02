@@ -2,6 +2,10 @@
 This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
 
+## Github updates
+
+We've updated the full source codes of the plugin on github, so you can now always download the latest version directly from there, but we've also started to introduce the release system, also on github.
+
 > [!IMPORTANT]
 > Minimum PHP version: 8.0
 
