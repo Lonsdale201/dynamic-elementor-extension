@@ -228,6 +228,8 @@ New Learndash dynamic tag
 
 Course Content - This dynamic tag retrive a raw course content, without other course informations
 
+---
+
 ### V 2.2.0 *2024.10.28.*
 
 #### Major UPDATE!
@@ -335,14 +337,14 @@ Fixed the ACF Taxonomy Meta dynamic tag issue if acf no exist
 * Plugin settings page renamed from **Dynamic Extension** to **Dynamic Elements**
 * Changed the manage_cap to Admin role checker (upon request) for the Settings page
 
--------------------------------------------------------------------------------------------
+---
 
 ### V 2.1.2 *2024.04.30.*
 
 * Improved the Advanced product Category dynamic tag now supporting multi level display
 * Added new product status option in the wp toolbar (I.e. post status) display.
 
--------------------------------------------------------------------------------------------
+---
 
 ### V 2.1.1 *2024.04.26.*
 
@@ -350,7 +352,7 @@ Fixed the ACF Taxonomy Meta dynamic tag issue if acf no exist
 * Added new dynamic tag: Customer logout (link)
 * Imporved: Added a New items count option in the Last order dynamic tag
 
--------------------------------------------------------------------------------------------
+---
 
 ### V 2.1.0 *2024.04.16.*
 
