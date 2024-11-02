@@ -105,7 +105,7 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 * Active Subscription Data
 * Subscriptons myaccount link
 
-#### LearnDash
+#### LearnDash (Course)
 *You can use with Loop / Listing, or single post/course templates*
 
 * Access Expires
