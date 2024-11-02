@@ -118,9 +118,12 @@ class DynamicSettings {
         );
     
         foreach ($this->sections as $id => $data) {
-            if (($id === 'woo_subscriptions' && !Dependencies::is_subscriptions_active()) ||
+            if (
+                ($id === 'woo_subscriptions' && !Dependencies::is_subscriptions_active()) ||
                 ($id === 'woo_membership' && !Dependencies::is_memberships_active()) ||
-                ($id === 'ld_extras_courses' && !Dependencies::is_learndash_active())) {
+                ($id === 'ld_extras_courses' && !Dependencies::is_learndash_active()) ||
+                ($id === 'ld_extras_global' && !Dependencies::is_learndash_active()) 
+            ) {
                 continue;
             }
     
@@ -136,6 +139,7 @@ class DynamicSettings {
             $this->add_settings_to_sections($id);
         }
     }
+    
     
     
     
