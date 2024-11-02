@@ -381,7 +381,7 @@ Added settings link, and documentation link in the plugin meta.
 Bugfix:
 Fixed the Missing elementor plugin issue
 
--------------------------------------------------------------------------------------------
+---
 
 ### V 2.0.1 *2024.03.31.*
 
@@ -396,34 +396,34 @@ Fixed the Missing elementor plugin issue
 * Bug fixed: Stock Quantity Extra dynamic tag - If the product is external no longer return the In Stock text value.
 * Bug fixed: Advanced Sale Badge fixed the issue cause if the product is variable.
 
--------------------------------------------------------------------------------------------
+---
 
 ### V 1.04 *2024.03.23*
 
 * New Dynamic tags: Product Shipping Class
 * New JE Dynamic Visibility condition: User Reviewed Product
 
--------------------------------------------------------------------------------------------
+---
 
 ### V 1.03 - *2024.03.21*
 
 * New Dynamic tags: Purchased Products (can output the titles, linkable titles, or the ids -> ideal for shortcodes
 * New Dynamic tags: Purchased Badge
 
--------------------------------------------------------------------------------------------
+---
 
 ### V 1.02 - *2024.03.21*
 
 * Added missing index
 * New Dynamic Tag: Product lenght
 
--------------------------------------------------------------------------------------------
+---
 
 ### V 1.01 - *2024.03.20*
 
 * NEW Dynamic Visibility (User Membership Access Can View), New Dynamic tag (Active Subscription)
 
--------------------------------------------------------------------------------------------
+---
 
 ### V 1.0 - *2024.03.20*
 
