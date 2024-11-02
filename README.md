@@ -222,6 +222,62 @@ Other Theme Conditions
 
 ## CHANGELOG
 
+### V 2.2.2 *2024.11.02.*
+
+**New Plugin Support: WooCommerce Tab Manager (By Skyverge)**
+
+New Dynamic Tags, JetEngine Macros, JetEngine Dynamic Visibility, and improvements
+
+**LearDash related:**
+New Dynamic tag
+
+* User Groups Count
+* Course Part of Groups
+
+**Course Content dynamic tag new improvments:**
+
+New Trim function, output format option
+
+**WooCommerce related:**
+New Dynamic tag
+
+* Product Tabs (Support defaults, and the WooCommerce Tab Manager plugin (By: SkyVerge)
+
+**JetEngine related:**
+New Dynamic Visibility
+
+* Check URL PATH
+* Is Front Page
+
+**JetEngine  & LearnDash related:**
+New Dynamic Visibility
+
+* Course Part of Any Group
+
+New Macro
+
+* User groups
+
+**Improvments**
+
+Renamed some Elements
+
+| Old Names       | New Names          | Plugin / Type  |
+| ------------- |:-------------:| -----:|
+| User Completed Current Course    | Course Completed | JetEngine Dynamic Visibility |
+| Current user enrolled course     | Course Enrolled      |   JetEngine Dynamic Visibility |
+| User Has Not Enrolled this Course |  Course Not Enrolled     |    JetEngine Dynamic Visibility |
+| Reached Student Limit |  Course Reached Student Limit     |    JetEngine Dynamic Visibility |
+| Awarded Points |  Awarded on Completion     |    Elementor / Dynamic Tags |
+| Required Points |   Required Points for Access     |    Elementor / Dynamic Tags |
+
+
+**Fixed**
+
+Fixed the Wikipedia links, and added new for each sections in the settings page.
+
+---
+
 ### V 2.2.1 *2024.11.01.*
 
 New Learndash dynamic tag
