@@ -173,7 +173,7 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 
 * WC Loop Products (Use Wc Product Query -> useful to build a complete archive query)
 
-LeanrDash specific
+**LearnDash specific**
 
 * LD Course Access Type Query
 * LD Course Prerequisites Query
