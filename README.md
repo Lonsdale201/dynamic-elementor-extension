@@ -245,6 +245,12 @@ Other Theme Conditions
 
 ## CHANGELOG
 
+### V 2.2.3 *2024.11.14.*
+
+* Fixed php 8.3 compatibility issue
+
+---
+
 ### V 2.2.2 *2024.11.02.*
 
 **New Plugin Support: WooCommerce Tab Manager (By Skyverge)**
