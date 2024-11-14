@@ -11,6 +11,7 @@ use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;
 class DynamicSettings {
     private static $instance = null;
     private $tags_config = [];
+    private $sections;
 
     public static function get_instance() {
         if (is_null(self::$instance)) {

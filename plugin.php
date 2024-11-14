@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Dynamic Elementor Extension
  * Description: Extra dynamic tags and other useful functions for WooCommerce, Memberships, Subscriptions, and LearnDash.
- * Version: 2.2.2
+ * Version: 2.2.3
  * Author: Soczó Kristóf
  * Author URI: https://github.com/Lonsdale201?tab=repositories
  * Plugin URI: https://github.com/Lonsdale201/dynamic-elementor-extension
@@ -41,6 +41,8 @@ final class HW_Ele_Dynamic_Tags {
 
     // Singleton instance
     private static $_instance = null;
+
+    private $insertContentInstance;
 
     /**
      * Ensure only one instance of the class is loaded.
@@ -168,7 +170,7 @@ final class HW_Ele_Dynamic_Tags {
         \HelloWP\HWEleWooDynamic\Modules\Finder\FinderManager::get_instance();
         \HelloWP\HWEleWooDynamic\Modules\WPTopBar\TopBarSettings::get_instance();
 
-        if ( ! isset( $this->insertContentInstance ) ) {
+        if (!isset($this->insertContentInstance)) {
             $this->insertContentInstance = new \HelloWP\HWEleWooDynamic\Modules\EndPoints\InsertContent();
         }
 
@@ -263,5 +265,4 @@ final class HW_Ele_Dynamic_Tags {
     }
 }
 
-// Initialize the plugin
 HW_Ele_Dynamic_Tags::instance();
