@@ -169,6 +169,9 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 
 * WC Current User Purchased Products
 * WC Membership Access Posts
+* WC Membership Access All Posts
+* WC Membership Discounted Products
+* WC Membership Access All Products
 * WC Current User Active Memberships
 
 * WC Loop Products (Use Wc Product Query -> useful to build a complete archive query)
