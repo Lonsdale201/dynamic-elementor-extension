@@ -8,7 +8,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Core\DynamicTags\Tag;
 use Elementor\Modules\DynamicTags\Module;
 use Elementor\Controls_Manager;
-use HelloWP\HWEleWooDynamic\Modules\Helpers\LDQuery;
 
 /**
  * CourseAccessType Elementor Dynamic Tag
@@ -58,7 +57,7 @@ class CourseAccessType extends Tag {
     /**
      * Register controls for the access type tag.
      *
-     * Adds controls for selecting format type and custom labels.
+     * Adds controls for selecting format type, custom labels, and enrolled text.
      *
      * @return void
      */
@@ -83,6 +82,18 @@ class CourseAccessType extends Tag {
         $this->add_text_control_for_course_access_type('paynow', __( 'Buy Now', 'hw-ele-woo-dynamic' ));
         $this->add_text_control_for_course_access_type('subscribe', __( 'Subscription', 'hw-ele-woo-dynamic' ));
         $this->add_text_control_for_course_access_type('closed', __( 'Closed', 'hw-ele-woo-dynamic' ));
+
+        // Control for user enrolled custom text.
+        $this->add_control(
+            'custom_text_enrolled',
+            [
+                'label' => __( 'If User Enrolled', 'hw-ele-woo-dynamic' ),
+                'type' => Controls_Manager::TEXT,
+                'condition' => [
+                    'format_type' => 'custom',
+                ],
+            ]
+        );
     }
 
     /**
@@ -128,6 +139,15 @@ class CourseAccessType extends Tag {
         // Retrieve user-defined settings.
         $settings = $this->get_settings();
         $format_type = $settings['format_type'];
+
+        // Check if the user is enrolled in the course.
+        $is_enrolled = sfwd_lms_has_access($course_id);
+
+        // If custom format and user is enrolled, show enrolled text.
+        if ($format_type === 'custom' && $is_enrolled && !empty($settings['custom_text_enrolled'])) {
+            echo esc_html($settings['custom_text_enrolled']);
+            return;
+        }
 
         // Fetch the course access type.
         $access_type = learndash_get_course_meta_setting($course_id, 'course_price_type');

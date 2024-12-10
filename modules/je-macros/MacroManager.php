@@ -38,6 +38,9 @@ class MacroManager {
         if ( Dependencies::is_memberships_active() ) {
             new WCMembershipAccessPosts();
             new UserActiveMembershipsMac();
+            new WCMembershipAccessAllPosts();
+            new WCMembershipAccessAllProducts();
+            new WCMembershipDiscountedProducts();
         }
 
         // Register LearnDash related macros if active

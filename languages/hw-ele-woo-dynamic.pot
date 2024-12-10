@@ -1,0 +1,2082 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dynamic Elementor Extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-14 22:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.11; wp-6.7\n"
+"X-Domain: hw-ele-woo-dynamic"
+
+#: modules/wp-top-bar/TopBarSettings.php:66
+#: modules/wp-top-bar/TopBarSettings.php:82
+#: modules/wp-top-bar/TopBarSettings.php:97
+#, php-format
+msgid "%s: %s"
+msgstr ""
+
+#: modules/DynamicSettings.php:221 dynamic-tags/learndash/AccessExpires.php:35
+msgid "Access Expires"
+msgstr ""
+
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:31
+msgid "ACF Meta Key"
+msgstr ""
+
+#: modules/DynamicSettings.php:172
+msgid "ACF Taxonomy Meta"
+msgstr ""
+
+#: modules/finders/ShippingMethods.php:23
+msgid "Active"
+msgstr ""
+
+#: modules/DynamicSettings.php:200
+#: dynamic-tags/woo-membership/ActiveMembership.php:17
+msgid "Active Membership"
+msgstr ""
+
+#: modules/DynamicSettings.php:202
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:16
+msgid "Active Membership Data"
+msgstr ""
+
+#: modules/DynamicSettings.php:208
+#: dynamic-tags/woo-subscription/ActiveSubscription.php:17
+msgid "Active Subscription"
+msgstr ""
+
+#: modules/DynamicSettings.php:210
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:17
+msgid "Active Subscription Data"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:26
+#: modules/finders/LearnDashMethods.php:36
+#: modules/finders/LearnDashMethods.php:46
+#: modules/finders/LearnDashMethods.php:56
+#: modules/finders/LearnDashMethods.php:66
+#: modules/finders/WooCommerceManagementCategory.php:24
+#: modules/finders/WooCommerceManagementCategory.php:36
+#: modules/finders/WooCommerceManagementCategory.php:47
+#: modules/finders/WooCommerceManagementCategory.php:58
+#: modules/finders/WooCommerceManagementCategory.php:69
+#: modules/finders/WooCommerceManagementCategory.php:81
+#: modules/finders/WooCommerceManagementCategory.php:93
+#: modules/finders/JetEngineMethods.php:26
+#: modules/finders/JetEngineMethods.php:36
+#: modules/finders/JetEngineMethods.php:49
+#: modules/finders/JetEngineMethods.php:59
+msgid "add new"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:37
+msgid "add new custom post type"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductTabs.php:90
+msgid "Additional Information"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:53
+#: dynamic-tags/woo-tags/CustomerDetails.php:75
+msgid "Address Line 1"
+msgstr ""
+
+#: modules/DynamicSettings.php:150
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:18
+msgid "Advanced Product Category"
+msgstr ""
+
+#: modules/DynamicSettings.php:156
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:17
+msgid "Advanced Sale Badge"
+msgstr ""
+
+#: modules/DynamicSettings.php:155 dynamic-tags/woo-tags/AdvancedStock.php:17
+msgid "Advanced Stock"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductAttributes.php:68
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:37
+msgid "All"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePartOfGroup.php:65
+msgid "All Groups"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:88
+msgid "Always Show Back to Prev"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductDescription.php:68
+msgid "Anchor ID"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductAttributes.php:77
+msgid "Attribute"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:56
+msgid "attribute"
+msgstr ""
+
+#: modules/DynamicSettings.php:214
+msgid "Awarded on Completion"
+msgstr ""
+
+#: dynamic-tags/learndash/AwardedPoints.php:35
+msgid "Awarded on Completions"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:75
+msgid "Back to prev"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:77
+msgid "Back to previous {prev_cat}"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:45
+msgid "Billing Detail"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:35
+msgid "Billing Details"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseAccessType.php:83
+msgid "Buy Now"
+msgstr ""
+
+#: modules/dynamic-visibility/CourseAccessType.php:34
+msgid "Buy now"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CartTaxValues.php:17
+msgid "Cart Tax Values"
+msgstr ""
+
+#: modules/DynamicSettings.php:183
+msgid "Cart tax values"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CartValues.php:37
+msgid "Cart total"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CartValues.php:33
+msgid "Cart Value"
+msgstr ""
+
+#: modules/DynamicSettings.php:74 modules/DynamicSettings.php:182
+#: dynamic-tags/woo-tags/CartValues.php:17
+msgid "Cart Values"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:33
+msgid "category"
+msgstr ""
+
+#: modules/DynamicSettings.php:229
+#: dynamic-tags/learndash/CourseCertificatesLink.php:33
+msgid "Certificates Link"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductDescription.php:44
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:53
+msgid "Character Length"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductTabs.php:49
+#: dynamic-tags/woo-tags/ProductTabs.php:63
+msgid "Choose Tab"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:52
+#: dynamic-tags/woo-tags/CustomerDetails.php:74
+msgid "City"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:90
+msgid "class"
+msgstr ""
+
+#: modules/dynamic-visibility/CourseAccessType.php:36
+#: dynamic-tags/learndash/CourseAccessType.php:85
+msgid "Closed"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:51
+#: dynamic-tags/woo-tags/CustomerDetails.php:73
+msgid "Company"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseStatus.php:108
+msgid "Completed"
+msgstr ""
+
+#: dynamic-tags/learndash/LessonsNumber.php:82
+msgid "Completed Lessons Number"
+msgstr ""
+
+#: modules/DynamicSettings.php:189 dynamic-tags/woo-tags/CompletedOrder.php:17
+msgid "Completed Order"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseResumeText.php:84
+msgid "Completed Text"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductTabs.php:80
+msgid "Content"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:67
+msgid "coupon"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:24
+msgid "course"
+msgstr ""
+
+#: modules/DynamicSettings.php:223
+#: modules/dynamic-visibility/CourseAccessType.php:14
+#: dynamic-tags/learndash/CourseAccessType.php:35
+msgid "Course Access Type"
+msgstr ""
+
+#: modules/dynamic-visibility/CourseCertificatesAvailable.php:24
+msgid "Course Certificates Available"
+msgstr ""
+
+#: modules/dynamic-visibility/LDUserCompletedCurrentCourse.php:24
+msgid "Course Completed"
+msgstr ""
+
+#: modules/DynamicSettings.php:233 dynamic-tags/learndash/CourseContent.php:20
+msgid "Course Content"
+msgstr ""
+
+#: modules/dynamic-visibility/LDCurrentUserPurchasedCurrentCourse.php:24
+msgid "Course Enrolled"
+msgstr ""
+
+#: modules/DynamicSettings.php:222
+#: dynamic-tags/learndash/CourseMaterials.php:35
+msgid "Course Materials"
+msgstr ""
+
+#: modules/dynamic-visibility/CourseNotPurchased.php:24
+msgid "Course Not Enrolled"
+msgstr ""
+
+#: modules/dynamic-visibility/CoursePartOfGroup.php:24
+msgid "Course Part of Any Group"
+msgstr ""
+
+#: modules/DynamicSettings.php:234
+#: dynamic-tags/learndash/CoursePartOfGroup.php:34
+msgid "Course Part of Groups"
+msgstr ""
+
+#: modules/DynamicSettings.php:230
+#: dynamic-tags/learndash/CoursePrerequisitesList.php:34
+msgid "Course Prerequisites List"
+msgstr ""
+
+#: modules/DynamicSettings.php:227 dynamic-tags/learndash/CoursePrice.php:35
+msgid "Course Price"
+msgstr ""
+
+#: modules/DynamicSettings.php:219
+msgid "Course Progress"
+msgstr ""
+
+#: modules/dynamic-visibility/LDStudentLimitReached.php:24
+msgid "Course Reached Student Limit"
+msgstr ""
+
+#: modules/DynamicSettings.php:226
+msgid "Course Required Points For Access"
+msgstr ""
+
+#: modules/DynamicSettings.php:231
+#: dynamic-tags/learndash/CourseResumeText.php:34
+msgid "Course Resume Text"
+msgstr ""
+
+#: modules/DynamicSettings.php:232
+#: dynamic-tags/learndash/CourseResumeLink.php:33
+msgid "Course Resume URL"
+msgstr ""
+
+#: modules/DynamicSettings.php:225
+#: dynamic-tags/learndash/CourseStartDate.php:35
+msgid "Course Start Date"
+msgstr ""
+
+#: modules/DynamicSettings.php:220 dynamic-tags/learndash/CourseStatus.php:35
+msgid "Course Status"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:34
+msgid "cpt"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:22
+#: modules/finders/WooCommerceManagementCategory.php:35
+#: modules/finders/WooCommerceManagementCategory.php:80
+#: modules/finders/WooCommerceManagementCategory.php:92
+#: modules/finders/WooCommerceManagementCategory.php:102
+msgid "create"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:63
+msgid "Create New Coupon"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:98
+msgid "Create New Order"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:18
+msgid "Create New Product"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:52
+msgid "Create New Product Attribute"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:29
+msgid "Create New Product Category"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:41
+msgid "Create New Product Tag"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:86
+msgid "Create New Shipping Class"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:74
+msgid "Create New Shipping Zone"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:66
+msgid "Currency and Format"
+msgstr ""
+
+#: modules/DynamicSettings.php:203
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:18
+msgid "Current Membership Data"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:38
+msgid "Current Query"
+msgstr ""
+
+#: modules/theme-conditions/NotHaveActiveSubs.php:15
+msgid "Current User Not Have Active Subscriptions"
+msgstr ""
+
+#: dynamic-tags/learndash/LastActivity.php:72
+msgid "Custom"
+msgstr ""
+
+#: dynamic-tags/learndash/LastActivity.php:81
+msgid "Custom Date Format"
+msgstr ""
+
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:49
+msgid ""
+"Custom date format (e.g., Y-m-d). Leave blank to use the site's default "
+"format."
+msgstr ""
+
+#: dynamic-tags/learndash/StudentLimit.php:81
+#: dynamic-tags/learndash/StudentLimit.php:90
+#: dynamic-tags/learndash/CourseAccessType.php:74
+msgid "Custom Format"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:35
+msgid "custom post type"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseStatus.php:69
+#: dynamic-tags/learndash/AccessExpires.php:80
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:59
+msgid "Custom Text"
+msgstr ""
+
+#: dynamic-tags/woo-tags/FeaturedBadge.php:44
+msgid "Custom Text for Featured Product"
+msgstr ""
+
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:74
+msgid "Custom Text for Trial"
+msgstr ""
+
+#: dynamic-tags/learndash/AccessExpires.php:89
+msgid "Custom Text Template"
+msgstr ""
+
+#: modules/DynamicSettings.php:188 dynamic-tags/woo-tags/CustomerDetails.php:17
+msgid "Customer Details"
+msgstr ""
+
+#: modules/DynamicSettings.php:195
+msgid "Customer logout"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerLogout.php:15
+msgid "Customer Logout URL"
+msgstr ""
+
+#: modules/DynamicSettings.php:78
+msgid "Customer Specific"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:33
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:50
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:32
+msgid "Data Type"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:51
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:69
+#: dynamic-tags/learndash/CourseStartDate.php:80
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:46
+msgid "Date Format"
+msgstr ""
+
+#: dynamic-tags/learndash/LastActivity.php:71
+#: dynamic-tags/learndash/CourseContent.php:48
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:48
+msgid "Default"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductTabs.php:29
+msgid "Default Tabs"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePartOfGroup.php:87
+#: dynamic-tags/woo-tags/ProductAttributes.php:93
+#: dynamic-tags/woo-tags/ProductAttributes.php:101
+#: dynamic-tags/woo-tags/CartValues.php:47
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:163
+msgid "Delimiter"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductTabs.php:89
+msgid "Description"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:32
+msgid "Detail Type"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:76
+msgid "Digital"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:74
+msgid "Digital Product Custom Text"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:68
+msgid "discount"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedStock.php:45
+msgid "Display text when stock quantity is below this threshold."
+msgstr ""
+
+#: dynamic-tags/woo-tags/NextProduct.php:32
+#: dynamic-tags/woo-tags/PreviousProduct.php:32
+#: dynamic-tags/woo-tags/ProductAttributes.php:32
+msgid "Display Type"
+msgstr ""
+
+#: plugin.php:132
+msgid "Documentation"
+msgstr ""
+
+#. Name of the plugin
+msgid "Dynamic Elementor Extension"
+msgstr ""
+
+#: plugin.php:236
+msgid ""
+"Dynamic Elementor extension requires Elementor plugin to be activated. "
+"Please activate Elementor to use this plugin."
+msgstr ""
+
+#: plugin.php:263
+#, php-format
+msgid ""
+"Dynamic Elementor extension requires Elementor version %s or greater. Please "
+"update Elementor to use this plugin."
+msgstr ""
+
+#: plugin.php:254
+#, php-format
+msgid ""
+"Dynamic Elementor extension requires PHP version %s or greater. Please "
+"update PHP to use this plugin."
+msgstr ""
+
+#: plugin.php:227
+#, php-format
+msgid ""
+"Dynamic Elementor extension requires WooCommerce version %s or greater. "
+"Please update WooCommerce to use this plugin."
+msgstr ""
+
+#: plugin.php:245
+#, php-format
+msgid ""
+"Dynamic Elementor extension requires WordPress version %s or greater. Please "
+"update WordPress to use this plugin."
+msgstr ""
+
+#: modules/DynamicSettings.php:34 modules/DynamicSettings.php:35
+msgid "Dynamic Elements"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:55
+msgid "Email"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:32
+#: dynamic-tags/woo-tags/FeaturedBadge.php:32
+msgid "Enable Custom Text"
+msgstr ""
+
+#: modules/DynamicSettings.php:257
+msgid "Enable Dynamic Tags"
+msgstr ""
+
+#: modules/DynamicSettings.php:98
+msgid "Enable extra products informations in the admin toolbar"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:60
+msgid "Enable Multi Leveling"
+msgstr ""
+
+#: modules/DynamicSettings.php:259
+msgid "Enable Product Information Display"
+msgstr ""
+
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:41
+msgid "Enable Read More"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:72
+msgid "Enable this to format the sale number as a price with currency."
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePrice.php:77
+msgid "Enrolled Text"
+msgstr ""
+
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:34
+msgid "Enter the ACF meta key (field name) to retrieve."
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:54
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:72
+msgid ""
+"Enter the date format (e.g., Y-m-d). Leave blank to use the site's default "
+"format."
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:74
+msgid "essays"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:50
+msgid "Exclude Digital"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:52
+msgid "Exclude External"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:44
+msgid "Exclude Features"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:49
+msgid "Exclude Sold Individually"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:48
+msgid "Exclude the Featured"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:51
+msgid "Exclude Virtual"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:90
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:125
+msgid "Expired Text"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:40
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:57
+msgid "Expires"
+msgstr ""
+
+#: dynamic-tags/learndash/AccessExpires.php:91
+msgid "Expires on %expiry_date%, %expiry_day% days left"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:112
+msgid "External"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:110
+msgid "External Product Custom Text"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Extra dynamic tags and other useful functions for WooCommerce, Memberships, "
+"Subscriptions, and LearnDash."
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductGallery.php:41
+msgid "Fallback to Featured Image"
+msgstr ""
+
+#: dynamic-tags/woo-tags/FeaturedBadge.php:46
+msgid "Featured"
+msgstr ""
+
+#: modules/DynamicSettings.php:157 dynamic-tags/woo-tags/FeaturedBadge.php:17
+msgid "Featured Badge"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:62
+msgid "Featured Product Custom Text"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseContent.php:49
+msgid "Filtered"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:49
+#: dynamic-tags/woo-tags/CustomerDetails.php:71
+msgid "First Name"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:91
+#: dynamic-tags/woo-tags/CustomerDetails.php:108
+msgid "First Name Last Name"
+msgstr ""
+
+#: dynamic-tags/learndash/LastActivity.php:68
+msgid "Format"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseAccessType.php:70
+msgid "Format Type"
+msgstr ""
+
+#: dynamic-tags/learndash/LessonsNumber.php:81
+msgid "Formatted Number"
+msgstr ""
+
+#: dynamic-tags/woo-tags/TotalSpent.php:32
+msgid "Formatted Output"
+msgstr ""
+
+#: dynamic-tags/learndash/LessonsNumber.php:77
+msgid "Formatting"
+msgstr ""
+
+#: modules/dynamic-visibility/CourseAccessType.php:33
+#: dynamic-tags/learndash/CourseAccessType.php:82
+#: dynamic-tags/learndash/CoursePrice.php:70
+msgid "Free"
+msgstr ""
+
+#: modules/DynamicSettings.php:151
+#: dynamic-tags/woo-tags/FreeShippingAmount.php:16
+msgid "Free Shipping Amount"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePrice.php:68
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:56
+msgid "Free Text"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:58
+msgid "Free!"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:48
+#: dynamic-tags/woo-tags/CustomerDetails.php:70
+msgid "Full Name"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:88
+#: dynamic-tags/woo-tags/CustomerDetails.php:105
+msgid "Fullname Output"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:70
+#: modules/finders/JetEngineMethods.php:80
+msgid "generator"
+msgstr ""
+
+#: modules/DynamicSettings.php:70
+msgid "Global"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:64
+msgid "group"
+msgstr ""
+
+#: modules/DynamicSettings.php:103
+msgid ""
+"Here you can insert shortcode content in your WooCommerce dashboard endpoint."
+" You can use shortcode, plain text, or HTML."
+msgstr ""
+
+#: modules/DynamicSettings.php:107
+msgid ""
+"Here you can insert shortcode content in your WooCommerce orders endpoint. "
+"You can use shortcode, plain text, or HTML."
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:139
+msgid "Hide Empty"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CartValues.php:89
+msgid "Hide if Cart Empty"
+msgstr ""
+
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:49
+msgid "Hide if not specific stock quantity"
+msgstr ""
+
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:50
+msgid "Hide if out of stock"
+msgstr ""
+
+#: dynamic-tags/woo-tags/VariablePrice.php:58
+msgid "Hide if Product not Variable"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:151
+msgid "Hide Uncategorized"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/Lonsdale201/dynamic-elementor-extension"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://github.com/Lonsdale201?tab=repositories"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductGallery.php:47
+msgid ""
+"If enabled, and there is no gallery or the index is out of bounds, the "
+"featured image will be displayed."
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductGallery.php:31
+msgid "Image Index"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseStatus.php:95
+msgid "In Progress"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseResumeText.php:66
+msgid "In Progress Text"
+msgstr ""
+
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:58
+msgid "In Stock Text"
+msgstr ""
+
+#: modules/DynamicSettings.php:99
+msgid ""
+"In the wp admin topbar you can configure which product information is "
+"displayed, when looking in the product page in the frontend"
+msgstr ""
+
+#: modules/finders/ShippingMethods.php:23
+msgid "Inactive"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CartValues.php:74
+msgid "Include Tax"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePrerequisitesList.php:70
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:50
+msgid "Inline"
+msgstr ""
+
+#: modules/DynamicSettings.php:284
+msgid "Insert After Dashboard Content"
+msgstr ""
+
+#: modules/DynamicSettings.php:302
+msgid "Insert After Dashboard Table"
+msgstr ""
+
+#: modules/DynamicSettings.php:275
+msgid "Insert Before Dashboard Content"
+msgstr ""
+
+#: modules/DynamicSettings.php:293
+msgid "Insert Before Orders Table"
+msgstr ""
+
+#: modules/theme-conditions/ProductIsNameYourPrice.php:18
+msgid "Is Name Your Price"
+msgstr ""
+
+#: modules/theme-conditions/ProductIsDownloadable.php:19
+msgid "Is Product Downloadable"
+msgstr ""
+
+#: modules/theme-conditions/ProductIsExternal.php:18
+msgid "Is Product External"
+msgstr ""
+
+#: modules/theme-conditions/ProductIsFeatured.php:18
+msgid "Is Product Featured"
+msgstr ""
+
+#: modules/theme-conditions/ProductIsOnSale.php:18
+msgid "Is Product On Sale"
+msgstr ""
+
+#: modules/theme-conditions/IsProductOutOfStock.php:18
+msgid "Is Product Out Of Stock"
+msgstr ""
+
+#: modules/theme-conditions/ProductIsSubscriptions.php:17
+msgid "Is Product Subscription"
+msgstr ""
+
+#: modules/theme-conditions/ProductIsVariable.php:18
+msgid "Is Product Variable"
+msgstr ""
+
+#: modules/theme-conditions/ProductIsDigital.php:18
+msgid "Is Product Virtual"
+msgstr ""
+
+#: modules/theme-conditions/ProductIsPurchasedUser.php:17
+msgid "Is Purchased By User"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:39
+msgid "Item Count"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CartValues.php:38
+msgid "Items count"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:25
+#: modules/finders/JetEngineMethods.php:39
+#: modules/finders/JetEngineMethods.php:50
+#: modules/finders/JetEngineMethods.php:60
+#: modules/finders/JetEngineMethods.php:71
+#: modules/finders/JetEngineMethods.php:81
+msgid "jetengine"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:14
+msgid "JetEngine Methods"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductAttributes.php:37
+msgid "Label"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductAttributes.php:46
+msgid "Label Separator"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductAttributes.php:38
+msgid "Label/Value"
+msgstr ""
+
+#: modules/DynamicSettings.php:218 dynamic-tags/learndash/LastActivity.php:35
+msgid "Last Activity"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:50
+#: dynamic-tags/woo-tags/CustomerDetails.php:72
+msgid "Last Name"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:92
+#: dynamic-tags/woo-tags/CustomerDetails.php:109
+msgid "Last Name First Name"
+msgstr ""
+
+#: modules/DynamicSettings.php:193 dynamic-tags/woo-tags/LastOrder.php:17
+msgid "Last Order"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePartOfGroup.php:66
+msgid "Latest"
+msgstr ""
+
+#: dynamic-tags/TagManager.php:53
+msgid "LearnDash"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:25
+#: modules/finders/LearnDashMethods.php:35
+#: modules/finders/LearnDashMethods.php:45
+#: modules/finders/LearnDashMethods.php:55
+#: modules/finders/LearnDashMethods.php:65
+#: modules/finders/LearnDashMethods.php:75
+msgid "learndash"
+msgstr ""
+
+#: modules/DynamicSettings.php:90
+msgid "Learndash Course"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseAccessType.php:73
+msgid "Learndash Default"
+msgstr ""
+
+#: dynamic-tags/TagManager.php:57
+msgid "LearnDash Global"
+msgstr ""
+
+#: modules/DynamicSettings.php:94
+msgid "Learndash Global"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:14
+msgid "LearnDash Methods"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:34
+msgid "lesson"
+msgstr ""
+
+#: modules/DynamicSettings.php:215 dynamic-tags/learndash/LessonsNumber.php:35
+msgid "Lessons Number"
+msgstr ""
+
+#: dynamic-tags/learndash/AccessExpires.php:69
+msgid "Lifetime"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:42
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:60
+msgid "Link"
+msgstr ""
+
+#: dynamic-tags/woo-tags/PurchasedProducts.php:59
+msgid "Link Target"
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembership.php:32
+#: dynamic-tags/learndash/CoursePartOfGroup.php:75
+#: dynamic-tags/learndash/CoursePrerequisitesList.php:79
+#: dynamic-tags/woo-tags/LastOrder.php:52
+#: dynamic-tags/woo-tags/PurchasedProducts.php:44
+#: dynamic-tags/woo-tags/ProductAttributes.php:58
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:115
+#: dynamic-tags/woo-subscription/ActiveSubscription.php:32
+msgid "Linkable"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePrerequisitesList.php:69
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:51
+msgid "List"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePrerequisitesList.php:66
+msgid "List Format"
+msgstr ""
+
+#: modules/theme-conditions/LoggedIn.php:13
+msgid "Logged In"
+msgstr ""
+
+#: modules/theme-conditions/LoggedOut.php:14
+msgid "Logged Out"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:79
+msgid "macro"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:75
+msgid "Macro Generator"
+msgstr ""
+
+#: dynamic-tags/woo-tags/VariablePrice.php:37
+msgid "Maximum Price"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:38
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:55
+msgid "Member Since"
+msgstr ""
+
+#: dynamic-tags/woo-membership/MyAccountMembershipLink.php:15
+msgid "Membership My Account Link"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:44
+msgid "Membership Sale Text"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:48
+msgid "meta"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:47
+msgid "meta box"
+msgstr ""
+
+#: dynamic-tags/woo-tags/VariablePrice.php:36
+msgid "Minimum Price"
+msgstr ""
+
+#: modules/DynamicSettings.php:102
+msgid "My Account Dashboard"
+msgstr ""
+
+#: dynamic-tags/woo-tags/MyAccountEndpoints.php:16
+msgid "My Account Menu Links"
+msgstr ""
+
+#: modules/DynamicSettings.php:106
+msgid "My Account Orders"
+msgstr ""
+
+#: modules/DynamicSettings.php:192
+msgid "MyAccount Endpoints"
+msgstr ""
+
+#: modules/DynamicSettings.php:201
+msgid "MyAccount Membership Link"
+msgstr ""
+
+#: modules/DynamicSettings.php:209
+#: dynamic-tags/woo-subscription/MyAccountSubscriptionLink.php:15
+msgid "MyAccount Subscription Link"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductTabs.php:79
+msgid "Name"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:79
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:84
+msgid "Never expires"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:104
+msgid "new"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:20
+msgid "New Course"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:30
+msgid "New CPT"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:38
+msgid "new custom post type"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:60
+msgid "New Group"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:30
+msgid "New Lesson"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:43
+msgid "New Meta Boxes"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:20
+msgid "New Query"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:50
+msgid "New Quiz"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:54
+msgid "New Taxonomy"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:61
+msgid "new taxonomy"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:40
+msgid "New Topic"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:39
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:56
+msgid "Next Bill On"
+msgstr ""
+
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:36
+msgid "Next Payment Date"
+msgstr ""
+
+#: modules/DynamicSettings.php:173 dynamic-tags/woo-tags/NextProduct.php:17
+msgid "Next Product"
+msgstr ""
+
+#: modules/DynamicSettings.php:174
+#: dynamic-tags/woo-tags/NextProductImage.php:16
+msgid "Next Product Image"
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembership.php:35
+#: dynamic-tags/learndash/CoursePartOfGroup.php:78
+#: dynamic-tags/learndash/CourseStatus.php:72
+#: dynamic-tags/learndash/CoursePrerequisitesList.php:83
+#: dynamic-tags/woo-tags/LastOrder.php:55
+#: dynamic-tags/woo-tags/PurchasedProducts.php:47
+#: dynamic-tags/woo-tags/TotalSpent.php:35
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:35
+#: dynamic-tags/woo-tags/ProductAttributes.php:62
+#: dynamic-tags/woo-tags/ProductGallery.php:44
+#: dynamic-tags/woo-tags/VariablePrice.php:62
+#: dynamic-tags/woo-tags/CartValues.php:62
+#: dynamic-tags/woo-tags/CartValues.php:77
+#: dynamic-tags/woo-tags/CartValues.php:92
+#: dynamic-tags/woo-tags/CartTaxValues.php:35
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:63
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:91
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:118
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:130
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:142
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:154
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:69
+#: dynamic-tags/woo-tags/SpecBadge.php:35
+#: dynamic-tags/woo-tags/FeaturedBadge.php:35
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:62
+#: dynamic-tags/woo-subscription/ActiveSubscription.php:35
+msgid "No"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:77
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:82
+#: dynamic-tags/learndash/AccessExpires.php:67
+msgid "No Expiry Text"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseStartDate.php:93
+msgid "No start date available"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseStartDate.php:91
+msgid "No Start Date Text"
+msgstr ""
+
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:136
+msgid "No upcoming payment"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseStatus.php:82
+msgid "Not Enrolled"
+msgstr ""
+
+#: modules/dynamic-visibility/LDNotHaveEnoughPoints.php:24
+msgid "Not Have Enough Points"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseResumeText.php:93
+msgid "Not Owned Text"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseResumeText.php:75
+msgid "Not Started Text"
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:59
+msgid "Notes"
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:95
+msgid "Notes Display"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseContent.php:67
+msgid "Number of Words"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductDescription.php:35
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:44
+msgid "Off"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductAttributes.php:92
+msgid "OL"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductDescription.php:36
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:45
+msgid "On"
+msgstr ""
+
+#: modules/dynamic-visibility/CourseAccessType.php:32
+#: dynamic-tags/learndash/CourseAccessType.php:81
+msgid "Open"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:103
+msgid "order"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:40
+msgid "Order Amount"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:32
+msgid "Order Data"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:37
+msgid "Order Date"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:35
+msgid "Order ID"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:38
+msgid "Order Items"
+msgstr ""
+
+#: dynamic-tags/woo-tags/PurchasedProducts.php:63
+msgid "Order Page"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:36
+msgid "Order Status"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:41
+msgid "Order Tax Amount"
+msgstr ""
+
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:70
+msgid "Out Of Stock Text"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePartOfGroup.php:62
+#: dynamic-tags/woo-tags/ProductTabs.php:76
+msgid "Output"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseContent.php:45
+#: dynamic-tags/learndash/AccessExpires.php:76
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:47
+msgid "Output Format"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductAttributes.php:87
+msgid "Output Style"
+msgstr ""
+
+#: dynamic-tags/woo-tags/PurchasedProducts.php:31
+msgid "Output Type"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:43
+msgid "Payment method"
+msgstr ""
+
+#: modules/finders/PaymentMethodsCategory.php:13
+msgid "Payment Methods"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:54
+#: dynamic-tags/woo-tags/CustomerDetails.php:76
+msgid "Phone"
+msgstr ""
+
+#: dynamic-tags/learndash/StudentLimit.php:80
+msgid "Plain Count"
+msgstr ""
+
+#: dynamic-tags/learndash/AccessExpires.php:79
+msgid "Plain Date"
+msgstr ""
+
+#: dynamic-tags/learndash/LessonsNumber.php:80
+msgid "Plain Number"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:36
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:53
+msgid "Plan Name"
+msgstr ""
+
+#: modules/DynamicSettings.php:175 dynamic-tags/woo-tags/PreviousProduct.php:17
+msgid "Previous Product"
+msgstr ""
+
+#: modules/DynamicSettings.php:176
+#: dynamic-tags/woo-tags/PreviousProductImage.php:16
+msgid "Previous Product Image"
+msgstr ""
+
+#: dynamic-tags/woo-tags/VariablePrice.php:32
+msgid "Price Output"
+msgstr ""
+
+#: dynamic-tags/woo-tags/VariablePrice.php:38
+msgid "Price Range"
+msgstr ""
+
+#: dynamic-tags/woo-tags/VariablePrice.php:46
+msgid "Price Range Separator"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePrice.php:86
+msgid "Price Type Visibility"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:23
+#: modules/finders/WooCommerceManagementCategory.php:34
+#: modules/finders/WooCommerceManagementCategory.php:46
+#: modules/finders/WooCommerceManagementCategory.php:57
+msgid "product"
+msgstr ""
+
+#: modules/DynamicSettings.php:158
+#: dynamic-tags/woo-tags/ProductAttributes.php:17
+msgid "Product Attributes"
+msgstr ""
+
+#: dynamic-tags/woo-membership/RestrictedProductsView.php:54
+msgid "Product Buying Restricted (Membership Required) Message"
+msgstr ""
+
+#: dynamic-tags/woo-membership/RestrictedProductsView.php:45
+msgid "Product Buying Restricted (Purchase Required) Message"
+msgstr ""
+
+#: modules/DynamicSettings.php:159
+#: dynamic-tags/woo-tags/ProductDescription.php:17
+msgid "Product Description"
+msgstr ""
+
+#: modules/theme-conditions/WooExtrasConditions.php:17
+msgid "Product Extras"
+msgstr ""
+
+#: modules/DynamicSettings.php:171
+msgid "Product Gallery"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductGallery.php:16
+msgid "Product Gallery Image"
+msgstr ""
+
+#: modules/DynamicSettings.php:160 dynamic-tags/woo-tags/ProductHeight.php:17
+msgid "Product Height"
+msgstr ""
+
+#: modules/wp-top-bar/TopBarSettings.php:43
+msgid "Product Info"
+msgstr ""
+
+#: modules/DynamicSettings.php:248
+msgid "Product Inventory"
+msgstr ""
+
+#: modules/DynamicSettings.php:161
+msgid "Product Lenght"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductLength.php:17
+msgid "Product Length"
+msgstr ""
+
+#: dynamic-tags/woo-tags/NextProduct.php:36
+#: dynamic-tags/woo-tags/PreviousProduct.php:36
+msgid "Product Link"
+msgstr ""
+
+#: dynamic-tags/woo-tags/PurchasedProducts.php:62
+msgid "Product Page"
+msgstr ""
+
+#: dynamic-tags/woo-tags/NextProduct.php:37
+#: dynamic-tags/woo-tags/PreviousProduct.php:37
+msgid "Product Price"
+msgstr ""
+
+#: modules/DynamicSettings.php:162
+#: dynamic-tags/woo-tags/ProductShippingClass.php:16
+msgid "Product Shipping Class"
+msgstr ""
+
+#: modules/DynamicSettings.php:247
+msgid "Product Sku"
+msgstr ""
+
+#: modules/DynamicSettings.php:250 modules/wp-top-bar/TopBarSettings.php:93
+msgid "Product Status"
+msgstr ""
+
+#: modules/DynamicSettings.php:163 dynamic-tags/woo-tags/ProductTabs.php:16
+msgid "Product Tabs"
+msgstr ""
+
+#: dynamic-tags/woo-tags/NextProduct.php:35
+#: dynamic-tags/woo-tags/PreviousProduct.php:35
+msgid "Product Title"
+msgstr ""
+
+#: modules/DynamicSettings.php:246
+msgid "Product Type"
+msgstr ""
+
+#: dynamic-tags/woo-membership/RestrictedProductsView.php:36
+msgid "Product Viewing Restricted (Membership Required) Message"
+msgstr ""
+
+#: dynamic-tags/woo-membership/RestrictedProductsView.php:27
+msgid "Product Viewing Restricted (Purchase Required) Message"
+msgstr ""
+
+#: modules/DynamicSettings.php:165 dynamic-tags/woo-tags/ProductWeight.php:16
+msgid "Product Weight"
+msgstr ""
+
+#: modules/DynamicSettings.php:164 dynamic-tags/woo-tags/ProductWidth.php:17
+msgid "Product Width"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseProgress.php:34
+msgid "Progress Percentage"
+msgstr ""
+
+#: modules/DynamicSettings.php:166 dynamic-tags/woo-tags/PurchasedBadge.php:16
+msgid "Purchased Badge"
+msgstr ""
+
+#: modules/DynamicSettings.php:190
+#: dynamic-tags/woo-tags/PurchasedProducts.php:16
+msgid "Purchased Products"
+msgstr ""
+
+#: dynamic-tags/woo-tags/PurchasedBadge.php:31
+msgid "Purchased Text"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:34
+msgid "Query"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:24
+msgid "query"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:54
+msgid "quiz"
+msgstr ""
+
+#: modules/DynamicSettings.php:216 dynamic-tags/learndash/QuizNumbers.php:35
+msgid "Quiz Numbers"
+msgstr ""
+
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:79
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:108
+msgid "Read Less"
+msgstr ""
+
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:77
+msgid "Read Less Text"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductDescription.php:32
+#: dynamic-tags/woo-tags/ProductDescription.php:58
+#: dynamic-tags/woo-tags/ProductDescription.php:95
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:67
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:107
+msgid "Read More"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductDescription.php:56
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:65
+msgid "Read More Text"
+msgstr ""
+
+#: modules/dynamic-visibility/CourseAccessType.php:35
+msgid "Recurring"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:41
+msgid "Remaining Time"
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:58
+msgid "Remaining time"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:64
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:112
+msgid "Remaining Time Text"
+msgstr ""
+
+#: dynamic-tags/learndash/RequiredPoints.php:35
+msgid "Required Points for Access"
+msgstr ""
+
+#: modules/DynamicSettings.php:204
+msgid "Restricted Products View"
+msgstr ""
+
+#: dynamic-tags/woo-membership/RestrictedProductsView.php:16
+msgid "Restricted Products View (beta)"
+msgstr ""
+
+#: dynamic-tags/woo-tags/PurchasedProducts.php:34
+msgid "Return IDs"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CartValues.php:36
+msgid "Return items"
+msgstr ""
+
+#: dynamic-tags/woo-tags/PurchasedProducts.php:35
+msgid "Return Titles"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:105
+msgid "Return to Shop"
+msgstr ""
+
+#: dynamic-tags/learndash/StudentLimit.php:77
+msgid "Returned Count"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:32
+msgid "Sale Text"
+msgstr ""
+
+#: modules/DynamicSettings.php:167 dynamic-tags/woo-tags/SaleTime.php:17
+msgid "Sale Time"
+msgstr ""
+
+#: modules/DynamicSettings.php:56
+msgid "Save Changes"
+msgstr ""
+
+#: modules/dynamic-visibility/CourseAccessType.php:29
+msgid "Select Access Type"
+msgstr ""
+
+#: dynamic-tags/woo-tags/MyAccountEndpoints.php:38
+msgid "Select Endpoint"
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:39
+msgid "Select Membership"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePartOfGroup.php:90
+msgid "Set a delimiter for multiple group names. Leave empty for no delimiter."
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductGallery.php:34
+msgid "Set the index of the image in the gallery. 0 for the first image."
+msgstr ""
+
+#: plugin.php:119
+msgid "Settings"
+msgstr ""
+
+#: modules/DynamicSettings.php:71 modules/DynamicSettings.php:75
+msgid "Settings that apply globally across the site."
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:79
+#: modules/finders/WooCommerceManagementCategory.php:91
+msgid "shipping"
+msgstr ""
+
+#: modules/DynamicSettings.php:249 modules/wp-top-bar/TopBarSettings.php:79
+msgid "Shipping Class"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:67
+msgid "Shipping Detail"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CustomerDetails.php:36
+msgid "Shipping Details"
+msgstr ""
+
+#: dynamic-tags/woo-tags/LastOrder.php:42
+msgid "Shipping method"
+msgstr ""
+
+#: modules/finders/ShippingMethods.php:13
+msgid "Shipping Methods"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:103
+msgid "Shop Page Back Text"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:69
+msgid "shortcode"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:65
+msgid "Shortcode Generator"
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:98
+msgid "Show All"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePrice.php:90
+msgid "Show All Types"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:127
+msgid "Show Counter"
+msgstr ""
+
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:32
+msgid "Show Label"
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:99
+msgid "Show Latest"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePrice.php:91
+msgid "Show Only if Has Price"
+msgstr ""
+
+#: dynamic-tags/woo-tags/CartValues.php:59
+#: dynamic-tags/woo-tags/CartTaxValues.php:32
+msgid "Show Price Symbol"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:55
+msgid ""
+"Since it lists all values, you can specify what not to include in the badge."
+msgstr ""
+
+#: modules/DynamicSettings.php:66
+msgid "Single Product page / loop"
+msgstr ""
+
+#. Author of the plugin
+msgid "Soczó Kristóf"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:98
+msgid "Sold Individually Custom Text"
+msgstr ""
+
+#: modules/DynamicSettings.php:169
+msgid "Spec Badge"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:17
+msgid "Special Badge"
+msgstr ""
+
+#: modules/DynamicSettings.php:95
+msgid ""
+"Specific Global tags for the Learndash. Check the <a href=\"https://github."
+"com/Lonsdale201/dynamic-elementor-extension/wiki/LearnDash-%E2%80%90-Dynamic-"
+"Tags\"> wikipedia section</a> for tutorial"
+msgstr ""
+
+#: modules/DynamicSettings.php:91
+msgid ""
+"Specific tags for the Learndash courses single page. Check the <a "
+"href=\"https://github.com/Lonsdale201/dynamic-elementor-"
+"extension/wiki/LearnDash-%E2%80%90-Dynamic-Tags\"> wikipedia section</a> for "
+"tutorial"
+msgstr ""
+
+#: modules/DynamicSettings.php:83
+msgid ""
+"Specific tags for WooCommerce membership. Check the <a href=\"https://github."
+"com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-Membership-%E2%80%90-"
+"Dynamic-Tags\">wikipedia section</a> for tutorial"
+msgstr ""
+
+#: modules/DynamicSettings.php:87
+msgid ""
+"Specific tags for WooCommerce Subscriptions. Check the <a href=\"https:"
+"//github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-Subscriptions-"
+"%E2%80%90-Dynamic-Tags\">wikipedia section</a> for tutorial"
+msgstr ""
+
+#: modules/DynamicSettings.php:79
+msgid ""
+"Specific tags that return current logged in user data. Check the <a "
+"href=\"https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-"
+"%E2%80%90-Customer-Dynamic-Tags\">wikipedia section</a> for tutorial"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseStartDate.php:83
+msgid "Specify the date format. Defaults to WordPress settings if left empty."
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:37
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:54
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:35
+msgid "Status"
+msgstr ""
+
+#: modules/DynamicSettings.php:170 dynamic-tags/woo-tags/StockQuantity.php:17
+msgid "Stock Quantity"
+msgstr ""
+
+#: modules/DynamicSettings.php:168
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:17
+msgid "Stock Quantity Extra"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedStock.php:32
+msgid "Stock Text"
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedStock.php:42
+msgid "Stock Threshold"
+msgstr ""
+
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:44
+msgid "Stock Visibility"
+msgstr ""
+
+#: modules/DynamicSettings.php:224 dynamic-tags/learndash/StudentLimit.php:35
+msgid "Student Limit"
+msgstr ""
+
+#: dynamic-tags/learndash/EnrolledUsersCount.php:35
+msgid "Students Number"
+msgstr ""
+
+#: modules/DynamicSettings.php:217
+msgid "Students number"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:76
+msgid "submitted"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:70
+msgid "Submitted Essays"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseAccessType.php:84
+msgid "Subscription"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductTabs.php:33
+msgid "Tab Manager"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductTabs.php:39
+msgid "Tab Source"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:45
+msgid "tag"
+msgstr ""
+
+#: modules/finders/JetEngineMethods.php:58
+msgid "taxonomy"
+msgstr ""
+
+#: dynamic-tags/woo-tags/TaxonomyACFMeta.php:16
+msgid "Taxonomy ACF Meta"
+msgstr ""
+
+#: dynamic-tags/learndash/UserCompletedCourse.php:42
+msgid "Text if No Courses"
+msgstr ""
+
+#: dynamic-tags/learndash/UserCompletedCourse.php:45
+msgid "Text to display if user has no completed courses"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:93
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:128
+msgid "Text to display when the membership has expired."
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:59
+msgid "Text to display when the product is free."
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:80
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:85
+msgid "Text to display when there is no expiry date."
+msgstr ""
+
+#: dynamic-tags/learndash/CourseContent.php:58
+msgid "Text Words Trim"
+msgstr ""
+
+#: dynamic-tags/woo-membership/RestrictedProductsView.php:47
+#: dynamic-tags/woo-membership/RestrictedProductsView.php:56
+msgid "This product can only be purchased by members."
+msgstr ""
+
+#: dynamic-tags/woo-membership/RestrictedProductsView.php:29
+#: dynamic-tags/woo-membership/RestrictedProductsView.php:38
+msgid "This product can only be viewed by members."
+msgstr ""
+
+#: modules/DynamicSettings.php:67
+msgid ""
+"This section contains settings for single product pages and product loops."
+"<br> Check the <a href=\"https://github.com/Lonsdale201/dynamic-elementor-"
+"extension/wiki/Woo-%E2%80%90-Product-Dynamic-Tags\">wikipedia section</a> "
+"for tutorial"
+msgstr ""
+
+#: modules/finders/LearnDashMethods.php:44
+msgid "topic"
+msgstr ""
+
+#: modules/DynamicSettings.php:228 dynamic-tags/learndash/TopicsCounter.php:33
+msgid "Topics Numbers"
+msgstr ""
+
+#: modules/DynamicSettings.php:191 dynamic-tags/woo-tags/TotalSpent.php:17
+msgid "Total Spent"
+msgstr ""
+
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:37
+msgid "Trial end"
+msgstr ""
+
+#: modules/wp-top-bar/TopBarSettings.php:54
+#, php-format
+msgid "Type: %s"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductAttributes.php:91
+msgid "UL"
+msgstr ""
+
+#: dynamic-tags/learndash/StudentLimit.php:96
+msgid ""
+"Use %current_seat% for total seats and %remaining_seat% for remaining seats."
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:78
+msgid "Use the {prev_cat} to display the previous level term name"
+msgstr ""
+
+#: dynamic-tags/woo-membership/CurrentMembershipData.php:67
+msgid "Use {remaining_time} where you want to display the remaining days."
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembershipData.php:115
+msgid ""
+"Use {remaining_time} where you want to display the remaining days. If the "
+"membership has expired, \"Expired\" will be shown."
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedStock.php:35
+msgid "Use {remainingstock} to display the remaining stock quantity."
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:36
+msgid ""
+"Use {sale_number} to display the amount saved. Use {sale_percentage} to "
+"display the sale percentage."
+msgstr ""
+
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:48
+msgid ""
+"Use {sale_number} to display the amount saved. Use {sale_percentage} to "
+"display the sale percentage. This text is used when the product is "
+"discounted exclusively for members."
+msgstr ""
+
+#: modules/DynamicSettings.php:241
+#: dynamic-tags/learndash/UserAchievedCertificatesCount.php:23
+msgid "User Achieved Certificates Count"
+msgstr ""
+
+#: modules/DynamicSettings.php:238
+#: dynamic-tags/learndash/UserCompletedCourse.php:24
+msgid "User Completed Courses Count"
+msgstr ""
+
+#: modules/DynamicSettings.php:239
+#: dynamic-tags/learndash/UserCoursePoints.php:23
+msgid "User Course Points"
+msgstr ""
+
+#: modules/DynamicSettings.php:240
+#: dynamic-tags/learndash/UserAvailableCoursesCount.php:23
+msgid "User Enrolled Courses Count"
+msgstr ""
+
+#: modules/DynamicSettings.php:242
+#: dynamic-tags/learndash/UserGroupsCount.php:23
+msgid "User Groups Count"
+msgstr ""
+
+#: modules/dynamic-visibility/WCProductReviewed.php:23
+msgid "User Reviewed Product"
+msgstr ""
+
+#: modules/DynamicSettings.php:194 dynamic-tags/woo-tags/UserRole.php:16
+msgid "User Role"
+msgstr ""
+
+#: modules/theme-conditions/UserStatus.php:17
+msgid "User Status"
+msgstr ""
+
+#: dynamic-tags/woo-tags/ProductAttributes.php:36
+msgid "Value"
+msgstr ""
+
+#: modules/DynamicSettings.php:177
+msgid "Variable Price"
+msgstr ""
+
+#: dynamic-tags/woo-tags/VariablePrice.php:17
+msgid "Variable Price Range"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:88
+msgid "Virtual"
+msgstr ""
+
+#: dynamic-tags/woo-tags/SpecBadge.php:86
+msgid "Virtual Product Custom Text"
+msgstr ""
+
+#: dynamic-tags/learndash/CourseMaterials.php:69
+#: dynamic-tags/learndash/EnrolledUsersCount.php:71
+#: dynamic-tags/learndash/StudentLimit.php:67
+#: dynamic-tags/learndash/CourseStartDate.php:69
+#: dynamic-tags/learndash/AwardedPoints.php:72
+#: dynamic-tags/learndash/LessonsNumber.php:67
+#: dynamic-tags/learndash/RequiredPoints.php:67
+#: dynamic-tags/learndash/QuizNumbers.php:68
+#: dynamic-tags/learndash/CourseContent.php:35
+#: dynamic-tags/learndash/CoursePrice.php:99
+msgid "Visibility"
+msgstr ""
+
+#: dynamic-tags/TagManager.php:45
+msgid "Woo Extras"
+msgstr ""
+
+#: dynamic-tags/TagManager.php:49
+msgid "Woo Extras User"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:25
+#: modules/finders/WooCommerceManagementCategory.php:37
+#: modules/finders/WooCommerceManagementCategory.php:48
+#: modules/finders/WooCommerceManagementCategory.php:59
+#: modules/finders/WooCommerceManagementCategory.php:70
+#: modules/finders/WooCommerceManagementCategory.php:82
+#: modules/finders/WooCommerceManagementCategory.php:94
+#: modules/finders/WooCommerceManagementCategory.php:105
+msgid "woocommerce"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:12
+msgid "WooCommerce Management"
+msgstr ""
+
+#: modules/DynamicSettings.php:82
+msgid "WooCommerce Membership"
+msgstr ""
+
+#: modules/DynamicSettings.php:86
+msgid "WooCommerce Subscriptions"
+msgstr ""
+
+#: dynamic-tags/woo-membership/ActiveMembership.php:34
+#: dynamic-tags/learndash/CoursePartOfGroup.php:77
+#: dynamic-tags/learndash/CourseStatus.php:71
+#: dynamic-tags/learndash/CoursePrerequisitesList.php:82
+#: dynamic-tags/woo-tags/LastOrder.php:54
+#: dynamic-tags/woo-tags/PurchasedProducts.php:46
+#: dynamic-tags/woo-tags/TotalSpent.php:34
+#: dynamic-tags/woo-tags/StockQuantityExtra.php:34
+#: dynamic-tags/woo-tags/ProductAttributes.php:61
+#: dynamic-tags/woo-tags/ProductGallery.php:43
+#: dynamic-tags/woo-tags/VariablePrice.php:61
+#: dynamic-tags/woo-tags/CartValues.php:61
+#: dynamic-tags/woo-tags/CartValues.php:76
+#: dynamic-tags/woo-tags/CartValues.php:91
+#: dynamic-tags/woo-tags/CartTaxValues.php:34
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:62
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:90
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:117
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:129
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:141
+#: dynamic-tags/woo-tags/AdvancedProductCategory.php:153
+#: dynamic-tags/woo-tags/AdvancedSaleBadge.php:68
+#: dynamic-tags/woo-tags/SpecBadge.php:34
+#: dynamic-tags/woo-tags/FeaturedBadge.php:34
+#: dynamic-tags/woo-subscription/ActiveSubscriptionData.php:61
+#: dynamic-tags/woo-subscription/ActiveSubscription.php:34
+msgid "Yes"
+msgstr ""
+
+#: dynamic-tags/woo-tags/PurchasedBadge.php:33
+msgid "You have purchased this in the past. Buy again?"
+msgstr ""
+
+#: dynamic-tags/learndash/CoursePrice.php:79
+msgid "You have this course"
+msgstr ""
+
+#: modules/finders/WooCommerceManagementCategory.php:78
+msgid "zone"
+msgstr ""

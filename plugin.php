@@ -2,14 +2,18 @@
 /**
  * Plugin Name: Dynamic Elementor Extension
  * Description: Extra dynamic tags and other useful functions for WooCommerce, Memberships, Subscriptions, and LearnDash.
- * Version: 2.2.3
+ * Version: 2.2.4
  * Author: Soczó Kristóf
  * Author URI: https://github.com/Lonsdale201?tab=repositories
  * Plugin URI: https://github.com/Lonsdale201/dynamic-elementor-extension
  * Text Domain: hw-ele-woo-dynamic
- * Elementor tested up to: 3.25.3
- * Elementor Pro tested up to: 3.25.0
+ * Elementor tested up to: 3.25.11
+ * Elementor Pro tested up to: 3.25.5
+ * Requires at least: 6.0
+ * Requires PHP: 8.0
  * Requires Plugins: woocommerce, elementor
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 namespace HelloWP\HWEleWooDynamic;
@@ -70,14 +74,22 @@ final class HW_Ele_Dynamic_Tags {
      * Load plugin text domain for translations.
      * Optimized for WordPress 6.0+ to handle translations.
      */
+    // public function load_plugin_textdomain() {
+    //     // Check if optimized loading is available (WP 6.0+)
+    //     if ( function_exists( 'wp_set_script_translations' ) ) {
+    //         load_plugin_textdomain('hw-ele-woo-dynamic', false, dirname(plugin_basename(__FILE__)) . '/languages');
+    //         wp_set_script_translations('dynamic-settings-js', 'hw-ele-woo-dynamic', plugin_dir_path(__FILE__) . 'languages');
+    //     } else {
+    //         // Fallback for older WordPress versions
+    //         load_textdomain('hw-ele-woo-dynamic', WP_LANG_DIR . '/plugins/hw-ele-woo-dynamic-' . get_locale() . '.mo');
+    //     }
+    // }
+
     public function load_plugin_textdomain() {
-        // Check if optimized loading is available (WP 6.0+)
-        if ( function_exists( 'wp_set_script_translations' ) ) {
-            load_plugin_textdomain('hw-ele-woo-dynamic', false, dirname(plugin_basename(__FILE__)) . '/languages');
-            wp_set_script_translations('dynamic-settings-js', 'hw-ele-woo-dynamic', plugin_dir_path(__FILE__) . 'languages');
+        if ( version_compare( $GLOBALS['wp_version'], '6.7', '<' ) ) {
+            load_plugin_textdomain( 'hw-ele-woo-dynamic', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
         } else {
-            // Fallback for older WordPress versions
-            load_textdomain('hw-ele-woo-dynamic', WP_LANG_DIR . '/plugins/hw-ele-woo-dynamic-' . get_locale() . '.mo');
+            load_textdomain( 'hw-ele-woo-dynamic', plugin_dir_path( __FILE__ ) . 'languages/hw-ele-woo-dynamic-' . determine_locale() . '.mo' );
         }
     }
 
@@ -265,4 +277,5 @@ final class HW_Ele_Dynamic_Tags {
     }
 }
 
+// Initialize the plugin
 HW_Ele_Dynamic_Tags::instance();
