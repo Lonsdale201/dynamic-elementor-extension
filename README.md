@@ -245,6 +245,42 @@ Other Theme Conditions
 
 ## CHANGELOG
 
+### V 2.2.4 *2024.12.10*
+
+New JetEngine Macros
+
+* WC Membership Access All Posts
+    <details>
+    <summary>Details</summary>
+    
+    This macro considers all active memberships of the current user and returns the posts configured within those memberships. It is not limited by post type; all posts specified in the membership rules are returned.
+    
+    </details>
+* WC Membership Access All Products
+    <details>
+    <summary>Details</summary>
+    
+    This macro returns all products available to the user, based on their active memberships. You can configure it to return only purchasable products, view-only products, or both types.
+    
+    </details>
+* WC Membership Discounted Products
+    <details>
+    <summary>Details</summary>
+    
+    This macro similarly returns all products from the user's active memberships that are eligible for membership discounts. It only includes products that are actively enabled within the memberships.
+    
+    </details>
+    
+**improvments**
+
+**Learndash Course Access Type Dynamic tag**
+
+if the design was done that way, the status indicator could be confusing, because it only gives you the access mode of the course. essentially, if you turn on the custom format option, you have the option to display a different message if someone already has access to the course, for example: "you have already purchased" or "you already have access". So this label can be used in both ways.
+
+**Better LoadtextDomain**
+
+---
+
 ### V 2.2.3 *2024.11.14.*
 
 * Fixed php 8.3 compatibility issue
