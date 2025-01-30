@@ -96,6 +96,6 @@ class TopicsCounter extends Tag {
         if ( $topic_count > 0 ) {
             echo esc_html( $topic_count );
         }
-        // If there are no topics, no output is rendered and Elementor manages the fallback
+        
     }
 }

@@ -57,6 +57,7 @@ class VisibilityManager {
             $conditions_manager->register_condition(new LDCurrentUserPurchasedCurrentCourse());
             $conditions_manager->register_condition(new LDNotHaveEnoughPoints());
             $conditions_manager->register_condition(new LDStudentLimitReached());
+            $conditions_manager->register_condition(new CoursePartOfSpecificGroups());
         }
     }
 }

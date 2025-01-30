@@ -98,6 +98,10 @@ class DynamicSettings {
                 'title' => __('Enable extra products informations in the admin toolbar', 'hw-ele-woo-dynamic'),
                 'description' => __('In the wp admin topbar you can configure which product information is displayed, when looking in the product page in the frontend', 'hw-ele-woo-dynamic')
             ],
+            'wp_bar_learndash_informations' => [
+                'title'       => __('Enable extra learndash informations in the admin toolbar', 'hw-ele-woo-dynamic'),
+                'description' => __('In the wp admin topbar you can configure which learndash information is displayed, when looking in the course page in the frontend', 'hw-ele-woo-dynamic')
+             ],
             'my_account_dashboard' => [
                 'title' => __('My Account Dashboard', 'hw-ele-woo-dynamic'),
                 'description' => __('Here you can insert shortcode content in your WooCommerce dashboard endpoint. You can use shortcode, plain text, or HTML.', 'hw-ele-woo-dynamic')
@@ -123,10 +127,12 @@ class DynamicSettings {
                 ($id === 'woo_subscriptions' && !Dependencies::is_subscriptions_active()) ||
                 ($id === 'woo_membership' && !Dependencies::is_memberships_active()) ||
                 ($id === 'ld_extras_courses' && !Dependencies::is_learndash_active()) ||
-                ($id === 'ld_extras_global' && !Dependencies::is_learndash_active()) 
+                ($id === 'ld_extras_global' && !Dependencies::is_learndash_active()) ||
+                ($id === 'wp_bar_learndash_informations' && !Dependencies::is_learndash_active()) 
             ) {
                 continue;
             }
+            
     
             add_settings_section(
                 'dynamic_extension_' . $id, 
@@ -249,6 +255,12 @@ class DynamicSettings {
                 'shipping_class' => __('Shipping Class', 'hw-ele-woo-dynamic'),
                 'product_status' => __('Product Status', 'hw-ele-woo-dynamic'),
             ],
+
+            'wp_bar_learndash_informations' => [
+                'ld_bar_lessons' => __('Lessons', 'hw-ele-woo-dynamic'),
+                'ld_bar_topics' => __('Topics', 'hw-ele-woo-dynamic'),
+                'ld_bar_quizes' => __('Quiz', 'hw-ele-woo-dynamic'),
+            ],
         ];
     }
 
@@ -257,7 +269,10 @@ class DynamicSettings {
             $label = __('Enable Dynamic Tags', 'hw-ele-woo-dynamic');
             if ($section === 'wp_bar_products_informations') {
                 $label = __('Enable Product Information Display', 'hw-ele-woo-dynamic');
+            } elseif ($section === 'wp_bar_learndash_informations') {
+                $label = __('Enable Learndash Info Display', 'hw-ele-woo-dynamic');
             }
+            
     
             add_settings_field(
                 'dynamic_extension_' . $section . '_tags',
