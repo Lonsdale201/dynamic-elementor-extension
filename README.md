@@ -245,7 +245,7 @@ This is a small addition that can be useful for development and testing. You can
 
 #### Wp Toolbar Learndash info
 
-![alt text](image.png)
+
 
 ---
 
