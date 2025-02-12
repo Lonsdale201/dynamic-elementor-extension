@@ -1,11 +1,10 @@
 <?php
-
 namespace HelloWP\HWEleWooDynamic\Modules\ThemeConditions;
 
 use ElementorPro\Modules\ThemeBuilder\Conditions\Condition_Base;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;
 
-class ProductIsOnSale extends Condition_Base {
+class ProductIsIndividuallySold extends Condition_Base {
 
     /**
      * Returns the type of condition.
@@ -22,7 +21,7 @@ class ProductIsOnSale extends Condition_Base {
      * @return string The condition name.
      */
     public function get_name() {
-        return 'is_product_on_sale';
+        return 'is_individually_sold_product';
     }
 
     /**
@@ -31,29 +30,24 @@ class ProductIsOnSale extends Condition_Base {
      * @return string The condition label.
      */
     public function get_label() {
-        return esc_html__( 'Is Product On Sale', 'hw-ele-woo-dynamic' );
+        return esc_html__( 'Is Product Individually Sold', 'hw-ele-woo-dynamic' );
     }
 
     /**
-     * Checks if the product is currently on sale.
+     * Checks if the product is set as "individually sold".
      *
      * @param array $args Condition arguments.
-     * @return bool True if the product is on sale, false otherwise.
+     * @return bool True if the product is individually sold, false otherwise.
      */
     public function check( $args ) {
-        // Ensure that WooCommerce is active before performing any product checks.
         if ( ! Dependencies::is_woocommerce_active() ) {
             return false;
         }
 
         global $product;
-
-        // Get the product object if it's not already set or it's not a valid WC_Product instance.
         if ( ! $product instanceof \WC_Product ) {
             $product = wc_get_product( get_the_ID() );
         }
-
-        // Return true if the product exists and is currently on sale, otherwise return false.
-        return $product ? $product->is_on_sale() : false;
+        return $product ? $product->is_sold_individually() : false;
     }
 }

@@ -139,7 +139,6 @@ class LDQuery {
 
         $activity = learndash_get_user_activity( $args );
 
-        // Ha van aktivitás, visszaadjuk a dátumot
         if ( ! empty( $activity ) && isset( $activity->activity_updated ) ) {
             return $activity->activity_updated;
         }

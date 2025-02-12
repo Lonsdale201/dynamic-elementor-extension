@@ -30,11 +30,14 @@ class MacroManager {
      * Register macros for JetEngine.
      */
     public function register_macros() {
-        // Always register the UserPurchasedProductsMac macro
-        new UserPurchasedProductsMac();
-        new WCLoopProducts();
 
-        // Check if WooCommerce Memberships plugin is active using Dependencies class
+        // Check if WooCommerce plugin is active
+        if ( Dependencies::is_woocommerce_active() ) {
+            new UserPurchasedProductsMac();
+            new WCLoopProducts();
+        }
+
+        // Check if WooCommerce Memberships plugin is active
         if ( Dependencies::is_memberships_active() ) {
             new WCMembershipAccessPosts();
             new UserActiveMembershipsMac();
@@ -43,7 +46,7 @@ class MacroManager {
             new WCMembershipDiscountedProducts();
         }
 
-        // Register LearnDash related macros if active
+        // Check if LearnDash plugin active
         if ( Dependencies::is_learndash_active() ) {
             new LDUserCourses();
             new LDCourseAccessTypeQuery();

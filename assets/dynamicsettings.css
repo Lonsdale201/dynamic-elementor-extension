@@ -5,6 +5,13 @@
     margin-top: 0px;
 }
 
+@media screen and (max-width: 767px) {
+    .dynamic-settings-checkbox-group {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
 .dynamic-settings-checkbox-group label {
     display: block;
     margin: 0 0 4px 0;
@@ -21,4 +28,34 @@
 
 .checkbox-container label {
     margin-left: 0px;
+}
+
+.badge-new-feature {
+    background-color: #D32F2F;
+    color: #fff;
+    font-weight: 500;
+    font-size: 70%;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: super;
+}
+
+.badge-improvements {
+    background-color: #FFB300;
+    color: #fff;
+    font-weight: 500;
+    font-size: 70%;
+    /* padding: 0 3px; */
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: super;
+  }
+
+@media screen and (max-width: 767px) {
+    .form-table th {
+        padding: 10px 0 10px;
+        border-bottom: 0;
+    }
 }

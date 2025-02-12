@@ -5,7 +5,7 @@ namespace HelloWP\HWEleWooDynamic\Modules\ThemeConditions;
 use ElementorPro\Modules\ThemeBuilder\Conditions\Condition_Base;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;
 
-class ProductIsOnSale extends Condition_Base {
+class ProductIsBundle extends Condition_Base {
 
     /**
      * Returns the type of condition.
@@ -22,7 +22,7 @@ class ProductIsOnSale extends Condition_Base {
      * @return string The condition name.
      */
     public function get_name() {
-        return 'is_product_on_sale';
+        return 'is_product_bundle';
     }
 
     /**
@@ -31,18 +31,18 @@ class ProductIsOnSale extends Condition_Base {
      * @return string The condition label.
      */
     public function get_label() {
-        return esc_html__( 'Is Product On Sale', 'hw-ele-woo-dynamic' );
+        return esc_html__( 'Is Product Bundle', 'hw-ele-woo-dynamic' );
     }
 
     /**
-     * Checks if the product is currently on sale.
+     * Checks if the product is a bundle.
      *
      * @param array $args Condition arguments.
-     * @return bool True if the product is on sale, false otherwise.
+     * @return bool True if the product is a bundle, false otherwise.
      */
     public function check( $args ) {
-        // Ensure that WooCommerce is active before performing any product checks.
-        if ( ! Dependencies::is_woocommerce_active() ) {
+        // Ensure that WooCommerce and WooCommerce Product Bundles are active before checking.
+        if ( ! Dependencies::is_woocommerce_active() || ! Dependencies::is_product_bundles_active() ) {
             return false;
         }
 
@@ -53,7 +53,7 @@ class ProductIsOnSale extends Condition_Base {
             $product = wc_get_product( get_the_ID() );
         }
 
-        // Return true if the product exists and is currently on sale, otherwise return false.
-        return $product ? $product->is_on_sale() : false;
+        // Check if the product exists and is an instance of WC_Product_Bundle.
+        return $product instanceof \WC_Product_Bundle;
     }
 }

@@ -14,6 +14,7 @@
             "HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\": "modules/endpoints",
             "HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\": "modules/theme-conditions",
             "HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\": "modules/je-macros",
+            "HelloWP\\HWEleWooDynamic\\Modules\\Callbacks\\": "modules/callbacks",
             "HelloWP\\HWEleWooDynamic\\Modules\\Finder\\": "modules/finders",
             "HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\": "modules/wp-top-bar",
             "HelloWP\\HWEleWooDynamic\\Modules\\WExtends\\": "modules/widget-extends",

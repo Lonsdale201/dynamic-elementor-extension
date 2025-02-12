@@ -22,6 +22,7 @@ class ComposerStaticInit0276a9163f92cbe8f2004c8d3b98c0d0
             'HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\' => 42,
             'HelloWP\\HWEleWooDynamic\\Modules\\DynamicVisibility\\' => 50,
             'HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\' => 41,
+            'HelloWP\\HWEleWooDynamic\\Modules\\Callbacks\\' => 42,
             'HelloWP\\HWEleWooDynamic\\Modules\\' => 32,
             'HelloWP\\HWEleWooDynamic\\' => 24,
         ),
@@ -79,6 +80,10 @@ class ComposerStaticInit0276a9163f92cbe8f2004c8d3b98c0d0
         'HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modules/dynamic-widgets',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\Callbacks\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/callbacks',
         ),
         'HelloWP\\HWEleWooDynamic\\Modules\\' => 
         array (

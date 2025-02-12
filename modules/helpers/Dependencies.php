@@ -7,13 +7,13 @@ namespace HelloWP\HWEleWooDynamic\Modules\Helpers;
  */
 class Dependencies {
 
-    /**
+     /**
      * Check if WooCommerce is active.
-     * 
+     *
      * @return bool
      */
     public static function is_woocommerce_active() {
-        return class_exists('WooCommerce');
+        return class_exists( 'WooCommerce' );
     }
 
     /**
@@ -68,5 +68,23 @@ class Dependencies {
      */
     public static function is_name_your_price_active() {
         return defined('WC_NYP_PLUGIN_FILE') && class_exists('WC_Name_Your_Price');
+    }
+
+    /**
+     * Check if MemberPress is active.
+     * 
+     * @return bool
+     */
+    public static function is_memberpress_active() {
+        return class_exists('MeprAppCtrl');
+    }
+
+    /**
+     * Check if WooCommerce Product Bundles is active.
+     * 
+     * @return bool
+     */
+    public static function is_product_bundles_active() {
+        return class_exists( 'WC_Product_Bundle' );
     }
 }

@@ -19,6 +19,7 @@ return array(
     'HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\' => array($baseDir . '/modules/endpoints'),
     'HelloWP\\HWEleWooDynamic\\Modules\\DynamicVisibility\\' => array($baseDir . '/modules/dynamic-visibility'),
     'HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\' => array($baseDir . '/modules/dynamic-widgets'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\Callbacks\\' => array($baseDir . '/modules/callbacks'),
     'HelloWP\\HWEleWooDynamic\\Modules\\' => array($baseDir . '/modules'),
     'HelloWP\\HWEleWooDynamic\\' => array($baseDir . '/dynamic-tags'),
 );

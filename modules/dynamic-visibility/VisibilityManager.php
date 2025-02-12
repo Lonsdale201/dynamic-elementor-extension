@@ -4,6 +4,10 @@ namespace HelloWP\HWEleWooDynamic\Modules\DynamicVisibility;
 
 use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class VisibilityManager {
     private static $instance = null;
 
@@ -33,22 +37,34 @@ class VisibilityManager {
      * @param object $conditions_manager The conditions manager object.
      */
     public function register_conditions($conditions_manager) {
-        // Register the custom conditions
-        $conditions_manager->register_condition(new WCProductReviewed());
+        // Register the WooCommerce-related condition if WooCommerce is active
+        if ( Dependencies::is_woocommerce_active() ) {
+            $conditions_manager->register_condition(new WCProductReviewed());
+        }
+
+        // Register other custom conditions
         $conditions_manager->register_condition(new CheckUrlPath());
         $conditions_manager->register_condition(new IsFrontPage());
 
-        if (Dependencies::is_memberships_active()) {
+        // Register MemberPress-related conditions
+        if ( Dependencies::is_memberpress_active() ) {
+            $conditions_manager->register_condition(new MPAccessMemberships());
+        }
+
+        // Register WooCommerce Memberships conditions
+        if ( Dependencies::is_memberships_active() ) {
             $conditions_manager->register_condition(new WCAccessMemberships());
             $conditions_manager->register_condition(new UserMembershipAccessCanView());
             $conditions_manager->register_condition(new CurrentMembershipExpired());
         }
 
-        if (Dependencies::is_subscriptions_active()) {
+        // Register WooCommerce Subscriptions conditions
+        if ( Dependencies::is_subscriptions_active() ) {
             $conditions_manager->register_condition(new WooSubscriptionsActive());
         }
 
-        if (Dependencies::is_learndash_active()) {
+        // Register LearnDash-related conditions
+        if ( Dependencies::is_learndash_active() ) {
             $conditions_manager->register_condition(new LDUserCompletedCurrentCourse());
             $conditions_manager->register_condition(new CourseAccessType());
             $conditions_manager->register_condition(new CourseCertificatesAvailable());

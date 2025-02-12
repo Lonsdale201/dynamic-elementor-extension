@@ -88,7 +88,6 @@ class TaxonomyACFMeta extends Tag {
         $settings = $this->get_settings();
         $acf_meta_key = $settings['acf_meta_key']; 
 
-        // Check if ACF's get_field function exists
         if (empty($acf_meta_key) || !function_exists('get_field')) {
             return; 
         }

@@ -25,7 +25,6 @@ class ProductIsNameYourPrice extends Condition_Base {
             return false;
         }
 
-        // Ellenőrzés a Name Your Price típusra a _nyp meta kulcs alapján
         return $product->get_meta('_nyp') === 'yes';
     }
 }

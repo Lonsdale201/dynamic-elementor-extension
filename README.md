@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.2.5
+Stable tag: 2.3
 
 This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -13,21 +13,18 @@ We've updated the full source codes of the plugin on github, so you can now alwa
 > Minimum PHP version: 8.0
 
 > [!IMPORTANT]
-> Minimum Elementor Pro version: 3.22.0
-
-> [!IMPORTANT]
 > Minimum Elementor version: 3.22.0
 
-> [!IMPORTANT]
-> Minimum WooCommerce version: 9.0.0
+> [!Note]
+> The plugin supports Woo membership, Subscription, JetEngine, LearnDash, Name Your Pricem WooCommerce Tab manager (by SkyVerge) and Product Bundles for WooCommerce.
 
 > [!Note]
-> The plugin supports Woo membership, Subscription, JetEngine, LearnDash, Name Your Price and WooCommerce Tab manager (by SkyVerge)
+> Most of functions, like dynamic tags work without Elementor Pro
 
 ---
 
 > [!CAUTION]
-> To use this plugin you need 3 required plugins: WooCommerce, Elementor, Elementor pro!!!!
+> To use this plugin you need 1 required plugin: Elementor (free)
 
 ---
 
@@ -54,13 +51,14 @@ _You can use with Loop / Listing, or single product templates_
 - Advanced Sale Badge
 - Advanced Product Category _(dont use product single template or loop!)_
 - Advanced Stock
+- Advanced Price
 - Featured Badge
 - Product Attributes
 - Product Gallery Image
 - Purchased Badge
 - Product Height
 - Product Shipping Class
-- Product Tabs (Default / WooCommerce Tab Manager plugin (By SkyVerge)
+- Product Tabs (Default / WooCommerce Tab Manager plugin (By SkyVerge))
 - Product Weight
 - Product Width
 - Sale Time
@@ -149,6 +147,8 @@ _You can use it anywhere in your site_
 - User Course Points
 - User Groups Count
 
+---
+
 #### JetEngine Dynamic Visibility
 
 _You can use it anywhere in your site_
@@ -171,10 +171,22 @@ _You can use it anywhere in your site_
 - Course Part of Any Group
 - Course part of group (selectable)
 
-**WWordPress specific**
+**Memberpress specific**
+
+- Access memberships
+
+**WordPress specific**
 
 - Check URL PATH
 - Is Front Page
+
+---
+
+#### JetEngine Callbacks (for dynamic field widget)
+
+- Convert Units
+
+---
 
 #### JetEngine Macros
 
@@ -193,6 +205,8 @@ _You can use it anywhere in your site_
 - LD Course Prerequisites Query
 - LD User Courses
 - User groups (Will return all groups, that associated to the current user)
+
+---
 
 #### Elementor Finder
 
@@ -222,6 +236,8 @@ For LearnDash
 - New group
 - Submitted Essays
 
+---
+
 #### Wp Toolbar product info
 
 ![image](https://github.com/Lonsdale201/dynamic-elementor-extension/assets/23199033/7762702e-8700-4d3e-9c9a-8ebf0095bd3d)
@@ -230,6 +246,8 @@ This is a small addition that can be useful for development and testing. You can
 #### Wp Toolbar Learndash info
 
 ![alt text](image.png)
+
+---
 
 #### Elementor Theme Conditions
 
@@ -242,8 +260,10 @@ For product type template
 - Is Product Featured
 - Is Name Your Price (only if you are using name Your price plugin)
 - Is Product On Sale
+- Is Product Individually Sold
 - Is Purchased By User
 - Is Product Subscription (Only if you are using the Woo Subscriptions official plugin)
+- Is product Bundle (Product Bundles for WooCommerce plugin)
 - Is Product Variable
 
 Other Theme Conditions
@@ -258,13 +278,35 @@ Other Theme Conditions
 - [x] v2.0.0 version will migrate the previously created plugin functions: _Elementor Extra Theme Conditions_
 - [x] v2.1.0 will add many new Woo Membership and subscriptions dynamic tags and settings page
 - [x] v2.2.0 Merge to exiting Leanrdash Extension
+- [x] v2.3 Removed the WooCommerce dependency
 
 ## CHANGELOG
+
+### V 2.3 _2025.02.12_
+
+- **Removed the WooCommerce dependency**
+
+- New Dynamic tag for woocommerce: Advanced price
+- New Dynamic Visibility - **Memberpress** - Access memberships
+- New Elementor Theme conditions for woocommerce: **Is Product Individually Sold**
+- New elementor Theme Conditions for woocommerce: **Is product Bundle** _(Product Bundles for WooCommerce plugin)_
+
+- Improvements _Spec badge dynamic tag_ support: Woo Subs, Woo Bundle, and Sale product
+
+- New JetEngine dynamic field callback: **Convert Units**
+
+- Backend updates
+  New badge if new functions avaliable
+  New Settings design
+
+---
 
 ### V 2.2.5 _2025.01.30_
 
 - New jetengine Dynamic Visibility for Learndash: Course part of group
 - New Learndash Wp toolbar option. You can enable it in the Plugins settings page.
+
+---
 
 ### V 2.2.4 _2024.12.10_
 
@@ -291,7 +333,6 @@ New JetEngine Macros
     This macro similarly returns all products from the user's active memberships that are eligible for membership discounts. It only includes products that are actively enabled within the memberships.
     
     </details>
-
 
 **improvments**
 

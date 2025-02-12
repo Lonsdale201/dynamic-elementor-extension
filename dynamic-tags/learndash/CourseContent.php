@@ -47,6 +47,7 @@ class CourseContent extends Tag {
                 'options' => [
                     'default' => __( 'Default', 'hw-ele-woo-dynamic' ),
                     'filtered' => __( 'Filtered', 'hw-ele-woo-dynamic' ),
+                    'plain'    => __( 'Plain', 'hw-ele-woo-dynamic' ),
                 ],
                 'default' => 'default',
             ]
@@ -73,7 +74,6 @@ class CourseContent extends Tag {
             ]
         );
     }
-
     public function render() {
         global $post;
 
@@ -100,6 +100,8 @@ class CourseContent extends Tag {
         $content = get_post_field('post_content', $course_id);
 
         if ('filtered' === $output_format) {
+            $content = wpautop($content); 
+        } elseif ('plain' === $output_format) {
             $content = strip_tags($content, '<p><span><br>'); 
             $content = '<p>' . wp_strip_all_tags($content, true) . '</p>'; 
         }
