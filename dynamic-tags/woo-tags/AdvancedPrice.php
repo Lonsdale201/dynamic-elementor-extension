@@ -86,17 +86,25 @@ class AdvancedPrice extends Tag {
         }
     }
 
+  
     /**
      * Calculate the tax amount for the product.
      *
-     * @param WC_Product $product
+     * @param WC_Product $product The WooCommerce product object.
      * @return float The calculated tax amount.
      */
     private function get_product_tax($product) {
+        // Get the applicable tax rates for the product's tax class.
         $tax_rates = WC_Tax::get_rates($product->get_tax_class());
-        $base_price = $product->get_price('edit');
+
+        // Retrieve the base price and cast it to float to ensure proper arithmetic operations.
+        $base_price = (float) $product->get_price('edit');
+
+        // Calculate the taxes using WooCommerce's built-in function.
         $taxes = WC_Tax::calc_tax($base_price, $tax_rates, wc_prices_include_tax());
 
+        // Return the sum of calculated taxes.
         return array_sum($taxes);
     }
+
 }

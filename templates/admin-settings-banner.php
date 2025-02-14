@@ -202,6 +202,18 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <ul style="list-style: none; padding-left: 0; margin: 0;">
+                <!-- Simple Steam Fetch Plugin -->
+                <li style="margin-bottom: 1em;">
+                    <strong>
+                        <a href="#" target="_blank">Simple Steam Fetch</a>
+                    </strong><br/>
+                    <em>
+                        <?php esc_html_e('Fetch and import game data from the Steam API. Automatically create custom posts with detailed descriptions, screenshots, and pricing information. Compatible with JetEngine.', 'hw-ele-woo-dynamic'); ?>
+                    </em><br/>
+                    <a href="https://github.com/Lonsdale201/Simple-Steam-Fetch" target="_blank">
+                        <?php esc_html_e('Download Link', 'hw-ele-woo-dynamic'); ?>
+                    </a>
+                </li>
                 <!-- Fluent Extend Triggers and Actions -->
                 <li style="margin-bottom: 1em;">
                     <strong>
