@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 
 This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -158,6 +158,7 @@ _You can use it anywhere in your site_
 - Has Active Subscriptions With Selected Statuses (Woo Subscriptions) (Improved!)
 - User Membership Access Can View (Woo Membership)
 - User Reviewed Product
+- User Registration Time Elapsed
 
 **LeanrDash specific**
 
@@ -168,6 +169,7 @@ _You can use it anywhere in your site_
 - Not Have Enough Points
 - Course Reached Student Limit
 - Course Completed
+- Course Not started
 - Course Part of Any Group
 - Course part of group (selectable)
 
@@ -179,6 +181,7 @@ _You can use it anywhere in your site_
 
 - Check URL PATH
 - Is Front Page
+- Current User Role
 
 ---
 
@@ -281,6 +284,16 @@ Other Theme Conditions
 - [x] v2.3 Removed the WooCommerce dependency
 
 ## CHANGELOG
+
+### V 2.3.2 _2025.03.21_
+
+* Fixed the **Course Resume** and **Course Resume Text** problems, now they work correctly even if the course has not started yet
+* Improved the **Lessons Number** dynamic tag (learndash), now it can be set to take into account topics and aggregate them with lessons
+* New JetEngine Macro: Current User Role
+* New JetEngine Dynamic Visibility for Learndash: Course Not started
+* New JetEngine Dynamic Visibility for global usage: User Registration Time Elapsed
+
+---
 
 ### V 2.3.1 _2025.02.14_
 
