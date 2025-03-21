@@ -63,8 +63,8 @@ class CourseResumeText extends Tag {
         $this->add_control(
             'in_progress_text',
             [
-                'label' => __( 'In Progress Text', 'hw-ele-woo-dynamic' ),
-                'type' => Controls_Manager::TEXT,
+                'label'   => __( 'In Progress Text', 'hw-ele-woo-dynamic' ),
+                'type'    => Controls_Manager::TEXT,
                 'default' => 'Continue Learning',
             ]
         );
@@ -72,8 +72,8 @@ class CourseResumeText extends Tag {
         $this->add_control(
             'not_started_text',
             [
-                'label' => __( 'Not Started Text', 'hw-ele-woo-dynamic' ),
-                'type' => Controls_Manager::TEXT,
+                'label'   => __( 'Not Started Text', 'hw-ele-woo-dynamic' ),
+                'type'    => Controls_Manager::TEXT,
                 'default' => 'Start Course',
             ]
         );
@@ -81,8 +81,8 @@ class CourseResumeText extends Tag {
         $this->add_control(
             'completed_text',
             [
-                'label' => __( 'Completed Text', 'hw-ele-woo-dynamic' ),
-                'type' => Controls_Manager::TEXT,
+                'label'   => __( 'Completed Text', 'hw-ele-woo-dynamic' ),
+                'type'    => Controls_Manager::TEXT,
                 'default' => 'Read More',
             ]
         );
@@ -90,8 +90,8 @@ class CourseResumeText extends Tag {
         $this->add_control(
             'user_not_have_course_text',
             [
-                'label' => __( 'Not Owned Text', 'hw-ele-woo-dynamic' ),
-                'type' => Controls_Manager::TEXT,
+                'label'   => __( 'Not Owned Text', 'hw-ele-woo-dynamic' ),
+                'type'    => Controls_Manager::TEXT,
                 'default' => 'Get Started',
             ]
         );
@@ -111,30 +111,38 @@ class CourseResumeText extends Tag {
     public function render() {
         global $post;
 
-        // Confirm that the current post is a LearnDash course
         if ( 'sfwd-courses' !== get_post_type( $post ) ) {
-            echo '';
+            echo ''; 
             return;
         }
 
         $course_id = $post->ID;
-        $user_id = get_current_user_id();
+        $user_id   = get_current_user_id();
 
-        // Check if user is enrolled in the course and retrieve course progress
         if ( $user_id && sfwd_lms_has_access( $course_id, $user_id ) ) {
-            $resume_step_id = learndash_user_progress_get_first_incomplete_step( $user_id, $course_id );
-            $completed = learndash_course_completed( $user_id, $course_id );
 
-            // Output text based on course completion state
-            if ( $completed ) {
-                echo esc_html( $this->get_settings( 'completed_text' ) );
-            } elseif ( $resume_step_id ) {
-                echo esc_html( $this->get_settings( 'in_progress_text' ) );
+            $progress = learndash_course_progress( [
+                'user_id'   => $user_id,
+                'course_id' => $course_id,
+                'array'     => true,
+            ] );
+
+            if ( isset( $progress['completed'], $progress['total'] ) ) {
+                $completed_steps = (int) $progress['completed'];
+                $total_steps     = (int) $progress['total'];
+
+                if ( $completed_steps === $total_steps && $total_steps !== 0 ) {
+                    echo esc_html( $this->get_settings( 'completed_text' ) );
+                } elseif ( $completed_steps > 0 ) {
+                    echo esc_html( $this->get_settings( 'in_progress_text' ) );
+                } else {
+                    echo esc_html( $this->get_settings( 'not_started_text' ) );
+                }
             } else {
-                echo esc_html( $this->get_settings( 'not_started_text' ) );
+                echo esc_html( $this->get_settings( 'in_progress_text' ) );
             }
+
         } else {
-            // Output "Not Owned" text if user is not enrolled
             echo esc_html( $this->get_settings( 'user_not_have_course_text' ) );
         }
     }

@@ -278,24 +278,39 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
-                <strong><?php esc_html_e('Version 2.3 - 2025.02.11', 'hw-ele-woo-dynamic'); ?></strong>
-                <ul style="list-style: square; margin-left: 1.2rem;">
-                    <li><b><?php esc_html_e('Removed the WooCommerce dependency', 'hw-ele-woo-dynamic'); ?></b></li>
-                    <hr>
-                    <li><?php esc_html_e('New Dynamic tag for WooCommerce: Advanced price', 'hw-ele-woo-dynamic'); ?></li>
-                    <li><?php esc_html_e('New Elementor Theme conditions for WooCommerce: Is Product Individually Sold', 'hw-ele-woo-dynamic'); ?></li>
-                    <li><?php esc_html_e('New Elementor Theme Conditions for WooCommerce: Is product Bundle (Product Bundles for WooCommerce plugin)', 'hw-ele-woo-dynamic'); ?></li>
-                    <li><?php esc_html_e('Spec badge improvements: Woo Subs, Woo Bundle, and Sale support for badges', 'hw-ele-woo-dynamic'); ?></li>
-                    <hr>
-                    <li><?php esc_html_e('New Dynamic Visibility - Memberpress - Access memberships', 'hw-ele-woo-dynamic'); ?></li>
-                    <li><?php esc_html_e('New JetEngine Callback - Convert Units for Dynamic field widget', 'hw-ele-woo-dynamic'); ?></li>
-                    <br />
-                    <li><?php esc_html_e('Backend updates:', 'hw-ele-woo-dynamic'); ?></li>
-                    <ul style="list-style: circle; margin-left: 1.2rem;">
-                        <li><?php esc_html_e('New badge if new functions available', 'hw-ele-woo-dynamic'); ?></li>
-                        <li><?php esc_html_e('New Settings design', 'hw-ele-woo-dynamic'); ?></li>
+                <strong><?php esc_html_e('Version 2.3.2 - 2025.03.21', 'hw-ele-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('Fixed the Course Resume and Course Resume Text problems, now they work correctly even if the course has not started yet', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('We have improved the Lessons Number dynamic tag (learndash), now it can be set to take into account topics and aggregate them with lessons', 'hw-ele-woo-dynamic'); ?></li>
+                        <hr>
+                        <li><?php esc_html_e('New JetEngine Macro: Current User Role', 'hw-ele-woo-dynamic'); ?></li>
+                        <hr>
+                        <li><?php esc_html_e('New JetEngine Dynamic Visibility for Learndash: Course Not started', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New JetEngine Dynamic Visibility for global usage: User Registration Time Elapsed', 'hw-ele-woo-dynamic'); ?></li>
                     </ul>
-                </ul>
+                <strong><?php esc_html_e('Version 2.3.1 - 2025.02.14', 'hw-ele-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('Fixed the Advanced price dynamic tag WC_Tax::calc_tax issue', 'hw-ele-woo-dynamic'); ?></li>
+                        <hr>
+                    </ul>
+                    <strong><?php esc_html_e('Version 2.3 - 2025.02.11', 'hw-ele-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><b><?php esc_html_e('Removed the WooCommerce dependency', 'hw-ele-woo-dynamic'); ?></b></li>
+                        <hr>
+                        <li><?php esc_html_e('New Dynamic tag for WooCommerce: Advanced price', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New Elementor Theme conditions for WooCommerce: Is Product Individually Sold', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New Elementor Theme Conditions for WooCommerce: Is product Bundle (Product Bundles for WooCommerce plugin)', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Spec badge improvements: Woo Subs, Woo Bundle, and Sale support for badges', 'hw-ele-woo-dynamic'); ?></li>
+                        <hr>
+                        <li><?php esc_html_e('New Dynamic Visibility - Memberpress - Access memberships', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New JetEngine Callback - Convert Units for Dynamic field widget', 'hw-ele-woo-dynamic'); ?></li>
+                        <br />
+                        <li><?php esc_html_e('Backend updates:', 'hw-ele-woo-dynamic'); ?></li>
+                        <ul style="list-style: circle; margin-left: 1.2rem;">
+                            <li><?php esc_html_e('New badge if new functions available', 'hw-ele-woo-dynamic'); ?></li>
+                            <li><?php esc_html_e('New Settings design', 'hw-ele-woo-dynamic'); ?></li>
+                        </ul>
+                    </ul>
             </div>
         </div><!-- .card -->
 

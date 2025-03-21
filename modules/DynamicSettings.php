@@ -466,10 +466,18 @@ class DynamicSettings {
                 $badge_html = ' <sup class="badge-new-feature">New</sup>';
             }
 
-            // If this tag is "spec_badge", add "Improvements" badge
-            if ( $tag_id === 'spec_badge' ) {
+            if ( $tag_id === 'ld_lessons' ) {
                 $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
             }
+
+            if ( $tag_id === 'course-resume-text' ) {
+                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
+            }
+
+            if ( $tag_id === 'course-resume' ) {
+                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
+            }
+
 
             echo "<div class='checkbox-container'>";
             echo "<input type='checkbox' 

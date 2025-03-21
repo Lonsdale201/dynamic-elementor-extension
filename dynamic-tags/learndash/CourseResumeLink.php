@@ -72,39 +72,60 @@ class CourseResumeLink extends Tag {
      */
     public function render() {
         global $post;
-
+    
         // Ensure current post is a LearnDash course
         if ( 'sfwd-courses' !== get_post_type( $post ) ) {
             echo '';
             return;
         }
-
+    
         $course_id = $post->ID;
-        $user_id = get_current_user_id();
-
+        $user_id   = get_current_user_id();
+    
         // Check if the user has access to the course
         if ( $user_id && sfwd_lms_has_access( $course_id, $user_id ) ) {
-            $course_status = learndash_course_status( $course_id, $user_id, true );
-
-            // For non-completed courses, find the resume URL of the first incomplete step
-            if ( 'completed' !== $course_status ) {
+    
+            // Lekérjük a felhasználó haladását tömb formájában
+            $progress = learndash_course_progress( array(
+                'user_id'   => $user_id,
+                'course_id' => $course_id,
+                'array'     => true,
+            ) );
+    
+            // Biztonsági ellenőrzés, hogy van-e completed/total kulcs a tömbben
+            if ( isset( $progress['completed'], $progress['total'] ) ) {
+    
+                // Ha 0 a completed, akkor még nem kezdte el a kurzust.
+                if ( 0 === (int) $progress['completed'] ) {
+                    echo esc_url( get_permalink( $course_id ) );
+                    return;
+                }
+    
+                // Ha teljes mértékben befejezte (completed == total)
+                if ( (int) $progress['completed'] === (int) $progress['total'] ) {
+                    echo esc_url( get_permalink( $course_id ) );
+                    return;
+                }
+    
+                // Ha részben haladt, de még nem fejezte be => resume
                 $resume_step_id = learndash_user_progress_get_first_incomplete_step( $user_id, $course_id );
-                
-                // Get the parent step URL for any incomplete lessons or topics
+    
                 if ( $resume_step_id ) {
                     $resume_step_id = learndash_user_progress_get_parent_incomplete_step( $user_id, $course_id, $resume_step_id );
                     echo esc_url( get_permalink( $resume_step_id ) );
                 } else {
-                    // If no incomplete steps, fallback to the course main URL
+                    // Ha valamiért nincs incomplete step, mehet a fő oldalra
                     echo esc_url( get_permalink( $course_id ) );
                 }
+    
             } else {
-                // Course is completed, output the main course URL
+                // Ha valamiért a progress nem adott vissza usable adatokat, fallback a fő URL-re
                 echo esc_url( get_permalink( $course_id ) );
             }
         } else {
-            // Non-enrolled user fallback to the main course URL
+            // Non-enrolled user => fő kurzus URL
             echo esc_url( get_permalink( $course_id ) );
         }
     }
+    
 }

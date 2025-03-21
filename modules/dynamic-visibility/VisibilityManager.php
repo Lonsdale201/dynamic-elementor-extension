@@ -45,6 +45,7 @@ class VisibilityManager {
         // Register other custom conditions
         $conditions_manager->register_condition(new CheckUrlPath());
         $conditions_manager->register_condition(new IsFrontPage());
+        $conditions_manager->register_condition(new UserRegisteredDateVisibility());
 
         // Register MemberPress-related conditions
         if ( Dependencies::is_memberpress_active() ) {
@@ -71,6 +72,7 @@ class VisibilityManager {
             $conditions_manager->register_condition(new CoursePartOfGroup());
             $conditions_manager->register_condition(new CourseNotPurchased());
             $conditions_manager->register_condition(new LDCurrentUserPurchasedCurrentCourse());
+            $conditions_manager->register_condition(new LDUserCurrentCourseNotStarted());
             $conditions_manager->register_condition(new LDNotHaveEnoughPoints());
             $conditions_manager->register_condition(new LDStudentLimitReached());
             $conditions_manager->register_condition(new CoursePartOfSpecificGroups());

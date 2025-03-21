@@ -31,6 +31,8 @@ class MacroManager {
      */
     public function register_macros() {
 
+        new CurrentUserRole();
+
         // Check if WooCommerce plugin is active
         if ( Dependencies::is_woocommerce_active() ) {
             new UserPurchasedProductsMac();
