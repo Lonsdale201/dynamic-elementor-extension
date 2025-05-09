@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Dynamic Elementor Extension
  * Description: Extra dynamic tags and other useful functions (conditionally for WooCommerce, Memberships, Subscriptions, and LearnDash).
- * Version: 2.3.2
+ * Version: 2.3.3
  * Author: Soczó Kristóf
  * Author URI: https://github.com/Lonsdale201?tab=repositories
  * Plugin URI: https://github.com/Lonsdale201/dynamic-elementor-extension
@@ -22,13 +22,19 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// Define the plugin constant for easier reference.
 define( 'HW_ELE_DYNAMIC_PLUGIN', plugin_dir_url( __FILE__ ) );
 define( 'HW_ELE_DYNAMIC_URL', plugin_dir_url( __FILE__ ) );
 define( 'HW_ELE_DYNAMIC_PATH', plugin_dir_path( __FILE__ ) );
 
+if ( ! defined( 'HW_ELE_DYNAMIC_VERSION' ) ) {
+    define( 'HW_ELE_DYNAMIC_VERSION', '2.3.3' );
+}
 
-// Autoload dependencies (Composer, etc.).
+if ( ! defined( 'HW_ELE_DYNAMIC_UPDATE_URL' ) ) {
+    define( 'HW_ELE_DYNAMIC_UPDATE_URL', 'https://pluginupdater.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json' );
+}
+
+
 require_once __DIR__ . '/vendor/autoload.php';
 require dirname(__FILE__) . '/plugin-update-checker/plugin-update-checker.php';
 
@@ -82,6 +88,23 @@ final class HW_Ele_Dynamic_Tags {
     }
 
     /**
+     * Determine the appropriate update URL based on the version.
+     *
+     * @return string
+     */
+    private function get_update_url() {
+
+        $plugin_data = get_plugin_data(__FILE__);
+        $installed_version = isset($plugin_data['Version']) ? $plugin_data['Version'] : '0.0.0';
+
+        if ( version_compare($installed_version, '2.3.3', '>=') ) {
+            return HW_ELE_DYNAMIC_UPDATE_URL;
+        }
+
+        return 'https://plugin-uodater.alex.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json';
+    }
+
+    /**
      * Load plugin textdomain for translations.
      */
     public function load_plugin_textdomain() {
@@ -97,7 +120,6 @@ final class HW_Ele_Dynamic_Tags {
 
     /**
      * Initialize actions after plugins are loaded.
-     *
      */
     public function init_on_plugins_loaded() {
 
@@ -108,13 +130,13 @@ final class HW_Ele_Dynamic_Tags {
 
         add_action( 'elementor/init', [ $this, 'init_elementor_integration' ] );
 
-        // Plugin update checker setup
         $myUpdateChecker = PucFactory::buildUpdateChecker(
-            'https://plugin-uodater.alex.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json',
+            $this->get_update_url(),
             __FILE__,
             'hw-elementor-woo-dynamic'
         );
     }
+
 
     /**
      * Add settings link to the plugin action links.

@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.3.2
+Stable tag: 2.3.3
 
 This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -248,8 +248,6 @@ This is a small addition that can be useful for development and testing. You can
 
 #### Wp Toolbar Learndash info
 
-
-
 ---
 
 #### Elementor Theme Conditions
@@ -281,24 +279,31 @@ Other Theme Conditions
 - [x] v2.0.0 version will migrate the previously created plugin functions: _Elementor Extra Theme Conditions_
 - [x] v2.1.0 will add many new Woo Membership and subscriptions dynamic tags and settings page
 - [x] v2.2.0 Merge to exiting Leanrdash Extension
-- [x] v2.3 Removed the WooCommerce dependency
-- [ ] 2.4 New Widgets
+- [x] v2.3.0 Removed the WooCommerce dependency
+- [ ] v2.4.0 New Widgets
 
 ## CHANGELOG
 
+### V 2.3.3 _2025.05.09_
+
+- New update server implmentation, and fallback to the old server.
+- Preparing for the next major update **(2.4.0)**
+
+---
+
 ### V 2.3.2 _2025.03.21_
 
-* Fixed the **Course Resume** and **Course Resume Text** problems, now they work correctly even if the course has not started yet
-* Improved the **Lessons Number** dynamic tag (learndash), now it can be set to take into account topics and aggregate them with lessons
-* New JetEngine Macro: Current User Role
-* New JetEngine Dynamic Visibility for Learndash: Course Not started
-* New JetEngine Dynamic Visibility for global usage: User Registration Time Elapsed
+- Fixed the **Course Resume** and **Course Resume Text** problems, now they work correctly even if the course has not started yet
+- Improved the **Lessons Number** dynamic tag (learndash), now it can be set to take into account topics and aggregate them with lessons
+- New JetEngine Macro: Current User Role
+- New JetEngine Dynamic Visibility for Learndash: Course Not started
+- New JetEngine Dynamic Visibility for global usage: User Registration Time Elapsed
 
 ---
 
 ### V 2.3.1 _2025.02.14_
 
-* Fixed the Advanced price dynamic tag WC_Tax::calc_tax issue
+- Fixed the Advanced price dynamic tag WC_Tax::calc_tax issue
 
 ---
 
