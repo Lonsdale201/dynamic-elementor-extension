@@ -16,7 +16,7 @@ We've updated the full source codes of the plugin on github, so you can now alwa
 > Minimum Elementor version: 3.22.0
 
 > [!Note]
-> The plugin supports Woo membership, Subscription, JetEngine, LearnDash, Name Your Pricem WooCommerce Tab manager (by SkyVerge) and Product Bundles for WooCommerce.
+> The plugin supports Woo membership, Subscription, JetEngine, LearnDash, Name Your Price, WooCommerce Tab manager (by SkyVerge) and Product Bundles for WooCommerce.
 
 > [!Note]
 > Most of functions, like dynamic tags work without Elementor Pro
