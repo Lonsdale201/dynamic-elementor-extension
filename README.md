@@ -282,6 +282,7 @@ Other Theme Conditions
 - [x] v2.1.0 will add many new Woo Membership and subscriptions dynamic tags and settings page
 - [x] v2.2.0 Merge to exiting Leanrdash Extension
 - [x] v2.3 Removed the WooCommerce dependency
+- [ ] 2.4 New Widgets
 
 ## CHANGELOG
 
