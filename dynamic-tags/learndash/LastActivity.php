@@ -32,7 +32,7 @@ class LastActivity extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Last Activity', 'hw-ele-woo-dynamic' );
+        return __( 'Last Activity', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -65,11 +65,11 @@ class LastActivity extends Tag {
         $this->add_control(
             'date_format',
             [
-                'label' => __( 'Format', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Format', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'default' => __( 'Default', 'hw-ele-woo-dynamic' ),
-                    'custom'  => __( 'Custom', 'hw-ele-woo-dynamic' ),
+                    'default' => __( 'Default', 'hw-elementor-woo-dynamic' ),
+                    'custom'  => __( 'Custom', 'hw-elementor-woo-dynamic' ),
                 ],
                 'default' => 'default',
             ]
@@ -78,7 +78,7 @@ class LastActivity extends Tag {
         $this->add_control(
             'custom_date_format',
             [
-                'label'       => __( 'Custom Date Format', 'hw-ele-woo-dynamic' ),
+                'label'       => __( 'Custom Date Format', 'hw-elementor-woo-dynamic' ),
                 'type'        => Controls_Manager::TEXT,
                 'condition'   => [
                     'date_format' => 'custom',

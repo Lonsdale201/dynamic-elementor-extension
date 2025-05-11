@@ -15,7 +15,7 @@ class ProductIsNameYourPrice extends Condition_Base {
     }
 
     public function get_label() {
-        return esc_html__('Is Name Your Price', 'hw-ele-woo-dynamic');
+        return esc_html__('Is Name Your Price', 'hw-elementor-woo-dynamic');
     }
 
     public function check($args) {

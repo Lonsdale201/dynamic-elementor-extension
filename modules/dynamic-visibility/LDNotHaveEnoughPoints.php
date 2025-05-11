@@ -21,7 +21,7 @@ class LDNotHaveEnoughPoints extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Not Have Enough Points', 'hw-ele-woo-dynamic');
+        return __('Not Have Enough Points', 'hw-elementor-woo-dynamic');
     }
 
     /**

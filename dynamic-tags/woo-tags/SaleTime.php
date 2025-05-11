@@ -14,7 +14,7 @@ class SaleTime extends Tag {
     }
 
     public function get_title() {
-        return __('Sale Time', 'hw-ele-woo-dynamic');
+        return __('Sale Time', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {

@@ -21,7 +21,7 @@ class UserMembershipAccessCanView extends Base {
      * @return string
      */
     public function get_name() {
-        return __( 'User Membership Access Can View', 'jet-engine' );
+        return __( 'User Membership Access Can View', 'hw-elementor-woo-dynamic' );
     }
 
     /**

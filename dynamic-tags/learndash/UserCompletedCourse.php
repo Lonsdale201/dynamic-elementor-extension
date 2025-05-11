@@ -21,7 +21,7 @@ class UserCompletedCourse extends Tag {
     }
 
     public function get_title() {
-        return __( 'User Completed Courses Count', 'hw-ele-woo-dynamic' );
+        return __( 'User Completed Courses Count', 'hw-elementor-woo-dynamic' );
     }
 
     public function get_group() {
@@ -39,10 +39,10 @@ class UserCompletedCourse extends Tag {
         $this->add_control(
             'no_courses_text',
             [
-                'label' => __( 'Text if No Courses', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Text if No Courses', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => '',
-                'description' => __( 'Text to display if user has no completed courses', 'hw-ele-woo-dynamic' ),
+                'description' => __( 'Text to display if user has no completed courses', 'hw-elementor-woo-dynamic' ),
             ]
         );
     }

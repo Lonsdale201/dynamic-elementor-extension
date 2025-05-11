@@ -13,7 +13,7 @@ class UserRole extends Tag {
     }
 
     public function get_title() {
-        return __('User Role', 'hw-ele-woo-dynamic');
+        return __('User Role', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {

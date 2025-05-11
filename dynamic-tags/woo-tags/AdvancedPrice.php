@@ -15,7 +15,7 @@ class AdvancedPrice extends Tag {
     }
 
     public function get_title() {
-        return __('Advanced Price', 'hw-ele-woo-dynamic');
+        return __('Advanced Price', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -30,10 +30,10 @@ class AdvancedPrice extends Tag {
         $this->add_control(
             'show_tax_info',
             [
-                'label' => __('Show Tax Information', 'hw-ele-woo-dynamic'),
+                'label' => __('Show Tax Information', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => __('No', 'hw-ele-woo-dynamic'),
+                'label_on' => __('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => __('No', 'hw-elementor-woo-dynamic'),
                 'default' => '',
                 'return_value' => 'yes',
             ]

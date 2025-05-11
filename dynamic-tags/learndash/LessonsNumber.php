@@ -32,7 +32,7 @@ class LessonsNumber extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Lessons Number', 'hw-ele-woo-dynamic' );
+        return __( 'Lessons Number', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -65,7 +65,7 @@ class LessonsNumber extends Tag {
         $this->add_control(
             'visibility',
             [
-                'label'   => __( 'Visibility', 'hw-ele-woo-dynamic' ),
+                'label'   => __( 'Visibility', 'hw-elementor-woo-dynamic' ),
                 'type'    => Controls_Manager::SELECT,
                 'options' => LDQuery::get_visibility_options(),
                 'default' => 'everyone',
@@ -75,11 +75,11 @@ class LessonsNumber extends Tag {
         $this->add_control(
             'include_topics',
             [
-                'label'        => __( 'Include Topics', 'hw-ele-woo-dynamic' ),
+                'label'        => __( 'Include Topics', 'hw-elementor-woo-dynamic' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'description'  => __( 'If enabled, topics count will be added to the lesson count.', 'hw-ele-woo-dynamic' ),
-                'label_on'     => __( 'Yes', 'hw-ele-woo-dynamic' ),
-                'label_off'    => __( 'No', 'hw-ele-woo-dynamic' ),
+                'description'  => __( 'If enabled, topics count will be added to the lesson count.', 'hw-elementor-woo-dynamic' ),
+                'label_on'     => __( 'Yes', 'hw-elementor-woo-dynamic' ),
+                'label_off'    => __( 'No', 'hw-elementor-woo-dynamic' ),
                 'return_value' => 'yes',
                 'default'      => '',
             ]
@@ -88,12 +88,12 @@ class LessonsNumber extends Tag {
         $this->add_control(
             'formatting',
             [
-                'label'   => __( 'Formatting', 'hw-ele-woo-dynamic' ),
+                'label'   => __( 'Formatting', 'hw-elementor-woo-dynamic' ),
                 'type'    => Controls_Manager::SELECT,
                 'options' => [
-                    'plain'            => __( 'Plain Number', 'hw-ele-woo-dynamic' ),
-                    'formatted'        => __( 'Formatted Number (Completed/Total)', 'hw-ele-woo-dynamic' ),
-                    'completed_lessons'=> __( 'Completed Lessons (Topics) Only', 'hw-ele-woo-dynamic' ),
+                    'plain'            => __( 'Plain Number', 'hw-elementor-woo-dynamic' ),
+                    'formatted'        => __( 'Formatted Number (Completed/Total)', 'hw-elementor-woo-dynamic' ),
+                    'completed_lessons'=> __( 'Completed Lessons (Topics) Only', 'hw-elementor-woo-dynamic' ),
                 ],
                 'default' => 'plain',
             ]

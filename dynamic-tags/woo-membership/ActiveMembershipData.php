@@ -13,7 +13,7 @@ class ActiveMembershipData extends Tag {
     }
 
     public function get_title() {
-        return __('Active Membership Data', 'hw-ele-woo-dynamic');
+        return __('Active Membership Data', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -23,9 +23,10 @@ class ActiveMembershipData extends Tag {
     public function get_categories() {
         return [
             Module::TEXT_CATEGORY,
-            Module::URL_CATEGORY   
+            Module::URL_CATEGORY
         ];
     }
+
     protected function _register_controls() {
         $options = [];
         $plans = wc_memberships_get_membership_plans();
@@ -36,7 +37,7 @@ class ActiveMembershipData extends Tag {
         $this->add_control(
             'selected_membership',
             [
-                'label' => __('Select Membership', 'hw-ele-woo-dynamic'),
+                'label' => __('Select Membership', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT2,
                 'options' => $options,
                 'default' => [],
@@ -47,17 +48,17 @@ class ActiveMembershipData extends Tag {
         $this->add_control(
             'data_type',
             [
-                'label' => __('Data Type', 'hw-ele-woo-dynamic'),
+                'label' => __('Data Type', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'plan_name' => __('Plan Name', 'hw-ele-woo-dynamic'),
-                    'status' => __('Status', 'hw-ele-woo-dynamic'),
-                    'member_since' => __('Member Since', 'hw-ele-woo-dynamic'),
-                    'next_bill_on' => __('Next Bill On', 'hw-ele-woo-dynamic'),
-                    'expires' => __('Expires', 'hw-ele-woo-dynamic'),
-                    'remaining_time' => __('Remaining time', 'hw-ele-woo-dynamic'),
-                    'notes' => __('Notes', 'hw-ele-woo-dynamic'), 
-                    'link' => __('Link', 'hw-ele-woo-dynamic')
+                    'plan_name' => __('Plan Name', 'hw-elementor-woo-dynamic'),
+                    'status' => __('Status', 'hw-elementor-woo-dynamic'),
+                    'member_since' => __('Member Since', 'hw-elementor-woo-dynamic'),
+                    'next_bill_on' => __('Next Bill On', 'hw-elementor-woo-dynamic'),
+                    'expires' => __('Expires', 'hw-elementor-woo-dynamic'),
+                    'remaining_time' => __('Remaining time', 'hw-elementor-woo-dynamic'),
+                    'notes' => __('Notes', 'hw-elementor-woo-dynamic'),
+                    'link' => __('Link', 'hw-elementor-woo-dynamic')
                 ],
                 'default' => 'plan_name',
             ]
@@ -66,10 +67,10 @@ class ActiveMembershipData extends Tag {
         $this->add_control(
             'date_format',
             [
-                'label' => __('Date Format', 'hw-ele-woo-dynamic'),
+                'label' => __('Date Format', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '',
-                'description' => __('Enter the date format (e.g., Y-m-d). Leave blank to use the site\'s default format.', 'hw-ele-woo-dynamic'),
+                'description' => __('Enter the date format (e.g., Y-m-d). Leave blank to use the site\'s default format.', 'hw-elementor-woo-dynamic'),
                 'condition' => [
                     'data_type' => ['member_since', 'expires', 'next_bill_on'],
                 ],
@@ -79,10 +80,10 @@ class ActiveMembershipData extends Tag {
         $this->add_control(
             'no_expiry_text',
             [
-                'label' => __('No Expiry Text', 'hw-ele-woo-dynamic'),
+                'label' => __('No Expiry Text', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Never expires', 'hw-ele-woo-dynamic'),
-                'description' => __('Text to display when there is no expiry date.', 'hw-ele-woo-dynamic'),
+                'default' => __('Never expires', 'hw-elementor-woo-dynamic'),
+                'description' => __('Text to display when there is no expiry date.', 'hw-elementor-woo-dynamic'),
                 'condition' => [
                     'data_type' => ['expires', 'remaining_time'],
                 ],
@@ -92,11 +93,11 @@ class ActiveMembershipData extends Tag {
         $this->add_control(
             'notes_display',
             [
-                'label' => __('Notes Display', 'hw-ele-woo-dynamic'),
+                'label' => __('Notes Display', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'all' => __('Show All', 'hw-ele-woo-dynamic'),
-                    'latest' => __('Show Latest', 'hw-ele-woo-dynamic'),
+                    'all' => __('Show All', 'hw-elementor-woo-dynamic'),
+                    'latest' => __('Show Latest', 'hw-elementor-woo-dynamic'),
                 ],
                 'default' => 'all',
                 'label_block' => true,
@@ -109,10 +110,10 @@ class ActiveMembershipData extends Tag {
         $this->add_control(
             'remaining_time_text',
             [
-                'label' => __('Remaining Time Text', 'hw-ele-woo-dynamic'),
+                'label' => __('Remaining Time Text', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'Your membership expires in {remaining_time} days.',
-                'description' => __('Use {remaining_time} where you want to display the remaining days. If the membership has expired, "Expired" will be shown.', 'hw-ele-woo-dynamic'),
+                'description' => __('Use {remaining_time} where you want to display the remaining days. If the membership has expired, "Expired" will be shown.', 'hw-elementor-woo-dynamic'),
                 'condition' => [
                     'data_type' => 'remaining_time',
                 ],
@@ -122,31 +123,29 @@ class ActiveMembershipData extends Tag {
         $this->add_control(
             'expired_text',
             [
-                'label' => __('Expired Text', 'hw-ele-woo-dynamic'),
+                'label' => __('Expired Text', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'Expired',
-                'description' => __('Text to display when the membership has expired.', 'hw-ele-woo-dynamic'),
+                'description' => __('Text to display when the membership has expired.', 'hw-elementor-woo-dynamic'),
                 'condition' => [
                     'data_type' => 'remaining_time',
                 ],
             ]
         );
-
     }
 
     public function render() {
         $user_id = get_current_user_id();
         if (!$user_id) {
-            echo '';
             return;
         }
-    
+
         $selected_membership_slug = $this->get_settings_for_display('selected_membership');
         $data_type = $this->get_settings_for_display('data_type');
         $user_memberships = wc_memberships_get_user_memberships($user_id);
         $date_format = $this->get_settings_for_display('date_format') ?: get_option('date_format');
         $notes_display = $this->get_settings_for_display('notes_display');
-    
+
         foreach ($user_memberships as $membership) {
             $plan = $membership->get_plan();
             if ($plan->get_slug() === $selected_membership_slug) {
@@ -160,7 +159,7 @@ class ActiveMembershipData extends Tag {
                     case 'member_since':
                         $start_date = $membership->get_local_start_date('timestamp');
                         if ($start_date) {
-                            echo '<time datetime="' . date('Y-m-d', $start_date) . '" title="' . esc_attr(date_i18n(wc_date_format(), $start_date)) . '">' . date_i18n($date_format, $start_date) . '</time>';
+                            echo '<time datetime="' . esc_attr(date('Y-m-d', $start_date)) . '" title="' . esc_attr(date_i18n(wc_date_format(), $start_date)) . '">' . esc_html(date_i18n($date_format, $start_date)) . '</time>';
                         } else {
                             echo esc_html__('N/A', 'woocommerce-memberships');
                         }
@@ -170,10 +169,8 @@ class ActiveMembershipData extends Tag {
                         $subscription_id = get_post_meta($membership->get_id(), '_subscription_id', true);
                         $has_subscription = $subscription_id && function_exists('wcs_get_subscription') && wcs_get_subscription($subscription_id);
                         if ($expiry_date) {
-                            echo '<time datetime="' . date('Y-m-d', $expiry_date) . '" title="' . esc_attr(date_i18n(wc_date_format(), $expiry_date)) . '">' . date_i18n($date_format, $expiry_date) . '</time>';
-                        } else if ($has_subscription) {
-                            echo ''; // Ha van előfizetés, akkor ne jelenítsük meg a "No Expiry Text"-et
-                        } else {
+                            echo '<time datetime="' . esc_attr(date('Y-m-d', $expiry_date)) . '" title="' . esc_attr(date_i18n(wc_date_format(), $expiry_date)) . '">' . esc_html(date_i18n($date_format, $expiry_date)) . '</time>';
+                        } elseif (!$has_subscription) {
                             echo esc_html($this->get_settings_for_display('no_expiry_text'));
                         }
                         break;
@@ -183,12 +180,8 @@ class ActiveMembershipData extends Tag {
                             $subscription = wcs_get_subscription($subscription_id);
                             if ($subscription && $subscription->get_date('next_payment')) {
                                 $next_payment_date = $subscription->get_date('next_payment');
-                                echo date_i18n($date_format, strtotime($next_payment_date));
-                            } else {
-                                echo '';
+                                echo esc_html(date_i18n($date_format, strtotime($next_payment_date)));
                             }
-                        } else {
-                            echo '';
                         }
                         break;
                     case 'remaining_time':
@@ -196,11 +189,11 @@ class ActiveMembershipData extends Tag {
                         $current_time = current_time('timestamp');
                         if ($expiry_date && $expiry_date > $current_time) {
                             $remaining = ceil(($expiry_date - $current_time) / DAY_IN_SECONDS);
-                            echo str_replace('{remaining_time}', $remaining, $this->get_settings_for_display('remaining_time_text'));
+                            echo esc_html(str_replace('{remaining_time}', $remaining, $this->get_settings_for_display('remaining_time_text')));
                         } elseif ($expiry_date && $expiry_date <= $current_time) {
-                            echo $this->get_settings_for_display('expired_text');
+                            echo esc_html($this->get_settings_for_display('expired_text'));
                         } else {
-                            echo $this->get_settings_for_display('no_expiry_text');
+                            echo esc_html($this->get_settings_for_display('no_expiry_text'));
                         }
                         break;
                     case 'notes':
@@ -221,17 +214,11 @@ class ActiveMembershipData extends Tag {
                         if (function_exists('wc_memberships_get_members_area_url')) {
                             $members_area_url = wc_memberships_get_members_area_url($membership->get_plan());
                             echo esc_url($members_area_url);
-                            return;
                         }
                         break;
                 }
                 return;
             }
         }
-    
-        echo ''; 
     }
-    
-    
-    
 }

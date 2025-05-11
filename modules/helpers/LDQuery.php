@@ -43,8 +43,8 @@ class LDQuery {
      */
     public static function get_visibility_options() {
         return [
-            'everyone' => __('Everybody', 'elementor-pro'),
-            'enrolled' => __('Only Students', 'elementor-pro'),
+            'everyone' => __('Everybody', 'hw-elementor-woo-dynamic'),
+            'enrolled' => __('Only Students', 'hw-elementor-woo-dynamic'),
         ];
     }
 

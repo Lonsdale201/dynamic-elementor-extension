@@ -14,7 +14,7 @@ class NextProduct extends Tag {
     }
 
     public function get_title() {
-        return __('Next Product', 'hw-ele-woo-dynamic');
+        return __('Next Product', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,12 +29,12 @@ class NextProduct extends Tag {
         $this->add_control(
             'display_type',
             [
-                'label' => __('Display Type', 'hw-ele-woo-dynamic'),
+                'label' => __('Display Type', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'title' => __('Product Title', 'hw-ele-woo-dynamic'),
-                    'link' => __('Product Link', 'hw-ele-woo-dynamic'),
-                    'price' => __('Product Price', 'hw-ele-woo-dynamic'),
+                    'title' => __('Product Title', 'hw-elementor-woo-dynamic'),
+                    'link' => __('Product Link', 'hw-elementor-woo-dynamic'),
+                    'price' => __('Product Price', 'hw-elementor-woo-dynamic'),
                 ],
                 'default' => 'title',
             ]

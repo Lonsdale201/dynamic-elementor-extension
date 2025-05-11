@@ -30,7 +30,7 @@ class ProductIsPurchasedUser extends Condition_Base {
      * @return string The condition label.
      */
     public function get_label() {
-        return esc_html__('Is Purchased By User', 'hw-ele-woo-dynamic');
+        return esc_html__('Is Purchased By User', 'hw-elementor-woo-dynamic');
     }
 
     /**

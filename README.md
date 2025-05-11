@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.3.3
+Stable tag: 2.3.3.1
 
 This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -283,6 +283,12 @@ Other Theme Conditions
 - [ ] v2.4.0 New Widgets
 
 ## CHANGELOG
+
+### V 2.3.3.1 _2025.05.11_
+
+- Fixed the critical issue cause a missing file
+
+---
 
 ### V 2.3.3 _2025.05.09_
 

@@ -32,7 +32,7 @@ class CourseStatus extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Status', 'hw-ele-woo-dynamic' );
+        return __( 'Course Status', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -66,10 +66,10 @@ class CourseStatus extends Tag {
         $this->add_control(
             'use_custom_text',
             [
-                'label' => __( 'Custom Text', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Custom Text', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __( 'Yes', 'hw-ele-woo-dynamic' ),
-                'label_off' => __( 'No', 'hw-ele-woo-dynamic' ),
+                'label_on' => __( 'Yes', 'hw-elementor-woo-dynamic' ),
+                'label_off' => __( 'No', 'hw-elementor-woo-dynamic' ),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -79,7 +79,7 @@ class CourseStatus extends Tag {
         $this->add_control(
             'custom_text_not_enrolled',
             [
-                'label' => __( 'Not Enrolled', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Not Enrolled', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => __( 'Not Enrolled', 'learndash' ),
                 'condition' => [
@@ -92,7 +92,7 @@ class CourseStatus extends Tag {
         $this->add_control(
             'custom_text_in_progress',
             [
-                'label' => __( 'In Progress', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'In Progress', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => __( 'In Progress', 'learndash' ),
                 'condition' => [
@@ -105,7 +105,7 @@ class CourseStatus extends Tag {
         $this->add_control(
             'custom_text_completed',
             [
-                'label' => __( 'Completed', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Completed', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => __( 'Completed', 'learndash' ),
                 'condition' => [

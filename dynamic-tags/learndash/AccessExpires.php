@@ -32,7 +32,7 @@ class AccessExpires extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Access Expires', 'hw-ele-woo-dynamic' );
+        return __( 'Access Expires', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -64,20 +64,20 @@ class AccessExpires extends Tag {
         $this->add_control(
             'no_expiry_text',
             [
-                'label'   => __( 'No Expiry Text', 'hw-ele-woo-dynamic' ),
+                'label'   => __( 'No Expiry Text', 'hw-elementor-woo-dynamic' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => __( 'Lifetime', 'hw-ele-woo-dynamic' ),
+                'default' => __( 'Lifetime', 'hw-elementor-woo-dynamic' ),
             ]
         );
 
         $this->add_control(
             'output_format',
             [
-                'label'   => __( 'Output Format', 'hw-ele-woo-dynamic' ),
+                'label'   => __( 'Output Format', 'hw-elementor-woo-dynamic' ),
                 'type'    => Controls_Manager::SELECT,
                 'options' => [
-                    'plain_date'  => __( 'Plain Date', 'hw-ele-woo-dynamic' ),
-                    'custom_text' => __( 'Custom Text', 'hw-ele-woo-dynamic' ),
+                    'plain_date'  => __( 'Plain Date', 'hw-elementor-woo-dynamic' ),
+                    'custom_text' => __( 'Custom Text', 'hw-elementor-woo-dynamic' ),
                 ],
                 'default' => 'plain_date',
             ]
@@ -86,9 +86,9 @@ class AccessExpires extends Tag {
         $this->add_control(
             'custom_text_template',
             [
-                'label'       => __( 'Custom Text Template', 'hw-ele-woo-dynamic' ),
+                'label'       => __( 'Custom Text Template', 'hw-elementor-woo-dynamic' ),
                 'type'        => Controls_Manager::TEXTAREA,
-                'default'     => __( 'Expires on %expiry_date%, %expiry_day% days left', 'hw-ele-woo-dynamic' ),
+                'default'     => __( 'Expires on %expiry_date%, %expiry_day% days left', 'hw-elementor-woo-dynamic' ),
                 'condition'   => [
                     'output_format' => 'custom_text',
                 ],

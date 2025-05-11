@@ -21,7 +21,7 @@ class LDUserCompletedCurrentCourse extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Course Completed', 'hw-ele-woo-dynamic');
+        return __('Course Completed', 'hw-elementor-woo-dynamic');
     }
 
     /**

@@ -21,7 +21,7 @@ class LDCurrentUserPurchasedCurrentCourse extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Course Enrolled', 'hw-ele-woo-dynamic');
+        return __('Course Enrolled', 'hw-elementor-woo-dynamic');
     }
 
     /**

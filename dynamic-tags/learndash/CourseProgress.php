@@ -31,7 +31,7 @@ class CourseProgress extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Progress Percentage', 'hw-ele-woo-dynamic' );
+        return __( 'Progress Percentage', 'hw-elementor-woo-dynamic' );
     }
 
     /**

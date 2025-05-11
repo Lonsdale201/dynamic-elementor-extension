@@ -13,7 +13,7 @@ class ProductWeight extends Tag {
     }
 
     public function get_title() {
-        return __('Product Weight', 'hw-ele-woo-dynamic');
+        return __('Product Weight', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {

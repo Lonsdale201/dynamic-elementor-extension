@@ -32,7 +32,7 @@ class AwardedPoints extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Awarded on Completions', 'hw-ele-woo-dynamic' );
+        return __( 'Awarded on Completions', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -69,7 +69,7 @@ class AwardedPoints extends Tag {
         $this->add_control(
             'visibility',
             [
-                'label' => __( 'Visibility', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Visibility', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => LDQuery::get_visibility_options(), 
                 'default' => 'everyone',

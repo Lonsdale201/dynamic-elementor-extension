@@ -14,7 +14,7 @@ class TotalSpent extends Tag {
     }
 
     public function get_title() {
-        return __('Total Spent', 'hw-ele-woo-dynamic');
+        return __('Total Spent', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,10 +29,10 @@ class TotalSpent extends Tag {
         $this->add_control(
             'formatted_output',
             [
-                'label' => __('Formatted Output', 'hw-ele-woo-dynamic'),
+                'label' => __('Formatted Output', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => __('No', 'hw-ele-woo-dynamic'),
+                'label_on' => __('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => __('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]

@@ -31,7 +31,7 @@ class ProductIsDigital extends Condition_Base {
      * @return string The condition label.
      */
     public function get_label() {
-        return esc_html__('Is Product Virtual', 'hw-ele-woo-dynamic');
+        return esc_html__('Is Product Virtual', 'hw-elementor-woo-dynamic');
     }
 
     /**

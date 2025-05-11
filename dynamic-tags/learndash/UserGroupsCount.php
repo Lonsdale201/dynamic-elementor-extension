@@ -20,7 +20,7 @@ class UserGroupsCount extends Tag {
     }
 
     public function get_title() {
-        return __( 'User Groups Count', 'hw-ele-woo-dynamic' );
+        return __( 'User Groups Count', 'hw-elementor-woo-dynamic' );
     }
 
     public function get_group() {

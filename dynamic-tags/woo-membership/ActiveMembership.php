@@ -14,7 +14,7 @@ class ActiveMembership extends Tag {
     }
 
     public function get_title() {
-        return __('Active Membership', 'hw-ele-woo-dynamic');
+        return __('Active Membership', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,10 +29,10 @@ class ActiveMembership extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => __('Linkable', 'hw-ele-woo-dynamic'),
+                'label' => __('Linkable', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => __('No', 'hw-ele-woo-dynamic'),
+                'label_on' => __('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => __('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -40,30 +40,32 @@ class ActiveMembership extends Tag {
     }
 
     public function render() {
-        if (!class_exists('WC_Memberships')) {
+        if ( ! class_exists( 'WC_Memberships' ) ) {
             echo '';
             return;
         }
-
+    
         $user_id = get_current_user_id();
-        if (!$user_id) {
+        if ( ! $user_id ) {
             echo '';
             return;
         }
-
-        $active_memberships = wc_memberships_get_user_active_memberships($user_id);
+    
+        $active_memberships = wc_memberships_get_user_active_memberships( $user_id );
         $output = [];
-
-        foreach ($active_memberships as $membership) {
+    
+        foreach ( $active_memberships as $membership ) {
             $plan = $membership->get_plan();
-            if (!is_null($plan)) {
+            if ( ! is_null( $plan ) ) {
                 $plan_name = $plan->get_name();
-                $linkable = $this->get_settings_for_display('linkable') === 'yes';
-                $membership_url = $linkable ? wc_memberships_get_members_area_url($plan) : '';
-                $output[] = $linkable ? "<a href='" . esc_url($membership_url) . "'>" . esc_html($plan_name) . "</a>" : esc_html($plan_name);
+                $linkable = $this->get_settings_for_display( 'linkable' ) === 'yes';
+                $membership_url = $linkable ? wc_memberships_get_members_area_url( $plan ) : '';
+                $output[] = $linkable
+                    ? '<a href="' . esc_url( $membership_url ) . '">' . esc_html( $plan_name ) . '</a>'
+                    : esc_html( $plan_name );
             }
         }
-
-        echo implode(', ', $output);
-    }
+    
+        echo wp_kses_post( implode( ', ', $output ) );
+    }    
 }

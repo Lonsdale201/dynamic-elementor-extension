@@ -24,42 +24,42 @@ class UnitConverter {
 
     public static function add_measurement_callback_controls( $args ) {
         $unit_options = [
-            'mm'   => esc_html__( 'Millimeters (mm)', 'jet-engine' ),
-            'cm'   => esc_html__( 'Centimeters (cm)', 'jet-engine' ),
-            'm'    => esc_html__( 'Meters (m)', 'jet-engine' ),
-            'km'   => esc_html__( 'Kilometers (km)', 'jet-engine' ),
-            'in'   => esc_html__( 'Inches (in)', 'jet-engine' ),
-            'ft'   => esc_html__( 'Feet (ft)', 'jet-engine' ),
-            'yd'   => esc_html__( 'Yards (yd)', 'jet-engine' ),
-            'mile' => esc_html__( 'Miles', 'jet-engine' ),
-            'ml'   => esc_html__( 'Milliliters (ml)', 'jet-engine' ),
-            'dl'   => esc_html__( 'Deciliters (dl)', 'jet-engine' ),
-            'l'    => esc_html__( 'Liters (l)', 'jet-engine' ),
-            'g'    => esc_html__( 'Grams (g)', 'jet-engine' ),
-            'dkg'  => esc_html__( 'Dekagrams (dkg)', 'jet-engine' ),
-            'kg'   => esc_html__( 'Kilograms (kg)', 'jet-engine' ),
-            'lb'   => esc_html__( 'Pounds (lb)', 'jet-engine' ),
-            'byte' => esc_html__( 'Bytes', 'jet-engine' ),
-            'mb'   => esc_html__( 'Megabytes (MB)', 'jet-engine' ),
-            'gb'   => esc_html__( 'Gigabytes (GB)', 'jet-engine' ),
-            'w'    => esc_html__( 'Watts (W)', 'jet-engine' ),
-            'kw'   => esc_html__( 'Kilowatts (kW)', 'jet-engine' ),
-            'mw'   => esc_html__( 'Megawatts (MW)', 'jet-engine' ),
-            'gw'   => esc_html__( 'Gigawatts (GW)', 'jet-engine' ),
-            'v'    => esc_html__( 'Volts (V)', 'jet-engine' ),
-            'kmph' => esc_html__( 'Kilometers per hour (km/h)', 'jet-engine' ),
-            'mph'  => esc_html__( 'Miles per hour (mph)', 'jet-engine' ),
-            's'    => esc_html__( 'Seconds (s)', 'jet-engine' ),
-            'min'  => esc_html__( 'Minutes (min)', 'jet-engine' ),
-            'h'    => esc_html__( 'Hours (h)', 'jet-engine' ),
-            'd'    => esc_html__( 'Days (d)', 'jet-engine' ),
-            'c'    => esc_html__( 'Celsius (°C)', 'jet-engine' ),
-            'k'    => esc_html__( 'Kelvin (K)', 'jet-engine' ),
-            'f'    => esc_html__( 'Fahrenheit (°F)', 'jet-engine' ),
+            'mm'   => esc_html__( 'Millimeters (mm)', 'hw-elementor-woo-dynamic' ),
+            'cm'   => esc_html__( 'Centimeters (cm)', 'hw-elementor-woo-dynamic' ),
+            'm'    => esc_html__( 'Meters (m)', 'hw-elementor-woo-dynamic' ),
+            'km'   => esc_html__( 'Kilometers (km)', 'hw-elementor-woo-dynamic' ),
+            'in'   => esc_html__( 'Inches (in)', 'hw-elementor-woo-dynamic' ),
+            'ft'   => esc_html__( 'Feet (ft)', 'hw-elementor-woo-dynamic' ),
+            'yd'   => esc_html__( 'Yards (yd)', 'hw-elementor-woo-dynamic' ),
+            'mile' => esc_html__( 'Miles', 'hw-elementor-woo-dynamic' ),
+            'ml'   => esc_html__( 'Milliliters (ml)', 'hw-elementor-woo-dynamic' ),
+            'dl'   => esc_html__( 'Deciliters (dl)', 'hw-elementor-woo-dynamic' ),
+            'l'    => esc_html__( 'Liters (l)', 'hw-elementor-woo-dynamic' ),
+            'g'    => esc_html__( 'Grams (g)', 'hw-elementor-woo-dynamic' ),
+            'dkg'  => esc_html__( 'Dekagrams (dkg)', 'hw-elementor-woo-dynamic' ),
+            'kg'   => esc_html__( 'Kilograms (kg)', 'hw-elementor-woo-dynamic' ),
+            'lb'   => esc_html__( 'Pounds (lb)', 'hw-elementor-woo-dynamic' ),
+            'byte' => esc_html__( 'Bytes', 'hw-elementor-woo-dynamic' ),
+            'mb'   => esc_html__( 'Megabytes (MB)', 'hw-elementor-woo-dynamic' ),
+            'gb'   => esc_html__( 'Gigabytes (GB)', 'hw-elementor-woo-dynamic' ),
+            'w'    => esc_html__( 'Watts (W)', 'hw-elementor-woo-dynamic' ),
+            'kw'   => esc_html__( 'Kilowatts (kW)', 'hw-elementor-woo-dynamic' ),
+            'mw'   => esc_html__( 'Megawatts (MW)', 'hw-elementor-woo-dynamic' ),
+            'gw'   => esc_html__( 'Gigawatts (GW)', 'hw-elementor-woo-dynamic' ),
+            'v'    => esc_html__( 'Volts (V)', 'hw-elementor-woo-dynamic' ),
+            'kmph' => esc_html__( 'Kilometers per hour (km/h)', 'hw-elementor-woo-dynamic' ),
+            'mph'  => esc_html__( 'Miles per hour (mph)', 'hw-elementor-woo-dynamic' ),
+            's'    => esc_html__( 'Seconds (s)', 'hw-elementor-woo-dynamic' ),
+            'min'  => esc_html__( 'Minutes (min)', 'hw-elementor-woo-dynamic' ),
+            'h'    => esc_html__( 'Hours (h)', 'hw-elementor-woo-dynamic' ),
+            'd'    => esc_html__( 'Days (d)', 'hw-elementor-woo-dynamic' ),
+            'c'    => esc_html__( 'Celsius (°C)', 'hw-elementor-woo-dynamic' ),
+            'k'    => esc_html__( 'Kelvin (K)', 'hw-elementor-woo-dynamic' ),
+            'f'    => esc_html__( 'Fahrenheit (°F)', 'hw-elementor-woo-dynamic' ),
         ];
 
         $args['source_measurement_unit'] = [
-            'label'   => esc_html__( 'Source Measurement Unit', 'jet-engine' ),
+            'label'   => esc_html__( 'Source Measurement Unit', 'hw-elementor-woo-dynamic' ),
             'type'    => 'select',
             'default' => 'cm',
             'options' => $unit_options,
@@ -70,7 +70,7 @@ class UnitConverter {
         ];
 
         $args['target_measurement_unit'] = [
-            'label'   => esc_html__( 'Target Measurement Unit', 'jet-engine' ),
+            'label'   => esc_html__( 'Target Measurement Unit', 'hw-elementor-woo-dynamic' ),
             'type'    => 'select',
             'default' => 'cm',
             'options' => $unit_options,
@@ -81,7 +81,7 @@ class UnitConverter {
         ];
 
         $args['custom_format'] = [
-            'label'   => esc_html__( 'Custom Format', 'jet-engine' ),
+            'label'   => esc_html__( 'Custom Format', 'hw-elementor-woo-dynamic' ),
             'type'    => 'switcher',
             'default' => '',
             'return_value' => 'yes',
@@ -92,7 +92,7 @@ class UnitConverter {
         ];
 
         $args['hide_unit'] = [
-            'label'   => esc_html__( 'Hide Unit', 'jet-engine' ),
+            'label'   => esc_html__( 'Hide Unit', 'hw-elementor-woo-dynamic' ),
             'type'    => 'switcher',
             'default' => '',
             'return_value' => 'yes',
@@ -104,7 +104,7 @@ class UnitConverter {
         ];
 
         $args['decimal_point'] = [
-            'label'       => esc_html__( 'Decimal Point', 'jet-engine' ),
+            'label'       => esc_html__( 'Decimal Point', 'hw-elementor-woo-dynamic' ),
             'type'        => 'text',
             'default'     => '.',
             'condition'   => [
@@ -115,7 +115,7 @@ class UnitConverter {
         ];
 
         $args['thousand_separator'] = [
-            'label'       => esc_html__( 'Thousand Separator', 'jet-engine' ),
+            'label'       => esc_html__( 'Thousand Separator', 'hw-elementor-woo-dynamic' ),
             'type'        => 'text',
             'default'     => ',',
             'condition'   => [
@@ -126,7 +126,7 @@ class UnitConverter {
         ];
 
         $args['decimal_points'] = [
-            'label'       => esc_html__( 'Decimal Points', 'jet-engine' ),
+            'label'       => esc_html__( 'Decimal Points', 'hw-elementor-woo-dynamic' ),
             'type'        => 'number',
             'default'     => 0,
             'min'         => 0,

@@ -14,7 +14,7 @@ class FeaturedBadge extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Featured Badge', 'hw-ele-woo-dynamic');
+        return esc_html__('Featured Badge', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,10 +29,10 @@ class FeaturedBadge extends Tag {
         $this->add_control(
             'enable_custom_text',
             [
-                'label' => esc_html__('Enable Custom Text', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Enable Custom Text', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -41,9 +41,9 @@ class FeaturedBadge extends Tag {
         $this->add_control(
             'custom_text',
             [
-                'label' => esc_html__('Custom Text for Featured Product', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Custom Text for Featured Product', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Featured', 'hw-ele-woo-dynamic'),
+                'default' => esc_html__('Featured', 'hw-elementor-woo-dynamic'),
                 'condition' => [
                     'enable_custom_text' => 'yes',
                 ],

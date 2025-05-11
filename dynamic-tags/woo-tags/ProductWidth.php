@@ -14,7 +14,7 @@ class ProductWidth extends Tag {
     }
 
     public function get_title() {
-        return __('Product Width', 'hw-ele-woo-dynamic');
+        return __('Product Width', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {

@@ -31,7 +31,7 @@ class ProductIsVariable extends Condition_Base {
      * @return string The condition label.
      */
     public function get_label() {
-        return esc_html__( 'Is Product Variable', 'hw-ele-woo-dynamic' );
+        return esc_html__( 'Is Product Variable', 'hw-elementor-woo-dynamic' );
     }
 
     /**

@@ -69,8 +69,8 @@ class DynamicSettings {
         }
 
         add_menu_page(
-            __( 'Dynamic Elements', 'hw-ele-woo-dynamic' ),
-            __( 'Dynamic Elements', 'hw-ele-woo-dynamic' ),
+            __( 'Dynamic Elements', 'hw-elementor-woo-dynamic' ),
+            __( 'Dynamic Elements', 'hw-elementor-woo-dynamic' ),
             'manage_options',
             'dynamic-extension-settings',
             [ $this, 'settings_page_html' ],
@@ -116,7 +116,7 @@ class DynamicSettings {
                     settings_fields( 'dynamic_extension' );
                     do_settings_sections( 'dynamic-extension-settings' );
                     echo '<input type="hidden" name="dynamic_extension_settings[settings_submitted]" value="1">';
-                    submit_button( __( 'Save Changes', 'hw-ele-woo-dynamic' ) );
+                    submit_button( __( 'Save Changes', 'hw-elementor-woo-dynamic' ) );
                 ?>
             </form>
         </div>
@@ -129,81 +129,81 @@ class DynamicSettings {
     private function initialize_sections_with_descriptions() {
         $this->sections = [
             'woo_extras' => [
-                'title'       => __( '[WooCommerce] Single Product page / loop dynamic tags', 'hw-ele-woo-dynamic' ),
+                'title'       => __( '[WooCommerce] Single Product page / loop dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'This section contains settings for single product pages and product loops.<br> Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-%E2%80%90-Product-Dynamic-Tags">wikipedia section</a> for tutorial',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
             'global' => [
-                'title'       => __( '[WooCommerce] Global dynamic tags', 'hw-ele-woo-dynamic' ),
-                'description' => __( 'Settings that apply globally across the site.', 'hw-ele-woo-dynamic' ),
+                'title'       => __( '[WooCommerce] Global dynamic tags', 'hw-elementor-woo-dynamic' ),
+                'description' => __( 'Settings that apply globally across the site.', 'hw-elementor-woo-dynamic' ),
             ],
             'cart_value' => [
-                'title'       => __( '[WooCommerce] Cart dynamic tags', 'hw-ele-woo-dynamic' ),
-                'description' => __( 'Settings that apply globally across the site.', 'hw-ele-woo-dynamic' ),
+                'title'       => __( '[WooCommerce] Cart dynamic tags', 'hw-elementor-woo-dynamic' ),
+                'description' => __( 'Settings that apply globally across the site.', 'hw-elementor-woo-dynamic' ),
             ],
             'customer_specific' => [
-                'title'       => __( '[WooCommerce] Customer Specific dynamic tags', 'hw-ele-woo-dynamic' ),
+                'title'       => __( '[WooCommerce] Customer Specific dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'Specific tags that return current logged-in user data. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-%E2%80%90-Customer-Dynamic-Tags">wikipedia section</a> for tutorial',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
             'woo_membership' => [
-                'title'       => __( '[WooCommerce Membership] dynamic tags', 'hw-ele-woo-dynamic' ),
+                'title'       => __( '[WooCommerce Membership] dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'Specific tags for WooCommerce Membership. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-Membership-%E2%80%90-Dynamic-Tags">wikipedia section</a> for tutorial',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
             'woo_subscriptions' => [
-                'title'       => __( '[WooCommerce Subscriptions] dynamic tags', 'hw-ele-woo-dynamic' ),
+                'title'       => __( '[WooCommerce Subscriptions] dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'Specific tags for WooCommerce Subscriptions. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-Subscriptions-%E2%80%90-Dynamic-Tags">wikipedia section</a> for tutorial',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
             'ld_extras_courses' => [
-                'title'       => __( '[Learndash] Course dynamic tags', 'hw-ele-woo-dynamic' ),
+                'title'       => __( '[Learndash] Course dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'Specific tags for the Learndash courses single page. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/LearnDash-%E2%80%90-Dynamic-Tags"> wikipedia section</a> for tutorial',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
             'ld_extras_global' => [
-                'title'       => __( '[Learndash] Global dynamic tags', 'hw-ele-woo-dynamic' ),
+                'title'       => __( '[Learndash] Global dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'Specific Global tags for Learndash. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/LearnDash-%E2%80%90-Dynamic-Tags"> wikipedia section</a> for tutorial',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
             'wp_bar_products_informations' => [
-                'title'       => __( 'Enable extra products informations in the admin toolbar', 'hw-ele-woo-dynamic' ),
+                'title'       => __( 'Enable extra products informations in the admin toolbar', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'In the WP admin top bar you can configure which product information is displayed when viewing the product page on the frontend',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
             'wp_bar_learndash_informations' => [
-                'title'       => __( 'Enable extra learndash informations in the admin toolbar', 'hw-ele-woo-dynamic' ),
+                'title'       => __( 'Enable extra learndash informations in the admin toolbar', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'In the WP admin top bar you can configure which LearnDash information is displayed when viewing the course page on the frontend',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
             'my_account_dashboard' => [
-                'title'       => __( 'My Account Dashboard', 'hw-ele-woo-dynamic' ),
+                'title'       => __( 'My Account Dashboard', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'Here you can insert shortcode content in your WooCommerce dashboard endpoint. You can use shortcode, plain text, or HTML.',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
             'my_account_orders' => [
-                'title'       => __( 'My Account Orders', 'hw-ele-woo-dynamic' ),
+                'title'       => __( 'My Account Orders', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
                     'Here you can insert shortcode content in your WooCommerce orders endpoint. You can use shortcode, plain text, or HTML.',
-                    'hw-ele-woo-dynamic'
+                    'hw-elementor-woo-dynamic'
                 ),
             ],
         ];
@@ -219,10 +219,10 @@ class DynamicSettings {
         register_setting(
             'dynamic_extension',
             'dynamic_extension_settings',
-            [ $this, 'validate_settings' ]
+            [ $this, 'validate_settings' ] // phpcs:ignore PluginCheck.CodeAnalysis.SettingSanitization.register_settingDynamic
         );
+        
 
-        // Loop through each defined section and add it, unless its dependencies are missing.
         foreach ( $this->sections as $id => $data ) {
 
             // WooCommerce-based sections
@@ -253,7 +253,7 @@ class DynamicSettings {
                 'dynamic_extension_' . $id,
                 $data['title'],
                 function() use ( $data ) {
-                    echo '<p>' . $data['description'] . '</p>';
+                    echo '<p>' . wp_kses_post( $data['description'] ) . '</p>';
                 },
                 'dynamic-extension-settings'
             );
@@ -269,102 +269,102 @@ class DynamicSettings {
     private function initialize_tags_config() {
         $this->tags_config = [
             'global' => [
-                'advanced_product_category' => __( 'Advanced Product Category', 'hw-ele-woo-dynamic' ),
-                'free_shipping_amount'      => __( 'Free Shipping Amount', 'hw-ele-woo-dynamic' ),
+                'advanced_product_category' => __( 'Advanced Product Category', 'hw-elementor-woo-dynamic' ),
+                'free_shipping_amount'      => __( 'Free Shipping Amount', 'hw-elementor-woo-dynamic' ),
             ],
             'woo_extras' => [
-                'advanced_stock'               => __( 'Advanced Stock', 'hw-ele-woo-dynamic' ),
-                'advanced_sale_badge'          => __( 'Advanced Sale Badge', 'hw-ele-woo-dynamic' ),
-                'featured_badge'               => __( 'Featured Badge', 'hw-ele-woo-dynamic' ),
-                'product_attributes'           => __( 'Product Attributes', 'hw-ele-woo-dynamic' ),
-                'product_description'          => __( 'Product Description', 'hw-ele-woo-dynamic' ),
-                'product_height'               => __( 'Product Height', 'hw-ele-woo-dynamic' ),
-                'product_lenght'               => __( 'Product Length', 'hw-ele-woo-dynamic' ), 
-                'product_shipping_class'       => __( 'Product Shipping Class', 'hw-ele-woo-dynamic' ),
-                'product-tabs'                 => __( 'Product Tabs', 'hw-ele-woo-dynamic' ),
-                'product_width'                => __( 'Product Width', 'hw-ele-woo-dynamic' ),
-                'product_weight'               => __( 'Product Weight', 'hw-ele-woo-dynamic' ),
-                'purchased_badge'              => __( 'Purchased Badge', 'hw-ele-woo-dynamic' ),
-                'sale_time'                    => __( 'Sale Time', 'hw-ele-woo-dynamic' ),
-                'stock_quantity_extra'         => __( 'Stock Quantity Extra', 'hw-ele-woo-dynamic' ),
-                'spec_badge'                   => __( 'Spec Badge', 'hw-ele-woo-dynamic' ),
-                'stock_quantity'               => __( 'Stock Quantity', 'hw-ele-woo-dynamic' ),
-                'product_gallery'              => __( 'Product Gallery', 'hw-ele-woo-dynamic' ),
-                'taxonomy-acf-meta'            => __( 'ACF Taxonomy Meta', 'hw-ele-woo-dynamic' ),
-                'next_product'                 => __( 'Next Product', 'hw-ele-woo-dynamic' ),
-                'next_product_image'           => __( 'Next Product Image', 'hw-ele-woo-dynamic' ),
-                'prev_product'                 => __( 'Previous Product', 'hw-ele-woo-dynamic' ),
-                'prev_product_image'           => __( 'Previous Product Image', 'hw-ele-woo-dynamic' ),
-                'variable-price-range'         => __( 'Variable Price', 'hw-ele-woo-dynamic' ),
-                'advanced-price'               => __( 'Advanced Price', 'hw-ele-woo-dynamic' ),
+                'advanced_stock'               => __( 'Advanced Stock', 'hw-elementor-woo-dynamic' ),
+                'advanced_sale_badge'          => __( 'Advanced Sale Badge', 'hw-elementor-woo-dynamic' ),
+                'featured_badge'               => __( 'Featured Badge', 'hw-elementor-woo-dynamic' ),
+                'product_attributes'           => __( 'Product Attributes', 'hw-elementor-woo-dynamic' ),
+                'product_description'          => __( 'Product Description', 'hw-elementor-woo-dynamic' ),
+                'product_height'               => __( 'Product Height', 'hw-elementor-woo-dynamic' ),
+                'product_lenght'               => __( 'Product Length', 'hw-elementor-woo-dynamic' ), 
+                'product_shipping_class'       => __( 'Product Shipping Class', 'hw-elementor-woo-dynamic' ),
+                'product-tabs'                 => __( 'Product Tabs', 'hw-elementor-woo-dynamic' ),
+                'product_width'                => __( 'Product Width', 'hw-elementor-woo-dynamic' ),
+                'product_weight'               => __( 'Product Weight', 'hw-elementor-woo-dynamic' ),
+                'purchased_badge'              => __( 'Purchased Badge', 'hw-elementor-woo-dynamic' ),
+                'sale_time'                    => __( 'Sale Time', 'hw-elementor-woo-dynamic' ),
+                'stock_quantity_extra'         => __( 'Stock Quantity Extra', 'hw-elementor-woo-dynamic' ),
+                'spec_badge'                   => __( 'Spec Badge', 'hw-elementor-woo-dynamic' ),
+                'stock_quantity'               => __( 'Stock Quantity', 'hw-elementor-woo-dynamic' ),
+                'product_gallery'              => __( 'Product Gallery', 'hw-elementor-woo-dynamic' ),
+                'taxonomy-acf-meta'            => __( 'ACF Taxonomy Meta', 'hw-elementor-woo-dynamic' ),
+                'next_product'                 => __( 'Next Product', 'hw-elementor-woo-dynamic' ),
+                'next_product_image'           => __( 'Next Product Image', 'hw-elementor-woo-dynamic' ),
+                'prev_product'                 => __( 'Previous Product', 'hw-elementor-woo-dynamic' ),
+                'prev_product_image'           => __( 'Previous Product Image', 'hw-elementor-woo-dynamic' ),
+                'variable-price-range'         => __( 'Variable Price', 'hw-elementor-woo-dynamic' ),
+                'advanced-price'               => __( 'Advanced Price', 'hw-elementor-woo-dynamic' ),
             ],
             'cart_value' => [
-                'cart_values'     => __( 'Cart Values', 'hw-ele-woo-dynamic' ),
-                'cart_tax_values' => __( 'Cart Tax Values', 'hw-ele-woo-dynamic' ),
+                'cart_values'     => __( 'Cart Values', 'hw-elementor-woo-dynamic' ),
+                'cart_tax_values' => __( 'Cart Tax Values', 'hw-elementor-woo-dynamic' ),
             ],
             'customer_specific' => [
-                'customer_details'     => __( 'Customer Details', 'hw-ele-woo-dynamic' ),
-                'completed_order'      => __( 'Completed Order', 'hw-ele-woo-dynamic' ),
-                'purchased_products'   => __( 'Purchased Products', 'hw-ele-woo-dynamic' ),
-                'total_spent'          => __( 'Total Spent', 'hw-ele-woo-dynamic' ),
-                'my_account_endpoints' => __( 'MyAccount Endpoints', 'hw-ele-woo-dynamic' ),
-                'last_order'           => __( 'Last Order', 'hw-ele-woo-dynamic' ),
-                'user_role'            => __( 'User Role', 'hw-ele-woo-dynamic' ),
-                'customer_logout'      => __( 'Customer logout', 'hw-ele-woo-dynamic' ),
+                'customer_details'     => __( 'Customer Details', 'hw-elementor-woo-dynamic' ),
+                'completed_order'      => __( 'Completed Order', 'hw-elementor-woo-dynamic' ),
+                'purchased_products'   => __( 'Purchased Products', 'hw-elementor-woo-dynamic' ),
+                'total_spent'          => __( 'Total Spent', 'hw-elementor-woo-dynamic' ),
+                'my_account_endpoints' => __( 'MyAccount Endpoints', 'hw-elementor-woo-dynamic' ),
+                'last_order'           => __( 'Last Order', 'hw-elementor-woo-dynamic' ),
+                'user_role'            => __( 'User Role', 'hw-elementor-woo-dynamic' ),
+                'customer_logout'      => __( 'Customer logout', 'hw-elementor-woo-dynamic' ),
             ],
             'woo_membership' => [
-                'active_membership'         => __( 'Active Membership', 'hw-ele-woo-dynamic' ),
-                'my_account_membershipLink' => __( 'MyAccount Membership Link', 'hw-ele-woo-dynamic' ),
-                'active_membership_data'    => __( 'Active Membership Data', 'hw-ele-woo-dynamic' ),
-                'current_membership_data'   => __( 'Current Membership Data', 'hw-ele-woo-dynamic' ),
-                'restricted_products_view'  => __( 'Restricted Products View', 'hw-ele-woo-dynamic' ),
+                'active_membership'         => __( 'Active Membership', 'hw-elementor-woo-dynamic' ),
+                'my_account_membershipLink' => __( 'MyAccount Membership Link', 'hw-elementor-woo-dynamic' ),
+                'active_membership_data'    => __( 'Active Membership Data', 'hw-elementor-woo-dynamic' ),
+                'current_membership_data'   => __( 'Current Membership Data', 'hw-elementor-woo-dynamic' ),
+                'restricted_products_view'  => __( 'Restricted Products View', 'hw-elementor-woo-dynamic' ),
             ],
             'woo_subscriptions' => [
-                'active_subscription'        => __( 'Active Subscription', 'hw-ele-woo-dynamic' ),
-                'my_account_subscriptionlink'=> __( 'MyAccount Subscription Link', 'hw-ele-woo-dynamic' ),
-                'active_subscription_data'   => __( 'Active Subscription Data', 'hw-ele-woo-dynamic' ),
+                'active_subscription'        => __( 'Active Subscription', 'hw-elementor-woo-dynamic' ),
+                'my_account_subscriptionlink'=> __( 'MyAccount Subscription Link', 'hw-elementor-woo-dynamic' ),
+                'active_subscription_data'   => __( 'Active Subscription Data', 'hw-elementor-woo-dynamic' ),
             ],
             'ld_extras_courses' => [
-                'awarded_points'              => __( 'Awarded on Completion', 'hw-ele-woo-dynamic' ),
-                'ld_lessons'                  => __( 'Lessons Number', 'hw-ele-woo-dynamic' ),
-                'ld_quiz'                     => __( 'Quiz Numbers', 'hw-ele-woo-dynamic' ),
-                'enrolled_users_count'        => __( 'Students number', 'hw-ele-woo-dynamic' ),
-                'last-activity'               => __( 'Last Activity', 'hw-ele-woo-dynamic' ),
-                'progress-percentage'         => __( 'Course Progress', 'hw-ele-woo-dynamic' ),
-                'user-course-status'          => __( 'Course Status', 'hw-ele-woo-dynamic' ),
-                'access-expires'              => __( 'Access Expires', 'hw-ele-woo-dynamic' ),
-                'course-materials'            => __( 'Course Materials', 'hw-ele-woo-dynamic' ),
-                'course-access-type'          => __( 'Course Access Type', 'hw-ele-woo-dynamic' ),
-                'student-limit'               => __( 'Student Limit', 'hw-ele-woo-dynamic' ),
-                'course-start-date'           => __( 'Course Start Date', 'hw-ele-woo-dynamic' ),
-                'required-points'            => __( 'Course Required Points For Access', 'hw-ele-woo-dynamic' ),
-                'course-price'                => __( 'Course Price', 'hw-ele-woo-dynamic' ),
-                'topics-counter'              => __( 'Topics Numbers', 'hw-ele-woo-dynamic' ),
-                'certificates-link'           => __( 'Certificates Link', 'hw-ele-woo-dynamic' ),
-                'course-prerequisites-list'   => __( 'Course Prerequisites List', 'hw-ele-woo-dynamic' ),
-                'course-resume-text'          => __( 'Course Resume Text', 'hw-ele-woo-dynamic' ),
-                'course-resume'               => __( 'Course Resume URL', 'hw-ele-woo-dynamic' ),
-                'course-content'              => __( 'Course Content', 'hw-ele-woo-dynamic' ),
-                'course-groups'               => __( 'Course Part of Groups', 'hw-ele-woo-dynamic' ),
+                'awarded_points'              => __( 'Awarded on Completion', 'hw-elementor-woo-dynamic' ),
+                'ld_lessons'                  => __( 'Lessons Number', 'hw-elementor-woo-dynamic' ),
+                'ld_quiz'                     => __( 'Quiz Numbers', 'hw-elementor-woo-dynamic' ),
+                'enrolled_users_count'        => __( 'Students number', 'hw-elementor-woo-dynamic' ),
+                'last-activity'               => __( 'Last Activity', 'hw-elementor-woo-dynamic' ),
+                'progress-percentage'         => __( 'Course Progress', 'hw-elementor-woo-dynamic' ),
+                'user-course-status'          => __( 'Course Status', 'hw-elementor-woo-dynamic' ),
+                'access-expires'              => __( 'Access Expires', 'hw-elementor-woo-dynamic' ),
+                'course-materials'            => __( 'Course Materials', 'hw-elementor-woo-dynamic' ),
+                'course-access-type'          => __( 'Course Access Type', 'hw-elementor-woo-dynamic' ),
+                'student-limit'               => __( 'Student Limit', 'hw-elementor-woo-dynamic' ),
+                'course-start-date'           => __( 'Course Start Date', 'hw-elementor-woo-dynamic' ),
+                'required-points'            => __( 'Course Required Points For Access', 'hw-elementor-woo-dynamic' ),
+                'course-price'                => __( 'Course Price', 'hw-elementor-woo-dynamic' ),
+                'topics-counter'              => __( 'Topics Numbers', 'hw-elementor-woo-dynamic' ),
+                'certificates-link'           => __( 'Certificates Link', 'hw-elementor-woo-dynamic' ),
+                'course-prerequisites-list'   => __( 'Course Prerequisites List', 'hw-elementor-woo-dynamic' ),
+                'course-resume-text'          => __( 'Course Resume Text', 'hw-elementor-woo-dynamic' ),
+                'course-resume'               => __( 'Course Resume URL', 'hw-elementor-woo-dynamic' ),
+                'course-content'              => __( 'Course Content', 'hw-elementor-woo-dynamic' ),
+                'course-groups'               => __( 'Course Part of Groups', 'hw-elementor-woo-dynamic' ),
             ],
             'ld_extras_global' => [
-                'user-completed-courses-count'     => __( 'User Completed Courses Count', 'hw-ele-woo-dynamic' ),
-                'user-course-points'               => __( 'User Course Points', 'hw-ele-woo-dynamic' ),
-                'user-available-courses-count'      => __( 'User Enrolled Courses Count', 'hw-ele-woo-dynamic' ),
-                'user-achieved-certificates-count'  => __( 'User Achieved Certificates Count', 'hw-ele-woo-dynamic' ),
-                'user-groups-count'                 => __( 'User Groups Count', 'hw-ele-woo-dynamic' ),
+                'user-completed-courses-count'     => __( 'User Completed Courses Count', 'hw-elementor-woo-dynamic' ),
+                'user-course-points'               => __( 'User Course Points', 'hw-elementor-woo-dynamic' ),
+                'user-available-courses-count'      => __( 'User Enrolled Courses Count', 'hw-elementor-woo-dynamic' ),
+                'user-achieved-certificates-count'  => __( 'User Achieved Certificates Count', 'hw-elementor-woo-dynamic' ),
+                'user-groups-count'                 => __( 'User Groups Count', 'hw-elementor-woo-dynamic' ),
             ],
             'wp_bar_products_informations' => [
-                'product_type'     => __( 'Product Type', 'hw-ele-woo-dynamic' ),
-                'product_sku'      => __( 'Product Sku', 'hw-ele-woo-dynamic' ),
-                'product_inventory'=> __( 'Product Inventory', 'hw-ele-woo-dynamic' ),
-                'shipping_class'   => __( 'Shipping Class', 'hw-ele-woo-dynamic' ),
-                'product_status'   => __( 'Product Status', 'hw-ele-woo-dynamic' ),
+                'product_type'     => __( 'Product Type', 'hw-elementor-woo-dynamic' ),
+                'product_sku'      => __( 'Product Sku', 'hw-elementor-woo-dynamic' ),
+                'product_inventory'=> __( 'Product Inventory', 'hw-elementor-woo-dynamic' ),
+                'shipping_class'   => __( 'Shipping Class', 'hw-elementor-woo-dynamic' ),
+                'product_status'   => __( 'Product Status', 'hw-elementor-woo-dynamic' ),
             ],
             'wp_bar_learndash_informations' => [
-                'ld_bar_lessons' => __( 'Lessons', 'hw-ele-woo-dynamic' ),
-                'ld_bar_topics'  => __( 'Topics', 'hw-ele-woo-dynamic' ),
-                'ld_bar_quizes'  => __( 'Quiz', 'hw-ele-woo-dynamic' ),
+                'ld_bar_lessons' => __( 'Lessons', 'hw-elementor-woo-dynamic' ),
+                'ld_bar_topics'  => __( 'Topics', 'hw-elementor-woo-dynamic' ),
+                'ld_bar_quizes'  => __( 'Quiz', 'hw-elementor-woo-dynamic' ),
             ],
         ];
     }
@@ -379,12 +379,12 @@ class DynamicSettings {
         // If there's a tags group for this section, add a field with checkboxes.
         if ( isset( $this->tags_config[ $section_id ] ) ) {
             $tags  = $this->tags_config[ $section_id ];
-            $label = __( 'Enable Dynamic Tags', 'hw-ele-woo-dynamic' );
+            $label = __( 'Enable Dynamic Tags', 'hw-elementor-woo-dynamic' );
 
             if ( $section_id === 'wp_bar_products_informations' ) {
-                $label = __( 'Enable Product Information Display', 'hw-ele-woo-dynamic' );
+                $label = __( 'Enable Product Information Display', 'hw-elementor-woo-dynamic' );
             } elseif ( $section_id === 'wp_bar_learndash_informations' ) {
-                $label = __( 'Enable Learndash Info Display', 'hw-ele-woo-dynamic' );
+                $label = __( 'Enable Learndash Info Display', 'hw-elementor-woo-dynamic' );
             }
 
             add_settings_field(
@@ -403,7 +403,7 @@ class DynamicSettings {
                 if ( $section_id === 'my_account_dashboard' ) {
                     add_settings_field(
                         'dashboard_before_content',
-                        __( 'Insert Before Dashboard Content', 'hw-ele-woo-dynamic' ),
+                        __( 'Insert Before Dashboard Content', 'hw-elementor-woo-dynamic' ),
                         [ $this, 'render_textarea_field' ],
                         'dynamic-extension-settings',
                         'dynamic_extension_my_account_dashboard',
@@ -412,7 +412,7 @@ class DynamicSettings {
 
                     add_settings_field(
                         'dashboard_after_content',
-                        __( 'Insert After Dashboard Content', 'hw-ele-woo-dynamic' ),
+                        __( 'Insert After Dashboard Content', 'hw-elementor-woo-dynamic' ),
                         [ $this, 'render_textarea_field' ],
                         'dynamic-extension-settings',
                         'dynamic_extension_my_account_dashboard',
@@ -423,7 +423,7 @@ class DynamicSettings {
                 if ( $section_id === 'my_account_orders' ) {
                     add_settings_field(
                         'orders_before_table',
-                        __( 'Insert Before Orders Table', 'hw-ele-woo-dynamic' ),
+                        __( 'Insert Before Orders Table', 'hw-elementor-woo-dynamic' ),
                         [ $this, 'render_textarea_field' ],
                         'dynamic-extension-settings',
                         'dynamic_extension_my_account_orders',
@@ -432,7 +432,7 @@ class DynamicSettings {
 
                     add_settings_field(
                         'orders_after_table',
-                        __( 'Insert After Dashboard Table', 'hw-ele-woo-dynamic' ),
+                        __( 'Insert After Dashboard Table', 'hw-elementor-woo-dynamic' ),
                         [ $this, 'render_textarea_field' ],
                         'dynamic-extension-settings',
                         'dynamic_extension_my_account_orders',
@@ -456,37 +456,19 @@ class DynamicSettings {
 
         foreach ( $args['tags'] as $tag_id => $label ) {
             $full_tag_id = $args['section'] . '_' . $tag_id;
-            $is_checked  = isset( $enabled_tags[ $full_tag_id ] ) ? 'checked' : '';
+            $is_checked  = isset( $enabled_tags[ $full_tag_id ] ) ? '1' : '';
 
-            // Default: No badge
             $badge_html = '';
-
-            // If this tag is "advanced-price", add "New" badge
             if ( $tag_id === 'advanced-price' ) {
                 $badge_html = ' <sup class="badge-new-feature">New</sup>';
             }
-
-            if ( $tag_id === 'ld_lessons' ) {
+            if ( in_array( $tag_id, [ 'ld_lessons', 'course-resume-text', 'course-resume' ] ) ) {
                 $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
             }
-
-            if ( $tag_id === 'course-resume-text' ) {
-                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
-            }
-
-            if ( $tag_id === 'course-resume' ) {
-                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
-            }
-
 
             echo "<div class='checkbox-container'>";
-            echo "<input type='checkbox' 
-                    id='dynamic_extension_settings_enabled_tags_{$full_tag_id}' 
-                    name='dynamic_extension_settings[enabled_tags][{$full_tag_id}]' 
-                    value='1' {$is_checked} />";
-            echo "<label for='dynamic_extension_settings_enabled_tags_{$full_tag_id}'>";
-            echo $label . $badge_html;
-            echo "</label>";
+            echo '<input type="checkbox" id="' . esc_attr( 'dynamic_extension_settings_enabled_tags_' . $full_tag_id ) . '" name="' . esc_attr( "dynamic_extension_settings[enabled_tags][{$full_tag_id}]" ) . '" value="1" ' . checked( $is_checked, '1', false ) . ' />';
+            echo '<label for="' . esc_attr( 'dynamic_extension_settings_enabled_tags_' . $full_tag_id ) . '">' . esc_html( $label ) . wp_kses_post( $badge_html ) . '</label>';
             echo "</div>";
         }
 
@@ -502,11 +484,8 @@ class DynamicSettings {
     public function render_textarea_field( $args ) {
         $options = get_option( 'dynamic_extension_settings' );
         $value   = $options[ $args['label_for'] ] ?? '';
-        echo "<textarea 
-                id='{$args['label_for']}' 
-                name='dynamic_extension_settings[{$args['label_for']}]' 
-                rows='10' 
-                cols='50'>{$value}</textarea>";
+
+        echo '<textarea id="' . esc_attr( $args['label_for'] ) . '" name="dynamic_extension_settings[' . esc_attr( $args['label_for'] ) . ']" rows="10" cols="50">' . esc_textarea( $value ) . '</textarea>';
     }
 
     /**

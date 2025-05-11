@@ -10,7 +10,7 @@ class PaymentMethodsCategory extends Base_Category {
     }
 
     public function get_title() {
-        return esc_html__('Payment Methods', 'hw-ele-woo-dynamic');
+        return esc_html__('Payment Methods', 'hw-elementor-woo-dynamic');
     }
 
     public function get_category_items(array $options = []) {

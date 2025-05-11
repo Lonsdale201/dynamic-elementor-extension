@@ -77,27 +77,3 @@ class UserActiveMembershipsMac extends Jet_Engine_Base_Macros {
         return $filtered_memberships;
     }
 }
-
-
-
-
-    // régi megoldás 
-
-    // protected function get_user_active_memberships($user_id) {
-    //     if ( !function_exists('wc_memberships_get_user_memberships') ) {
-    //         return [];
-    //     }
-
-    //     $user_memberships = wc_memberships_get_user_memberships( $user_id );
-    //     $active_membership_ids = [];
-
-    //     foreach ($user_memberships as $membership) {
-    //         if ( 'active' === $membership->get_status() ) {
-    //             $active_membership_ids[] = $membership->get_plan_id();
-    //         }
-    //     }
-
-    //     return $active_membership_ids;
-    // }
-    
-

@@ -20,7 +20,7 @@ class WCAccessMemberships extends \Jet_Engine\Modules\Dynamic_Visibility\Conditi
      * @return string
      */
     public function get_name() {
-        return __( 'Access Memberships', 'jet-engine' );
+        return __( 'Access Memberships', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -91,7 +91,7 @@ class WCAccessMemberships extends \Jet_Engine\Modules\Dynamic_Visibility\Conditi
 
         // Set up the options list, starting with 'Any Membership'
         $options = array(
-            'any_membership' => __( 'Any Membership', 'jet-engine' ),
+            'any_membership' => __( 'Any Membership', 'hw-elementor-woo-dynamic' ),
         );
 
         // Add each available membership to the options list by slug
@@ -102,7 +102,7 @@ class WCAccessMemberships extends \Jet_Engine\Modules\Dynamic_Visibility\Conditi
         // Return the control for selecting memberships
         return array(
             'selected_memberships' => array(
-                'label'    => __( 'Select Memberships', 'jet-engine' ),
+                'label'    => __( 'Select Memberships', 'hw-elementor-woo-dynamic' ),
                 'type'     => 'select2',
                 'multiple' => true,
                 'default'  => array(),

@@ -31,7 +31,7 @@ class ProductIsOnSale extends Condition_Base {
      * @return string The condition label.
      */
     public function get_label() {
-        return esc_html__( 'Is Product On Sale', 'hw-ele-woo-dynamic' );
+        return esc_html__( 'Is Product On Sale', 'hw-elementor-woo-dynamic' );
     }
 
     /**

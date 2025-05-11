@@ -21,7 +21,7 @@ class CurrentMembershipExpired extends Base {
      * @return string
      */
     public function get_name() {
-        return __( 'Current Membership Expired', 'jet-engine' );
+        return __( 'Current Membership Expired', 'hw-elementor-woo-dynamic' );
     }
 
     /**

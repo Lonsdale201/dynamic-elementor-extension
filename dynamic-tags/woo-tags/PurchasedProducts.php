@@ -13,7 +13,7 @@ class PurchasedProducts extends Tag {
     }
 
     public function get_title() {
-        return __('Purchased Products', 'hw-ele-woo-dynamic');
+        return __('Purchased Products', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -28,11 +28,11 @@ class PurchasedProducts extends Tag {
         $this->add_control(
             'output_type',
             [
-                'label' => __('Output Type', 'hw-ele-woo-dynamic'),
+                'label' => __('Output Type', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'ids' => __('Return IDs', 'hw-ele-woo-dynamic'),
-                    'titles' => __('Return Titles', 'hw-ele-woo-dynamic'),
+                    'ids' => __('Return IDs', 'hw-elementor-woo-dynamic'),
+                    'titles' => __('Return Titles', 'hw-elementor-woo-dynamic'),
                 ],
                 'default' => 'titles',
             ]
@@ -41,10 +41,10 @@ class PurchasedProducts extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => __('Linkable', 'hw-ele-woo-dynamic'),
+                'label' => __('Linkable', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => __('No', 'hw-ele-woo-dynamic'),
+                'label_on' => __('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => __('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -56,11 +56,11 @@ class PurchasedProducts extends Tag {
         $this->add_control(
             'link_target',
             [
-                'label' => __('Link Target', 'hw-ele-woo-dynamic'),
+                'label' => __('Link Target', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'product_page' => __('Product Page', 'hw-ele-woo-dynamic'),
-                    'order_page' => __('Order Page', 'hw-ele-woo-dynamic'),
+                    'product_page' => __('Product Page', 'hw-elementor-woo-dynamic'),
+                    'order_page' => __('Order Page', 'hw-elementor-woo-dynamic'),
                 ],
                 'default' => 'product_page',
                 'condition' => [

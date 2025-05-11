@@ -31,7 +31,7 @@ class CourseResumeText extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Resume Text', 'hw-ele-woo-dynamic' );
+        return __( 'Course Resume Text', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -63,7 +63,7 @@ class CourseResumeText extends Tag {
         $this->add_control(
             'in_progress_text',
             [
-                'label'   => __( 'In Progress Text', 'hw-ele-woo-dynamic' ),
+                'label'   => __( 'In Progress Text', 'hw-elementor-woo-dynamic' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => 'Continue Learning',
             ]
@@ -72,7 +72,7 @@ class CourseResumeText extends Tag {
         $this->add_control(
             'not_started_text',
             [
-                'label'   => __( 'Not Started Text', 'hw-ele-woo-dynamic' ),
+                'label'   => __( 'Not Started Text', 'hw-elementor-woo-dynamic' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => 'Start Course',
             ]
@@ -81,7 +81,7 @@ class CourseResumeText extends Tag {
         $this->add_control(
             'completed_text',
             [
-                'label'   => __( 'Completed Text', 'hw-ele-woo-dynamic' ),
+                'label'   => __( 'Completed Text', 'hw-elementor-woo-dynamic' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => 'Read More',
             ]
@@ -90,7 +90,7 @@ class CourseResumeText extends Tag {
         $this->add_control(
             'user_not_have_course_text',
             [
-                'label'   => __( 'Not Owned Text', 'hw-ele-woo-dynamic' ),
+                'label'   => __( 'Not Owned Text', 'hw-elementor-woo-dynamic' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => 'Get Started',
             ]

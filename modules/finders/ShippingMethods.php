@@ -10,7 +10,7 @@ class ShippingMethods extends Base_Category {
     }
 
     public function get_title() {
-        return esc_html__('Shipping Methods', 'hw-ele-woo-dynamic');
+        return esc_html__('Shipping Methods', 'hw-elementor-woo-dynamic');
     }
 
     public function get_category_items(array $options = []) {
@@ -20,7 +20,7 @@ class ShippingMethods extends Base_Category {
 
         foreach ($methods as $method_id => $method) {
             if (isset($method->enabled)) {
-                $status = ($method->enabled === 'yes') ? __('Active', 'hw-ele-woo-dynamic') : __('Inactive', 'hw-ele-woo-dynamic');
+                $status = ($method->enabled === 'yes') ? __('Active', 'hw-elementor-woo-dynamic') : __('Inactive', 'hw-elementor-woo-dynamic');
                 $title = method_exists($method, 'get_method_title') ? $method->get_method_title() : $method->title; 
                 $items[$method_id] = [
                     'title' => sprintf('%s (%s) [%s]', $title, $status, $method_id),

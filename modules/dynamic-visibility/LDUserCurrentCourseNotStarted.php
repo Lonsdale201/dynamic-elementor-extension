@@ -25,7 +25,7 @@ class LDUserCurrentCourseNotStarted extends Base {
      * @return string
      */
     public function get_name() {
-        return __( 'Course Not Started', 'hw-ele-woo-dynamic' );
+        return __( 'Course Not Started', 'hw-elementor-woo-dynamic' );
     }
 
     /**

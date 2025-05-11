@@ -14,7 +14,7 @@ class CompletedOrder extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Completed Order', 'hw-ele-woo-dynamic');
+        return esc_html__('Completed Order', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {

@@ -21,7 +21,7 @@ class CheckUrlPath extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Check URL Path', 'jet-engine');
+        return __('Check URL Path', 'hw-elementor-woo-dynamic');
     }
 
     /**
@@ -40,13 +40,16 @@ class CheckUrlPath extends Base {
      * @return bool True if the value is found and the condition is set to "show", false otherwise.
      */
     public function check($args = []) {
-        $value_to_check = isset($args['value']) ? $args['value'] : '';
-        $current_url = $_SERVER['REQUEST_URI'];
+        $value_to_check = isset( $args['value'] ) ? $args['value'] : '';
+        $current_url = isset( $_SERVER['REQUEST_URI'] ) 
+            ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) 
+            : '';
 
-        $type = isset($args['type']) ? $args['type'] : 'show';
-        $is_param_present = strpos($current_url, $value_to_check) !== false;
+        $type = isset( $args['type'] ) ? $args['type'] : 'show';
+        $is_param_present = strpos( $current_url, $value_to_check ) !== false;
 
-        return ('hide' === $type) ? !$is_param_present : $is_param_present;
+        return ( 'hide' === $type ) ? ! $is_param_present : $is_param_present;
+
     }
 
     /**

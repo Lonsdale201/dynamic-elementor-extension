@@ -13,7 +13,7 @@ class FreeShippingAmount extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Free Shipping Amount', 'hw-ele-woo-dynamic');
+        return esc_html__('Free Shipping Amount', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {

@@ -14,7 +14,7 @@ class ProductLength extends Tag {
     }
 
     public function get_title() {
-        return __('Product Length', 'hw-ele-woo-dynamic');
+        return __('Product Length', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {

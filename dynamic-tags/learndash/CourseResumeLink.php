@@ -30,7 +30,7 @@ class CourseResumeLink extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Resume URL', 'hw-ele-woo-dynamic' );
+        return __( 'Course Resume URL', 'hw-elementor-woo-dynamic' );
     }
 
     /**

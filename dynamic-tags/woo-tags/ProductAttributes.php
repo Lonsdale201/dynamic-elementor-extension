@@ -14,7 +14,7 @@ class ProductAttributes extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Product Attributes', 'hw-ele-woo-dynamic');
+        return esc_html__('Product Attributes', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,13 +29,13 @@ class ProductAttributes extends Tag {
         $this->add_control(
             'display_type',
             [
-                'label' => esc_html__('Display Type', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Display Type', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'label/value',
                 'options' => [
-                    'value' => esc_html__('Value', 'hw-ele-woo-dynamic'),
-                    'label' => esc_html__('Label', 'hw-ele-woo-dynamic'),
-                    'label/value' => esc_html__('Label/Value', 'hw-ele-woo-dynamic'),
+                    'value' => esc_html__('Value', 'hw-elementor-woo-dynamic'),
+                    'label' => esc_html__('Label', 'hw-elementor-woo-dynamic'),
+                    'label/value' => esc_html__('Label/Value', 'hw-elementor-woo-dynamic'),
                 ],
             ]
         );
@@ -43,7 +43,7 @@ class ProductAttributes extends Tag {
         $this->add_control(
             'label_separator',
             [
-                'label' => esc_html__('Label Separator', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Label Separator', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => ': ',
                 'condition' => [
@@ -55,17 +55,17 @@ class ProductAttributes extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => esc_html__('Linkable', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Linkable', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
-                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
             ]
         );
 
         $attributes = wc_get_attribute_taxonomies();
-        $attribute_options = ['all' => esc_html__('All', 'hw-ele-woo-dynamic')];
+        $attribute_options = ['all' => esc_html__('All', 'hw-elementor-woo-dynamic')];
 
         foreach ($attributes as $attribute) {
             $attribute_options[$attribute->attribute_name] = $attribute->attribute_label;
@@ -74,7 +74,7 @@ class ProductAttributes extends Tag {
         $this->add_control(
             'attribute_name',
             [
-                'label' => esc_html__('Attribute', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Attribute', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'all',
                 'options' => $attribute_options,
@@ -84,13 +84,13 @@ class ProductAttributes extends Tag {
         $this->add_control(
             'output_style',
             [
-                'label' => esc_html__('Output Style', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Output Style', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'delimiter',
                 'options' => [
-                    'ul' => esc_html__('UL', 'hw-ele-woo-dynamic'),
-                    'ol' => esc_html__('OL', 'hw-ele-woo-dynamic'),
-                    'delimiter' => esc_html__('Delimiter', 'hw-ele-woo-dynamic'),
+                    'ul' => esc_html__('UL', 'hw-elementor-woo-dynamic'),
+                    'ol' => esc_html__('OL', 'hw-elementor-woo-dynamic'),
+                    'delimiter' => esc_html__('Delimiter', 'hw-elementor-woo-dynamic'),
                 ],
             ]
         );
@@ -98,7 +98,7 @@ class ProductAttributes extends Tag {
         $this->add_control(
             'delimiter',
             [
-                'label' => esc_html__('Delimiter', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Delimiter', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => ', ',
                 'condition' => [

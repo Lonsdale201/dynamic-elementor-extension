@@ -31,7 +31,7 @@ class CoursePrerequisitesList extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Prerequisites List', 'hw-ele-woo-dynamic' );
+        return __( 'Course Prerequisites List', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -63,11 +63,11 @@ class CoursePrerequisitesList extends Tag {
         $this->add_control(
             'list_format',
             [
-                'label' => __( 'List Format', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'List Format', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'list' => __( 'List', 'hw-ele-woo-dynamic' ),
-                    'inline' => __( 'Inline', 'hw-ele-woo-dynamic' ),
+                    'list' => __( 'List', 'hw-elementor-woo-dynamic' ),
+                    'inline' => __( 'Inline', 'hw-elementor-woo-dynamic' ),
                 ],
                 'default' => 'list',
             ]
@@ -76,11 +76,11 @@ class CoursePrerequisitesList extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => __( 'Linkable', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Linkable', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
-                'label_on' => __( 'Yes', 'hw-ele-woo-dynamic' ),
-                'label_off' => __( 'No', 'hw-ele-woo-dynamic' ),
+                'label_on' => __( 'Yes', 'hw-elementor-woo-dynamic' ),
+                'label_off' => __( 'No', 'hw-elementor-woo-dynamic' ),
                 'return_value' => 'yes',
             ]
         );
@@ -97,7 +97,6 @@ class CoursePrerequisitesList extends Tag {
     public function render() {
         global $post;
 
-        // Verify the post type is a LearnDash course
         if ( 'sfwd-courses' !== get_post_type( $post ) ) {
             return;
         }
@@ -106,38 +105,37 @@ class CoursePrerequisitesList extends Tag {
         $prerequisites = learndash_get_course_prerequisite( $course_id );
         $settings = $this->get_settings();
 
-        // Render the prerequisites if they exist
         if ( is_array( $prerequisites ) && ! empty( $prerequisites ) ) {
             if ( 'inline' === $settings['list_format'] ) {
-                // Render inline format
                 $titles = [];
                 foreach ( $prerequisites as $prerequisite_id ) {
                     if ( get_post_type( $prerequisite_id ) === 'sfwd-courses' ) {
                         $prerequisite_title = get_the_title( $prerequisite_id );
                         $prerequisite_link = get_permalink( $prerequisite_id );
-
-                        // Format with or without link based on settings
+            
                         $titles[] = ( 'yes' === $settings['linkable'] ) ?
                             '<a href="' . esc_url( $prerequisite_link ) . '" target="_blank">' . esc_html( $prerequisite_title ) . '</a>' :
                             esc_html( $prerequisite_title );
                     }
                 }
-                echo implode( ', ', $titles );
+            
+                echo wp_kses_post( implode( esc_html( ', ' ), $titles ) );
             } else {
-                // Render list format
                 echo '<ul>';
                 foreach ( $prerequisites as $prerequisite_id ) {
                     if ( get_post_type( $prerequisite_id ) === 'sfwd-courses' ) {
                         $prerequisite_title = get_the_title( $prerequisite_id );
                         $prerequisite_link = get_permalink( $prerequisite_id );
-
-                        echo '<li>' . ( 'yes' === $settings['linkable'] ?
+            
+                        $output = ( 'yes' === $settings['linkable'] ) ?
                             '<a href="' . esc_url( $prerequisite_link ) . '" target="_blank">' . esc_html( $prerequisite_title ) . '</a>' :
-                            esc_html( $prerequisite_title ) ) . '</li>';
+                            esc_html( $prerequisite_title );
+            
+                        echo '<li>' . wp_kses_post( $output ) . '</li>';
                     }
                 }
                 echo '</ul>';
-            }
+            }            
         }
     }
 }

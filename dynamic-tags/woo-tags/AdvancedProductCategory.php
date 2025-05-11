@@ -15,7 +15,7 @@ class AdvancedProductCategory extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Advanced Product Category', 'hw-ele-woo-dynamic');
+        return esc_html__('Advanced Product Category', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -31,11 +31,11 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'query_type',
             [
-                'label' => esc_html__('Query', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Query', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'all' => esc_html__('All', 'hw-ele-woo-dynamic'),
-                    'current_query' => esc_html__('Current Query', 'hw-ele-woo-dynamic'),
+                    'all' => esc_html__('All', 'hw-elementor-woo-dynamic'),
+                    'current_query' => esc_html__('Current Query', 'hw-elementor-woo-dynamic'),
                 ],
                 'default' => 'all',
             ]
@@ -44,11 +44,11 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'output_format',
             [
-                'label' => esc_html__('Output Format', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Output Format', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'inline' => esc_html__('Inline', 'hw-ele-woo-dynamic'),
-                    'list' => esc_html__('List', 'hw-ele-woo-dynamic'),
+                    'inline' => esc_html__('Inline', 'hw-elementor-woo-dynamic'),
+                    'list' => esc_html__('List', 'hw-elementor-woo-dynamic'),
                 ],
                 'default' => 'inline',
             ]
@@ -57,10 +57,10 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'enable_multi_leveling',
             [
-                'label' => esc_html__('Enable Multi Leveling', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Enable Multi Leveling', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -72,10 +72,10 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'back_to_prev_text',
             [
-                'label' => esc_html__('Back to prev', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Back to prev', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Back to previous {prev_cat}', 'hw-ele-woo-dynamic'),
-                'description' => esc_html__('Use the {prev_cat} to display the previous level term name', 'hw-ele-woo-dynamic'),
+                'default' => esc_html__('Back to previous {prev_cat}', 'hw-elementor-woo-dynamic'),
+                'description' => esc_html__('Use the {prev_cat} to display the previous level term name', 'hw-elementor-woo-dynamic'),
                 'condition' => [
                     'query_type' => 'current_query',
                 ],
@@ -85,10 +85,10 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'always_show_back_to_prev',
             [
-                'label' => esc_html__('Always Show Back to Prev', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Always Show Back to Prev', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -100,9 +100,9 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'shop_page_back_text',
             [
-                'label' => esc_html__('Shop Page Back Text', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Shop Page Back Text', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Return to Shop', 'hw-ele-woo-dynamic'),
+                'default' => esc_html__('Return to Shop', 'hw-elementor-woo-dynamic'),
                 'condition' => [
                     'always_show_back_to_prev' => 'yes',
                 ],
@@ -112,10 +112,10 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => esc_html__('Linkable', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Linkable', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -124,10 +124,10 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'show_counter',
             [
-                'label' => esc_html__('Show Counter', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Show Counter', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -136,10 +136,10 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'hide_empty',
             [
-                'label' => esc_html__('Hide Empty', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Hide Empty', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -148,10 +148,10 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'hide_uncategorized',
             [
-                'label' => esc_html__('Hide Uncategorized', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Hide Uncategorized', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -160,7 +160,7 @@ class AdvancedProductCategory extends Tag {
         $this->add_control(
             'delimiter',
             [
-                'label' => esc_html__('Delimiter', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Delimiter', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => ', ',
                 'condition' => [

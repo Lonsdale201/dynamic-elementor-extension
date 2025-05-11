@@ -14,7 +14,7 @@ class UserStatus extends Condition_Base {
     }
 
     public function get_label() {
-        return esc_html__('User Status', 'hw-ele-woo-dynamic');
+        return esc_html__('User Status', 'hw-elementor-woo-dynamic');
     }
 
     public function check($args) {

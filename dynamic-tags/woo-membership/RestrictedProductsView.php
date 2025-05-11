@@ -13,7 +13,7 @@ class RestrictedProductsView extends Tag {
     }
 
     public function get_title() {
-        return __('Restricted Products View (beta)', 'hw-ele-woo-dynamic');
+        return __('Restricted Products View (beta)', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -24,36 +24,36 @@ class RestrictedProductsView extends Tag {
         $this->add_control(
             'product_viewing_restricted_purchase_required_message',
             [
-                'label' => esc_html__('Product Viewing Restricted (Purchase Required) Message', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Product Viewing Restricted (Purchase Required) Message', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('This product can only be viewed by members.', 'hw-ele-woo-dynamic'),
+                'default' => esc_html__('This product can only be viewed by members.', 'hw-elementor-woo-dynamic'),
             ]
         );
 
         $this->add_control(
             'product_viewing_restricted_membership_required_message',
             [
-                'label' => esc_html__('Product Viewing Restricted (Membership Required) Message', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Product Viewing Restricted (Membership Required) Message', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('This product can only be viewed by members.', 'hw-ele-woo-dynamic'),
+                'default' => esc_html__('This product can only be viewed by members.', 'hw-elementor-woo-dynamic'),
             ]
         );
 
         $this->add_control(
             'product_purchasing_restricted_purchase_required_message',
             [
-                'label' => esc_html__('Product Buying Restricted (Purchase Required) Message', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Product Buying Restricted (Purchase Required) Message', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('This product can only be purchased by members.', 'hw-ele-woo-dynamic'),
+                'default' => esc_html__('This product can only be purchased by members.', 'hw-elementor-woo-dynamic'),
             ]
         );
 
         $this->add_control(
             'product_purchasing_restricted_membership_required_message',
             [
-                'label' => esc_html__('Product Buying Restricted (Membership Required) Message', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Product Buying Restricted (Membership Required) Message', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('This product can only be purchased by members.', 'hw-ele-woo-dynamic'),
+                'default' => esc_html__('This product can only be purchased by members.', 'hw-elementor-woo-dynamic'),
             ]
         );
     }

@@ -32,7 +32,7 @@ class StudentLimit extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Student Limit', 'hw-ele-woo-dynamic' );
+        return __( 'Student Limit', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -64,7 +64,7 @@ class StudentLimit extends Tag {
         $this->add_control(
             'visibility',
             [
-                'label' => __( 'Visibility', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Visibility', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => LDQuery::get_visibility_options(),
                 'default' => 'everyone',
@@ -74,11 +74,11 @@ class StudentLimit extends Tag {
         $this->add_control(
             'format',
             [
-                'label' => __( 'Returned Count', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Returned Count', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'plain' => __( 'Plain Count', 'hw-ele-woo-dynamic' ),
-                    'custom' => __( 'Custom Format', 'hw-ele-woo-dynamic' ),
+                    'plain' => __( 'Plain Count', 'hw-elementor-woo-dynamic' ),
+                    'custom' => __( 'Custom Format', 'hw-elementor-woo-dynamic' ),
                 ],
                 'default' => 'plain',
             ]
@@ -87,13 +87,13 @@ class StudentLimit extends Tag {
         $this->add_control(
             'custom_format',
             [
-                'label' => __( 'Custom Format', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Custom Format', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'Limit: %current_seat%, Remaining: %remaining_seat%',
                 'condition' => [
                     'format' => 'custom',
                 ],
-                'description' => __( 'Use %current_seat% for total seats and %remaining_seat% for remaining seats.', 'hw-ele-woo-dynamic' ),
+                'description' => __( 'Use %current_seat% for total seats and %remaining_seat% for remaining seats.', 'hw-elementor-woo-dynamic' ),
             ]
         );
     }

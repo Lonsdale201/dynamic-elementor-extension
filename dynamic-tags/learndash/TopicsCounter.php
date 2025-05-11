@@ -30,7 +30,7 @@ class TopicsCounter extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Topics Numbers', 'hw-ele-woo-dynamic' );
+        return __( 'Topics Numbers', 'hw-elementor-woo-dynamic' );
     }
 
     /**

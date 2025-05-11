@@ -32,7 +32,7 @@ class CourseStartDate extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Start Date', 'hw-ele-woo-dynamic' );
+        return __( 'Course Start Date', 'hw-elementor-woo-dynamic' );
     }
 
     /**
@@ -66,7 +66,7 @@ class CourseStartDate extends Tag {
         $this->add_control(
             'visibility',
             [
-                'label' => __( 'Visibility', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Visibility', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => LDQuery::get_visibility_options(),
                 'default' => 'everyone',
@@ -77,10 +77,10 @@ class CourseStartDate extends Tag {
         $this->add_control(
             'date_format',
             [
-                'label' => __( 'Date Format', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Date Format', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => get_option( 'date_format' ),
-                'description' => __( 'Specify the date format. Defaults to WordPress settings if left empty.', 'hw-ele-woo-dynamic' ),
+                'description' => __( 'Specify the date format. Defaults to WordPress settings if left empty.', 'hw-elementor-woo-dynamic' ),
             ]
         );
 
@@ -88,9 +88,9 @@ class CourseStartDate extends Tag {
         $this->add_control(
             'no_start_date_text',
             [
-                'label' => __( 'No Start Date Text', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'No Start Date Text', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'No start date available', 'hw-ele-woo-dynamic' ),
+                'default' => __( 'No start date available', 'hw-elementor-woo-dynamic' ),
             ]
         );
     }

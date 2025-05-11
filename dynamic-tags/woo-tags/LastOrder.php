@@ -14,7 +14,7 @@ class LastOrder extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Last Order', 'hw-ele-woo-dynamic');
+        return esc_html__('Last Order', 'hw-elementor-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,18 +29,18 @@ class LastOrder extends Tag {
         $this->add_control(
             'order_data',
             [
-                'label' => esc_html__('Order Data', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Order Data', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'id' => esc_html__('Order ID', 'hw-ele-woo-dynamic'),
-                    'status' => esc_html__('Order Status', 'hw-ele-woo-dynamic'),
-                    'date' => esc_html__('Order Date', 'hw-ele-woo-dynamic'),
-                    'items' => esc_html__('Order Items', 'hw-ele-woo-dynamic'),
-                    'item_count' => esc_html__('Item Count', 'hw-ele-woo-dynamic'), 
-                    'total_amount' => esc_html__('Order Amount', 'hw-ele-woo-dynamic'),
-                    'tax_amount' => esc_html__('Order Tax Amount', 'hw-ele-woo-dynamic'),
-                    'shipping_method' => esc_html__('Shipping method', 'hw-ele-woo-dynamic'),
-                    'payment_method' => esc_html__('Payment method', 'hw-ele-woo-dynamic'),
+                    'id' => esc_html__('Order ID', 'hw-elementor-woo-dynamic'),
+                    'status' => esc_html__('Order Status', 'hw-elementor-woo-dynamic'),
+                    'date' => esc_html__('Order Date', 'hw-elementor-woo-dynamic'),
+                    'items' => esc_html__('Order Items', 'hw-elementor-woo-dynamic'),
+                    'item_count' => esc_html__('Item Count', 'hw-elementor-woo-dynamic'), 
+                    'total_amount' => esc_html__('Order Amount', 'hw-elementor-woo-dynamic'),
+                    'tax_amount' => esc_html__('Order Tax Amount', 'hw-elementor-woo-dynamic'),
+                    'shipping_method' => esc_html__('Shipping method', 'hw-elementor-woo-dynamic'),
+                    'payment_method' => esc_html__('Payment method', 'hw-elementor-woo-dynamic'),
                 ],
                 'default' => 'id',
             ]
@@ -49,10 +49,10 @@ class LastOrder extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => esc_html__('Linkable', 'hw-ele-woo-dynamic'),
+                'label' => esc_html__('Linkable', 'hw-elementor-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [

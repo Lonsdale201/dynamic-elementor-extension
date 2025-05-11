@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="wrap">
     <!-- Plugin Title & Short Description -->
-    <h1><?php esc_html_e( 'Dynamic Elementor Extension', 'hw-ele-woo-dynamic' ); ?></h1>
+    <h1><?php esc_html_e( 'Dynamic Elementor Extension', 'hw-elementor-woo-dynamic' ); ?></h1>
     <p>
-        <?php esc_html_e( 'Extra dynamic tags and other useful functions (conditionally for WooCommerce, Memberships, Subscriptions, and LearnDash).', 'hw-ele-woo-dynamic' ); ?>
+        <?php esc_html_e( 'Extra dynamic tags and other useful functions (conditionally for WooCommerce, Memberships, Subscriptions, and LearnDash).', 'hw-elementor-woo-dynamic' ); ?>
     </p>
 
     <!-- Responsive Grid Container -->
@@ -33,10 +33,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- 1) Contact & Profiles -->
         <div class="card" style="padding: 1rem;">
             <h2 style="margin-top: 0;">
-                <?php esc_html_e( 'Contact & Profiles', 'hw-ele-woo-dynamic' ); ?>
+                <?php esc_html_e( 'Contact & Profiles', 'hw-elementor-woo-dynamic' ); ?>
             </h2>
             <p class="description">
-                <?php esc_html_e( 'Reach out or find my code on GitHub/Gist.', 'hw-ele-woo-dynamic' ); ?>
+                <?php esc_html_e( 'Reach out or find my code on GitHub/Gist.', 'hw-elementor-woo-dynamic' ); ?>
             </p>
             <hr />
             <table class="widefat striped" style="margin-bottom: 0;">
@@ -74,16 +74,16 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- 2) Plugin Info -->
         <div class="card" style="padding: 1rem;">
             <h2 style="margin-top: 0;">
-                <?php esc_html_e( 'Plugin Info', 'hw-ele-woo-dynamic' ); ?>
+                <?php esc_html_e( 'Plugin Info', 'hw-elementor-woo-dynamic' ); ?>
             </h2>
             <p class="description">
-                <?php esc_html_e( 'Main repository & documentation links.', 'hw-ele-woo-dynamic' ); ?>
+                <?php esc_html_e( 'Main repository & documentation links.', 'hw-elementor-woo-dynamic' ); ?>
             </p>
             <hr />
             <table class="widefat striped" style="margin-bottom: 0;">
                 <tbody>
                     <tr>
-                        <td><strong><?php esc_html_e('GitHub Plugin Page:', 'hw-ele-woo-dynamic'); ?></strong></td>
+                        <td><strong><?php esc_html_e('GitHub Plugin Page:', 'hw-elementor-woo-dynamic'); ?></strong></td>
                         <td>
                             <a href="https://github.com/Lonsdale201/dynamic-elementor-extension" target="_blank">
                                 github.com/Lonsdale201/dynamic-elementor-extension
@@ -91,19 +91,19 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </td>
                     </tr>
                     <tr>
-                        <td><strong><?php esc_html_e('Issues / Requests:', 'hw-ele-woo-dynamic'); ?></strong></td>
+                        <td><strong><?php esc_html_e('Issues / Requests:', 'hw-elementor-woo-dynamic'); ?></strong></td>
                         <td>
                             <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/issues" target="_blank">
-                                <?php esc_html_e('GitHub Issues', 'hw-ele-woo-dynamic'); ?>
+                                <?php esc_html_e('GitHub Issues', 'hw-elementor-woo-dynamic'); ?>
                             </a>
                         </td>
                     </tr>
                     <tr>
-                        <td><strong><?php esc_html_e('Documentation:', 'hw-ele-woo-dynamic'); ?></strong></td>
+                        <td><strong><?php esc_html_e('Documentation:', 'hw-elementor-woo-dynamic'); ?></strong></td>
                         <td>
                             <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Start-here" 
                                target="_blank">
-                                <?php esc_html_e('Wiki / Start-here', 'hw-ele-woo-dynamic'); ?>
+                                <?php esc_html_e('Wiki / Start-here', 'hw-elementor-woo-dynamic'); ?>
                             </a>
                         </td>
                     </tr>
@@ -114,10 +114,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- 3) Supported Plugins -->
         <div class="card" style="padding: 1rem;">
             <h2 style="margin-top: 0;">
-                <?php esc_html_e('Supported Plugins', 'hw-ele-woo-dynamic'); ?>
+                <?php esc_html_e('Supported Plugins', 'hw-elementor-woo-dynamic'); ?>
             </h2>
             <p class="description">
-                <?php esc_html_e('The following plugins integrate seamlessly:', 'hw-ele-woo-dynamic'); ?>
+                <?php esc_html_e('The following plugins integrate seamlessly:', 'hw-elementor-woo-dynamic'); ?>
             </p>
             <hr />
             <ul style="list-style: disc; margin-left: 1.5rem;">
@@ -139,10 +139,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- 4) Roadmap -->
         <div class="card" style="padding: 1rem;">
             <h2 style="margin-top: 0;">
-                <?php esc_html_e('Roadmap', 'hw-ele-woo-dynamic'); ?>
+                <?php esc_html_e('Roadmap', 'hw-elementor-woo-dynamic'); ?>
             </h2>
             <p class="description">
-                <?php esc_html_e('Here you can see which features are planned for future releases.', 'hw-ele-woo-dynamic'); ?>
+                <?php esc_html_e('Here you can see which features are planned for future releases.', 'hw-elementor-woo-dynamic'); ?>
             </p>
             <hr />
             <!-- Display upcoming features as checkboxes -->
@@ -150,43 +150,43 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <li style="margin-bottom: 0.5rem;">
                     <label>
                         <input type="checkbox" checked disabled />
-                        <?php esc_html_e('Removed the WooCommerce dependency', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Removed the WooCommerce dependency', 'hw-elementor-woo-dynamic'); ?>
                     </label>
                 </li>
                 <li style="margin-bottom: 0.5rem;">
                     <label>
                         <input type="checkbox" checked disabled />
-                        <?php esc_html_e('Migrated the previously created plugin functions: Elementor Extra Theme Conditions', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Migrated the previously created plugin functions: Elementor Extra Theme Conditions', 'hw-elementor-woo-dynamic'); ?>
                     </label>
                 </li>
                 <li style="margin-bottom: 0.5rem;">
                     <label>
                         <input type="checkbox" checked disabled />
-                        <?php esc_html_e('Woo Membership and subscriptions dynamic tags / functions', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Woo Membership and subscriptions dynamic tags / functions', 'hw-elementor-woo-dynamic'); ?>
                     </label>
                 </li>
                 <li style="margin-bottom: 0.5rem;">
                     <label>
                         <input type="checkbox" checked disabled />
-                        <?php esc_html_e('Learndash compatibity', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Learndash compatibity', 'hw-elementor-woo-dynamic'); ?>
                     </label>
                 </li>
                 <li style="margin-bottom: 0.5rem;">
                     <label>
                         <input type="checkbox" disabled />
-                        <?php esc_html_e('TutorLMS', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('TutorLMS', 'hw-elementor-woo-dynamic'); ?>
                     </label>
                 </li>
                 <li style="margin-bottom: 0.5rem;">
                     <label>
                         <input type="checkbox" disabled />
-                        <?php esc_html_e('Woo Myaccount config', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Woo Myaccount config', 'hw-elementor-woo-dynamic'); ?>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox" disabled />
-                        <?php esc_html_e('New JetEngine custom callbacks', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('New JetEngine custom callbacks', 'hw-elementor-woo-dynamic'); ?>
                     </label>
                 </li>
             </ul>
@@ -195,10 +195,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- 5) My Other Plugins -->
         <div class="card" style="padding: 1rem;">
             <h2 style="margin-top: 0;">
-                <?php esc_html_e('My Other Plugins', 'hw-ele-woo-dynamic'); ?>
+                <?php esc_html_e('My Other Plugins', 'hw-elementor-woo-dynamic'); ?>
             </h2>
             <p class="description">
-                <?php esc_html_e('Check out some of my other WordPress plugin projects:', 'hw-ele-woo-dynamic'); ?>
+                <?php esc_html_e('Check out some of my other WordPress plugin projects:', 'hw-elementor-woo-dynamic'); ?>
             </p>
             <hr />
             <ul style="list-style: none; padding-left: 0; margin: 0;">
@@ -208,10 +208,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <a href="#" target="_blank">Simple Steam Fetch</a>
                     </strong><br/>
                     <em>
-                        <?php esc_html_e('Fetch and import game data from the Steam API. Automatically create custom posts with detailed descriptions, screenshots, and pricing information. Compatible with JetEngine.', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Fetch and import game data from the Steam API. Automatically create custom posts with detailed descriptions, screenshots, and pricing information. Compatible with JetEngine.', 'hw-elementor-woo-dynamic'); ?>
                     </em><br/>
                     <a href="https://github.com/Lonsdale201/Simple-Steam-Fetch" target="_blank">
-                        <?php esc_html_e('Download Link', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
                 <!-- Fluent Extend Triggers and Actions -->
@@ -220,10 +220,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <a href="#" target="_blank">Fluent Extend Triggers and Actions</a>
                     </strong><br/>
                     <em>
-                        <?php esc_html_e('Extra triggers, actions and others for WooCommerce, WordPress, JetFormBuilder, and Jetreviews', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Extra triggers, actions and others for WooCommerce, WordPress, JetFormBuilder, and Jetreviews', 'hw-elementor-woo-dynamic'); ?>
                     </em><br/>
                     <a href="https://github.com/Lonsdale201/fluent-extend-triggers-and-actions" target="_blank">
-                        <?php esc_html_e('Download Link', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
 
@@ -233,10 +233,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <a href="#" target="_blank">Simple Loyalty Program for WooCommerce</a>
                     </strong><br/>
                     <em>
-                        <?php esc_html_e('This plugin adds customizable loyalty features to WooCommerce, offering various settings for a tailored experience.', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('This plugin adds customizable loyalty features to WooCommerce, offering various settings for a tailored experience.', 'hw-elementor-woo-dynamic'); ?>
                     </em><br/>
                     <a href="https://github.com/Lonsdale201/fluent-extend-triggers-and-actions" target="_blank">
-                        <?php esc_html_e('Download Link', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
 
@@ -246,10 +246,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <a href="#" target="_blank">Simple My menu</a>
                     </strong><br/>
                     <em>
-                        <?php esc_html_e('A simple plugin that allows you to create monograms for the users, create and display a custom account menu, and extend other menus with visibility settings, badges, icons, etc.', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('A simple plugin that allows you to create monograms for the users, create and display a custom account menu, and extend other menus with visibility settings, badges, icons, etc.', 'hw-elementor-woo-dynamic'); ?>
                     </em><br/>
                     <a href="https://github.com/Lonsdale201/wp-mymenu" target="_blank">
-                        <?php esc_html_e('Download Link', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
 
@@ -259,10 +259,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <a href="#" target="_blank">Unity WebGL Integration</a>
                     </strong><br/>
                     <em>
-                        <?php esc_html_e('Simple loader and initializer plugin for WordPress + Unity + WebGL projects.', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Simple loader and initializer plugin for WordPress + Unity + WebGL projects.', 'hw-elementor-woo-dynamic'); ?>
                     </em><br/>
                     <a href="https://github.com/Lonsdale201/unity-for-wp" target="_blank">
-                        <?php esc_html_e('Download Link', 'hw-ele-woo-dynamic'); ?>
+                        <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
             </ul>
@@ -271,44 +271,44 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- 6) Changelog -->
         <div class="card" style="padding: 1rem;">
             <h2 style="margin-top: 0;">
-                <?php esc_html_e('Changelog', 'hw-ele-woo-dynamic'); ?>
+                <?php esc_html_e('Changelog', 'hw-elementor-woo-dynamic'); ?>
             </h2>
             <p class="description">
-                <?php esc_html_e('Latest updates and improvements:', 'hw-ele-woo-dynamic'); ?>
+                <?php esc_html_e('Latest updates and improvements:', 'hw-elementor-woo-dynamic'); ?>
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
-                <strong><?php esc_html_e('Version 2.3.2 - 2025.03.21', 'hw-ele-woo-dynamic'); ?></strong>
+                <strong><?php esc_html_e('Version 2.3.2 - 2025.03.21', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
-                        <li><?php esc_html_e('Fixed the Course Resume and Course Resume Text problems, now they work correctly even if the course has not started yet', 'hw-ele-woo-dynamic'); ?></li>
-                        <li><?php esc_html_e('We have improved the Lessons Number dynamic tag (learndash), now it can be set to take into account topics and aggregate them with lessons', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Fixed the Course Resume and Course Resume Text problems, now they work correctly even if the course has not started yet', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('We have improved the Lessons Number dynamic tag (learndash), now it can be set to take into account topics and aggregate them with lessons', 'hw-elementor-woo-dynamic'); ?></li>
                         <hr>
-                        <li><?php esc_html_e('New JetEngine Macro: Current User Role', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New JetEngine Macro: Current User Role', 'hw-elementor-woo-dynamic'); ?></li>
                         <hr>
-                        <li><?php esc_html_e('New JetEngine Dynamic Visibility for Learndash: Course Not started', 'hw-ele-woo-dynamic'); ?></li>
-                        <li><?php esc_html_e('New JetEngine Dynamic Visibility for global usage: User Registration Time Elapsed', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New JetEngine Dynamic Visibility for Learndash: Course Not started', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New JetEngine Dynamic Visibility for global usage: User Registration Time Elapsed', 'hw-elementor-woo-dynamic'); ?></li>
                     </ul>
-                <strong><?php esc_html_e('Version 2.3.1 - 2025.02.14', 'hw-ele-woo-dynamic'); ?></strong>
+                <strong><?php esc_html_e('Version 2.3.1 - 2025.02.14', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
-                        <li><?php esc_html_e('Fixed the Advanced price dynamic tag WC_Tax::calc_tax issue', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Fixed the Advanced price dynamic tag WC_Tax::calc_tax issue', 'hw-elementor-woo-dynamic'); ?></li>
                         <hr>
                     </ul>
-                    <strong><?php esc_html_e('Version 2.3 - 2025.02.11', 'hw-ele-woo-dynamic'); ?></strong>
+                    <strong><?php esc_html_e('Version 2.3 - 2025.02.11', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
-                        <li><b><?php esc_html_e('Removed the WooCommerce dependency', 'hw-ele-woo-dynamic'); ?></b></li>
+                        <li><b><?php esc_html_e('Removed the WooCommerce dependency', 'hw-elementor-woo-dynamic'); ?></b></li>
                         <hr>
-                        <li><?php esc_html_e('New Dynamic tag for WooCommerce: Advanced price', 'hw-ele-woo-dynamic'); ?></li>
-                        <li><?php esc_html_e('New Elementor Theme conditions for WooCommerce: Is Product Individually Sold', 'hw-ele-woo-dynamic'); ?></li>
-                        <li><?php esc_html_e('New Elementor Theme Conditions for WooCommerce: Is product Bundle (Product Bundles for WooCommerce plugin)', 'hw-ele-woo-dynamic'); ?></li>
-                        <li><?php esc_html_e('Spec badge improvements: Woo Subs, Woo Bundle, and Sale support for badges', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New Dynamic tag for WooCommerce: Advanced price', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New Elementor Theme conditions for WooCommerce: Is Product Individually Sold', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New Elementor Theme Conditions for WooCommerce: Is product Bundle (Product Bundles for WooCommerce plugin)', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Spec badge improvements: Woo Subs, Woo Bundle, and Sale support for badges', 'hw-elementor-woo-dynamic'); ?></li>
                         <hr>
-                        <li><?php esc_html_e('New Dynamic Visibility - Memberpress - Access memberships', 'hw-ele-woo-dynamic'); ?></li>
-                        <li><?php esc_html_e('New JetEngine Callback - Convert Units for Dynamic field widget', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New Dynamic Visibility - Memberpress - Access memberships', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New JetEngine Callback - Convert Units for Dynamic field widget', 'hw-elementor-woo-dynamic'); ?></li>
                         <br />
-                        <li><?php esc_html_e('Backend updates:', 'hw-ele-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Backend updates:', 'hw-elementor-woo-dynamic'); ?></li>
                         <ul style="list-style: circle; margin-left: 1.2rem;">
-                            <li><?php esc_html_e('New badge if new functions available', 'hw-ele-woo-dynamic'); ?></li>
-                            <li><?php esc_html_e('New Settings design', 'hw-ele-woo-dynamic'); ?></li>
+                            <li><?php esc_html_e('New badge if new functions available', 'hw-elementor-woo-dynamic'); ?></li>
+                            <li><?php esc_html_e('New Settings design', 'hw-elementor-woo-dynamic'); ?></li>
                         </ul>
                     </ul>
             </div>

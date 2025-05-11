@@ -87,7 +87,7 @@ class TopBarSettings {
         if ( $shouldAddProductInfo ) {
             $wp_admin_bar->add_node([
                 'id'    => 'product_info',
-                'title' => __( 'Product Info', 'hw-ele-woo-dynamic' ),
+                'title' => __( 'Product Info', 'hw-elementor-woo-dynamic' ),
             ]);
         }
 
@@ -99,7 +99,7 @@ class TopBarSettings {
             $wp_admin_bar->add_node([
                 'parent' => 'product_info',
                 'id'     => 'product_type',
-                'title'  => sprintf( __( 'Type: %s', 'hw-ele-woo-dynamic' ), $product_type_label ),
+                'title'  => sprintf( __( 'Type: %s', 'hw-elementor-woo-dynamic' ), $product_type_label ),
                 'href'   => false,
             ]);
         }
@@ -112,7 +112,7 @@ class TopBarSettings {
             $wp_admin_bar->add_node([
                 'parent' => 'product_info',
                 'id'     => 'product_sku',
-                'title'  => sprintf( __( '%s: %s', 'hw-ele-woo-dynamic' ), $sku_label, $sku ),
+                'title'  => sprintf( __( '%s: %s', 'hw-elementor-woo-dynamic' ), $sku_label, $sku ),
                 'href'   => false,
             ]);
         }
@@ -133,11 +133,11 @@ class TopBarSettings {
     private function add_shipping_class_node( $wp_admin_bar, $product, $enabled_tags ) {
         if ( ! empty( $enabled_tags['wp_bar_products_informations_shipping_class'] ) && ! $wp_admin_bar->get_node( 'shipping_class' ) ) {
             $shipping_class       = $product->get_shipping_class() ?: __( 'No shipping class', 'woocommerce' );
-            $shipping_class_label = __( 'Shipping Class', 'hw-ele-woo-dynamic' );
+            $shipping_class_label = __( 'Shipping Class', 'hw-elementor-woo-dynamic' );
 
             $wp_admin_bar->add_node([
                 'id'    => 'shipping_class',
-                'title' => sprintf( __( '%s: %s', 'hw-ele-woo-dynamic' ), $shipping_class_label, $shipping_class ),
+                'title' => sprintf( __( '%s: %s', 'hw-elementor-woo-dynamic' ), $shipping_class_label, $shipping_class ),
                 'href'  => false,
             ]);
         }
@@ -155,11 +155,11 @@ class TopBarSettings {
             $product_status     = get_post_status( $product->get_id() );
             $statuses           = get_post_statuses();
             $status_label       = $statuses[ $product_status ] ?? __( 'Unknown', 'woocommerce' );
-            $product_status_key = __( 'Product Status', 'hw-ele-woo-dynamic' );
+            $product_status_key = __( 'Product Status', 'hw-elementor-woo-dynamic' );
 
             $wp_admin_bar->add_node([
                 'id'    => 'product_status',
-                'title' => sprintf( __( '%s: %s', 'hw-ele-woo-dynamic' ), $product_status_key, $status_label ),
+                'title' => sprintf( __( '%s: %s', 'hw-elementor-woo-dynamic' ), $product_status_key, $status_label ),
                 'href'  => false,
             ]);
         }
@@ -234,7 +234,7 @@ class TopBarSettings {
         global $wp_admin_bar;
         $wp_admin_bar->add_node([
             'id'    => 'learndash_course_info',
-            'title' => __( 'Course Info', 'hw-ele-woo-dynamic' ),
+            'title' => __( 'Course Info', 'hw-elementor-woo-dynamic' ),
             'href'  => false,
         ]);
 
@@ -271,7 +271,7 @@ class TopBarSettings {
         $wp_admin_bar->add_node([
             'parent' => 'learndash_course_info',
             'id'     => 'learndash_lessons',
-            'title'  => __( 'Lessons', 'hw-ele-woo-dynamic' ),
+            'title'  => __( 'Lessons', 'hw-elementor-woo-dynamic' ),
             'href'   => false,
         ]);
 
@@ -306,7 +306,7 @@ class TopBarSettings {
             $wp_admin_bar->add_node([
                 'parent' => 'learndash_lessons',
                 'id'     => 'no_lessons_found',
-                'title'  => __( 'No lessons found.', 'hw-ele-woo-dynamic' ),
+                'title'  => __( 'No lessons found.', 'hw-elementor-woo-dynamic' ),
                 'href'   => false,
             ]);
         }
@@ -322,7 +322,7 @@ class TopBarSettings {
         $wp_admin_bar->add_node([
             'parent' => 'learndash_course_info',
             'id'     => 'learndash_topics',
-            'title'  => __( 'Topics', 'hw-ele-woo-dynamic' ),
+            'title'  => __( 'Topics', 'hw-elementor-woo-dynamic' ),
             'href'   => false,
         ]);
 
@@ -357,7 +357,7 @@ class TopBarSettings {
             $wp_admin_bar->add_node([
                 'parent' => 'learndash_topics',
                 'id'     => 'no_topics_found',
-                'title'  => __( 'No topics found.', 'hw-ele-woo-dynamic' ),
+                'title'  => __( 'No topics found.', 'hw-elementor-woo-dynamic' ),
                 'href'   => false,
             ]);
         }
@@ -373,7 +373,7 @@ class TopBarSettings {
         $wp_admin_bar->add_node([
             'parent' => 'learndash_course_info',
             'id'     => 'learndash_quizzes',
-            'title'  => __( 'Quizzes', 'hw-ele-woo-dynamic' ),
+            'title'  => __( 'Quizzes', 'hw-elementor-woo-dynamic' ),
             'href'   => false,
         ]);
 
@@ -408,7 +408,7 @@ class TopBarSettings {
             $wp_admin_bar->add_node([
                 'parent' => 'learndash_quizzes',
                 'id'     => 'no_quizzes_found',
-                'title'  => __( 'No quizzes found.', 'hw-ele-woo-dynamic' ),
+                'title'  => __( 'No quizzes found.', 'hw-elementor-woo-dynamic' ),
                 'href'   => false,
             ]);
         }

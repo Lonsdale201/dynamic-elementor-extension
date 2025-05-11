@@ -17,7 +17,7 @@ class CourseContent extends Tag {
     }
 
     public function get_title() {
-        return __( 'Course Content', 'hw-ele-woo-dynamic' );
+        return __( 'Course Content', 'hw-elementor-woo-dynamic' );
     }
 
     public function get_group() {
@@ -32,7 +32,7 @@ class CourseContent extends Tag {
         $this->add_control(
             'visibility',
             [
-                'label' => __( 'Visibility', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Visibility', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => LDQuery::get_visibility_options(),
                 'default' => 'everyone',
@@ -42,12 +42,12 @@ class CourseContent extends Tag {
         $this->add_control(
             'output_format',
             [
-                'label' => __( 'Output Format', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Output Format', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'default' => __( 'Default', 'hw-ele-woo-dynamic' ),
-                    'filtered' => __( 'Filtered', 'hw-ele-woo-dynamic' ),
-                    'plain'    => __( 'Plain', 'hw-ele-woo-dynamic' ),
+                    'default' => __( 'Default', 'hw-elementor-woo-dynamic' ),
+                    'filtered' => __( 'Filtered', 'hw-elementor-woo-dynamic' ),
+                    'plain'    => __( 'Plain', 'hw-elementor-woo-dynamic' ),
                 ],
                 'default' => 'default',
             ]
@@ -56,7 +56,7 @@ class CourseContent extends Tag {
         $this->add_control(
             'text_trim',
             [
-                'label' => __( 'Text Words Trim', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Text Words Trim', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
             ]
@@ -65,7 +65,7 @@ class CourseContent extends Tag {
         $this->add_control(
             'trim_count',
             [
-                'label' => __( 'Number of Words', 'hw-ele-woo-dynamic' ),
+                'label' => __( 'Number of Words', 'hw-elementor-woo-dynamic' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 50,
                 'condition' => [

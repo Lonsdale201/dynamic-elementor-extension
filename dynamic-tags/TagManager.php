@@ -59,10 +59,10 @@ class TagManager {
          */
         if ( Dependencies::is_woocommerce_active() ) {
             $dynamic_tags->register_group( 'woo-extras', [
-                'title' => __( 'Woo Extras', 'hw-ele-woo-dynamic' ),
+                'title' => __( 'Woo Extras', 'hw-elementor-woo-dynamic' ),
             ] );
             $dynamic_tags->register_group( 'woo-extras-user', [
-                'title' => __( 'Woo Extras User', 'hw-ele-woo-dynamic' ),
+                'title' => __( 'Woo Extras User', 'hw-elementor-woo-dynamic' ),
             ] );
         }
 
@@ -71,10 +71,10 @@ class TagManager {
          */
         if ( Dependencies::is_learndash_active() ) {
             $dynamic_tags->register_group( 'ld_extras_courses', [
-                'title' => __( 'LearnDash', 'hw-ele-woo-dynamic' ),
+                'title' => __( 'LearnDash', 'hw-elementor-woo-dynamic' ),
             ] );
             $dynamic_tags->register_group( 'ld_extras_global', [
-                'title' => __( 'LearnDash Global', 'hw-ele-woo-dynamic' ),
+                'title' => __( 'LearnDash Global', 'hw-elementor-woo-dynamic' ),
             ] );
         }
 
