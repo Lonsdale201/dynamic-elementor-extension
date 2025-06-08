@@ -18,313 +18,221 @@
 namespace HelloWP\HWEleWooDynamic;
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 define( 'HW_ELE_DYNAMIC_PLUGIN', plugin_dir_url( __FILE__ ) );
-define( 'HW_ELE_DYNAMIC_URL', plugin_dir_url( __FILE__ ) );
-define( 'HW_ELE_DYNAMIC_PATH', plugin_dir_path( __FILE__ ) );
-
-
+define( 'HW_ELE_DYNAMIC_URL',    plugin_dir_url( __FILE__ ) );
+define( 'HW_ELE_DYNAMIC_PATH',   plugin_dir_path( __FILE__ ) );
 
 if ( ! defined( 'HW_ELE_DYNAMIC_VERSION' ) ) {
-    define( 'HW_ELE_DYNAMIC_VERSION', '2.4.0' );
+	define( 'HW_ELE_DYNAMIC_VERSION', '2.4.0' );
 }
 
 if ( ! defined( 'HW_ELE_DYNAMIC_UPDATE_URL' ) ) {
-    define( 'HW_ELE_DYNAMIC_UPDATE_URL', 'https://pluginupdater.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json' );
+	define( 'HW_ELE_DYNAMIC_UPDATE_URL', 'https://pluginupdater.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json' );
 }
 
-
 require_once __DIR__ . '/vendor/autoload.php';
-require dirname(__FILE__) . '/plugin-update-checker/plugin-update-checker.php';
+require dirname( __FILE__ ) . '/plugin-update-checker/plugin-update-checker.php';
 
 use YahnisElsts\PluginUpdateChecker\v5p0\PucFactory;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\CartHelper;
 
-
 /**
  * Main class for the Dynamic Elementor extension.
- *
- * @package HelloWP\HWEleWooDynamic
  */
 final class HW_Ele_Dynamic_Tags {
 
-    const MINIMUM_WORDPRESS_VERSION  = '6.0';
-    const MINIMUM_PHP_VERSION        = '8.0';
-    const MINIMUM_ELEMENTOR_VERSION  = '3.22.0';
+	const MINIMUM_WORDPRESS_VERSION = '6.0';
+	const MINIMUM_PHP_VERSION       = '8.0';
+	const MINIMUM_ELEMENTOR_VERSION = '3.22.0';
 
-    /**
-     * Singleton instance
-     *
-     * @var HW_Ele_Dynamic_Tags
-     */
-    private static $_instance = null;
+	/**
+	 * Singleton instance.
+	 *
+	 * @var HW_Ele_Dynamic_Tags|null
+	 */
+	private static $_instance = null;
 
-    /**
-     *
-     * @var \HelloWP\HWEleWooDynamic\Modules\EndPoints\InsertContent
-     */
-    private $insertContentInstance;
+	/**
+	 * @var \HelloWP\HWEleWooDynamic\Modules\EndPoints\InsertContent
+	 */
+	private $insertContentInstance;
 
-    /**
-     * Ensure only one instance of the class is loaded.
-     *
-     * @return HW_Ele_Dynamic_Tags
-     */
-    public static function instance() {
-        if ( is_null( self::$_instance ) ) {
-            self::$_instance = new self();
-        }
-        return self::$_instance;
-    }
+	/**
+	 * Ensure only one instance.
+	 */
+	public static function instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
 
-    /**
-     * Constructor to initialize the plugin actions.
-     */
-    public function __construct() {
-        add_action( 'plugins_loaded', [ $this, 'init_on_plugins_loaded' ] );
-        add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), [ $this, 'add_plugin_action_links' ] );
-        add_filter( 'plugin_row_meta', [ $this, 'add_plugin_row_meta' ], 10, 2 );
-        add_action( 'init', [ $this, 'on_init' ] );
-    }
+	/**
+	 * Constructor.
+	 */
+	public function __construct() {
+		add_action( 'plugins_loaded', [ $this, 'init_on_plugins_loaded' ] );
+		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'add_plugin_action_links' ] );
+		add_filter( 'plugin_row_meta', [ $this, 'add_plugin_row_meta' ], 10, 2 );
+		add_action( 'init', [ $this, 'on_init' ] );
+	}
 
+	/**
+	 * ALWAYS return the new update URL – no branching, no old host.
+	 *
+	 * @return string
+	 */
+	private function get_update_url() {
+		return HW_ELE_DYNAMIC_UPDATE_URL;
+	}
 
-    /**
-     * Determine the appropriate update URL based on the version.
-     *
-     * @return string
-     */
-    private function get_update_url() {
+	/** Load translations. */
+	public function load_plugin_textdomain() {
+		if ( version_compare( $GLOBALS['wp_version'], '6.7', '<' ) ) {
+			load_plugin_textdomain( 'hw-ele-woo-dynamic', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		} else {
+			load_textdomain(
+				'hw-ele-woo-dynamic',
+				plugin_dir_path( __FILE__ ) . 'languages/hw-ele-woo-dynamic-' . determine_locale() . '.mo'
+			);
+		}
+	}
 
-        $plugin_data = get_plugin_data(__FILE__);
-        $installed_version = isset($plugin_data['Version']) ? $plugin_data['Version'] : '0.0.0';
+	/** After plugins loaded. */
+	public function init_on_plugins_loaded() {
+		if ( ! $this->is_compatible() ) {
+			return;
+		}
 
-        if ( version_compare( $installed_version, '2.3.3.1', '>' ) ) {
-            return HW_ELE_DYNAMIC_UPDATE_URL;
-        }
+		add_action( 'elementor/init', [ $this, 'init_elementor_integration' ] );
 
-        return 'https://plugin-uodater.alex.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json';
-    }
-    /**
-     * Load plugin textdomain for translations.
-     */
-    public function load_plugin_textdomain() {
-        if ( version_compare( $GLOBALS['wp_version'], '6.7', '<' ) ) {
-            load_plugin_textdomain( 'hw-ele-woo-dynamic', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-        } else {
-            load_textdomain(
-                'hw-ele-woo-dynamic',
-                plugin_dir_path( __FILE__ ) . 'languages/hw-ele-woo-dynamic-' . determine_locale() . '.mo'
-            );
-        }
-    }
+		PucFactory::buildUpdateChecker(
+			$this->get_update_url(),
+			__FILE__,
+			'hw-elementor-woo-dynamic'
+		);
+	}
 
-    /**
-     * Initialize actions after plugins are loaded.
-     */
-    public function init_on_plugins_loaded() {
+	/** Add settings link. */
+	public function add_plugin_action_links( $links ) {
+		$settings_link = '<a href="' . admin_url( 'admin.php?page=dynamic-extension-settings' ) . '">' .
+			__( 'Settings', 'hw-ele-woo-dynamic' ) . '</a>';
+		array_unshift( $links, $settings_link );
+		return $links;
+	}
 
-        // PHP, Elementor 
-        if ( ! $this->is_compatible() ) {
-            return;
-        }
+	/** Add meta links. */
+	public function add_plugin_row_meta( $links, $file ) {
+		if ( $file === plugin_basename( __FILE__ ) ) {
+			$links[] = '<a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Start-here">' .
+				__( 'Documentation', 'hw-ele-woo-dynamic' ) . '</a>';
+		}
+		return $links;
+	}
 
-        add_action( 'elementor/init', [ $this, 'init_elementor_integration' ] );
+	/** Init run. */
+	public function on_init() {
+		$this->load_plugin_textdomain();
 
-        $myUpdateChecker = PucFactory::buildUpdateChecker(
-            $this->get_update_url(),
-            __FILE__,
-            'hw-elementor-woo-dynamic'
-        );
-    }
+		if ( ! $this->is_compatible() ) {
+			return;
+		}
 
-    /**
-     * Add settings link to the plugin action links.
-     *
-     * @param  array $links
-     * @return array
-     */
-    public function add_plugin_action_links($links) {
-        $settings_link = '<a href="' . admin_url('admin.php?page=dynamic-extension-settings') . '">' . __('Settings', 'hw-ele-woo-dynamic') . '</a>';
-        array_unshift($links, $settings_link);
-        return $links;
-    }
+		$this->init_elementor_integration();
 
-    /**
-     * Add custom links in the plugin row meta.
-     *
-     * @param  array  $links
-     * @param  string $file
-     * @return array
-     */
-    public function add_plugin_row_meta($links, $file) {
-        if ( $file == plugin_basename(__FILE__) ) {
-            $documentation_link = '<a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Start-here">' . __('Documentation', 'hw-ele-woo-dynamic') . '</a>';
-            $links[] = $documentation_link;
-        }
-        return $links;
-    }
+		if ( Dependencies::is_jetengine_active_and_visibility_enabled() ) {
+			Modules\DynamicVisibility\VisibilityManager::instance();
+		}
+	}
 
-    /**
-     * Run initial checks and Elementor integration.
-     */
-    public function on_init() {
-        $this->load_plugin_textdomain();
+	/** Elementor modules. */
+	public function init_elementor_integration() {
+		\HelloWP\HWEleWooDynamic\TagManager::get_instance();
+		\HelloWP\HWEleWooDynamic\Modules\DynamicSettings::get_instance();
+		\HelloWP\HWEleWooDynamic\Modules\ThemeConditions\ThemeConditionManager::instance();
+		\HelloWP\HWEleWooDynamic\Modules\Finder\FinderManager::get_instance();
+		\HelloWP\HWEleWooDynamic\Modules\WPTopBar\TopBarSettings::get_instance();
+		new \HelloWP\HWEleWooDynamic\Modules\Widgets\WidgetManager();
 
-        if ( ! $this->is_compatible() ) {
-            return;
-        }
+		if ( Dependencies::is_woocommerce_active() ) {
+			if ( ! isset( $this->insertContentInstance ) ) {
+				$this->insertContentInstance = new \HelloWP\HWEleWooDynamic\Modules\EndPoints\InsertContent();
+			}
+			CartHelper::init();
+		}
 
-        $this->init_elementor_integration();
-        if ( Dependencies::is_jetengine_active_and_visibility_enabled() ) {
-            Modules\DynamicVisibility\VisibilityManager::instance();
-        }
-    }
+		if ( class_exists( 'Jet_Engine' ) ) {
+			\HelloWP\HWEleWooDynamic\Modules\JEMacros\MacroManager::instance();
+			\HelloWP\HWEleWooDynamic\Modules\Callbacks\CallbackManager::instance();
+		}
+	}
 
-    /**
-     * Initialize Elementor-related modules.
-     */
-    public function init_elementor_integration() {
-        \HelloWP\HWEleWooDynamic\TagManager::get_instance();
-        \HelloWP\HWEleWooDynamic\Modules\DynamicSettings::get_instance();
-        \HelloWP\HWEleWooDynamic\Modules\ThemeConditions\ThemeConditionManager::instance();
-        \HelloWP\HWEleWooDynamic\Modules\Finder\FinderManager::get_instance();
-        \HelloWP\HWEleWooDynamic\Modules\WPTopBar\TopBarSettings::get_instance();
-        new \HelloWP\HWEleWooDynamic\Modules\Widgets\WidgetManager();
+	/** Compatibility checks. */
+	public function is_compatible() {
+		if ( ! did_action( 'elementor/loaded' ) ) {
+			add_action( 'admin_notices', [ $this, 'admin_notice_elementor_plugin' ] );
+			return false;
+		}
 
-        if ( Dependencies::is_woocommerce_active() ) {
-            if ( ! isset( $this->insertContentInstance ) ) {
-                $this->insertContentInstance = new \HelloWP\HWEleWooDynamic\Modules\EndPoints\InsertContent();
-            }
-            CartHelper::init();
-        }
+		if ( ! version_compare( ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
+			add_action( 'admin_notices', [ $this, 'admin_notice_minimum_elementor_version' ] );
+			return false;
+		}
 
-        /**
-         * Jet_Engine macros, callbacks
-         */
-        if ( class_exists( 'Jet_Engine' ) ) {
-            \HelloWP\HWEleWooDynamic\Modules\JEMacros\MacroManager::instance();
-            \HelloWP\HWEleWooDynamic\Modules\Callbacks\CallbackManager::instance();
-        }
-        
-    }
+		if ( version_compare( get_bloginfo( 'version' ), self::MINIMUM_WORDPRESS_VERSION, '<' ) ) {
+			add_action( 'admin_notices', [ $this, 'admin_notice_minimum_wordpress_version' ] );
+			return false;
+		}
 
-    /**
-     * Check if the environment is compatible with the plugin (Elementor, WP, PHP).
-     *
-     * @return bool
-     */
-    public function is_compatible() {
-        // Check if Elementor is loaded
-        if ( ! did_action( 'elementor/loaded' ) ) {
-            add_action( 'admin_notices', [ $this, 'admin_notice_elementor_plugin' ] );
-            return false;
-        }
+		if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
+			add_action( 'admin_notices', [ $this, 'admin_notice_minimum_php_version' ] );
+			return false;
+		}
 
-        // Verify Elementor version
-        if ( ! version_compare( ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
-            add_action( 'admin_notices', [ $this, 'admin_notice_minimum_elementor_version' ] );
-            return false;
-        }
-
-        // Verify WordPress version
-        if ( version_compare( get_bloginfo( 'version' ), self::MINIMUM_WORDPRESS_VERSION, '<' ) ) {
-            add_action( 'admin_notices', [ $this, 'admin_notice_minimum_wordpress_version' ] );
-            return false;
-        }
-
-        // Verify PHP version
-        if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
-            add_action( 'admin_notices', [ $this, 'admin_notice_minimum_php_version' ] );
-            return false;
-        }
-
-        return true;
-    }
-
-    public function admin_notice_elementor_plugin() {
-        if ( ! current_user_can( 'manage_options' ) ) {
-            return;
-        }
-        ?>
-        <div class="notice notice-warning is-dismissible">
-            <p>
-                <?php
-                echo esc_html__(
-                    'Dynamic Elementor extension requires Elementor plugin to be activated. Please activate Elementor to use this plugin.',
-                    'hw-ele-woo-dynamic'
-                );
-                ?>
-            </p>
-        </div>
-        <?php
-    }
-
-    public function admin_notice_minimum_wordpress_version() {
-        if ( ! current_user_can( 'manage_options' ) ) {
-            return;
-        }
-        ?>
-        <div class="notice notice-warning is-dismissible">
-            <p>
-                <?php
-                echo sprintf(
-                    esc_html__(
-                        'Dynamic Elementor extension requires WordPress version %s or greater. Please update WordPress to use this plugin.',
-                        'hw-ele-woo-dynamic'
-                    ),
-                    esc_html( self::MINIMUM_WORDPRESS_VERSION )
-                );
-                ?>
-            </p>
-        </div>
-        <?php
-    }
-
-    public function admin_notice_minimum_php_version() {
-        if ( ! current_user_can( 'manage_options' ) ) {
-            return;
-        }
-        ?>
-        <div class="notice notice-warning is-dismissible">
-            <p>
-                <?php
-                echo sprintf(
-                    esc_html__(
-                        'Dynamic Elementor extension requires PHP version %s or greater. Please update PHP to use this plugin.',
-                        'hw-ele-woo-dynamic'
-                    ),
-                    esc_html( self::MINIMUM_PHP_VERSION )
-                );
-                ?>
-            </p>
-        </div>
-        <?php
-    }
-
-    public function admin_notice_minimum_elementor_version() {
-        if ( ! current_user_can( 'manage_options' ) ) {
-            return;
-        }
-        ?>
-        <div class="notice notice-warning is-dismissible">
-            <p>
-                <?php
-                echo sprintf(
-                    esc_html__(
-                        'Dynamic Elementor extension requires Elementor version %s or greater. Please update Elementor to use this plugin.',
-                        'hw-ele-woo-dynamic'
-                    ),
-                    esc_html( self::MINIMUM_ELEMENTOR_VERSION )
-                );
-                ?>
-            </p>
-        </div>
-        <?php
-    }
+		return true;
+	}
 
 
+	public function admin_notice_elementor_plugin() {
+		if ( ! current_user_can( 'manage_options' ) ) { return; }
+		echo '<div class="notice notice-warning is-dismissible"><p>' .
+			esc_html__( 'Dynamic Elementor extension requires Elementor plugin to be activated. Please activate Elementor to use this plugin.', 'hw-ele-woo-dynamic' ) .
+			'</p></div>';
+	}
+
+	public function admin_notice_minimum_wordpress_version() {
+		if ( ! current_user_can( 'manage_options' ) ) { return; }
+		echo '<div class="notice notice-warning is-dismissible"><p>' .
+			sprintf(
+				esc_html__( 'Dynamic Elementor extension requires WordPress version %s or greater. Please update WordPress to use this plugin.', 'hw-ele-woo-dynamic' ),
+				esc_html( self::MINIMUM_WORDPRESS_VERSION )
+			) .
+			'</p></div>';
+	}
+
+	public function admin_notice_minimum_php_version() {
+		if ( ! current_user_can( 'manage_options' ) ) { return; }
+		echo '<div class="notice notice-warning is-dismissible"><p>' .
+			sprintf(
+				esc_html__( 'Dynamic Elementor extension requires PHP version %s or greater. Please update PHP to use this plugin.', 'hw-ele-woo-dynamic' ),
+				esc_html( self::MINIMUM_PHP_VERSION )
+			) .
+			'</p></div>';
+	}
+
+	public function admin_notice_minimum_elementor_version() {
+		if ( ! current_user_can( 'manage_options' ) ) { return; }
+		echo '<div class="notice notice-warning is-dismissible"><p>' .
+			sprintf(
+				esc_html__( 'Dynamic Elementor extension requires Elementor version %s or greater. Please update Elementor to use this plugin.', 'hw-ele-woo-dynamic' ),
+				esc_html( self::MINIMUM_ELEMENTOR_VERSION )
+			) .
+			'</p></div>';
+	}
 }
+
 HW_Ele_Dynamic_Tags::instance();
