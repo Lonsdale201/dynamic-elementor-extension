@@ -21,7 +21,7 @@ class WooSubscriptionsActive extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Has Active Subscriptions With Selected Statuses', 'hw-elementor-woo-dynamic');
+        return __('Has Active Subscriptions With Selected Statuses', 'hw-ele-woo-dynamic');
     }
 
     /**
@@ -50,7 +50,7 @@ class WooSubscriptionsActive extends Base {
 
         return [
             'subscription_statuses' => [
-                'label'       => __('Select Subscription Statuses', 'hw-elementor-woo-dynamic'),
+                'label'       => __('Select Subscription Statuses', 'hw-ele-woo-dynamic'),
                 'type'        => 'select2',
                 'multiple'    => true,
                 'default'     => ['wc-active'],

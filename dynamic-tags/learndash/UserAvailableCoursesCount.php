@@ -20,7 +20,7 @@ class UserAvailableCoursesCount extends Tag {
     }
 
     public function get_title() {
-        return __( 'User Enrolled Courses Count', 'hw-elementor-woo-dynamic' );
+        return __( 'User Enrolled Courses Count', 'hw-ele-woo-dynamic' );
     }
 
     public function get_group() {

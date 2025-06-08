@@ -14,7 +14,7 @@ class ActiveSubscriptionData extends Tag {
     }
 
     public function get_title() {
-        return __('Active Subscription Data', 'hw-elementor-woo-dynamic');
+        return __('Active Subscription Data', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,12 +29,12 @@ class ActiveSubscriptionData extends Tag {
         $this->add_control(
             'data_type',
             [
-                'label' => __('Data Type', 'hw-elementor-woo-dynamic'),
+                'label' => __('Data Type', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'status' => __('Status', 'hw-elementor-woo-dynamic'),
-                    'next_payment_date' => __('Next Payment Date', 'hw-elementor-woo-dynamic'),
-                    'trial_end' => __('Trial end', 'hw-elementor-woo-dynamic')
+                    'status' => __('Status', 'hw-ele-woo-dynamic'),
+                    'next_payment_date' => __('Next Payment Date', 'hw-ele-woo-dynamic'),
+                    'trial_end' => __('Trial end', 'hw-ele-woo-dynamic')
                 ],
                 'default' => 'status',
             ]
@@ -43,10 +43,10 @@ class ActiveSubscriptionData extends Tag {
         $this->add_control(
             'date_format',
             [
-                'label' => __('Date Format', 'hw-elementor-woo-dynamic'),
+                'label' => __('Date Format', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '',
-                'description' => __('Custom date format (e.g., Y-m-d). Leave blank to use the site\'s default format.', 'hw-elementor-woo-dynamic'),
+                'description' => __('Custom date format (e.g., Y-m-d). Leave blank to use the site\'s default format.', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'data_type' => ['next_payment_date', 'trial_end'],
                 ],
@@ -56,10 +56,10 @@ class ActiveSubscriptionData extends Tag {
         $this->add_control(
             'custom_text',
             [
-                'label' => __('Custom Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Custom Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'hw-elementor-woo-dynamic'),
-                'label_off' => __('No', 'hw-elementor-woo-dynamic'),
+                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => __('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -71,7 +71,7 @@ class ActiveSubscriptionData extends Tag {
         $this->add_control(
             'custom_textarea',
             [
-                'label' => __('Custom Text for Trial', 'hw-elementor-woo-dynamic'),
+                'label' => __('Custom Text for Trial', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'Your trial ends in {remaining_days} days.',
                 'condition' => [
@@ -123,16 +123,19 @@ class ActiveSubscriptionData extends Tag {
             $interval = $today->diff($end_date);
             $days_remaining = $interval->format('%a');
             $custom_text = $this->get_settings_for_display('custom_textarea');
-            echo str_replace('{remaining_days}', $days_remaining, $custom_text);
+            $output = str_replace('{remaining_days}', esc_html($days_remaining), esc_html($custom_text));
+            echo wp_kses_post($output);
         } else {
-            $format = !empty($custom_format) ? $custom_format : get_option('date_format');
-            echo date_i18n($format, strtotime($date));
+            $format = !empty($custom_format) ? esc_html($custom_format) : get_option('date_format');
+            echo wp_kses_post(date_i18n($format, strtotime($date)));
         }
     }
+    
 
     private function render_next_payment_date($subscription, $custom_format) {
         $next_payment_date = $subscription->get_date('next_payment', 'site');
-        $format = !empty($custom_format) ? $custom_format : get_option('date_format');
-        echo $next_payment_date ? date_i18n($format, strtotime($next_payment_date)) : __('No upcoming payment', 'hw-elementor-woo-dynamic');
-    }   
+        $format = !empty($custom_format) ? esc_html($custom_format) : get_option('date_format');
+        $output = $next_payment_date ? date_i18n($format, strtotime($next_payment_date)) : __('No upcoming payment', 'hw-ele-woo-dynamic');
+        echo wp_kses_post($output);
+    }
 }

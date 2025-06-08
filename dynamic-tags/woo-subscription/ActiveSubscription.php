@@ -14,7 +14,7 @@ class ActiveSubscription extends Tag {
     }
 
     public function get_title() {
-        return __('Active Subscription', 'hw-elementor-woo-dynamic');
+        return __('Active Subscription', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,10 +29,10 @@ class ActiveSubscription extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => __('Linkable', 'hw-elementor-woo-dynamic'),
+                'label' => __('Linkable', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'hw-elementor-woo-dynamic'),
-                'label_off' => __('No', 'hw-elementor-woo-dynamic'),
+                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => __('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -74,6 +74,6 @@ class ActiveSubscription extends Tag {
             }
         }
 
-        echo implode(', ', $output);
+        echo wp_kses_post(implode(', ', $output));
     }
 }

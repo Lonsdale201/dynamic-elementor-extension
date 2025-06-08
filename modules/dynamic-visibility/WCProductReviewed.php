@@ -20,7 +20,7 @@ class WCProductReviewed extends Base {
      * @return string
      */
     public function get_name() {
-        return __('User Reviewed Product', 'hw-elementor-woo-dynamic');
+        return __('User Reviewed Product', 'hw-ele-woo-dynamic');
     }
 
     /**

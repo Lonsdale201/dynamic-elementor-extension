@@ -54,15 +54,19 @@ class TagManager {
         $options      = get_option( 'dynamic_extension_settings' );
         $enabled_tags = $options['enabled_tags'] ?? [];
 
+
+        $dynamic_tags->register_group( 'global-tags', [
+            'title' => __( 'Global', 'hw-ele-woo-dynamic' ),
+        ] );
         /**
          * Conditionally register WooCommerce-based tag groups only if WooCommerce is active.
          */
         if ( Dependencies::is_woocommerce_active() ) {
             $dynamic_tags->register_group( 'woo-extras', [
-                'title' => __( 'Woo Extras', 'hw-elementor-woo-dynamic' ),
+                'title' => __( 'Woo Extras', 'hw-ele-woo-dynamic' ),
             ] );
             $dynamic_tags->register_group( 'woo-extras-user', [
-                'title' => __( 'Woo Extras User', 'hw-elementor-woo-dynamic' ),
+                'title' => __( 'Woo Extras User', 'hw-ele-woo-dynamic' ),
             ] );
         }
 
@@ -71,17 +75,16 @@ class TagManager {
          */
         if ( Dependencies::is_learndash_active() ) {
             $dynamic_tags->register_group( 'ld_extras_courses', [
-                'title' => __( 'LearnDash', 'hw-elementor-woo-dynamic' ),
+                'title' => __( 'LearnDash', 'hw-ele-woo-dynamic' ),
             ] );
             $dynamic_tags->register_group( 'ld_extras_global', [
-                'title' => __( 'LearnDash Global', 'hw-elementor-woo-dynamic' ),
+                'title' => __( 'LearnDash Global', 'hw-ele-woo-dynamic' ),
             ] );
         }
 
-        // Loop through enabled tags and register them if dependencies are satisfied.
         foreach ( $enabled_tags as $tag_key => $value ) {
             if ( empty( $value ) ) {
-                continue; // Tag not actually enabled
+                continue;
             }
 
             // Additional conditional checks for plugin dependencies.
@@ -99,9 +102,11 @@ class TagManager {
             }
 
             $tag_class = $this->map_tag_class( $tag_key );
-            if ( $tag_class ) {
-                $dynamic_tags->register_tag( $tag_class );
+            if ( ! $tag_class || ! class_exists( $tag_class ) ) {
+                continue;
             }
+
+            $dynamic_tags->register_tag( $tag_class );
         }
     }
 
@@ -113,7 +118,6 @@ class TagManager {
      * @return bool
      */
     private function is_woo_tag( $tag_key ) {
-        // Add any other Woo-related prefixes if needed.
         $woo_prefixes = [
             'woo_extras_',
             'cart_value_',
@@ -138,7 +142,12 @@ class TagManager {
      */
     private function map_tag_class( $tag_key ) {
         $map = [
+
+            // Global tags
+            'global_tags_global_dynamic_calculation'           => 'HelloWP\HWEleWooDynamic\GlobalTags\DynamicCalculation',
+
             // Woo Extras
+            'woo_extras_advanced-price'            => 'HelloWP\HWEleWooDynamic\WooTags\AdvancedPrice',
             'woo_extras_advanced_stock'            => 'HelloWP\HWEleWooDynamic\WooTags\AdvancedStock',
             'woo_extras_advanced_sale_badge'       => 'HelloWP\HWEleWooDynamic\WooTags\AdvancedSaleBadge',
             'woo_extras_featured_badge'            => 'HelloWP\HWEleWooDynamic\WooTags\FeaturedBadge',
@@ -152,6 +161,7 @@ class TagManager {
             'woo_extras_product_weight'            => 'HelloWP\HWEleWooDynamic\WooTags\ProductWeight',
             'woo_extras_purchased_badge'           => 'HelloWP\HWEleWooDynamic\WooTags\PurchasedBadge',
             'woo_extras_sale_time'                 => 'HelloWP\HWEleWooDynamic\WooTags\SaleTime',
+            'woo_extras_shipping_class'            => 'HelloWP\HWEleWooDynamic\WooTags\ShippingClass',
             'woo_extras_stock_quantity_extra'      => 'HelloWP\HWEleWooDynamic\WooTags\StockQuantityExtra',
             'woo_extras_spec_badge'                => 'HelloWP\HWEleWooDynamic\WooTags\SpecBadge',
             'woo_extras_stock_quantity'            => 'HelloWP\HWEleWooDynamic\WooTags\StockQuantity',
@@ -162,7 +172,7 @@ class TagManager {
             'woo_extras_prev_product_image'        => 'HelloWP\HWEleWooDynamic\WooTags\PreviousProductImage',
             'woo_extras_taxonomy-acf-meta'         => 'HelloWP\HWEleWooDynamic\WooTags\TaxonomyACFMeta',
             'woo_extras_variable-price-range'      => 'HelloWP\HWEleWooDynamic\WooTags\VariablePrice',
-            'woo_extras_advanced-price'            => 'HelloWP\HWEleWooDynamic\WooTags\AdvancedPrice',
+            'woo_extras_product_dimension'         => 'HelloWP\HWEleWooDynamic\WooTags\ProductDimension',
 
             // Global
             'global_advanced_product_category'     => 'HelloWP\HWEleWooDynamic\WooTags\AdvancedProductCategory',
@@ -188,6 +198,8 @@ class TagManager {
             'woo_membership_active_membership_data'       => 'HelloWP\HWEleWooDynamic\WooTags\Membership\ActiveMembershipData',
             'woo_membership_current_membership_data'      => 'HelloWP\HWEleWooDynamic\WooTags\Membership\CurrentMembershipData',
             'woo_membership_restricted_products_view'     => 'HelloWP\HWEleWooDynamic\WooTags\Membership\RestrictedProductsView',
+            'woo_membership_user_membership_plan_count'   => 'HelloWP\HWEleWooDynamic\WooTags\Membership\MembershipPlanCount',
+
 
             // Woo Subscriptions
             'woo_subscriptions_active_subscription'        => 'HelloWP\HWEleWooDynamic\WooTags\Subscription\ActiveSubscription',

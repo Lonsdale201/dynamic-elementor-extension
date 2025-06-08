@@ -31,7 +31,7 @@ class CourseAccessType extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Access Type', 'hw-elementor-woo-dynamic' );
+        return __( 'Course Access Type', 'hw-ele-woo-dynamic' );
     }
 
     /**
@@ -66,28 +66,28 @@ class CourseAccessType extends Tag {
         $this->add_control(
             'format_type',
             [
-                'label' => __( 'Format Type', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Format Type', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'default' => __( 'Learndash Default', 'hw-elementor-woo-dynamic' ),
-                    'custom' => __( 'Custom Format', 'hw-elementor-woo-dynamic' ),
+                    'default' => __( 'Learndash Default', 'hw-ele-woo-dynamic' ),
+                    'custom' => __( 'Custom Format', 'hw-ele-woo-dynamic' ),
                 ],
                 'default' => 'default',
             ]
         );
 
         // Custom text controls for each access type.
-        $this->add_text_control_for_course_access_type('open', __( 'Open', 'hw-elementor-woo-dynamic' ));
-        $this->add_text_control_for_course_access_type('free', __( 'Free', 'hw-elementor-woo-dynamic' ));
-        $this->add_text_control_for_course_access_type('paynow', __( 'Buy Now', 'hw-elementor-woo-dynamic' ));
-        $this->add_text_control_for_course_access_type('subscribe', __( 'Subscription', 'hw-elementor-woo-dynamic' ));
-        $this->add_text_control_for_course_access_type('closed', __( 'Closed', 'hw-elementor-woo-dynamic' ));
+        $this->add_text_control_for_course_access_type('open', __( 'Open', 'hw-ele-woo-dynamic' ));
+        $this->add_text_control_for_course_access_type('free', __( 'Free', 'hw-ele-woo-dynamic' ));
+        $this->add_text_control_for_course_access_type('paynow', __( 'Buy Now', 'hw-ele-woo-dynamic' ));
+        $this->add_text_control_for_course_access_type('subscribe', __( 'Subscription', 'hw-ele-woo-dynamic' ));
+        $this->add_text_control_for_course_access_type('closed', __( 'Closed', 'hw-ele-woo-dynamic' ));
 
         // Control for user enrolled custom text.
         $this->add_control(
             'custom_text_enrolled',
             [
-                'label' => __( 'If User Enrolled', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'If User Enrolled', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
                 'condition' => [
                     'format_type' => 'custom',

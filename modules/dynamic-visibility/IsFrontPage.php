@@ -21,7 +21,7 @@ class IsFrontPage extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Is Front Page', 'hw-elementor-woo-dynamic');
+        return __('Is Front Page', 'hw-ele-woo-dynamic');
     }
 
     /**

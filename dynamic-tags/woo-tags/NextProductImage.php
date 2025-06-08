@@ -13,7 +13,7 @@ class NextProductImage extends Data_Tag {
     }
 
     public function get_title() {
-        return __('Next Product Image', 'hw-elementor-woo-dynamic');
+        return __('Next Product Image', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {

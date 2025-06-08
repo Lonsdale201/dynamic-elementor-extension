@@ -10,7 +10,7 @@ class UserRegisteredDateVisibility extends Base {
     }
 
     public function get_name() {
-        return __( 'User Registration Time Elapsed', 'hw-elementor-woo-dynamic' );
+        return __( 'User Registration Time Elapsed', 'hw-ele-woo-dynamic' );
     }
 
     public function get_group() {
@@ -54,18 +54,18 @@ class UserRegisteredDateVisibility extends Base {
     public function get_custom_controls() {
         return [
             'time_unit' => [
-                'label'   => __( 'Time Unit', 'hw-elementor-woo-dynamic' ),
+                'label'   => __( 'Time Unit', 'hw-ele-woo-dynamic' ),
                 'type'    => 'select',
                 'options' => [
-                    'hours'  => __( 'Hours', 'hw-elementor-woo-dynamic' ),
-                    'days'   => __( 'Days', 'hw-elementor-woo-dynamic' ),
-                    'months' => __( 'Months', 'hw-elementor-woo-dynamic' ),
-                    'years'  => __( 'Years', 'hw-elementor-woo-dynamic' ),
+                    'hours'  => __( 'Hours', 'hw-ele-woo-dynamic' ),
+                    'days'   => __( 'Days', 'hw-ele-woo-dynamic' ),
+                    'months' => __( 'Months', 'hw-ele-woo-dynamic' ),
+                    'years'  => __( 'Years', 'hw-ele-woo-dynamic' ),
                 ],
                 'default' => 'hours',
             ],
             'value' => [
-                'label'   => __( 'Value', 'hw-elementor-woo-dynamic' ),
+                'label'   => __( 'Value', 'hw-ele-woo-dynamic' ),
                 'type'    => 'number',
                 'default' => 0,
             ],

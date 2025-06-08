@@ -31,7 +31,7 @@ class CoursePrerequisitesList extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Prerequisites List', 'hw-elementor-woo-dynamic' );
+        return __( 'Course Prerequisites List', 'hw-ele-woo-dynamic' );
     }
 
     /**
@@ -63,11 +63,11 @@ class CoursePrerequisitesList extends Tag {
         $this->add_control(
             'list_format',
             [
-                'label' => __( 'List Format', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'List Format', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'list' => __( 'List', 'hw-elementor-woo-dynamic' ),
-                    'inline' => __( 'Inline', 'hw-elementor-woo-dynamic' ),
+                    'list' => __( 'List', 'hw-ele-woo-dynamic' ),
+                    'inline' => __( 'Inline', 'hw-ele-woo-dynamic' ),
                 ],
                 'default' => 'list',
             ]
@@ -76,11 +76,11 @@ class CoursePrerequisitesList extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => __( 'Linkable', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Linkable', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
-                'label_on' => __( 'Yes', 'hw-elementor-woo-dynamic' ),
-                'label_off' => __( 'No', 'hw-elementor-woo-dynamic' ),
+                'label_on' => __( 'Yes', 'hw-ele-woo-dynamic' ),
+                'label_off' => __( 'No', 'hw-ele-woo-dynamic' ),
                 'return_value' => 'yes',
             ]
         );

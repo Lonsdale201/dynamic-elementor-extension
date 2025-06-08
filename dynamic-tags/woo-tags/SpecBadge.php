@@ -14,7 +14,7 @@ class SpecBadge extends Tag {
     }
 
     public function get_title() {
-        return __('Special Badge', 'hw-elementor-woo-dynamic');
+        return __('Special Badge', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,47 +29,47 @@ class SpecBadge extends Tag {
         $this->add_control(
             'enable_custom_text',
             [
-                'label' => __('Enable Custom Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Enable Custom Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('Yes', 'hw-elementor-woo-dynamic'),
-                'label_off' => __('No', 'hw-elementor-woo-dynamic'),
+                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => __('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => '',
             ]
         );
 
         $exclude_options = [
-            'featured' => __('Exclude the Featured', 'hw-elementor-woo-dynamic'),
-            'sold_individually' => __('Exclude Sold Individually', 'hw-elementor-woo-dynamic'),
-            'digital' => __('Exclude Digital', 'hw-elementor-woo-dynamic'),
-            'virtual' => __('Exclude Virtual', 'hw-elementor-woo-dynamic'),
-            'external' => __('Exclude External', 'hw-elementor-woo-dynamic'),
-            'sale' => __('Exclude Sale', 'hw-elementor-woo-dynamic'),
+            'featured' => __('Exclude the Featured', 'hw-ele-woo-dynamic'),
+            'sold_individually' => __('Exclude Sold Individually', 'hw-ele-woo-dynamic'),
+            'digital' => __('Exclude Digital', 'hw-ele-woo-dynamic'),
+            'virtual' => __('Exclude Virtual', 'hw-ele-woo-dynamic'),
+            'external' => __('Exclude External', 'hw-ele-woo-dynamic'),
+            'sale' => __('Exclude Sale', 'hw-ele-woo-dynamic'),
         ];
     
         if (self::is_subscriptions_active()) {
-            $exclude_options['subscription'] = __('Exclude Subscriptions', 'hw-elementor-woo-dynamic');
+            $exclude_options['subscription'] = __('Exclude Subscriptions', 'hw-ele-woo-dynamic');
         }
         if (self::is_product_bundles_active()) {
-            $exclude_options['bundle'] = __('Exclude Bundles', 'hw-elementor-woo-dynamic');
+            $exclude_options['bundle'] = __('Exclude Bundles', 'hw-ele-woo-dynamic');
         }
     
         $this->add_control(
             'exclude_features',
             [
-                'label' => __('Exclude Features', 'hw-elementor-woo-dynamic'),
+                'label' => __('Exclude Features', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'options' => $exclude_options,
                 'label_block' => true,
-                'description' => __('Specify what features should not be included in the badge.', 'hw-elementor-woo-dynamic'),
+                'description' => __('Specify what features should not be included in the badge.', 'hw-ele-woo-dynamic'),
             ]
         );
 
         $this->add_control(
             'featured_custom_text',
             [
-                'label' => __('Featured Product Custom Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Featured Product Custom Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('Featured', 'woocommerce'),
                 'condition' => [
@@ -81,9 +81,9 @@ class SpecBadge extends Tag {
         $this->add_control(
             'digital_custom_text',
             [
-                'label' => __('Digital Product Custom Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Digital Product Custom Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Digital', 'hw-elementor-woo-dynamic'),
+                'default' => __('Digital', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'enable_custom_text' => 'yes',
                 ],
@@ -93,9 +93,9 @@ class SpecBadge extends Tag {
         $this->add_control(
             'virtual_custom_text',
             [
-                'label' => __('Virtual Product Custom Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Virtual Product Custom Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Virtual', 'hw-elementor-woo-dynamic'),
+                'default' => __('Virtual', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'enable_custom_text' => 'yes',
                 ],
@@ -105,7 +105,7 @@ class SpecBadge extends Tag {
         $this->add_control(
             'sold_individually_custom_text',
             [
-                'label' => __('Sold Individually Custom Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Sold Individually Custom Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('Sold Individually', 'woocommerce'),
                 'condition' => [
@@ -117,9 +117,9 @@ class SpecBadge extends Tag {
         $this->add_control(
             'external_custom_text',
             [
-                'label' => __('External Product Custom Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('External Product Custom Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('External', 'hw-elementor-woo-dynamic'),
+                'default' => __('External', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'enable_custom_text' => 'yes',
                 ],
@@ -129,9 +129,9 @@ class SpecBadge extends Tag {
         $this->add_control(
             'sale_custom_text',
             [
-                'label' => __('Sale Product Custom Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Sale Product Custom Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Sale', 'hw-elementor-woo-dynamic'),
+                'default' => __('Sale', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'enable_custom_text' => 'yes',
                 ],
@@ -142,9 +142,9 @@ class SpecBadge extends Tag {
             $this->add_control(
                 'subscription_custom_text',
                 [
-                    'label' => __('Subscription Product Custom Text', 'hw-elementor-woo-dynamic'),
+                    'label' => __('Subscription Product Custom Text', 'hw-ele-woo-dynamic'),
                     'type' => Controls_Manager::TEXT,
-                    'default' => __('Subscription', 'hw-elementor-woo-dynamic'),
+                    'default' => __('Subscription', 'hw-ele-woo-dynamic'),
                     'condition' => [
                         'enable_custom_text' => 'yes',
                     ],
@@ -156,9 +156,9 @@ class SpecBadge extends Tag {
             $this->add_control(
                 'bundle_custom_text',
                 [
-                    'label' => __('Bundle Product Custom Text', 'hw-elementor-woo-dynamic'),
+                    'label' => __('Bundle Product Custom Text', 'hw-ele-woo-dynamic'),
                     'type' => Controls_Manager::TEXT,
-                    'default' => __('Bundle', 'hw-elementor-woo-dynamic'),
+                    'default' => __('Bundle', 'hw-ele-woo-dynamic'),
                     'condition' => [
                         'enable_custom_text' => 'yes',
                     ],
@@ -199,21 +199,21 @@ class SpecBadge extends Tag {
         }
     
         if ($product->is_on_sale() && !in_array('sale', $excludes)) {
-            $badges[] = $settings['enable_custom_text'] === 'yes' ? $settings['sale_custom_text'] : __('Sale', 'hw-elementor-woo-dynamic');
+            $badges[] = $settings['enable_custom_text'] === 'yes' ? $settings['sale_custom_text'] : __('Sale', 'hw-ele-woo-dynamic');
         }
     
         // Check for subscription products
         if ($this->is_subscription_product($product) && !in_array('subscription', $excludes)) {
-            $badges[] = $settings['enable_custom_text'] === 'yes' ? $settings['subscription_custom_text'] : __('Subscription', 'hw-elementor-woo-dynamic');
+            $badges[] = $settings['enable_custom_text'] === 'yes' ? $settings['subscription_custom_text'] : __('Subscription', 'hw-ele-woo-dynamic');
         }
     
         // Check for bundle products
         if ($this->is_bundle_product($product) && !in_array('bundle', $excludes)) {
-            $badges[] = $settings['enable_custom_text'] === 'yes' ? $settings['bundle_custom_text'] : __('Bundle', 'hw-elementor-woo-dynamic');
+            $badges[] = $settings['enable_custom_text'] === 'yes' ? $settings['bundle_custom_text'] : __('Bundle', 'hw-ele-woo-dynamic');
         }
     
         $badges_safe = array_map('wp_kses_post', $badges);
-        echo implode(', ', $badges_safe);
+        echo wp_kses_post(implode(', ', $badges_safe));
     }
     
 

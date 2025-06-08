@@ -1,0 +1,95 @@
+/* dynamic-extension.css */
+.membership-cards-wrapper .membership-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.membership-card-icon {
+  flex-shrink: 0;
+}
+.membership-card-body {
+  flex-grow: 1;
+}
+.membership-card-body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+}
+
+.membership-card-body p {
+  margin: 0;
+}
+
+.membership-card-body span {
+  margin: 0;
+}
+
+.membership-card {
+  display: flex;
+  position: relative;
+}
+
+.membership-card-icon {
+  flex: 0 0 auto;
+}
+
+.membership-status-badge {
+  position: absolute;
+  z-index: 8;
+}
+
+.membership-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.membership-status-badge .status-text {
+  display: block;
+}
+
+.membership-card-body .membership-plan-name {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 6px;
+}
+
+.plan-name-description {
+  width: 100%;
+}
+
+/* Dynamic Bulk Add to cart */
+.dynamic-bulk-addtocart-wrapper,
+.dynamic-bulk-addtocart-button {
+  display: block;
+}
+
+.dynamic-bulk-addtocart {
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  line-height: 1;
+  transition: color 0.3s, fill 0.3s, border-color 0.3s;
+}
+
+.dynamic-bulk-addtocart-content {
+  display: flex;
+  flex-direction: row;
+}
+.dynamic-bulk-addtocart-content,
+.dynamic-bulk-addtocart-content * {
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s,
+    color 0.3s, fill 0.3s;
+}
+
+.dynamic-bulk-addtocart * {
+  transition: color 0.3s, fill 0.3s, border-color 0.3s;
+}
+
+.hwdw-align-fullwidth .dynamic-bulk-addtocart {
+  display: block;
+  width: 100%;
+}

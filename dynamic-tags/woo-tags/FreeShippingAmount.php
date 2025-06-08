@@ -13,7 +13,7 @@ class FreeShippingAmount extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Free Shipping Amount', 'hw-elementor-woo-dynamic');
+        return esc_html__('Free Shipping Amount', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -50,7 +50,7 @@ class FreeShippingAmount extends Tag {
         $min_amount = $this->get_free_shipping_min_amount();
     
         if ($min_amount !== false) {
-            echo wc_price($min_amount);
+            echo wp_kses_post(wc_price($min_amount));
         }
     }
     

@@ -14,7 +14,7 @@ class AdvancedSaleBadge extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Advanced Sale Badge', 'hw-elementor-woo-dynamic');
+        return esc_html__('Advanced Sale Badge', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,11 +29,11 @@ class AdvancedSaleBadge extends Tag {
         $this->add_control(
             'sale_text',
             [
-                'label' => esc_html__('Sale Text', 'hw-elementor-woo-dynamic'),
+                'label' => esc_html__('Sale Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'Sale!',
                 'placeholder' => 'Sale!',
-                'description' => esc_html__('Use {sale_number} to display the amount saved. Use {sale_percentage} to display the sale percentage.', 'hw-elementor-woo-dynamic'),
+                'description' => esc_html__('Use {sale_number} to display the amount saved. Use {sale_percentage} to display the sale percentage.', 'hw-ele-woo-dynamic'),
             ]
         );
 
@@ -41,11 +41,11 @@ class AdvancedSaleBadge extends Tag {
             $this->add_control(
                 'membership_sale_text',
                 [
-                    'label' => esc_html__('Membership Sale Text', 'hw-elementor-woo-dynamic'),
+                    'label' => esc_html__('Membership Sale Text', 'hw-ele-woo-dynamic'),
                     'type' => Controls_Manager::TEXTAREA,
                     'default' => 'Exclusive Sale for Members: {sale_percentage}% off!',
                     'placeholder' => 'Exclusive Sale for Members: {sale_percentage}% off!',
-                    'description' => esc_html__('Use {sale_number} to display the amount saved. Use {sale_percentage} to display the sale percentage. This text is used when the product is discounted exclusively for members.', 'hw-elementor-woo-dynamic'),
+                    'description' => esc_html__('Use {sale_number} to display the amount saved. Use {sale_percentage} to display the sale percentage. This text is used when the product is discounted exclusively for members.', 'hw-ele-woo-dynamic'),
                 ]
             );
         }
@@ -53,23 +53,23 @@ class AdvancedSaleBadge extends Tag {
         $this->add_control(
             'free_text',
             [
-                'label' => esc_html__('Free Text', 'hw-elementor-woo-dynamic'),
+                'label' => esc_html__('Free Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Free!', 'hw-elementor-woo-dynamic'),
-                'description' => esc_html__('Text to display when the product is free.', 'hw-elementor-woo-dynamic'),
+                'default' => esc_html__('Free!', 'hw-ele-woo-dynamic'),
+                'description' => esc_html__('Text to display when the product is free.', 'hw-ele-woo-dynamic'),
             ]
         );
 
         $this->add_control(
             'format_currency',
             [
-                'label' => esc_html__('Currency and Format', 'hw-elementor-woo-dynamic'),
+                'label' => esc_html__('Currency and Format', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
-                'description' => esc_html__('Enable this to format the sale number as a price with currency.', 'hw-elementor-woo-dynamic'),
+                'description' => esc_html__('Enable this to format the sale number as a price with currency.', 'hw-ele-woo-dynamic'),
             ]
         );
     }

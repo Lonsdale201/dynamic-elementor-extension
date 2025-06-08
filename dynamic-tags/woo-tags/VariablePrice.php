@@ -14,7 +14,7 @@ class VariablePrice extends Tag {
     }
 
     public function get_title() {
-        return __('Variable Price Range', 'hw-elementor-woo-dynamic');
+        return __('Variable Price Range', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,13 +29,13 @@ class VariablePrice extends Tag {
         $this->add_control(
             'price_output',
             [
-                'label' => __('Price Output', 'hw-elementor-woo-dynamic'),
+                'label' => __('Price Output', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'both',
                 'options' => [
-                    'min' => __('Minimum Price', 'hw-elementor-woo-dynamic'),
-                    'max' => __('Maximum Price', 'hw-elementor-woo-dynamic'),
-                    'both' => __('Price Range', 'hw-elementor-woo-dynamic'),
+                    'min' => __('Minimum Price', 'hw-ele-woo-dynamic'),
+                    'max' => __('Maximum Price', 'hw-ele-woo-dynamic'),
+                    'both' => __('Price Range', 'hw-ele-woo-dynamic'),
                 ],
             ]
         );
@@ -43,7 +43,7 @@ class VariablePrice extends Tag {
         $this->add_control(
             'separator',
             [
-                'label' => __('Price Range Separator', 'hw-elementor-woo-dynamic'),
+                'label' => __('Price Range Separator', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => ' - ',
                 'condition' => [
@@ -55,11 +55,11 @@ class VariablePrice extends Tag {
         $this->add_control(
             'hide_if_not_variable',
             [
-                'label' => __('Hide if Product not Variable', 'hw-elementor-woo-dynamic'),
+                'label' => __('Hide if Product not Variable', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
-                'label_on' => __('Yes', 'hw-elementor-woo-dynamic'),
-                'label_off' => __('No', 'hw-elementor-woo-dynamic'),
+                'label_on' => __('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => __('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
             ]
         );

@@ -40,6 +40,7 @@ class VisibilityManager {
         // Register the WooCommerce-related condition if WooCommerce is active
         if ( Dependencies::is_woocommerce_active() ) {
             $conditions_manager->register_condition(new WCProductReviewed());
+            $conditions_manager->register_condition(new ProductTabEmpty());
         }
 
         // Register other custom conditions

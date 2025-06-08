@@ -15,7 +15,7 @@ class CurrentMembershipData extends Tag {
     }
 
     public function get_title() {
-        return __('Current Membership Data', 'hw-elementor-woo-dynamic');
+        return __('Current Membership Data', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -30,16 +30,16 @@ class CurrentMembershipData extends Tag {
         $this->add_control(
             'data_type',
             [
-                'label' => __('Data Type', 'hw-elementor-woo-dynamic'),
+                'label' => __('Data Type', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'plan_name' => __('Plan Name', 'hw-elementor-woo-dynamic'),
-                    'status' => __('Status', 'hw-elementor-woo-dynamic'),
-                    'member_since' => __('Member Since', 'hw-elementor-woo-dynamic'), 
-                    'next_bill_on' => __('Next Bill On', 'hw-elementor-woo-dynamic'),
-                    'expires' => __('Expires', 'hw-elementor-woo-dynamic'),
-                    'remaining_time' => __('Remaining Time', 'hw-elementor-woo-dynamic'),
-                    'link' => __('Link', 'hw-elementor-woo-dynamic')
+                    'plan_name' => __('Plan Name', 'hw-ele-woo-dynamic'),
+                    'status' => __('Status', 'hw-ele-woo-dynamic'),
+                    'member_since' => __('Member Since', 'hw-ele-woo-dynamic'), 
+                    'next_bill_on' => __('Next Bill On', 'hw-ele-woo-dynamic'),
+                    'expires' => __('Expires', 'hw-ele-woo-dynamic'),
+                    'remaining_time' => __('Remaining Time', 'hw-ele-woo-dynamic'),
+                    'link' => __('Link', 'hw-ele-woo-dynamic')
                 ],
                 'default' => 'plan_name',
             ]
@@ -48,10 +48,10 @@ class CurrentMembershipData extends Tag {
         $this->add_control(
             'date_format',
             [
-                'label' => __('Date Format', 'hw-elementor-woo-dynamic'),
+                'label' => __('Date Format', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '',
-                'description' => __('Enter the date format (e.g., Y-m-d). Leave blank to use the site\'s default format.', 'hw-elementor-woo-dynamic'),
+                'description' => __('Enter the date format (e.g., Y-m-d). Leave blank to use the site\'s default format.', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'data_type' => ['member_since', 'next_bill_on', 'expires'],
                 ],
@@ -61,10 +61,10 @@ class CurrentMembershipData extends Tag {
         $this->add_control(
             'remaining_time_text',
             [
-                'label' => __('Remaining Time Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Remaining Time Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'Your membership expires in {remaining_time} days.',
-                'description' => __('Use {remaining_time} where you want to display the remaining days.', 'hw-elementor-woo-dynamic'),
+                'description' => __('Use {remaining_time} where you want to display the remaining days.', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'data_type' => 'remaining_time',
                 ],
@@ -74,10 +74,10 @@ class CurrentMembershipData extends Tag {
         $this->add_control(
             'no_expiry_text',
             [
-                'label' => __('No Expiry Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('No Expiry Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Never expires', 'hw-elementor-woo-dynamic'),
-                'description' => __('Text to display when there is no expiry date.', 'hw-elementor-woo-dynamic'),
+                'default' => __('Never expires', 'hw-ele-woo-dynamic'),
+                'description' => __('Text to display when there is no expiry date.', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'data_type' => 'expires',
                 ],
@@ -87,10 +87,10 @@ class CurrentMembershipData extends Tag {
         $this->add_control(
             'expired_text',
             [
-                'label' => __('Expired Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Expired Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => 'Expired',
-                'description' => __('Text to display when the membership has expired.', 'hw-elementor-woo-dynamic'),
+                'description' => __('Text to display when the membership has expired.', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'data_type' => 'remaining_time',
                 ],

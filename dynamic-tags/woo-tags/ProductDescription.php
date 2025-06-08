@@ -14,7 +14,7 @@ class ProductDescription extends Tag {
     }
 
     public function get_title() {
-        return __('Product Description', 'hw-elementor-woo-dynamic');
+        return __('Product Description', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,11 +29,11 @@ class ProductDescription extends Tag {
         $this->add_control(
             'read_more_switcher',
             [
-                'label' => __('Read More', 'hw-elementor-woo-dynamic'),
+                'label' => __('Read More', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
-                'label_off' => __('Off', 'hw-elementor-woo-dynamic'),
-                'label_on' => __('On', 'hw-elementor-woo-dynamic'),
+                'label_off' => __('Off', 'hw-ele-woo-dynamic'),
+                'label_on' => __('On', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
             ]
         );
@@ -41,7 +41,7 @@ class ProductDescription extends Tag {
         $this->add_control(
             'trim_length',
             [
-                'label' => __('Character Length', 'hw-elementor-woo-dynamic'),
+                'label' => __('Character Length', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 100,
                 'condition' => [
@@ -53,9 +53,9 @@ class ProductDescription extends Tag {
         $this->add_control(
             'read_more_text',
             [
-                'label' => __('Read More Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Read More Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Read More', 'hw-elementor-woo-dynamic'),
+                'default' => __('Read More', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'read_more_switcher' => 'yes',
                 ],
@@ -65,7 +65,7 @@ class ProductDescription extends Tag {
         $this->add_control(
             'read_more_anchor',
             [
-                'label' => __('Anchor ID', 'hw-elementor-woo-dynamic'),
+                'label' => __('Anchor ID', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '#read-more',
                 'condition' => [
@@ -92,7 +92,7 @@ class ProductDescription extends Tag {
 
         if ('yes' === $settings['read_more_switcher']) {
             $trim_length = !empty($settings['trim_length']) ? $settings['trim_length'] : 100;
-            $read_more_text = !empty($settings['read_more_text']) ? $settings['read_more_text'] : __('Read More', 'hw-elementor-woo-dynamic');
+            $read_more_text = !empty($settings['read_more_text']) ? $settings['read_more_text'] : __('Read More', 'hw-ele-woo-dynamic');
             $anchor = !empty($settings['read_more_anchor']) ? $settings['read_more_anchor'] : '#read-more';
 
             if (strlen($description) > $trim_length) {

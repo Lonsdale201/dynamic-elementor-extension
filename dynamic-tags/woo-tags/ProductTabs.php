@@ -13,7 +13,7 @@ class ProductTabs extends Tag {
     }
 
     public function get_title() {
-        return __('Product Tabs', 'hw-elementor-woo-dynamic');
+        return __('Product Tabs', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -26,17 +26,17 @@ class ProductTabs extends Tag {
 
     protected function _register_controls() {
         $tab_source_options = [
-            'default' => __('Default Tabs', 'hw-elementor-woo-dynamic')
+            'default' => __('Default Tabs', 'hw-ele-woo-dynamic')
         ];
 
         if (Dependencies::is_tab_manager_active()) {
-            $tab_source_options['tab_manager'] = __('Tab Manager', 'hw-elementor-woo-dynamic');
+            $tab_source_options['tab_manager'] = __('Tab Manager', 'hw-ele-woo-dynamic');
         }
 
         $this->add_control(
             'tab_source',
             [
-                'label' => __('Tab Source', 'hw-elementor-woo-dynamic'),
+                'label' => __('Tab Source', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => $tab_source_options,
                 'default' => 'default',
@@ -46,7 +46,7 @@ class ProductTabs extends Tag {
         $this->add_control(
             'tab_selection',
             [
-                'label' => __('Choose Tab', 'hw-elementor-woo-dynamic'),
+                'label' => __('Choose Tab', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => $this->get_default_tabs(),
                 'default' => 'description',
@@ -60,7 +60,7 @@ class ProductTabs extends Tag {
             $this->add_control(
                 'tab_manager_selection',
                 [
-                    'label' => __('Choose Tab', 'hw-elementor-woo-dynamic'),
+                    'label' => __('Choose Tab', 'hw-ele-woo-dynamic'),
                     'type' => Controls_Manager::SELECT,
                     'options' => $this->get_tab_manager_tabs(),
                     'condition' => [
@@ -73,11 +73,11 @@ class ProductTabs extends Tag {
         $this->add_control(
             'output',
             [
-                'label' => __('Output', 'hw-elementor-woo-dynamic'),
+                'label' => __('Output', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'name' => __('Name', 'hw-elementor-woo-dynamic'),
-                    'content' => __('Content', 'hw-elementor-woo-dynamic'),
+                    'name' => __('Name', 'hw-ele-woo-dynamic'),
+                    'content' => __('Content', 'hw-ele-woo-dynamic'),
                 ],
                 'default' => 'content',
             ]
@@ -86,8 +86,8 @@ class ProductTabs extends Tag {
 
     private function get_default_tabs() {
         return [
-            'description' => __('Description', 'hw-elementor-woo-dynamic'),
-            'additional_information' => __('Additional Information', 'hw-elementor-woo-dynamic'),
+            'description' => __('Description', 'hw-ele-woo-dynamic'),
+            'additional_information' => __('Additional Information', 'hw-ele-woo-dynamic'),
         ];
     }
 
@@ -146,7 +146,8 @@ class ProductTabs extends Tag {
             add_filter('woocommerce_product_description_heading', '__return_false');
             ob_start();
             call_user_func($tab['callback'], $selected_tab, $tab);
-            echo ob_get_clean();
+            $content = ob_get_clean();
+            echo wp_kses_post($content);
             remove_filter('woocommerce_product_description_heading', '__return_false');
         }
     }

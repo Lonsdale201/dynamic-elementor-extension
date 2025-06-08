@@ -14,7 +14,7 @@ public function get_name() {
 }
 
 public function get_label() {
-    return esc_html__( 'Is Product Subscription', 'hw-elementor-woo-dynamic' );
+    return esc_html__( 'Is Product Subscription', 'hw-ele-woo-dynamic' );
 }
 
 public function check( $args ) {

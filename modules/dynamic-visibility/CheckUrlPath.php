@@ -21,7 +21,7 @@ class CheckUrlPath extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Check URL Path', 'hw-elementor-woo-dynamic');
+        return __('Check URL Path', 'hw-ele-woo-dynamic');
     }
 
     /**

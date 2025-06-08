@@ -31,7 +31,7 @@ class ProductIsFeatured extends Condition_Base {
      * @return string The condition label.
      */
     public function get_label() {
-        return esc_html__( 'Is Product Featured', 'hw-elementor-woo-dynamic' );
+        return esc_html__( 'Is Product Featured', 'hw-ele-woo-dynamic' );
     }
 
     /**

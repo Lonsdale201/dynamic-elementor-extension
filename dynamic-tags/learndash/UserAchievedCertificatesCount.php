@@ -20,7 +20,7 @@ class UserAchievedCertificatesCount extends Tag {
     }
 
     public function get_title() {
-        return __( 'User Achieved Certificates Count', 'hw-elementor-woo-dynamic' );
+        return __( 'User Achieved Certificates Count', 'hw-ele-woo-dynamic' );
     }
 
     public function get_group() {

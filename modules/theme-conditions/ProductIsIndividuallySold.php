@@ -30,7 +30,7 @@ class ProductIsIndividuallySold extends Condition_Base {
      * @return string The condition label.
      */
     public function get_label() {
-        return esc_html__( 'Is Product Individually Sold', 'hw-elementor-woo-dynamic' );
+        return esc_html__( 'Is Product Individually Sold', 'hw-ele-woo-dynamic' );
     }
 
     /**

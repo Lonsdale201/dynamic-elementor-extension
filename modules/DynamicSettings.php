@@ -128,6 +128,10 @@ class DynamicSettings {
      */
     private function initialize_sections_with_descriptions() {
         $this->sections = [
+            'global_tags' => [
+                'title'       => __( '[WordPress] Global dynamic tags', 'hw-elementor-woo-dynamic' ),
+                'description' => __( 'Settings that apply globally across the site.', 'hw-elementor-woo-dynamic' ),
+            ],
             'woo_extras' => [
                 'title'       => __( '[WooCommerce] Single Product page / loop dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
@@ -226,7 +230,7 @@ class DynamicSettings {
         foreach ( $this->sections as $id => $data ) {
 
             // WooCommerce-based sections
-            if (
+            if ( 'global_tags' !== $id && (
                 ( $id === 'woo_extras' && ! Dependencies::is_woocommerce_active() ) ||
                 ( $id === 'global' && ! Dependencies::is_woocommerce_active() ) ||
                 ( $id === 'cart_value' && ! Dependencies::is_woocommerce_active() ) ||
@@ -244,9 +248,9 @@ class DynamicSettings {
                 ( $id === 'ld_extras_courses' && ! Dependencies::is_learndash_active() ) ||
                 ( $id === 'ld_extras_global' && ! Dependencies::is_learndash_active() ) ||
                 ( $id === 'wp_bar_learndash_informations' && ! Dependencies::is_learndash_active() )
-            ) {
-                continue;
-            }
+                ) ) {
+                    continue;
+                }
 
             // Add the settings section
             add_settings_section(
@@ -268,36 +272,41 @@ class DynamicSettings {
      */
     private function initialize_tags_config() {
         $this->tags_config = [
+            'global_tags' => [
+                'global_dynamic_calculation'    => __( 'Dynamic Calculation', 'hw-elementor-woo-dynamic' ),
+            ],
             'global' => [
-                'advanced_product_category' => __( 'Advanced Product Category', 'hw-elementor-woo-dynamic' ),
-                'free_shipping_amount'      => __( 'Free Shipping Amount', 'hw-elementor-woo-dynamic' ),
+                'advanced_product_category'     => __( 'Advanced Product Category', 'hw-elementor-woo-dynamic' ),
+                'free_shipping_amount'          => __( 'Free Shipping Amount', 'hw-elementor-woo-dynamic' ),
             ],
             'woo_extras' => [
-                'advanced_stock'               => __( 'Advanced Stock', 'hw-elementor-woo-dynamic' ),
+                'advanced-price'               => __( 'Advanced Price', 'hw-elementor-woo-dynamic' ),
                 'advanced_sale_badge'          => __( 'Advanced Sale Badge', 'hw-elementor-woo-dynamic' ),
+                'advanced_stock'               => __( 'Advanced Stock', 'hw-elementor-woo-dynamic' ),
                 'featured_badge'               => __( 'Featured Badge', 'hw-elementor-woo-dynamic' ),
-                'product_attributes'           => __( 'Product Attributes', 'hw-elementor-woo-dynamic' ),
-                'product_description'          => __( 'Product Description', 'hw-elementor-woo-dynamic' ),
-                'product_height'               => __( 'Product Height', 'hw-elementor-woo-dynamic' ),
-                'product_lenght'               => __( 'Product Length', 'hw-elementor-woo-dynamic' ), 
-                'product_shipping_class'       => __( 'Product Shipping Class', 'hw-elementor-woo-dynamic' ),
-                'product-tabs'                 => __( 'Product Tabs', 'hw-elementor-woo-dynamic' ),
-                'product_width'                => __( 'Product Width', 'hw-elementor-woo-dynamic' ),
-                'product_weight'               => __( 'Product Weight', 'hw-elementor-woo-dynamic' ),
-                'purchased_badge'              => __( 'Purchased Badge', 'hw-elementor-woo-dynamic' ),
-                'sale_time'                    => __( 'Sale Time', 'hw-elementor-woo-dynamic' ),
-                'stock_quantity_extra'         => __( 'Stock Quantity Extra', 'hw-elementor-woo-dynamic' ),
-                'spec_badge'                   => __( 'Spec Badge', 'hw-elementor-woo-dynamic' ),
-                'stock_quantity'               => __( 'Stock Quantity', 'hw-elementor-woo-dynamic' ),
-                'product_gallery'              => __( 'Product Gallery', 'hw-elementor-woo-dynamic' ),
-                'taxonomy-acf-meta'            => __( 'ACF Taxonomy Meta', 'hw-elementor-woo-dynamic' ),
                 'next_product'                 => __( 'Next Product', 'hw-elementor-woo-dynamic' ),
                 'next_product_image'           => __( 'Next Product Image', 'hw-elementor-woo-dynamic' ),
                 'prev_product'                 => __( 'Previous Product', 'hw-elementor-woo-dynamic' ),
                 'prev_product_image'           => __( 'Previous Product Image', 'hw-elementor-woo-dynamic' ),
+                'product-tabs'                 => __( 'Product Tabs', 'hw-elementor-woo-dynamic' ),
+                'product_attributes'           => __( 'Product Attributes', 'hw-elementor-woo-dynamic' ),
+                'product_description'          => __( 'Product Description', 'hw-elementor-woo-dynamic' ),
+                'product_dimension'            => __( 'Product Dimension', 'hw-elementor-woo-dynamic' ),
+                'product_gallery'              => __( 'Product Gallery', 'hw-elementor-woo-dynamic' ),
+                'product_height'               => __( 'Product Height', 'hw-elementor-woo-dynamic' ),
+                'product_lenght'               => __( 'Product Length', 'hw-elementor-woo-dynamic' ),
+                'product_shipping_class'       => __( 'Product Shipping Class', 'hw-elementor-woo-dynamic' ),
+                'product_weight'               => __( 'Product Weight', 'hw-elementor-woo-dynamic' ),
+                'product_width'                => __( 'Product Width', 'hw-elementor-woo-dynamic' ),
+                'purchased_badge'              => __( 'Purchased Badge', 'hw-elementor-woo-dynamic' ),
+                'sale_time'                    => __( 'Sale Time', 'hw-elementor-woo-dynamic' ),
+                'spec_badge'                   => __( 'Spec Badge', 'hw-elementor-woo-dynamic' ),
+                'stock_quantity'               => __( 'Stock Quantity', 'hw-elementor-woo-dynamic' ),
+                'stock_quantity_extra'         => __( 'Stock Quantity Extra', 'hw-elementor-woo-dynamic' ),
+                'taxonomy-acf-meta'            => __( 'ACF Taxonomy Meta', 'hw-elementor-woo-dynamic' ),
                 'variable-price-range'         => __( 'Variable Price', 'hw-elementor-woo-dynamic' ),
-                'advanced-price'               => __( 'Advanced Price', 'hw-elementor-woo-dynamic' ),
             ],
+
             'cart_value' => [
                 'cart_values'     => __( 'Cart Values', 'hw-elementor-woo-dynamic' ),
                 'cart_tax_values' => __( 'Cart Tax Values', 'hw-elementor-woo-dynamic' ),
@@ -314,6 +323,7 @@ class DynamicSettings {
             ],
             'woo_membership' => [
                 'active_membership'         => __( 'Active Membership', 'hw-elementor-woo-dynamic' ),
+                'user_membership_plan_count'         => __( 'Membership Plan Count', 'hw-elementor-woo-dynamic' ),
                 'my_account_membershipLink' => __( 'MyAccount Membership Link', 'hw-elementor-woo-dynamic' ),
                 'active_membership_data'    => __( 'Active Membership Data', 'hw-elementor-woo-dynamic' ),
                 'current_membership_data'   => __( 'Current Membership Data', 'hw-elementor-woo-dynamic' ),
@@ -459,10 +469,35 @@ class DynamicSettings {
             $is_checked  = isset( $enabled_tags[ $full_tag_id ] ) ? '1' : '';
 
             $badge_html = '';
-            if ( $tag_id === 'advanced-price' ) {
+            if ( $tag_id === 'user_membership_plan_count' ) {
                 $badge_html = ' <sup class="badge-new-feature">New</sup>';
             }
-            if ( in_array( $tag_id, [ 'ld_lessons', 'course-resume-text', 'course-resume' ] ) ) {
+            if ( $tag_id === 'global_dynamic_calculation' ) {
+                $badge_html = ' <sup class="badge-new-feature">New</sup>';
+            }
+            if ( $tag_id === 'product_dimension' ) {
+                $badge_html = ' <sup class="badge-new-feature">New</sup>';
+            }
+            if ( $tag_id === 'active_membership' ) {
+                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
+            }
+            if ( $tag_id === 'product_shipping_class' ) {
+                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
+            }
+            if ( $tag_id === 'product_height' ) {
+                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
+            }
+            if ( $tag_id === 'product_width' ) {
+                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
+            }
+            if ( $tag_id === 'product_lenght' ) {
+                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
+            }
+            if ( $tag_id === 'product_attributes' ) {
+                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
+            }
+
+            if ( $tag_id === 'course-resume' ) {
                 $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
             }
 

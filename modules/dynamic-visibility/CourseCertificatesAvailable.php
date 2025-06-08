@@ -21,7 +21,7 @@ class CourseCertificatesAvailable extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Course Certificates Available', 'hw-elementor-woo-dynamic');
+        return __('Course Certificates Available', 'hw-ele-woo-dynamic');
     }
 
     /**

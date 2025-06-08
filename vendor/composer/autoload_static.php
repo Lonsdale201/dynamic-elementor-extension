@@ -13,17 +13,18 @@ class ComposerStaticInit0276a9163f92cbe8f2004c8d3b98c0d0
             'HelloWP\\HWEleWooDynamic\\WooTags\\Membership\\' => 43,
             'HelloWP\\HWEleWooDynamic\\WooTags\\LearnDash\\' => 42,
             'HelloWP\\HWEleWooDynamic\\WooTags\\' => 32,
+            'HelloWP\\HWEleWooDynamic\\Modules\\Widgets\\Dynamic\\' => 48,
+            'HelloWP\\HWEleWooDynamic\\Modules\\Widgets\\' => 40,
             'HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\' => 41,
-            'HelloWP\\HWEleWooDynamic\\Modules\\WExtends\\' => 41,
             'HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\' => 48,
             'HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\' => 41,
             'HelloWP\\HWEleWooDynamic\\Modules\\Helpers\\' => 40,
             'HelloWP\\HWEleWooDynamic\\Modules\\Finder\\' => 39,
             'HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\' => 42,
             'HelloWP\\HWEleWooDynamic\\Modules\\DynamicVisibility\\' => 50,
-            'HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\' => 41,
             'HelloWP\\HWEleWooDynamic\\Modules\\Callbacks\\' => 42,
             'HelloWP\\HWEleWooDynamic\\Modules\\' => 32,
+            'HelloWP\\HWEleWooDynamic\\GlobalTags\\' => 35,
             'HelloWP\\HWEleWooDynamic\\' => 24,
         ),
     );
@@ -45,13 +46,17 @@ class ComposerStaticInit0276a9163f92cbe8f2004c8d3b98c0d0
         array (
             0 => __DIR__ . '/../..' . '/dynamic-tags/woo-tags',
         ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\Widgets\\Dynamic\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/widgets/dynamic',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\Widgets\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/widgets',
+        ),
         'HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modules/wp-top-bar',
-        ),
-        'HelloWP\\HWEleWooDynamic\\Modules\\WExtends\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/modules/widget-extends',
         ),
         'HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\' => 
         array (
@@ -77,10 +82,6 @@ class ComposerStaticInit0276a9163f92cbe8f2004c8d3b98c0d0
         array (
             0 => __DIR__ . '/../..' . '/modules/dynamic-visibility',
         ),
-        'HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/modules/dynamic-widgets',
-        ),
         'HelloWP\\HWEleWooDynamic\\Modules\\Callbacks\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modules/callbacks',
@@ -88,6 +89,10 @@ class ComposerStaticInit0276a9163f92cbe8f2004c8d3b98c0d0
         'HelloWP\\HWEleWooDynamic\\Modules\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modules',
+        ),
+        'HelloWP\\HWEleWooDynamic\\GlobalTags\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/dynamic-tags/global',
         ),
         'HelloWP\\HWEleWooDynamic\\' => 
         array (

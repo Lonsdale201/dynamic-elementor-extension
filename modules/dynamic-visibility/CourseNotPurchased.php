@@ -21,7 +21,7 @@ class CourseNotPurchased extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Course Not Enrolled', 'hw-elementor-woo-dynamic');
+        return __('Course Not Enrolled', 'hw-ele-woo-dynamic');
     }
 
     /**

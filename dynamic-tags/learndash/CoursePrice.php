@@ -32,7 +32,7 @@ class CoursePrice extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Price', 'hw-elementor-woo-dynamic' );
+        return __( 'Course Price', 'hw-ele-woo-dynamic' );
     }
 
     /**
@@ -65,30 +65,30 @@ class CoursePrice extends Tag {
         $this->add_control(
             'free_text',
             [
-                'label' => __( 'Free Text', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Free Text', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'Free', 'hw-elementor-woo-dynamic' ),
+                'default' => __( 'Free', 'hw-ele-woo-dynamic' ),
             ]
         );
 
         $this->add_control(
             'enrolled_text',
             [
-                'label' => __( 'Enrolled Text', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Enrolled Text', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'You have this course', 'hw-elementor-woo-dynamic' ),
+                'default' => __( 'You have this course', 'hw-ele-woo-dynamic' ),
             ]
         );
 
         $this->add_control(
             'price_type_visibility',
             [
-                'label' => __( 'Price Type Visibility', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Price Type Visibility', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'show_all',
                 'options' => [
-                    'show_all' => __( 'Show All Types', 'hw-elementor-woo-dynamic' ),
-                    'show_if_has_price' => __( 'Show Only if Has Price', 'hw-elementor-woo-dynamic' ),
+                    'show_all' => __( 'Show All Types', 'hw-ele-woo-dynamic' ),
+                    'show_if_has_price' => __( 'Show Only if Has Price', 'hw-ele-woo-dynamic' ),
                 ],
             ]
         );
@@ -96,7 +96,7 @@ class CoursePrice extends Tag {
         $this->add_control(
             'visibility',
             [
-                'label' => __( 'Visibility', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Visibility', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => LDQuery::get_visibility_options(),
                 'default' => 'everyone',

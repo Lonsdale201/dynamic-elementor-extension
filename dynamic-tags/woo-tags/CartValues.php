@@ -14,7 +14,7 @@ class CartValues extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Cart Values', 'hw-elementor-woo-dynamic');
+        return esc_html__('Cart Values', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -30,12 +30,12 @@ class CartValues extends Tag {
         $this->add_control(
             'cart_value_type',
             [
-                'label' => esc_html__('Cart Value', 'hw-elementor-woo-dynamic'),
+                'label' => esc_html__('Cart Value', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'return_items' => esc_html__('Return items', 'hw-elementor-woo-dynamic'),
-                    'cart_total' => esc_html__('Cart total', 'hw-elementor-woo-dynamic'),
-                    'items_count' => esc_html__('Items count', 'hw-elementor-woo-dynamic'),
+                    'return_items' => esc_html__('Return items', 'hw-ele-woo-dynamic'),
+                    'cart_total' => esc_html__('Cart total', 'hw-ele-woo-dynamic'),
+                    'items_count' => esc_html__('Items count', 'hw-ele-woo-dynamic'),
                 ],
                 'default' => 'cart_total',
             ]
@@ -44,7 +44,7 @@ class CartValues extends Tag {
         $this->add_control(
             'delimiter',
             [
-                'label' => esc_html__('Delimiter', 'hw-elementor-woo-dynamic'),
+                'label' => esc_html__('Delimiter', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => ', ',
                 'condition' => [
@@ -56,10 +56,10 @@ class CartValues extends Tag {
         $this->add_control(
             'show_price_symbol',
             [
-                'label' => esc_html__('Show Price Symbol', 'hw-elementor-woo-dynamic'),
+                'label' => esc_html__('Show Price Symbol', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -71,10 +71,10 @@ class CartValues extends Tag {
         $this->add_control(
             'include_tax',
             [
-                'label' => esc_html__('Include Tax', 'hw-elementor-woo-dynamic'),
+                'label' => esc_html__('Include Tax', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
                 'condition' => [
@@ -86,10 +86,10 @@ class CartValues extends Tag {
         $this->add_control(
             'hide_if_cart_empty',
             [
-                'label' => esc_html__('Hide if Cart Empty', 'hw-elementor-woo-dynamic'),
+                'label' => esc_html__('Hide if Cart Empty', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
+                'label_on' => esc_html__('Yes', 'hw-ele-woo-dynamic'),
+                'label_off' => esc_html__('No', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]

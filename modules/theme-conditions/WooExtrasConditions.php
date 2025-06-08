@@ -30,7 +30,7 @@ class WooExtrasConditions extends Condition_Base {
      * @return string The condition label.
      */
     public function get_label() {
-        return esc_html__('Product Extras', 'hw-elementor-woo-dynamic');
+        return esc_html__('Product Extras', 'hw-ele-woo-dynamic');
     }
 
     /**

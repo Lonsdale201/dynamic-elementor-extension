@@ -15,7 +15,7 @@ class UserRoles extends Condition_Base {
     }
 
     public function get_label() {
-        return esc_html__( 'User Roles', 'hw-elementor-woo-dynamic' );
+        return esc_html__( 'User Roles', 'hw-ele-woo-dynamic' );
     }
 
     public function check( $args ) {

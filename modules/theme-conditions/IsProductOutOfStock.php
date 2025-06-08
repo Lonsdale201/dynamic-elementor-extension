@@ -31,7 +31,7 @@ class IsProductOutOfStock extends Condition_Base {
      * @return string The label for the condition.
      */
     public function get_label() {
-        return esc_html__( 'Is Product Out Of Stock', 'hw-elementor-woo-dynamic' );
+        return esc_html__( 'Is Product Out Of Stock', 'hw-ele-woo-dynamic' );
     }
 
     /**

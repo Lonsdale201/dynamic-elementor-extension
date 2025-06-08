@@ -14,7 +14,7 @@ class ProductAttributes extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Product Attributes', 'hw-elementor-woo-dynamic');
+        return esc_html__('Product Attributes', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -22,160 +22,177 @@ class ProductAttributes extends Tag {
     }
 
     public function get_categories() {
-        return [Module::TEXT_CATEGORY];
+        return [ Module::TEXT_CATEGORY ];
     }
 
     protected function _register_controls() {
-        $this->add_control(
-            'display_type',
-            [
-                'label' => esc_html__('Display Type', 'hw-elementor-woo-dynamic'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'label/value',
-                'options' => [
-                    'value' => esc_html__('Value', 'hw-elementor-woo-dynamic'),
-                    'label' => esc_html__('Label', 'hw-elementor-woo-dynamic'),
-                    'label/value' => esc_html__('Label/Value', 'hw-elementor-woo-dynamic'),
-                ],
-            ]
-        );
+        // Display type
+        $this->add_control('display_type', [
+            'label'   => esc_html__('Display Type', 'hw-ele-woo-dynamic'),
+            'type'    => Controls_Manager::SELECT,
+            'default' => 'label/value',
+            'options' => [
+                'value'       => esc_html__('Value', 'hw-ele-woo-dynamic'),
+                'label'       => esc_html__('Label', 'hw-ele-woo-dynamic'),
+                'label/value' => esc_html__('Label/Value', 'hw-ele-woo-dynamic'),
+            ],
+        ]);
 
-        $this->add_control(
-            'label_separator',
-            [
-                'label' => esc_html__('Label Separator', 'hw-elementor-woo-dynamic'),
-                'type' => Controls_Manager::TEXT,
-                'default' => ': ',
-                'condition' => [
-                    'display_type' => 'label/value',
-                ],
-            ]
-        );
+        // Label separator
+        $this->add_control('label_separator', [
+            'label'     => esc_html__('Label Separator', 'hw-ele-woo-dynamic'),
+            'type'      => Controls_Manager::TEXT,
+            'default'   => ': ',
+            'condition' => [
+                'display_type' => 'label/value',
+                'output_style!' => 'table',
+            ],
+        ]);
 
-        $this->add_control(
-            'linkable',
-            [
-                'label' => esc_html__('Linkable', 'hw-elementor-woo-dynamic'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => '',
-                'label_on' => esc_html__('Yes', 'hw-elementor-woo-dynamic'),
-                'label_off' => esc_html__('No', 'hw-elementor-woo-dynamic'),
-                'return_value' => 'yes',
-            ]
-        );
+        // Linkable?
+        $this->add_control('linkable', [
+            'label'        => esc_html__('Linkable', 'hw-ele-woo-dynamic'),
+            'type'         => Controls_Manager::SWITCHER,
+            'label_on'     => esc_html__('Yes', 'hw-ele-woo-dynamic'),
+            'label_off'    => esc_html__('No',  'hw-ele-woo-dynamic'),
+            'return_value' => 'yes',
+        ]);
 
-        $attributes = wc_get_attribute_taxonomies();
-        $attribute_options = ['all' => esc_html__('All', 'hw-elementor-woo-dynamic')];
-
-        foreach ($attributes as $attribute) {
-            $attribute_options[$attribute->attribute_name] = $attribute->attribute_label;
+        // Attribute selector
+        $taxes   = wc_get_attribute_taxonomies();
+        $options = [ 'all' => esc_html__('All', 'hw-ele-woo-dynamic') ];
+        foreach ($taxes as $tax) {
+            $options[$tax->attribute_name] = $tax->attribute_label;
         }
+        $this->add_control('attribute_name', [
+            'label'       => esc_html__('Attributes', 'hw-ele-woo-dynamic'),
+            'type'        => Controls_Manager::SELECT2,
+            'multiple'    => true,
+            'options'     => $options,
+            'default'     => ['all'],
+            'label_block' => true,
+        ]);
 
-        $this->add_control(
-            'attribute_name',
-            [
-                'label' => esc_html__('Attribute', 'hw-elementor-woo-dynamic'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'all',
-                'options' => $attribute_options,
-            ]
-        );
+        // Output style
+        $this->add_control('output_style', [
+            'label'   => esc_html__('Output Style', 'hw-ele-woo-dynamic'),
+            'type'    => Controls_Manager::SELECT,
+            'default' => 'delimiter',
+            'options' => [
+                'ul'        => esc_html__('UL',    'hw-ele-woo-dynamic'),
+                'ol'        => esc_html__('OL',    'hw-ele-woo-dynamic'),
+                'delimiter' => esc_html__('Plain','hw-ele-woo-dynamic'),
+                'table'     => esc_html__('Table','hw-ele-woo-dynamic'),
+            ],
+        ]);
 
-        $this->add_control(
-            'output_style',
-            [
-                'label' => esc_html__('Output Style', 'hw-elementor-woo-dynamic'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'delimiter',
-                'options' => [
-                    'ul' => esc_html__('UL', 'hw-elementor-woo-dynamic'),
-                    'ol' => esc_html__('OL', 'hw-elementor-woo-dynamic'),
-                    'delimiter' => esc_html__('Delimiter', 'hw-elementor-woo-dynamic'),
-                ],
-            ]
-        );
-    
-        $this->add_control(
-            'delimiter',
-            [
-                'label' => esc_html__('Delimiter', 'hw-elementor-woo-dynamic'),
-                'type' => Controls_Manager::TEXT,
-                'default' => ', ',
-                'condition' => [
-                    'output_style' => 'delimiter',
-                ],
-            ]
-        );
+        // Delimiter
+        $this->add_control('delimiter', [
+            'label'     => esc_html__('Delimiter', 'hw-ele-woo-dynamic'),
+            'type'      => Controls_Manager::TEXT,
+            'default'   => ', ',
+            'condition' => ['output_style' => 'delimiter'],
+        ]);
+
+        // Table headers
+        $this->add_control('table_header_1', [
+            'label'     => esc_html__('Table Header 1', 'hw-ele-woo-dynamic'),
+            'type'      => Controls_Manager::TEXT,
+            'default'   => esc_html__('Attribute', 'hw-ele-woo-dynamic'),
+            'condition' => ['output_style' => 'table'],
+        ]);
+        $this->add_control('table_header_2', [
+            'label'     => esc_html__('Table Header 2', 'hw-ele-woo-dynamic'),
+            'type'      => Controls_Manager::TEXT,
+            'default'   => esc_html__('Value', 'hw-ele-woo-dynamic'),
+            'condition' => ['output_style' => 'table'],
+        ]);
     }
 
     public function render() {
-        $settings = $this->get_settings();
-        $display_type = $settings['display_type'];
-        $label_separator = $settings['label_separator'];
-        $selected_attribute = $settings['attribute_name'];
-        $output_style = $settings['output_style'];
-        $delimiter = $settings['delimiter'];
-        $linkable = $settings['linkable'] === 'yes';
-        $product = wc_get_product(get_the_ID());
-    
-        if (!$product) {
+        $s        = $this->get_settings_for_display();
+        $dt       = $s['display_type'];
+        $sep      = $s['label_separator'];
+        $sel      = (array) $s['attribute_name'];
+        $os       = $s['output_style'];
+        $del      = $s['delimiter'];
+        $linkable = ('yes' === $s['linkable']);
+        $product  = wc_get_product(get_the_ID());
+        if (! $product) {
             return;
         }
 
-        $attributes = $product->get_attributes();
-        $output = [];
 
-        // Get all registered attributes to check which ones have archives enabled
-        $registered_attributes = wc_get_attribute_taxonomies();
-        $archivable_attributes = [];
-        foreach ($registered_attributes as $registered_attribute) {
-            if ($registered_attribute->attribute_public) {
-                $archivable_attributes[] = 'pa_' . $registered_attribute->attribute_name;
-            }
-        }
-    
-        foreach ($attributes as $attribute_name => $attribute) {
-            $normalized_name = str_replace('pa_', '', $attribute_name);
-    
-            if ('all' !== $selected_attribute && $selected_attribute !== $normalized_name) {
+        $taxes = wc_get_attribute_taxonomies();
+        $arch  = array_map(function($t){ return 'pa_' . $t->attribute_name; }, $taxes);
+
+        $rows   = [];
+        $values = [];
+
+        foreach ($product->get_attributes() as $name => $attr) {
+            $norm = str_replace('pa_', '', $name);
+            if (! in_array('all', $sel, true) && ! in_array($norm, $sel, true)) {
                 continue;
             }
-    
-            $attribute_terms = wc_get_product_terms($product->get_id(), $attribute_name, ['fields' => 'all']);
-            $values = array_map(function($term) use ($linkable, $archivable_attributes, $attribute_name) {
-                $term_name = esc_html($term->name);
-                // Only create link if 'linkable' is enabled and term has an archive page
-                if ($linkable && in_array($attribute_name, $archivable_attributes)) {
-                    $term_link = get_term_link($term);
-                    if (!is_wp_error($term_link)) {
-                        return '<a href="' . esc_url($term_link) . '">' . $term_name . '</a>';
+
+            $terms = wc_get_product_terms($product->get_id(), $name, ['fields' => 'all']);
+            $vals  = array_map(function($term) use($linkable, $arch, $name, $del) {
+                $t = esc_html($term->name);
+                if ($linkable && in_array($name, $arch, true)) {
+                    $l = get_term_link($term);
+                    if (! is_wp_error($l)) {
+                        return '<a href="' . esc_url($l) . '">' . $t . '</a>';
                     }
                 }
-                return $term_name;
-            }, $attribute_terms);
-            
-            $label = esc_html(wc_attribute_label($attribute_name));
-    
-            switch ($display_type) {
-                case 'label':
-                    $item = $label;
-                    break;
-                case 'value':
-                    $item = implode(esc_html($delimiter), $values);
-                    break;
-                case 'label/value':
-                    $item = $label . esc_html($label_separator) . implode(esc_html($delimiter), $values);
-                    break;
+                return $t;
+            }, $terms);
+
+            $lbl = esc_html(wc_attribute_label($name));
+
+            if ($os === 'table') {
+                $cell2 = implode(esc_html($del), $vals);
+            } elseif ($dt === 'label') {
+                $cell2 = $lbl;
+            } elseif ($dt === 'value') {
+                $cell2 = implode(esc_html($del), $vals);
+            } else {
+                $cell2 = $lbl . esc_html($sep) . implode(esc_html($del), $vals);
             }
-    
-            $output[] = $item;
+
+            $rows[]   = ['cell1' => $lbl, 'cell2' => $cell2];
+            $values[] = $cell2;
         }
-    
-        if ($output_style === 'ul' || $output_style === 'ol') {
-            $tag = $output_style === 'ul' ? 'ul' : 'ol';
-            echo "<$tag><li>" . implode("</li><li>", array_map('wp_kses_post', $output)) . "</li></$tag>";
+
+        if ($os === 'table') {
+            if (empty($rows)) {
+                return;
+            }
+            $h1 = trim($s['table_header_1']);
+            $h2 = trim($s['table_header_2']);
+            echo '<table class="product-attributes-table">';
+            if ($h1 !== '' || $h2 !== '') {
+                echo '<thead><tr>';
+                echo '<th>' . esc_html($h1) . '</th>';
+                echo '<th>' . esc_html($h2) . '</th>';
+                echo '</tr></thead>';
+            }
+            echo '<tbody>';
+            foreach ($rows as $r) {
+                echo '<tr>';
+                echo '<td>' . wp_kses_post($r['cell1']) . '</td>';
+                echo '<td>' . wp_kses_post($r['cell2']) . '</td>';
+                echo '</tr>';
+            }
+            echo '</tbody>';
+            echo '</table>';
+        } elseif ($os === 'ul' || $os === 'ol') {
+            echo '<' . esc_attr($os) . '>';
+            foreach ($values as $it) {
+                echo '<li>' . wp_kses_post($it) . '</li>';
+            }
+            echo '</' . esc_attr($os) . '>';
         } else {
-            echo implode(esc_html($delimiter), array_map('wp_kses_post', $output));
+            echo implode(esc_html($del), array_map('wp_kses_post', $values));
         }
     }
 }

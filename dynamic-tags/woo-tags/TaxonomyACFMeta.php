@@ -13,7 +13,7 @@ class TaxonomyACFMeta extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Taxonomy ACF Meta', 'hw-elementor-woo-dynamic');
+        return esc_html__('Taxonomy ACF Meta', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -28,21 +28,21 @@ class TaxonomyACFMeta extends Tag {
         $this->add_control(
             'acf_meta_key',
             [
-                'label' => esc_html__('ACF Meta Key', 'hw-elementor-woo-dynamic'),
+                'label' => esc_html__('ACF Meta Key', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '',
-                'description' => esc_html__('Enter the ACF meta key (field name) to retrieve.', 'hw-elementor-woo-dynamic'),
+                'description' => esc_html__('Enter the ACF meta key (field name) to retrieve.', 'hw-ele-woo-dynamic'),
             ]
         );
 
         $this->add_control(
             'read_more_switcher',
             [
-                'label' => __('Enable Read More', 'hw-elementor-woo-dynamic'),
+                'label' => __('Enable Read More', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
-                'label_off' => __('Off', 'hw-elementor-woo-dynamic'),
-                'label_on' => __('On', 'hw-elementor-woo-dynamic'),
+                'label_off' => __('Off', 'hw-ele-woo-dynamic'),
+                'label_on' => __('On', 'hw-ele-woo-dynamic'),
                 'return_value' => 'yes',
             ]
         );
@@ -50,7 +50,7 @@ class TaxonomyACFMeta extends Tag {
         $this->add_control(
             'trim_length',
             [
-                'label' => __('Character Length', 'hw-elementor-woo-dynamic'),
+                'label' => __('Character Length', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 100,
                 'condition' => [
@@ -62,9 +62,9 @@ class TaxonomyACFMeta extends Tag {
         $this->add_control(
             'read_more_text',
             [
-                'label' => __('Read More Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Read More Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Read More', 'hw-elementor-woo-dynamic'),
+                'default' => __('Read More', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'read_more_switcher' => 'yes',
                 ],
@@ -74,9 +74,9 @@ class TaxonomyACFMeta extends Tag {
         $this->add_control(
             'read_less_text',
             [
-                'label' => __('Read Less Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Read Less Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Read Less', 'hw-elementor-woo-dynamic'),
+                'default' => __('Read Less', 'hw-ele-woo-dynamic'),
                 'condition' => [
                     'read_more_switcher' => 'yes',
                 ],
@@ -103,8 +103,8 @@ class TaxonomyACFMeta extends Tag {
 
             if ('yes' === $settings['read_more_switcher']) {
                 $trim_length = !empty($settings['trim_length']) ? $settings['trim_length'] : 100;
-                $read_more_text = !empty($settings['read_more_text']) ? $settings['read_more_text'] : __('Read More', 'hw-elementor-woo-dynamic');
-                $read_less_text = !empty($settings['read_less_text']) ? $settings['read_less_text'] : __('Read Less', 'hw-elementor-woo-dynamic');
+                $read_more_text = !empty($settings['read_more_text']) ? $settings['read_more_text'] : __('Read More', 'hw-ele-woo-dynamic');
+                $read_less_text = !empty($settings['read_less_text']) ? $settings['read_less_text'] : __('Read Less', 'hw-ele-woo-dynamic');
 
                 if (strlen($acf_value) > $trim_length) {
                     $trimmed_acf_value = substr($acf_value, 0, $trim_length) . '...';

@@ -12,7 +12,7 @@ class MyAccountMembershipLink extends Tag {
     }
 
     public function get_title() {
-        return __('Membership My Account Link', 'hw-elementor-woo-dynamic');
+        return __('Membership My Account Link', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {

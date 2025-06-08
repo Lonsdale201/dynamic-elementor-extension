@@ -12,7 +12,7 @@ class CustomerLogout extends Tag {
     }
 
     public function get_title() {
-        return esc_html__('Customer Logout URL', 'hw-elementor-woo-dynamic');
+        return esc_html__('Customer Logout URL', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {

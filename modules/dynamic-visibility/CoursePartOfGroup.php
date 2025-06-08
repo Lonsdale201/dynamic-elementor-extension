@@ -21,7 +21,7 @@ class CoursePartOfGroup extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Course Part of Any Group', 'hw-elementor-woo-dynamic');
+        return __('Course Part of Any Group', 'hw-ele-woo-dynamic');
     }
 
     /**

@@ -14,7 +14,7 @@ class NextProduct extends Tag {
     }
 
     public function get_title() {
-        return __('Next Product', 'hw-elementor-woo-dynamic');
+        return __('Next Product', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -29,12 +29,12 @@ class NextProduct extends Tag {
         $this->add_control(
             'display_type',
             [
-                'label' => __('Display Type', 'hw-elementor-woo-dynamic'),
+                'label' => __('Display Type', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'title' => __('Product Title', 'hw-elementor-woo-dynamic'),
-                    'link' => __('Product Link', 'hw-elementor-woo-dynamic'),
-                    'price' => __('Product Price', 'hw-elementor-woo-dynamic'),
+                    'title' => __('Product Title', 'hw-ele-woo-dynamic'),
+                    'link' => __('Product Link', 'hw-ele-woo-dynamic'),
+                    'price' => __('Product Price', 'hw-ele-woo-dynamic'),
                 ],
                 'default' => 'title',
             ]
@@ -74,11 +74,12 @@ class NextProduct extends Tag {
                 echo esc_url(get_permalink($next_product_id));
                 break;
             case 'price':
-                echo $next_product->get_price_html();
+                echo wp_kses_post($next_product->get_price_html());
                 break;
-            default: // 'title'
+            default: 
                 echo esc_html($next_product->get_name());
                 break;
         }
+        
     }
 }

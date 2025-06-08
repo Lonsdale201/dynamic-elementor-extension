@@ -2,13 +2,13 @@
 /**
  * Plugin Name: Dynamic Elementor Extension
  * Description: Extra dynamic tags and other useful functions (conditionally for WooCommerce, Memberships, Subscriptions, and LearnDash).
- * Version: 2.3.3.1
+ * Version: 2.4.0
  * Author: Soczó Kristóf
  * Author URI: https://github.com/Lonsdale201?tab=repositories
  * Plugin URI: https://github.com/Lonsdale201/dynamic-elementor-extension
  * Text Domain: hw-ele-woo-dynamic
- * Elementor tested up to: 3.28.4
- * Elementor Pro tested up to: 3.28.4
+ * Elementor tested up to: 3.29.2
+ * Elementor Pro tested up to: 3.29.2
  * Requires at least: 6.0
  * Requires PHP: 8.0
  * License: GPLv2 or later
@@ -17,7 +17,6 @@
 
 namespace HelloWP\HWEleWooDynamic;
 
-// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
@@ -26,8 +25,10 @@ define( 'HW_ELE_DYNAMIC_PLUGIN', plugin_dir_url( __FILE__ ) );
 define( 'HW_ELE_DYNAMIC_URL', plugin_dir_url( __FILE__ ) );
 define( 'HW_ELE_DYNAMIC_PATH', plugin_dir_path( __FILE__ ) );
 
+
+
 if ( ! defined( 'HW_ELE_DYNAMIC_VERSION' ) ) {
-    define( 'HW_ELE_DYNAMIC_VERSION', '2.3.3.1' );
+    define( 'HW_ELE_DYNAMIC_VERSION', '2.4.0' );
 }
 
 if ( ! defined( 'HW_ELE_DYNAMIC_UPDATE_URL' ) ) {
@@ -40,6 +41,8 @@ require dirname(__FILE__) . '/plugin-update-checker/plugin-update-checker.php';
 
 use YahnisElsts\PluginUpdateChecker\v5p0\PucFactory;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;
+use HelloWP\HWEleWooDynamic\Modules\Helpers\CartHelper;
+
 
 /**
  * Main class for the Dynamic Elementor extension.
@@ -87,6 +90,7 @@ final class HW_Ele_Dynamic_Tags {
         add_action( 'init', [ $this, 'on_init' ] );
     }
 
+
     /**
      * Determine the appropriate update URL based on the version.
      *
@@ -103,7 +107,6 @@ final class HW_Ele_Dynamic_Tags {
 
         return 'https://plugin-uodater.alex.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json';
     }
-
     /**
      * Load plugin textdomain for translations.
      */
@@ -136,7 +139,6 @@ final class HW_Ele_Dynamic_Tags {
             'hw-elementor-woo-dynamic'
         );
     }
-
 
     /**
      * Add settings link to the plugin action links.
@@ -190,11 +192,13 @@ final class HW_Ele_Dynamic_Tags {
         \HelloWP\HWEleWooDynamic\Modules\ThemeConditions\ThemeConditionManager::instance();
         \HelloWP\HWEleWooDynamic\Modules\Finder\FinderManager::get_instance();
         \HelloWP\HWEleWooDynamic\Modules\WPTopBar\TopBarSettings::get_instance();
+        new \HelloWP\HWEleWooDynamic\Modules\Widgets\WidgetManager();
 
         if ( Dependencies::is_woocommerce_active() ) {
             if ( ! isset( $this->insertContentInstance ) ) {
                 $this->insertContentInstance = new \HelloWP\HWEleWooDynamic\Modules\EndPoints\InsertContent();
             }
+            CartHelper::init();
         }
 
         /**
@@ -240,52 +244,87 @@ final class HW_Ele_Dynamic_Tags {
         return true;
     }
 
-    // Admin notices for compatibility checks
     public function admin_notice_elementor_plugin() {
         if ( ! current_user_can( 'manage_options' ) ) {
             return;
         }
-        echo '<div class="notice notice-warning is-dismissible"><p>';
-        echo __('Dynamic Elementor extension requires Elementor plugin to be activated. Please activate Elementor to use this plugin.', 'hw-ele-woo-dynamic');
-        echo '</p></div>';
+        ?>
+        <div class="notice notice-warning is-dismissible">
+            <p>
+                <?php
+                echo esc_html__(
+                    'Dynamic Elementor extension requires Elementor plugin to be activated. Please activate Elementor to use this plugin.',
+                    'hw-ele-woo-dynamic'
+                );
+                ?>
+            </p>
+        </div>
+        <?php
     }
 
     public function admin_notice_minimum_wordpress_version() {
         if ( ! current_user_can( 'manage_options' ) ) {
             return;
         }
-        echo '<div class="notice notice-warning is-dismissible"><p>';
-        echo sprintf(
-            __('Dynamic Elementor extension requires WordPress version %s or greater. Please update WordPress to use this plugin.', 'hw-ele-woo-dynamic'),
-            self::MINIMUM_WORDPRESS_VERSION
-        );
-        echo '</p></div>';
+        ?>
+        <div class="notice notice-warning is-dismissible">
+            <p>
+                <?php
+                echo sprintf(
+                    esc_html__(
+                        'Dynamic Elementor extension requires WordPress version %s or greater. Please update WordPress to use this plugin.',
+                        'hw-ele-woo-dynamic'
+                    ),
+                    esc_html( self::MINIMUM_WORDPRESS_VERSION )
+                );
+                ?>
+            </p>
+        </div>
+        <?php
     }
 
     public function admin_notice_minimum_php_version() {
         if ( ! current_user_can( 'manage_options' ) ) {
             return;
         }
-        echo '<div class="notice notice-warning is-dismissible"><p>';
-        echo sprintf(
-            __('Dynamic Elementor extension requires PHP version %s or greater. Please update PHP to use this plugin.', 'hw-ele-woo-dynamic'),
-            self::MINIMUM_PHP_VERSION
-        );
-        echo '</p></div>';
+        ?>
+        <div class="notice notice-warning is-dismissible">
+            <p>
+                <?php
+                echo sprintf(
+                    esc_html__(
+                        'Dynamic Elementor extension requires PHP version %s or greater. Please update PHP to use this plugin.',
+                        'hw-ele-woo-dynamic'
+                    ),
+                    esc_html( self::MINIMUM_PHP_VERSION )
+                );
+                ?>
+            </p>
+        </div>
+        <?php
     }
 
     public function admin_notice_minimum_elementor_version() {
         if ( ! current_user_can( 'manage_options' ) ) {
             return;
         }
-        echo '<div class="notice notice-warning is-dismissible"><p>';
-        echo sprintf(
-            __('Dynamic Elementor extension requires Elementor version %s or greater. Please update Elementor to use this plugin.', 'hw-ele-woo-dynamic'),
-            self::MINIMUM_ELEMENTOR_VERSION
-        );
-        echo '</p></div>';
+        ?>
+        <div class="notice notice-warning is-dismissible">
+            <p>
+                <?php
+                echo sprintf(
+                    esc_html__(
+                        'Dynamic Elementor extension requires Elementor version %s or greater. Please update Elementor to use this plugin.',
+                        'hw-ele-woo-dynamic'
+                    ),
+                    esc_html( self::MINIMUM_ELEMENTOR_VERSION )
+                );
+                ?>
+            </p>
+        </div>
+        <?php
     }
 
-}
 
+}
 HW_Ele_Dynamic_Tags::instance();

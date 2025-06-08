@@ -11,7 +11,7 @@ class LoggedOut extends Condition_Base {
     }
 
     public function get_label() {
-        return esc_html__('Logged Out', 'hw-elementor-woo-dynamic');
+        return esc_html__('Logged Out', 'hw-ele-woo-dynamic');
     }
 
     public function check($args) {

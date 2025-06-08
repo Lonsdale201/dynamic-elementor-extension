@@ -21,7 +21,7 @@ class LDStudentLimitReached extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Course Reached Student Limit', 'hw-elementor-woo-dynamic');
+        return __('Course Reached Student Limit', 'hw-ele-woo-dynamic');
     }
 
     /**

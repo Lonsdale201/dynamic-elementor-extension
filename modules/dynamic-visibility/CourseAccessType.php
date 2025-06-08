@@ -11,7 +11,7 @@ class CourseAccessType extends Base {
     }
 
     public function get_name() {
-        return __('Course Access Type', 'hw-elementor-woo-dynamic');
+        return __('Course Access Type', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -26,14 +26,14 @@ class CourseAccessType extends Base {
     public function get_custom_controls() {
         return array(
             'course_access_type' => array(
-                'label'   => __('Select Access Type', 'hw-elementor-woo-dynamic'),
+                'label'   => __('Select Access Type', 'hw-ele-woo-dynamic'),
                 'type'    => 'select',
                 'options' => array(
-                    'open'      => __('Open', 'hw-elementor-woo-dynamic'),
-                    'free'      => __('Free', 'hw-elementor-woo-dynamic'),
-                    'paynow'    => __('Buy now', 'hw-elementor-woo-dynamic'),
-                    'subscribe' => __('Recurring', 'hw-elementor-woo-dynamic'),
-                    'closed'    => __('Closed', 'hw-elementor-woo-dynamic'),
+                    'open'      => __('Open', 'hw-ele-woo-dynamic'),
+                    'free'      => __('Free', 'hw-ele-woo-dynamic'),
+                    'paynow'    => __('Buy now', 'hw-ele-woo-dynamic'),
+                    'subscribe' => __('Recurring', 'hw-ele-woo-dynamic'),
+                    'closed'    => __('Closed', 'hw-ele-woo-dynamic'),
                 ),
                 'default' => 'open',
             ),

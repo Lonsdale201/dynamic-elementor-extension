@@ -99,7 +99,16 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </td>
                     </tr>
                     <tr>
-                        <td><strong><?php esc_html_e('Documentation:', 'hw-elementor-woo-dynamic'); ?></strong></td>
+                        <td><strong><?php esc_html_e('Documentation page:', 'hw-elementor-woo-dynamic'); ?></strong></td>
+                        <td>
+                            <a href="https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/" 
+                               target="_blank">
+                                <?php esc_html_e('Documentation github page', 'hw-elementor-woo-dynamic'); ?>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong><?php esc_html_e('Old Github Wiki:', 'hw-elementor-woo-dynamic'); ?></strong></td>
                         <td>
                             <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Start-here" 
                                target="_blank">
@@ -169,6 +178,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <label>
                         <input type="checkbox" checked disabled />
                         <?php esc_html_e('Learndash compatibity', 'hw-elementor-woo-dynamic'); ?>
+                    </label>
+                </li>
+                <li style="margin-bottom: 0.5rem;">
+                    <label>
+                        <input type="checkbox" checked disabled />
+                        <?php esc_html_e('New Widgets', 'hw-elementor-woo-dynamic'); ?>
                     </label>
                 </li>
                 <li style="margin-bottom: 0.5rem;">
@@ -278,6 +293,19 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
+                <strong><?php esc_html_e('Version 2.4.0 - 2025.06.08', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('Elementor widgets is here! Dynamic Checkbox, Dynamic Bulk Add to cart, Membership cards, Dynamic Calculations', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New Dynamic tags', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Improving existing dynamic tags', 'hw-elementor-woo-dynamic'); ?></li>
+                        <hr>
+                        <li><?php esc_html_e('full changelog can be found on github', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
+                <strong><?php esc_html_e('Version 2.3.3.1 - 2025.05.11', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('New update server implmentation, and fallback to the old server.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Fixed the critical issue cause a missing file', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
                 <strong><?php esc_html_e('Version 2.3.2 - 2025.03.21', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
                         <li><?php esc_html_e('Fixed the Course Resume and Course Resume Text problems, now they work correctly even if the course has not started yet', 'hw-elementor-woo-dynamic'); ?></li>

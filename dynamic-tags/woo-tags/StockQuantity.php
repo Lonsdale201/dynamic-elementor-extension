@@ -14,7 +14,7 @@ class StockQuantity extends Tag {
     }
 
     public function get_title() {
-        return __('Stock Quantity', 'hw-elementor-woo-dynamic');
+        return __('Stock Quantity', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {

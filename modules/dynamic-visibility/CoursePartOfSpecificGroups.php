@@ -21,7 +21,7 @@ class CoursePartOfSpecificGroups extends Base {
      * @return string
      */
     public function get_name() {
-        return __('Course Part of Specific Groups', 'hw-elementor-woo-dynamic');
+        return __('Course Part of Specific Groups', 'hw-ele-woo-dynamic');
     }
 
     /**
@@ -108,17 +108,17 @@ class CoursePartOfSpecificGroups extends Base {
 
         return [
             'selected_groups' => [
-                'label'    => __('Select Groups', 'hw-elementor-woo-dynamic'),
+                'label'    => __('Select Groups', 'hw-ele-woo-dynamic'),
                 'type'     => 'select2',
                 'multiple' => true,
                 'default'  => [],
                 'options'  => $group_options,
             ],
             'course_name_contain' => [
-                'label'       => __('Group Name Contain', 'hw-elementor-woo-dynamic'),
+                'label'       => __('Group Name Contain', 'hw-ele-woo-dynamic'),
                 'type'        => 'text',
                 'default'     => '',
-                'description' => __('If both options are filled, the condition will evaluate using an OR relationship.', 'hw-elementor-woo-dynamic'),
+                'description' => __('If both options are filled, the condition will evaluate using an OR relationship.', 'hw-ele-woo-dynamic'),
             ],
         ];
     }

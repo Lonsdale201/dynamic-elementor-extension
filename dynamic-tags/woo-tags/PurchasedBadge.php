@@ -13,7 +13,7 @@ class PurchasedBadge extends Tag {
     }
 
     public function get_title() {
-        return __('Purchased Badge', 'hw-elementor-woo-dynamic');
+        return __('Purchased Badge', 'hw-ele-woo-dynamic');
     }
 
     public function get_group() {
@@ -28,9 +28,9 @@ class PurchasedBadge extends Tag {
         $this->add_control(
             'purchased_text',
             [
-                'label' => __('Purchased Text', 'hw-elementor-woo-dynamic'),
+                'label' => __('Purchased Text', 'hw-ele-woo-dynamic'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('You have purchased this in the past. Buy again?', 'hw-elementor-woo-dynamic'),
+                'default' => __('You have purchased this in the past. Buy again?', 'hw-ele-woo-dynamic'),
             ]
         );
     }

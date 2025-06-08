@@ -12,7 +12,7 @@ class NotHaveActiveSubs extends Condition_Base {
     }
 
     public function get_label() {
-        return esc_html__('Current User Not Have Active Subscriptions', 'hw-elementor-woo-dynamic');
+        return esc_html__('Current User Not Have Active Subscriptions', 'hw-ele-woo-dynamic');
     }
 
     public function check($args) {

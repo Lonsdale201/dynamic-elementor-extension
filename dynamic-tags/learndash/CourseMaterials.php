@@ -32,7 +32,7 @@ class CourseMaterials extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Materials', 'hw-elementor-woo-dynamic' );
+        return __( 'Course Materials', 'hw-ele-woo-dynamic' );
     }
 
     /**
@@ -66,7 +66,7 @@ class CourseMaterials extends Tag {
         $this->add_control(
             'visibility',
             [
-                'label' => __( 'Visibility', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Visibility', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => LDQuery::get_visibility_options(),
                 'default' => 'everyone',

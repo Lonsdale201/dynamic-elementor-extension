@@ -30,7 +30,7 @@ class CourseCertificatesLink extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Certificates Link', 'hw-elementor-woo-dynamic' );
+        return __( 'Certificates Link', 'hw-ele-woo-dynamic' );
     }
 
     /**

@@ -1,41 +1,42 @@
 {
-    "name": "hellowp/hw-elementor-woo-dynamic",
-    "description": "Extra Dynamic tags for woocommerce",
-    "type": "wordpress-plugin",
-    "require": {
-        "php": ">=7.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "HelloWP\\HWEleWooDynamic\\": "dynamic-tags/",
-            "HelloWP\\HWEleWooDynamic\\Modules\\": "modules/",
-            "HelloWP\\HWEleWooDynamic\\Modules\\DynamicVisibility\\": "modules/dynamic-visibility",
-            "HelloWP\\HWEleWooDynamic\\Modules\\Helpers\\": "modules/helpers",
-            "HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\": "modules/endpoints",
-            "HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\": "modules/theme-conditions",
-            "HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\": "modules/je-macros",
-            "HelloWP\\HWEleWooDynamic\\Modules\\Callbacks\\": "modules/callbacks",
-            "HelloWP\\HWEleWooDynamic\\Modules\\Finder\\": "modules/finders",
-            "HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\": "modules/wp-top-bar",
-            "HelloWP\\HWEleWooDynamic\\Modules\\WExtends\\": "modules/widget-extends",
-            "HelloWP\\HWEleWooDynamic\\Modules\\DWidgets\\": "modules/dynamic-widgets",
-            "HelloWP\\HWEleWooDynamic\\WooTags\\": "dynamic-tags/woo-tags",
-            "HelloWP\\HWEleWooDynamic\\WooTags\\Membership\\": "dynamic-tags/woo-membership",
-            "HelloWP\\HWEleWooDynamic\\WooTags\\LearnDash\\": "dynamic-tags/learndash",
-            "HelloWP\\HWEleWooDynamic\\WooTags\\Subscription\\": "dynamic-tags/woo-subscription"
-        }
-    },
-    "authors": [
-        {
-            "name": "Soczó Kristóf",
-            "email": "lonsdale201@hotmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "config": {
-        "allow-plugins": {
-            "composer/installers": false,
-            "automattic/jetpack-autoloader": false
-        }
+  "name": "hellowp/hw-elementor-woo-dynamic",
+  "description": "Extra Dynamic tags for woocommerce",
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "HelloWP\\HWEleWooDynamic\\": "dynamic-tags/",
+      "HelloWP\\HWEleWooDynamic\\Modules\\": "modules/",
+      "HelloWP\\HWEleWooDynamic\\Modules\\DynamicVisibility\\": "modules/dynamic-visibility",
+      "HelloWP\\HWEleWooDynamic\\Modules\\Helpers\\": "modules/helpers",
+      "HelloWP\\HWEleWooDynamic\\Modules\\EndPoints\\": "modules/endpoints",
+      "HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\": "modules/theme-conditions",
+      "HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\": "modules/je-macros",
+      "HelloWP\\HWEleWooDynamic\\Modules\\Callbacks\\": "modules/callbacks",
+      "HelloWP\\HWEleWooDynamic\\Modules\\Finder\\": "modules/finders",
+      "HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\": "modules/wp-top-bar",
+      "HelloWP\\HWEleWooDynamic\\Modules\\Widgets\\": "modules/widgets",
+      "HelloWP\\HWEleWooDynamic\\Modules\\Widgets\\Dynamic\\": "modules/widgets/dynamic",
+      "HelloWP\\HWEleWooDynamic\\WooTags\\": "dynamic-tags/woo-tags",
+      "HelloWP\\HWEleWooDynamic\\GlobalTags\\": "dynamic-tags/global",
+      "HelloWP\\HWEleWooDynamic\\WooTags\\Membership\\": "dynamic-tags/woo-membership",
+      "HelloWP\\HWEleWooDynamic\\WooTags\\LearnDash\\": "dynamic-tags/learndash",
+      "HelloWP\\HWEleWooDynamic\\WooTags\\Subscription\\": "dynamic-tags/woo-subscription"
     }
+  },
+  "authors": [
+    {
+      "name": "Soczó Kristóf",
+      "email": "lonsdale201@hotmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "config": {
+    "allow-plugins": {
+      "composer/installers": false,
+      "automattic/jetpack-autoloader": false
+    }
+  }
 }

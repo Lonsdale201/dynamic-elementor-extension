@@ -24,42 +24,42 @@ class UnitConverter {
 
     public static function add_measurement_callback_controls( $args ) {
         $unit_options = [
-            'mm'   => esc_html__( 'Millimeters (mm)', 'hw-elementor-woo-dynamic' ),
-            'cm'   => esc_html__( 'Centimeters (cm)', 'hw-elementor-woo-dynamic' ),
-            'm'    => esc_html__( 'Meters (m)', 'hw-elementor-woo-dynamic' ),
-            'km'   => esc_html__( 'Kilometers (km)', 'hw-elementor-woo-dynamic' ),
-            'in'   => esc_html__( 'Inches (in)', 'hw-elementor-woo-dynamic' ),
-            'ft'   => esc_html__( 'Feet (ft)', 'hw-elementor-woo-dynamic' ),
-            'yd'   => esc_html__( 'Yards (yd)', 'hw-elementor-woo-dynamic' ),
-            'mile' => esc_html__( 'Miles', 'hw-elementor-woo-dynamic' ),
-            'ml'   => esc_html__( 'Milliliters (ml)', 'hw-elementor-woo-dynamic' ),
-            'dl'   => esc_html__( 'Deciliters (dl)', 'hw-elementor-woo-dynamic' ),
-            'l'    => esc_html__( 'Liters (l)', 'hw-elementor-woo-dynamic' ),
-            'g'    => esc_html__( 'Grams (g)', 'hw-elementor-woo-dynamic' ),
-            'dkg'  => esc_html__( 'Dekagrams (dkg)', 'hw-elementor-woo-dynamic' ),
-            'kg'   => esc_html__( 'Kilograms (kg)', 'hw-elementor-woo-dynamic' ),
-            'lb'   => esc_html__( 'Pounds (lb)', 'hw-elementor-woo-dynamic' ),
-            'byte' => esc_html__( 'Bytes', 'hw-elementor-woo-dynamic' ),
-            'mb'   => esc_html__( 'Megabytes (MB)', 'hw-elementor-woo-dynamic' ),
-            'gb'   => esc_html__( 'Gigabytes (GB)', 'hw-elementor-woo-dynamic' ),
-            'w'    => esc_html__( 'Watts (W)', 'hw-elementor-woo-dynamic' ),
-            'kw'   => esc_html__( 'Kilowatts (kW)', 'hw-elementor-woo-dynamic' ),
-            'mw'   => esc_html__( 'Megawatts (MW)', 'hw-elementor-woo-dynamic' ),
-            'gw'   => esc_html__( 'Gigawatts (GW)', 'hw-elementor-woo-dynamic' ),
-            'v'    => esc_html__( 'Volts (V)', 'hw-elementor-woo-dynamic' ),
-            'kmph' => esc_html__( 'Kilometers per hour (km/h)', 'hw-elementor-woo-dynamic' ),
-            'mph'  => esc_html__( 'Miles per hour (mph)', 'hw-elementor-woo-dynamic' ),
-            's'    => esc_html__( 'Seconds (s)', 'hw-elementor-woo-dynamic' ),
-            'min'  => esc_html__( 'Minutes (min)', 'hw-elementor-woo-dynamic' ),
-            'h'    => esc_html__( 'Hours (h)', 'hw-elementor-woo-dynamic' ),
-            'd'    => esc_html__( 'Days (d)', 'hw-elementor-woo-dynamic' ),
-            'c'    => esc_html__( 'Celsius (°C)', 'hw-elementor-woo-dynamic' ),
-            'k'    => esc_html__( 'Kelvin (K)', 'hw-elementor-woo-dynamic' ),
-            'f'    => esc_html__( 'Fahrenheit (°F)', 'hw-elementor-woo-dynamic' ),
+            'mm'   => esc_html__( 'Millimeters (mm)', 'hw-ele-woo-dynamic' ),
+            'cm'   => esc_html__( 'Centimeters (cm)', 'hw-ele-woo-dynamic' ),
+            'm'    => esc_html__( 'Meters (m)', 'hw-ele-woo-dynamic' ),
+            'km'   => esc_html__( 'Kilometers (km)', 'hw-ele-woo-dynamic' ),
+            'in'   => esc_html__( 'Inches (in)', 'hw-ele-woo-dynamic' ),
+            'ft'   => esc_html__( 'Feet (ft)', 'hw-ele-woo-dynamic' ),
+            'yd'   => esc_html__( 'Yards (yd)', 'hw-ele-woo-dynamic' ),
+            'mile' => esc_html__( 'Miles', 'hw-ele-woo-dynamic' ),
+            'ml'   => esc_html__( 'Milliliters (ml)', 'hw-ele-woo-dynamic' ),
+            'dl'   => esc_html__( 'Deciliters (dl)', 'hw-ele-woo-dynamic' ),
+            'l'    => esc_html__( 'Liters (l)', 'hw-ele-woo-dynamic' ),
+            'g'    => esc_html__( 'Grams (g)', 'hw-ele-woo-dynamic' ),
+            'dkg'  => esc_html__( 'Dekagrams (dkg)', 'hw-ele-woo-dynamic' ),
+            'kg'   => esc_html__( 'Kilograms (kg)', 'hw-ele-woo-dynamic' ),
+            'lb'   => esc_html__( 'Pounds (lb)', 'hw-ele-woo-dynamic' ),
+            'byte' => esc_html__( 'Bytes', 'hw-ele-woo-dynamic' ),
+            'mb'   => esc_html__( 'Megabytes (MB)', 'hw-ele-woo-dynamic' ),
+            'gb'   => esc_html__( 'Gigabytes (GB)', 'hw-ele-woo-dynamic' ),
+            'w'    => esc_html__( 'Watts (W)', 'hw-ele-woo-dynamic' ),
+            'kw'   => esc_html__( 'Kilowatts (kW)', 'hw-ele-woo-dynamic' ),
+            'mw'   => esc_html__( 'Megawatts (MW)', 'hw-ele-woo-dynamic' ),
+            'gw'   => esc_html__( 'Gigawatts (GW)', 'hw-ele-woo-dynamic' ),
+            'v'    => esc_html__( 'Volts (V)', 'hw-ele-woo-dynamic' ),
+            'kmph' => esc_html__( 'Kilometers per hour (km/h)', 'hw-ele-woo-dynamic' ),
+            'mph'  => esc_html__( 'Miles per hour (mph)', 'hw-ele-woo-dynamic' ),
+            's'    => esc_html__( 'Seconds (s)', 'hw-ele-woo-dynamic' ),
+            'min'  => esc_html__( 'Minutes (min)', 'hw-ele-woo-dynamic' ),
+            'h'    => esc_html__( 'Hours (h)', 'hw-ele-woo-dynamic' ),
+            'd'    => esc_html__( 'Days (d)', 'hw-ele-woo-dynamic' ),
+            'c'    => esc_html__( 'Celsius (°C)', 'hw-ele-woo-dynamic' ),
+            'k'    => esc_html__( 'Kelvin (K)', 'hw-ele-woo-dynamic' ),
+            'f'    => esc_html__( 'Fahrenheit (°F)', 'hw-ele-woo-dynamic' ),
         ];
 
         $args['source_measurement_unit'] = [
-            'label'   => esc_html__( 'Source Measurement Unit', 'hw-elementor-woo-dynamic' ),
+            'label'   => esc_html__( 'Source Measurement Unit', 'hw-ele-woo-dynamic' ),
             'type'    => 'select',
             'default' => 'cm',
             'options' => $unit_options,
@@ -70,7 +70,7 @@ class UnitConverter {
         ];
 
         $args['target_measurement_unit'] = [
-            'label'   => esc_html__( 'Target Measurement Unit', 'hw-elementor-woo-dynamic' ),
+            'label'   => esc_html__( 'Target Measurement Unit', 'hw-ele-woo-dynamic' ),
             'type'    => 'select',
             'default' => 'cm',
             'options' => $unit_options,
@@ -81,7 +81,7 @@ class UnitConverter {
         ];
 
         $args['custom_format'] = [
-            'label'   => esc_html__( 'Custom Format', 'hw-elementor-woo-dynamic' ),
+            'label'   => esc_html__( 'Custom Format', 'hw-ele-woo-dynamic' ),
             'type'    => 'switcher',
             'default' => '',
             'return_value' => 'yes',
@@ -92,7 +92,7 @@ class UnitConverter {
         ];
 
         $args['hide_unit'] = [
-            'label'   => esc_html__( 'Hide Unit', 'hw-elementor-woo-dynamic' ),
+            'label'   => esc_html__( 'Hide Unit', 'hw-ele-woo-dynamic' ),
             'type'    => 'switcher',
             'default' => '',
             'return_value' => 'yes',
@@ -104,7 +104,7 @@ class UnitConverter {
         ];
 
         $args['decimal_point'] = [
-            'label'       => esc_html__( 'Decimal Point', 'hw-elementor-woo-dynamic' ),
+            'label'       => esc_html__( 'Decimal Point', 'hw-ele-woo-dynamic' ),
             'type'        => 'text',
             'default'     => '.',
             'condition'   => [
@@ -115,7 +115,7 @@ class UnitConverter {
         ];
 
         $args['thousand_separator'] = [
-            'label'       => esc_html__( 'Thousand Separator', 'hw-elementor-woo-dynamic' ),
+            'label'       => esc_html__( 'Thousand Separator', 'hw-ele-woo-dynamic' ),
             'type'        => 'text',
             'default'     => ',',
             'condition'   => [
@@ -126,7 +126,7 @@ class UnitConverter {
         ];
 
         $args['decimal_points'] = [
-            'label'       => esc_html__( 'Decimal Points', 'hw-elementor-woo-dynamic' ),
+            'label'       => esc_html__( 'Decimal Points', 'hw-ele-woo-dynamic' ),
             'type'        => 'number',
             'default'     => 0,
             'min'         => 0,

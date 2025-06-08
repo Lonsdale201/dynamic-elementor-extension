@@ -20,7 +20,7 @@ class MPAccessMemberships extends Base {
      * @return string
      */
     public function get_name() {
-        return __( 'MemberPress Access Memberships', 'hw-elementor-woo-dynamic' );
+        return __( 'MemberPress Access Memberships', 'hw-ele-woo-dynamic' );
     }
 
     /**
@@ -94,7 +94,7 @@ class MPAccessMemberships extends Base {
 
         return array(
             'selected_memberships' => array(
-                'label'    => __( 'Select Memberships', 'hw-elementor-woo-dynamic' ),
+                'label'    => __( 'Select Memberships', 'hw-ele-woo-dynamic' ),
                 'type'     => 'select2',
                 'multiple' => true,
                 'default'  => array(),

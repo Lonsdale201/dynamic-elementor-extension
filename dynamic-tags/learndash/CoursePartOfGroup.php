@@ -31,7 +31,7 @@ class CoursePartOfGroup extends Tag {
      * @return string
      */
     public function get_title() {
-        return __( 'Course Part of Groups', 'hw-elementor-woo-dynamic' );
+        return __( 'Course Part of Groups', 'hw-ele-woo-dynamic' );
     }
 
     /**
@@ -59,11 +59,11 @@ class CoursePartOfGroup extends Tag {
         $this->add_control(
             'output_type',
             [
-                'label' => __( 'Output', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Output', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'all' => __( 'All Groups', 'hw-elementor-woo-dynamic' ),
-                    'latest' => __( 'Latest', 'hw-elementor-woo-dynamic' ),
+                    'all' => __( 'All Groups', 'hw-ele-woo-dynamic' ),
+                    'latest' => __( 'Latest', 'hw-ele-woo-dynamic' ),
                 ],
                 'default' => 'all',
             ]
@@ -72,10 +72,10 @@ class CoursePartOfGroup extends Tag {
         $this->add_control(
             'linkable',
             [
-                'label' => __( 'Linkable', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Linkable', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => __( 'Yes', 'hw-elementor-woo-dynamic' ),
-                'label_off' => __( 'No', 'hw-elementor-woo-dynamic' ),
+                'label_on' => __( 'Yes', 'hw-ele-woo-dynamic' ),
+                'label_off' => __( 'No', 'hw-ele-woo-dynamic' ),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -84,10 +84,10 @@ class CoursePartOfGroup extends Tag {
         $this->add_control(
             'delimiter',
             [
-                'label' => __( 'Delimiter', 'hw-elementor-woo-dynamic' ),
+                'label' => __( 'Delimiter', 'hw-ele-woo-dynamic' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => ', ',
-                'description' => __( 'Set a delimiter for multiple group names. Leave empty for no delimiter.', 'hw-elementor-woo-dynamic' ),
+                'description' => __( 'Set a delimiter for multiple group names. Leave empty for no delimiter.', 'hw-ele-woo-dynamic' ),
                 'condition' => [
                     'output_type' => 'all',
                 ],

@@ -10,7 +10,7 @@ class LoggedIn extends Condition_Base {
     }
 
     public function get_label() {
-        return esc_html__('Logged In', 'hw-elementor-woo-dynamic');
+        return esc_html__('Logged In', 'hw-ele-woo-dynamic');
     }
 
     public function check($args) {
