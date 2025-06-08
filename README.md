@@ -42,7 +42,25 @@ We've updated the full source codes of the plugin on github, so you can now alwa
 
 Full help and descriptions can be found on github WIki: https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Start-here
 
+> [!IMPORTANT]
+> New documentation website https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/
+
 ---
+
+#### Widgets
+
+- Dynamic Checkbox
+- Dynamic Bulk Add to cart
+- Woo membership plan card
+- Dynamic Calculation
+
+---
+
+#### Global dynamic tags
+
+_You can use anywhere on your site_
+
+- Dynamic Calculation
 
 #### Woo Product specific dynamic tags
 
@@ -55,6 +73,7 @@ _You can use with Loop / Listing, or single product templates_
 - Featured Badge
 - Product Attributes
 - Product Gallery Image
+- Product Dimension
 - Purchased Badge
 - Product Height
 - Product Shipping Class
@@ -99,6 +118,7 @@ _You can use it anywhere in your site_
 
 - Active Membership
 - Active Membership Data
+- Membership Plan count
 - Current Membership Data
 - Restricted Products View (beta)
 - Membership Myaccount link
@@ -150,6 +170,10 @@ _You can use it anywhere in your site_
 ---
 
 #### JetEngine Dynamic Visibility
+
+**WooCommerce specific**
+
+- Product tab empty 
 
 _You can use it anywhere in your site_
 
@@ -280,9 +304,35 @@ Other Theme Conditions
 - [x] v2.1.0 will add many new Woo Membership and subscriptions dynamic tags and settings page
 - [x] v2.2.0 Merge to exiting Leanrdash Extension
 - [x] v2.3.0 Removed the WooCommerce dependency
-- [ ] v2.4.0 New Widgets
+- [x] v2.4.0 New Widgets
 
 ## CHANGELOG
+
+### V 2.4.0 _2025.06.08_
+
+- New Widgets:
+  * Dynamic Checkbox (For jetengine, and acf)
+  * Dynamic Bulk add to cart (jetengine relation compatibility)
+  * Woo Membership Plan card
+  * Dynamic Calculation
+
+ - New Dynmic tags:
+   * Dynamic Calculation
+   * Woo Membership - Plan count
+   * Woo - Product Dimension
+
+Improving existing tags:
+
+* Active membership
+* Product Attributes
+* Product height, Lenght, Weight, Width (Converter functions)
+* Product Shipping Class
+* Course resume link (selectable link behavior)
+
+FIX:
+Php code escape fixes
+
+---
 
 ### V 2.3.3.1 _2025.05.11_
 
