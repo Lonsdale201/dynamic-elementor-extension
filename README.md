@@ -129,7 +129,7 @@ _You can use it anywhere in your site_
 
 - Active Subscription
 - Active Subscription Data
-- Subscriptons myaccount link
+- Subscriptions myaccount link
 
 #### LearnDash (Course)
 
