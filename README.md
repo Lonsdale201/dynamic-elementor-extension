@@ -308,6 +308,13 @@ Other Theme Conditions
 
 ## CHANGELOG
 
+### V 2.4.1 _2025.07.10_
+
+Small hotfix.
+Download the plugin from github to get new updates automatically again.
+
+---
+
 ### V 2.4.0 _2025.06.08_
 
 - New Widgets:
