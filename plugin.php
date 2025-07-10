@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Dynamic Elementor Extension
  * Description: Extra dynamic tags and other useful functions (conditionally for WooCommerce, Memberships, Subscriptions, and LearnDash).
- * Version: 2.4.0
+ * Version: 2.4.1
  * Author: Soczó Kristóf
  * Author URI: https://github.com/Lonsdale201?tab=repositories
  * Plugin URI: https://github.com/Lonsdale201/dynamic-elementor-extension
@@ -26,11 +26,7 @@ define( 'HW_ELE_DYNAMIC_URL',    plugin_dir_url( __FILE__ ) );
 define( 'HW_ELE_DYNAMIC_PATH',   plugin_dir_path( __FILE__ ) );
 
 if ( ! defined( 'HW_ELE_DYNAMIC_VERSION' ) ) {
-	define( 'HW_ELE_DYNAMIC_VERSION', '2.4.0' );
-}
-
-if ( ! defined( 'HW_ELE_DYNAMIC_UPDATE_URL' ) ) {
-	define( 'HW_ELE_DYNAMIC_UPDATE_URL', 'https://pluginupdater.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json' );
+	define( 'HW_ELE_DYNAMIC_VERSION', '2.4.1' );
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -81,15 +77,6 @@ final class HW_Ele_Dynamic_Tags {
 		add_action( 'init', [ $this, 'on_init' ] );
 	}
 
-	/**
-	 * ALWAYS return the new update URL – no branching, no old host.
-	 *
-	 * @return string
-	 */
-	private function get_update_url() {
-		return HW_ELE_DYNAMIC_UPDATE_URL;
-	}
-
 	/** Load translations. */
 	public function load_plugin_textdomain() {
 		if ( version_compare( $GLOBALS['wp_version'], '6.7', '<' ) ) {
@@ -110,11 +97,11 @@ final class HW_Ele_Dynamic_Tags {
 
 		add_action( 'elementor/init', [ $this, 'init_elementor_integration' ] );
 
-		PucFactory::buildUpdateChecker(
-			$this->get_update_url(),
-			__FILE__,
-			'hw-elementor-woo-dynamic'
-		);
+		$myUpdateChecker = PucFactory::buildUpdateChecker(
+            'https://pluginupdater.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json',
+            __FILE__,
+            'hw-elementor-woo-dynamic'
+        );
 	}
 
 	/** Add settings link. */
