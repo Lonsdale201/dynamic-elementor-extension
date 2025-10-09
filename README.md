@@ -53,6 +53,8 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 - Dynamic Bulk Add to cart
 - Woo membership plan card
 - Dynamic Calculation
+- Dynamic Opening Hours
+- Dynamic add to calendar
 
 ---
 
@@ -61,6 +63,7 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 _You can use anywhere on your site_
 
 - Dynamic Calculation
+- Dynamic Author URL (use in user listing)
 
 #### Woo Product specific dynamic tags
 
@@ -196,6 +199,8 @@ _You can use it anywhere in your site_
 - Course Not started
 - Course Part of Any Group
 - Course part of group (selectable)
+- Lessons Completed
+- Quizes completed
 
 **Memberpress specific**
 
@@ -312,6 +317,7 @@ Other Theme Conditions
 
 - Added two new LearnDash JetEngine Dynamic Visibility conditions: `Lessons Completed` and `Quizzes Completed`.
 - Fixed text-domain loading to support WordPress 6.7+ locale handling changes.
+- Fixed the Plugins updater issue
 - Added a new global Elementor dynamic tag `Author URL`.
 - Membership card widget now offers a “Linkable Card” option and uses localized WooCommerce Membership status labels.
 - Introduced a new Dynamic Add to Calendar widget.

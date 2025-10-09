@@ -25,8 +25,10 @@ final class Loader
     private function __construct()
     {
         add_action('init', [$this, 'load_textdomain'], 0);
+
         add_action('init', [$this, 'on_init']);
         add_action('plugins_loaded', [$this, 'on_plugins_loaded']);
+        add_action('plugins_loaded', [$this, 'init_updater'], 1);
         add_filter('plugin_action_links_' . plugin_basename(HW_ELE_DYNAMIC_FILE), [$this, 'add_plugin_action_links']);
         add_filter('plugin_row_meta', [$this, 'add_plugin_row_meta'], 10, 2);
     }
@@ -53,7 +55,10 @@ final class Loader
         }
 
         add_action('elementor/init', [$this, 'init_elementor_integration']);
+    }
 
+    public function init_updater(): void
+    {
         PucFactory::buildUpdateChecker(
             'https://pluginupdater.hellodevs.dev/plugins/hw-elementor-woo-dynamic.json',
             HW_ELE_DYNAMIC_FILE,

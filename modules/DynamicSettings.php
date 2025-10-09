@@ -470,17 +470,8 @@ class DynamicSettings {
             $is_checked  = isset( $enabled_tags[ $full_tag_id ] ) ? '1' : '';
 
             $badge_html = '';
-            if ( $tag_id === 'user_membership_plan_count' ) {
+            if ( $tag_id === 'global_author_url' ) {
                 $badge_html = ' <sup class="badge-new-feature">New</sup>';
-            }
-            if ( $tag_id === 'global_dynamic_calculation' ) {
-                $badge_html = ' <sup class="badge-new-feature">New</sup>';
-            }
-            if ( $tag_id === 'product_dimension' ) {
-                $badge_html = ' <sup class="badge-new-feature">New</sup>';
-            }
-            if ( $tag_id === 'active_membership' ) {
-                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
             }
             if ( $tag_id === 'product_shipping_class' ) {
                 $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
