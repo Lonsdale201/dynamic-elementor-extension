@@ -7,10 +7,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use Elementor\Widgets_Manager;
 use Elementor\Elements_Manager;
-use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicCheckboxWidget;
-use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicCalculationWidget;
-use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\MemberShipCardWidget;
+use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicAddToCalendarWidget;
 use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicAddToCartWidget;
+use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicCalculationWidget;
+use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicCheckboxWidget;
+use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicOpeningHoursWidget;
+use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\MemberShipCardWidget;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;    
 
 class WidgetManager {
@@ -55,6 +57,14 @@ class WidgetManager {
         && class_exists( \HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicAddToCartWidget::class )
         ) {
             $widgets_manager->register( new DynamicAddToCartWidget() );
+        }
+
+        if ( class_exists( \HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicAddToCalendarWidget::class ) ) {
+            $widgets_manager->register( new DynamicAddToCalendarWidget() );
+        }
+
+        if ( class_exists( \HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicOpeningHoursWidget::class ) ) {
+            $widgets_manager->register( new DynamicOpeningHoursWidget() );
         }
     }
 

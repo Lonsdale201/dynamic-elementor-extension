@@ -14,9 +14,42 @@ echo '<div class="membership-cards-wrapper">';
 foreach ( $cards as $membership ) {
 
     $status_slug = $membership->get_status();
-    $status_label = ucfirst( $status_slug );
+    $status_label = '';
 
-    echo '<div class="membership-card">';
+    if ( function_exists( 'wc_memberships_get_user_membership_status_name' ) ) {
+        $status_label = (string) wc_memberships_get_user_membership_status_name( $status_slug );
+    } elseif ( method_exists( $membership, 'get_status_label' ) ) {
+        $status_label = (string) $membership->get_status_label();
+    }
+
+    if ( '' === $status_label ) {
+        $status_label = ucfirst( (string) $status_slug );
+    }
+
+    $card_linkable = ( 'yes' === ( $settings['linkable_card'] ?? '' ) );
+    $card_url      = '';
+
+    if ( $card_linkable && method_exists( $membership, 'get_view_membership_url' ) ) {
+        $card_url = (string) $membership->get_view_membership_url();
+    }
+
+    if ( $card_linkable && ! $card_url && function_exists( 'wc_memberships_get_members_area_url' ) ) {
+        $plan = $membership->get_plan();
+        if ( $plan ) {
+            $card_url = (string) wc_memberships_get_members_area_url( $plan );
+        }
+    }
+
+    $card_tag     = ( $card_linkable && $card_url ) ? 'a' : 'div';
+    $card_classes = 'membership-card' . ( ( 'a' === $card_tag ) ? ' membership-card--linkable' : '' );
+
+    $card_attributes = sprintf( ' class="%s"', esc_attr( $card_classes ) );
+
+    if ( 'a' === $card_tag ) {
+        $card_attributes .= sprintf( ' href="%s"', esc_url( $card_url ) );
+    }
+
+    echo sprintf( '<%1$s%2$s>', $card_tag, $card_attributes );
 
     if ( 'yes' === ( $settings['status_as_badge'] ?? '' ) ) {
         echo '<div class="membership-status membership-status-badge membership-status-badge--' . esc_attr( $status_slug ) . '">';
@@ -153,7 +186,7 @@ foreach ( $cards as $membership ) {
     }
 
     echo '</div>';   // .membership-card-body
-    echo '</div>';   // .membership-card
+    echo sprintf( '</%s>', $card_tag );
 }
 
 echo '</div>';       // .membership-cards-wrapper

@@ -144,8 +144,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <li><a href="https://memberpress.com/" target="_blank">Memberpress</a></li>
             </ul>
         </div><!-- .card -->
-
-        <!-- 4) Roadmap -->
+        
+        <!-- 5) Roadmap -->
         <div class="card" style="padding: 1rem;">
             <h2 style="margin-top: 0;">
                 <?php esc_html_e('Roadmap', 'hw-elementor-woo-dynamic'); ?>
@@ -293,6 +293,16 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
+                <strong><?php esc_html_e('Version 2.4.2 - 2025.10.09', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('Added two new LearnDash JetEngine Dynamic Visibility conditions: Lessons Completed and Quizzes Completed.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Fixed text-domain loading to support WordPress 6.7+ locale handling changes.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Added a new global Elementor dynamic tag Author URL.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Membership card widget now offers a “Linkable Card” option and uses localized WooCommerce Membership status labels.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Introduced a new Dynamic Add to Calendar widget.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Current User Role JetEngine macro now returns all roles assigned to the user.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Added the Dynamic Opening Hours widget.', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
                 <strong><?php esc_html_e('Version 2.4.0 - 2025.06.08', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
                         <li><?php esc_html_e('Elementor widgets is here! Dynamic Checkbox, Dynamic Bulk Add to cart, Membership cards, Dynamic Calculations', 'hw-elementor-woo-dynamic'); ?></li>

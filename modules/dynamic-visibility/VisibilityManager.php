@@ -77,6 +77,8 @@ class VisibilityManager {
             $conditions_manager->register_condition(new LDNotHaveEnoughPoints());
             $conditions_manager->register_condition(new LDStudentLimitReached());
             $conditions_manager->register_condition(new CoursePartOfSpecificGroups());
+            $conditions_manager->register_condition(new LDSelectedLessonsCompleted());
+            $conditions_manager->register_condition(new LDSelectedQuizzesCompleted());
         }
     }
 }

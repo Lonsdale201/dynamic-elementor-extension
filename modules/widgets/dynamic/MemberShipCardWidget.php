@@ -76,6 +76,17 @@ class MemberShipCardWidget extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'linkable_card',
+            [
+                'label'        => __( 'Linkable Card', 'hw-ele-woo-dynamic' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'return_value' => 'yes',
+                'default'      => 'no',
+                'description'  => __( 'When enabled, clicking the card will take the user to the membership details page.', 'hw-ele-woo-dynamic' ),
+            ]
+        );
+
         $this->add_responsive_control(
             'column_number',
             [

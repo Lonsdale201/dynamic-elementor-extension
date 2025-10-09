@@ -274,6 +274,7 @@ class DynamicSettings {
         $this->tags_config = [
             'global_tags' => [
                 'global_dynamic_calculation'    => __( 'Dynamic Calculation', 'hw-elementor-woo-dynamic' ),
+                'global_author_url'             => __( 'Author URL', 'hw-elementor-woo-dynamic' ),
             ],
             'global' => [
                 'advanced_product_category'     => __( 'Advanced Product Category', 'hw-elementor-woo-dynamic' ),

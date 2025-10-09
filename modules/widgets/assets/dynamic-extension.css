@@ -30,6 +30,15 @@
   position: relative;
 }
 
+.membership-card--linkable {
+  text-decoration: none;
+  color: inherit;
+}
+
+.membership-card--linkable:hover {
+  text-decoration: none;
+}
+
 .membership-card-icon {
   flex: 0 0 auto;
 }
@@ -92,4 +101,93 @@
 .hwdw-align-fullwidth .dynamic-bulk-addtocart {
   display: block;
   width: 100%;
+}
+
+/* Dynamic Add to Calendar */
+.dynamic-add-to-calendar-wrapper,
+.dynamic-add-to-calendar-button {
+  display: block;
+}
+
+.dynamic-add-to-calendar {
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  line-height: 1;
+  transition: color 0.3s, fill 0.3s, border-color 0.3s;
+}
+
+.dynamic-add-to-calendar-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dynamic-add-to-calendar-content,
+.dynamic-add-to-calendar-content * {
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s,
+    color 0.3s, fill 0.3s;
+}
+
+.dynamic-add-to-calendar * {
+  transition: color 0.3s, fill 0.3s, border-color 0.3s;
+}
+
+.hwdw-align-fullwidth .dynamic-add-to-calendar {
+  display: block;
+  width: 100%;
+}
+
+/* Dynamic Opening Hours */
+.dynamic-opening-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dynamic-opening-hours__title {
+  font-weight: 600;
+}
+
+.dynamic-opening-hours__description {
+  margin: 0;
+}
+
+.dynamic-opening-hours__status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-weight: 600;
+}
+
+.dynamic-opening-hours__fallback {
+  padding: 12px;
+}
+
+.dynamic-opening-hours__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dynamic-opening-hours__day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-radius: 0;
+  padding: 8px 12px;
+}
+
+.dynamic-opening-hours__day-label {
+  font-weight: 500;
+}
+
+.dynamic-opening-hours__day-time--closed {
+  opacity: 0.7;
+}
+
+.dynamic-opening-hours__day--today {
+  font-weight: 600;
 }

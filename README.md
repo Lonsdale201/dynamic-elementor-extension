@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 
 This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -173,7 +173,7 @@ _You can use it anywhere in your site_
 
 **WooCommerce specific**
 
-- Product tab empty 
+- Product tab empty
 
 _You can use it anywhere in your site_
 
@@ -308,6 +308,16 @@ Other Theme Conditions
 
 ## CHANGELOG
 
+### V 2.4.2 _2025.10.09_
+
+- Added two new LearnDash JetEngine Dynamic Visibility conditions: `Lessons Completed` and `Quizzes Completed`.
+- Fixed text-domain loading to support WordPress 6.7+ locale handling changes.
+- Added a new global Elementor dynamic tag `Author URL`.
+- Membership card widget now offers a “Linkable Card” option and uses localized WooCommerce Membership status labels.
+- Introduced a new Dynamic Add to Calendar widget.
+- Current User Role JetEngine macro now returns all roles assigned to the user.
+- Added the Dynamic Opening Hours widget.
+
 ### V 2.4.1 _2025.07.10_
 
 Small hotfix.
@@ -318,23 +328,24 @@ Download the plugin from github to get new updates automatically again.
 ### V 2.4.0 _2025.06.08_
 
 - New Widgets:
-  * Dynamic Checkbox (For jetengine, and acf)
-  * Dynamic Bulk add to cart (jetengine relation compatibility)
-  * Woo Membership Plan card
-  * Dynamic Calculation
 
- - New Dynmic tags:
-   * Dynamic Calculation
-   * Woo Membership - Plan count
-   * Woo - Product Dimension
+  - Dynamic Checkbox (For jetengine, and acf)
+  - Dynamic Bulk add to cart (jetengine relation compatibility)
+  - Woo Membership Plan card
+  - Dynamic Calculation
+
+- New Dynmic tags:
+  - Dynamic Calculation
+  - Woo Membership - Plan count
+  - Woo - Product Dimension
 
 Improving existing tags:
 
-* Active membership
-* Product Attributes
-* Product height, Lenght, Weight, Width (Converter functions)
-* Product Shipping Class
-* Course resume link (selectable link behavior)
+- Active membership
+- Product Attributes
+- Product height, Lenght, Weight, Width (Converter functions)
+- Product Shipping Class
+- Course resume link (selectable link behavior)
 
 FIX:
 Php code escape fixes

@@ -62,6 +62,13 @@ class CurrentUserRole extends \Jet_Engine_Base_Macros {
             return 'No role assigned';
         }
 
-        return sanitize_text_field( $current_user->roles[0] );
+        $roles = array_map( 'sanitize_text_field', (array) $current_user->roles );
+        $roles = array_filter( $roles );
+
+        if ( empty( $roles ) ) {
+            return 'No role assigned';
+        }
+
+        return implode( ', ', $roles );
     }
 }
