@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'HW_ELE_DYNAMIC_VERSION' ) ) {
-	define( 'HW_ELE_DYNAMIC_VERSION', '2.4.1' );
+	define( 'HW_ELE_DYNAMIC_VERSION', '2.4.2' );
 }
 
 define( 'HW_ELE_DYNAMIC_FILE', __FILE__ );
