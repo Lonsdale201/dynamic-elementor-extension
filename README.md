@@ -313,6 +313,12 @@ Other Theme Conditions
 
 ## CHANGELOG
 
+### V 2.4.2.1 _2025.10.10_
+
+- Fixed the Author archive elementor template condition issue
+
+---
+
 ### V 2.4.2 _2025.10.09_
 
 - Added two new LearnDash JetEngine Dynamic Visibility conditions: `Lessons Completed` and `Quizzes Completed`.

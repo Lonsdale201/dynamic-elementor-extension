@@ -12,7 +12,7 @@ class WooExtrasConditions extends Condition_Base {
      * @return string The condition type.
      */
     public static function get_type() {
-        return 'woocommerce';
+        return 'product';
     }
 
     /**

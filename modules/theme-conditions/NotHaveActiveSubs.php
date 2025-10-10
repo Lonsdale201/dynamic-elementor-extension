@@ -7,6 +7,10 @@ use WC_Subscriptions_Manager;
 
 class NotHaveActiveSubs extends Condition_Base {
 
+    public static function get_type() {
+        return 'general';
+    }
+
     public function get_name() {
         return 'not_have_active_subs';
     }

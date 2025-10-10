@@ -7,17 +7,21 @@ use ElementorPro\Modules\ThemeBuilder\Conditions\Condition_Base;
 class UserRoleTypes extends Condition_Base {
 
     private $role;
+    private $condition_name;
 
     public function __construct( $role ) {
         $this->role = $role;
+        $this->condition_name = 'user_role_' . \sanitize_key( $role );
+
+        parent::__construct();
     }
 
     public static function get_type() {
-        return 'user_role';
+        return 'general';
     }
 
     public function get_name() {
-        return strtolower( $this->role );
+        return $this->condition_name;
     }
 
     public function get_label() {

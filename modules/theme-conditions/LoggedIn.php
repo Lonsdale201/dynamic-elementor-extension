@@ -5,6 +5,10 @@ use ElementorPro\Modules\ThemeBuilder\Conditions\Condition_Base;
 
 class LoggedIn extends Condition_Base {
 
+    public static function get_type() {
+        return 'general';
+    }
+
     public function get_name() {
         return 'logged_in';
     }
