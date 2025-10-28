@@ -192,6 +192,15 @@ class TagManager {
             'customer_specific_last_order'           => 'HelloWP\HWEleWooDynamic\WooTags\LastOrder',
             'customer_specific_user_role'            => 'HelloWP\HWEleWooDynamic\WooTags\UserRole',
             'customer_specific_customer_logout'      => 'HelloWP\HWEleWooDynamic\WooTags\CustomerLogout',
+            'customer_specific_orders_hpos_order_id'     => 'HelloWP\HWEleWooDynamic\WooTags\OrderID',
+            'customer_specific_orders_hpos_order_date'   => 'HelloWP\HWEleWooDynamic\WooTags\OrderDate',
+            'customer_specific_orders_hpos_order_status' => 'HelloWP\HWEleWooDynamic\WooTags\OrderStatus',
+            'customer_specific_orders_hpos_order_link'   => 'HelloWP\HWEleWooDynamic\WooTags\OrderLink',
+            'customer_specific_orders_hpos_order_total'  => 'HelloWP\HWEleWooDynamic\WooTags\TotalPrice',
+            'customer_specific_orders_hpos_order_payment_method' => 'HelloWP\HWEleWooDynamic\WooTags\OrderPaymentMethod',
+            'customer_specific_orders_hpos_order_items_count' => 'HelloWP\HWEleWooDynamic\WooTags\OrderItemsCount',
+            'customer_specific_orders_hpos_order_items_list'  => 'HelloWP\HWEleWooDynamic\WooTags\OrderedItems',
+            'customer_specific_orders_hpos_order_customer'    => 'HelloWP\HWEleWooDynamic\WooTags\OrderCustomer',
 
             // Woo Membership
             'woo_membership_active_membership'            => 'HelloWP\HWEleWooDynamic\WooTags\Membership\ActiveMembership',

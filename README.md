@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.4.2.1
+Stable tag: 2.4.3
 
 This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -94,7 +94,7 @@ _You can use with Loop / Listing, or single product templates_
 - Variable price
 - ACF Taxonomy Meta
 
-#### Cart specific dynamic tags
+#### Woo Cart specific dynamic tags
 
 _You can use it anywhere in your site_
 
@@ -102,7 +102,7 @@ _You can use it anywhere in your site_
 - Cart Tax Values
 - Free Shipping Amount
 
-#### Customer specific Dynamic tags
+#### Woo Customer specific Dynamic tags
 
 _You can use it anywhere in your site_
 
@@ -114,6 +114,20 @@ _You can use it anywhere in your site_
 - Purchased Products
 - User Role
 - Customer logout (link)
+
+#### Woo Order specific Dynamic tags
+
+_You can use with JetEngine Listing, + WC Order HPOS Query (Jetengine query builder)_
+
+- Order ID
+- Order Date
+- Order Status
+- Order Link
+- Total Price
+- Order Items Count
+- Ordered Items
+- Order Customer
+- Order Payment Method
 
 #### Woo membership
 
@@ -240,6 +254,12 @@ _You can use it anywhere in your site_
 
 ---
 
+#### JetEngine Query Builder
+
+Query Type:
+
+- WC Order HPOS Query
+
 #### Elementor Finder
 
 What is the Elementor finder?
@@ -312,6 +332,13 @@ Other Theme Conditions
 - [x] v2.4.0 New Widgets
 
 ## CHANGELOG
+
+### V 2.4.3 _2025.10.28_
+
+- JetEngine Query Builder: new `WC Order HPOS` Query Type with payment-method filtering and improved date handling.
+- Added WooCommerce order dynamic tags for JetEngine listings: Order ID (linkable), Order Date, Order Status, Order Link, Total Price, Order Items Count, Ordered Items (enhanced variation output), Order Customer, Order Payment Method.
+
+---
 
 ### V 2.4.2.1 _2025.10.10_
 

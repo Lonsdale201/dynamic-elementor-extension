@@ -154,6 +154,13 @@ class DynamicSettings {
                     'hw-elementor-woo-dynamic'
                 ),
             ],
+            'customer_specific_orders_hpos' => [
+                'title'       => __( '[WooCommerce] Orders (HPOS)', 'hw-elementor-woo-dynamic' ),
+                'description' => __(
+                    'Enable order-related tags built for JetEngine listings that use the WC Order HPOS query type.',
+                    'hw-elementor-woo-dynamic'
+                ),
+            ],
             'woo_membership' => [
                 'title'       => __( '[WooCommerce Membership] dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
@@ -235,6 +242,7 @@ class DynamicSettings {
                 ( $id === 'global' && ! Dependencies::is_woocommerce_active() ) ||
                 ( $id === 'cart_value' && ! Dependencies::is_woocommerce_active() ) ||
                 ( $id === 'customer_specific' && ! Dependencies::is_woocommerce_active() ) ||
+                ( $id === 'customer_specific_orders_hpos' && ! Dependencies::is_woocommerce_active() ) ||
                 ( $id === 'my_account_dashboard' && ! Dependencies::is_woocommerce_active() ) ||
                 ( $id === 'my_account_orders' && ! Dependencies::is_woocommerce_active() ) ||
                 ( $id === 'wp_bar_products_informations' && ! Dependencies::is_woocommerce_active() ) ||
@@ -321,6 +329,17 @@ class DynamicSettings {
                 'last_order'           => __( 'Last Order', 'hw-elementor-woo-dynamic' ),
                 'user_role'            => __( 'User Role', 'hw-elementor-woo-dynamic' ),
                 'customer_logout'      => __( 'Customer logout', 'hw-elementor-woo-dynamic' ),
+            ],
+            'customer_specific_orders_hpos' => [
+                'order_id'        => __( 'Order ID', 'hw-elementor-woo-dynamic' ),
+                'order_date'      => __( 'Order Date', 'hw-elementor-woo-dynamic' ),
+                'order_status'    => __( 'Order Status', 'hw-elementor-woo-dynamic' ),
+                'order_link'      => __( 'Order Link', 'hw-elementor-woo-dynamic' ),
+                'order_total'     => __( 'Total Price', 'hw-elementor-woo-dynamic' ),
+                'order_items_count' => __( 'Order Items Count', 'hw-elementor-woo-dynamic' ),
+                'order_items_list'  => __( 'Ordered Items', 'hw-elementor-woo-dynamic' ),
+                'order_customer'    => __( 'Order Customer', 'hw-elementor-woo-dynamic' ),
+                'order_payment_method' => __( 'Order Payment Method', 'hw-elementor-woo-dynamic' ),
             ],
             'woo_membership' => [
                 'active_membership'         => __( 'Active Membership', 'hw-elementor-woo-dynamic' ),

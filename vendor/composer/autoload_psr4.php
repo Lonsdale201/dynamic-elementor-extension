@@ -14,6 +14,7 @@ return array(
     'HelloWP\\HWEleWooDynamic\\Modules\\Widgets\\' => array($baseDir . '/modules/widgets'),
     'HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\' => array($baseDir . '/modules/wp-top-bar'),
     'HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\' => array($baseDir . '/modules/theme-conditions'),
+    'HelloWP\\HWEleWooDynamic\\Modules\\JEQuery\\' => array($baseDir . '/modules/je-query'),
     'HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\' => array($baseDir . '/modules/je-macros'),
     'HelloWP\\HWEleWooDynamic\\Modules\\Helpers\\' => array($baseDir . '/modules/helpers'),
     'HelloWP\\HWEleWooDynamic\\Modules\\Finder\\' => array($baseDir . '/modules/finders'),

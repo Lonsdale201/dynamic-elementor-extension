@@ -17,6 +17,7 @@ class ComposerStaticInit0276a9163f92cbe8f2004c8d3b98c0d0
             'HelloWP\\HWEleWooDynamic\\Modules\\Widgets\\' => 40,
             'HelloWP\\HWEleWooDynamic\\Modules\\WPTopBar\\' => 41,
             'HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\' => 48,
+            'HelloWP\\HWEleWooDynamic\\Modules\\JEQuery\\' => 40,
             'HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\' => 41,
             'HelloWP\\HWEleWooDynamic\\Modules\\Helpers\\' => 40,
             'HelloWP\\HWEleWooDynamic\\Modules\\Finder\\' => 39,
@@ -61,6 +62,10 @@ class ComposerStaticInit0276a9163f92cbe8f2004c8d3b98c0d0
         'HelloWP\\HWEleWooDynamic\\Modules\\ThemeConditions\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modules/theme-conditions',
+        ),
+        'HelloWP\\HWEleWooDynamic\\Modules\\JEQuery\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/je-query',
         ),
         'HelloWP\\HWEleWooDynamic\\Modules\\JEMacros\\' => 
         array (

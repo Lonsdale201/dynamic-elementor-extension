@@ -117,6 +117,10 @@ final class Loader
         if (class_exists('Jet_Engine')) {
             Modules\JEMacros\MacroManager::instance();
             Modules\Callbacks\CallbackManager::instance();
+
+            if (Dependencies::is_woocommerce_active()) {
+                Modules\JEQuery\QueryManager::instance();
+            }
         }
     }
 
