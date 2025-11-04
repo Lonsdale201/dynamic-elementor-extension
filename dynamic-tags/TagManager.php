@@ -146,6 +146,7 @@ class TagManager {
             // Global tags
             'global_tags_global_dynamic_calculation'           => 'HelloWP\HWEleWooDynamic\GlobalTags\DynamicCalculation',
             'global_tags_global_author_url'                    => 'HelloWP\HWEleWooDynamic\GlobalTags\AuthorUrl',
+            'global_tags_global_post_content'                  => 'HelloWP\HWEleWooDynamic\GlobalTags\PostContent',
 
             // Woo Extras
             'woo_extras_advanced-price'            => 'HelloWP\HWEleWooDynamic\WooTags\AdvancedPrice',

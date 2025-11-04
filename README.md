@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.4.3
+Stable tag: 2.4.4
 
 This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -333,6 +333,14 @@ Other Theme Conditions
 
 ## CHANGELOG
 
+### V 2.4.4 _2025.11.05_
+
+- JetEngine Listing Grid: full skeleton loading mechanism implemented with support for JetSmartFilters, pagination, load more, and infinite scroll.
+- Added a new Dynamic Tag: Post Content.
+- Added a new Query Filter for JetEngine Query Builder (Woo HPOS): include or exclude products based on their presence in an order.
+
+---
+
 ### V 2.4.3 _2025.10.28_
 
 - JetEngine Query Builder: new `WC Order HPOS` Query Type with payment-method filtering and improved date handling.
@@ -507,7 +515,7 @@ New Trim function, output format option
 **WooCommerce related:**
 New Dynamic tag
 
-- Product Tabs (Support defaults, and the WooCommerce Tab Manager plugin (By: SkyVerge)
+- Product Tabs (Support defaults, and the WooCommerce Tab Manager plugin (By: SkyVerge))
 
 **JetEngine related:**
 New Dynamic Visibility

@@ -135,7 +135,7 @@ class DynamicSettings {
             'woo_extras' => [
                 'title'       => __( '[WooCommerce] Single Product page / loop dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
-                    'This section contains settings for single product pages and product loops.<br> Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-%E2%80%90-Product-Dynamic-Tags">wikipedia section</a> for tutorial',
+                    'This section contains settings for single product pages and product loops.<br> Check the <a href="https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/dynamic-tags/woocommerce">wikipedia section</a> for tutorial',
                     'hw-elementor-woo-dynamic'
                 ),
             ],
@@ -150,7 +150,7 @@ class DynamicSettings {
             'customer_specific' => [
                 'title'       => __( '[WooCommerce] Customer Specific dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
-                    'Specific tags that return current logged-in user data. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-%E2%80%90-Customer-Dynamic-Tags">wikipedia section</a> for tutorial',
+                    'Specific tags that return current logged-in user data. Check the <a href="https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/dynamic-tags/woocommerce#customer-tags">wikipedia section</a> for tutorial',
                     'hw-elementor-woo-dynamic'
                 ),
             ],
@@ -164,28 +164,28 @@ class DynamicSettings {
             'woo_membership' => [
                 'title'       => __( '[WooCommerce Membership] dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
-                    'Specific tags for WooCommerce Membership. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-Membership-%E2%80%90-Dynamic-Tags">wikipedia section</a> for tutorial',
+                    'Specific tags for WooCommerce Membership. Check the <a href="https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/dynamic-tags/membership">wikipedia section</a> for tutorial',
                     'hw-elementor-woo-dynamic'
                 ),
             ],
             'woo_subscriptions' => [
                 'title'       => __( '[WooCommerce Subscriptions] dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
-                    'Specific tags for WooCommerce Subscriptions. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Woo-Subscriptions-%E2%80%90-Dynamic-Tags">wikipedia section</a> for tutorial',
+                    'Specific tags for WooCommerce Subscriptions. Check the <a href="https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/dynamic-tags/subscriptions">wikipedia section</a> for tutorial',
                     'hw-elementor-woo-dynamic'
                 ),
             ],
             'ld_extras_courses' => [
                 'title'       => __( '[Learndash] Course dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
-                    'Specific tags for the Learndash courses single page. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/LearnDash-%E2%80%90-Dynamic-Tags"> wikipedia section</a> for tutorial',
+                    'Specific tags for the Learndash courses single page. Check the <a href="https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/dynamic-tags/learndash"> wikipedia section</a> for tutorial',
                     'hw-elementor-woo-dynamic'
                 ),
             ],
             'ld_extras_global' => [
                 'title'       => __( '[Learndash] Global dynamic tags', 'hw-elementor-woo-dynamic' ),
                 'description' => __(
-                    'Specific Global tags for Learndash. Check the <a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/LearnDash-%E2%80%90-Dynamic-Tags"> wikipedia section</a> for tutorial',
+                    'Specific Global tags for Learndash. Check the <a href="https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/dynamic-tags/learndash"> wikipedia section</a> for tutorial',
                     'hw-elementor-woo-dynamic'
                 ),
             ],
@@ -283,6 +283,7 @@ class DynamicSettings {
             'global_tags' => [
                 'global_dynamic_calculation'    => __( 'Dynamic Calculation', 'hw-elementor-woo-dynamic' ),
                 'global_author_url'             => __( 'Author URL', 'hw-elementor-woo-dynamic' ),
+                'global_post_content'           => __( 'Post Content', 'hw-elementor-woo-dynamic' ),
             ],
             'global' => [
                 'advanced_product_category'     => __( 'Advanced Product Category', 'hw-elementor-woo-dynamic' ),
@@ -489,7 +490,7 @@ class DynamicSettings {
             $is_checked  = isset( $enabled_tags[ $full_tag_id ] ) ? '1' : '';
 
             $badge_html = '';
-            if ( $tag_id === 'global_author_url' ) {
+            if ( $tag_id === 'global_post_content' ) {
                 $badge_html = ' <sup class="badge-new-feature">New</sup>';
             }
             if ( $tag_id === 'product_shipping_class' ) {

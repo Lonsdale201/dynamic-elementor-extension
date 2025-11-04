@@ -17,6 +17,12 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
 
     private int $items_per_page = 0;
 
+    /** @var int[] */
+    private array $include_products = [];
+
+    /** @var int[] */
+    private array $exclude_products = [];
+
     public function _get_items()
     {
         $results = $this->get_results();
@@ -136,6 +142,12 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
             case 'offset':
                 $this->final_query['offset'] = $value;
                 break;
+            case 'include_products':
+                $this->final_query['include_products'] = $this->normalize_product_ids($value);
+                break;
+            case 'exclude_products':
+                $this->final_query['exclude_products'] = $this->normalize_product_ids($value);
+                break;
             default:
                 $this->merge_default_props($prop, $value);
                 break;
@@ -167,6 +179,9 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
         }
 
         $args = $this->final_query;
+
+        $this->include_products = $this->parse_product_ids($args['include_products'] ?? '');
+        $this->exclude_products = $this->parse_product_ids($args['exclude_products'] ?? '');
 
         $paginate = $this->prepare_paginate_flag($args['paginate'] ?? true);
         $per_page = $this->prepare_per_page($args['per_page'] ?? null);
@@ -236,6 +251,8 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
             $order = strtoupper($args['order']);
             $query_args['order'] = 'ASC' === $order ? 'ASC' : 'DESC';
         }
+
+        $query_args = $this->apply_product_filters($query_args);
 
         $this->is_paginated = $paginate;
         $this->items_per_page = $per_page === -1 ? 0 : $per_page;
@@ -398,6 +415,117 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
         }
 
         return ['customer' => sanitize_text_field($value)];
+    }
+
+    private function normalize_product_ids($value): string
+    {
+        if (is_array($value)) {
+            $value = implode(',', $value);
+        }
+
+        if (! is_string($value)) {
+            return '';
+        }
+
+        $ids = array_filter(array_map(static function ($id) {
+            return absint(trim((string) $id));
+        }, preg_split('/[\s,]+/', $value, -1, PREG_SPLIT_NO_EMPTY)));
+
+        $ids = array_values(array_unique(array_filter($ids)));
+
+        return implode(',', $ids);
+    }
+
+    /**
+     * @param string|array $value
+     * @return int[]
+     */
+    private function parse_product_ids($value): array
+    {
+        if (is_array($value)) {
+            $value = implode(',', $value);
+        }
+
+        if (! is_string($value) || '' === trim($value)) {
+            return [];
+        }
+
+        $ids = array_filter(array_map(static function ($id) {
+            return absint(trim((string) $id));
+        }, preg_split('/[\s,]+/', $value, -1, PREG_SPLIT_NO_EMPTY)));
+
+        return array_values(array_unique(array_filter($ids)));
+    }
+
+    private function apply_product_filters(array $query_args): array
+    {
+        if (empty($this->include_products) && empty($this->exclude_products)) {
+            return $query_args;
+        }
+
+        global $wpdb;
+
+        if (! empty($this->include_products)) {
+            $order_ids = $this->get_order_ids_for_products($this->include_products, $wpdb);
+
+            if (empty($order_ids)) {
+                $query_args['post__in'] = [0];
+            } else {
+                $existing = isset($query_args['post__in']) ? array_map('absint', (array) $query_args['post__in']) : [];
+
+                if (! empty($existing)) {
+                    $order_ids = array_values(array_intersect($existing, $order_ids));
+                }
+
+                $query_args['post__in'] = ! empty($order_ids) ? $order_ids : [0];
+            }
+        }
+
+        if (! empty($this->exclude_products)) {
+            $order_ids = $this->get_order_ids_for_products($this->exclude_products, $wpdb);
+
+            if (! empty($order_ids)) {
+                $existing = isset($query_args['post__not_in']) ? array_map('absint', (array) $query_args['post__not_in']) : [];
+                $query_args['post__not_in'] = array_values(array_unique(array_merge($existing, $order_ids)));
+            }
+        }
+
+        return $query_args;
+    }
+
+    /**
+     * @param int[] $product_ids
+     */
+    private function get_order_ids_for_products(array $product_ids, \wpdb $wpdb): array
+    {
+        if (empty($product_ids)) {
+            return [];
+        }
+
+        $product_ids = array_values(array_unique(array_filter(array_map('absint', $product_ids))));
+
+        if (empty($product_ids)) {
+            return [];
+        }
+
+        $placeholders = implode(',', array_fill(0, count($product_ids), '%d'));
+        $table_items   = $wpdb->prefix . 'woocommerce_order_items';
+        $table_meta    = $wpdb->prefix . 'woocommerce_order_itemmeta';
+
+        $sql = "SELECT DISTINCT oi.order_id
+            FROM {$table_items} AS oi
+            INNER JOIN {$table_meta} AS oim ON oi.order_item_id = oim.order_item_id
+            WHERE oi.order_item_type = 'line_item'
+            AND (
+                (oim.meta_key = '_product_id' AND oim.meta_value IN ({$placeholders}))
+                OR (oim.meta_key = '_variation_id' AND oim.meta_value IN ({$placeholders}))
+            )";
+
+        $prepared = $wpdb->prepare($sql, array_merge($product_ids, $product_ids));
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+        $results = $wpdb->get_col($prepared);
+
+        return array_values(array_unique(array_map('absint', $results)));
     }
 
     private function prepare_date_filters($after, $before): array

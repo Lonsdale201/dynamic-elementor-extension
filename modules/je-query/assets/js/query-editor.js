@@ -40,6 +40,14 @@
 				this.$set( this.query, 'paginate', true );
 			}
 
+			if ( typeof this.query.include_products === 'undefined' ) {
+				this.$set( this.query, 'include_products', '' );
+			}
+
+			if ( typeof this.query.exclude_products === 'undefined' ) {
+				this.$set( this.query, 'exclude_products', '' );
+			}
+
 			if ( typeof this.query.per_page === 'undefined' || ! this.query.per_page ) {
 				this.$set( this.query, 'per_page', this.defaultPerPage );
 			}
@@ -80,11 +88,14 @@
 				return this.paymentMethods;
 			},
 			generalProps: function() {
-				return [ 'customer', 'statuses', 'payment_methods' ];
-			},
-			paginationProps: function() {
-				return [ 'paginate', 'per_page', 'offset' ];
-			},
+			return [ 'customer', 'statuses', 'payment_methods' ];
+		},
+		includeExcludeProps: function() {
+			return [ 'include_products', 'exclude_products' ];
+		},
+		paginationProps: function() {
+			return [ 'paginate', 'per_page', 'offset' ];
+		},
 			dateProps: function() {
 				return [ 'date_after', 'date_before' ];
 			}

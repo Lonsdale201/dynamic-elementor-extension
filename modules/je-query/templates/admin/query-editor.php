@@ -53,6 +53,32 @@
 			</cx-vui-tabs-panel>
 
 			<cx-vui-tabs-panel
+				name="products"
+				:label="isInUseMark( includeExcludeProps ) + '<?php esc_html_e('Include / Exclude', 'hw-ele-woo-dynamic'); ?>'"
+				key="products"
+			>
+				<cx-vui-input
+					label="<?php esc_html_e('Include Products', 'hw-ele-woo-dynamic'); ?>"
+					description="<?php esc_html_e('Comma separated product IDs. Orders must contain at least one of these products.', 'hw-ele-woo-dynamic'); ?>"
+					type="text"
+					:wrapper-css="[ 'equalwidth' ]"
+					size="fullwidth"
+					name="query_include_products"
+					v-model="query.include_products"
+				></cx-vui-input>
+
+				<cx-vui-input
+					label="<?php esc_html_e('Exclude Products', 'hw-ele-woo-dynamic'); ?>"
+					description="<?php esc_html_e('Comma separated product IDs. Orders containing any of these products will be excluded.', 'hw-ele-woo-dynamic'); ?>"
+					type="text"
+					:wrapper-css="[ 'equalwidth' ]"
+					size="fullwidth"
+					name="query_exclude_products"
+					v-model="query.exclude_products"
+				></cx-vui-input>
+			</cx-vui-tabs-panel>
+
+			<cx-vui-tabs-panel
 				name="date"
 				:label="isInUseMark( dateProps ) + '<?php esc_html_e('Date', 'hw-ele-woo-dynamic'); ?>'"
 				key="date"

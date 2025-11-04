@@ -293,6 +293,21 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
+                <strong><?php esc_html_e('Version 2.4.4 - 2025.11.04', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('JetEngine Listing Grid: full skeleton loading mechanism implemented with support for JetSmartFilters, pagination, load more, and infinite scroll.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Added a new Dynamic Tag: Post Content.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Added a new Query Filter for JetEngine Query Builder (Woo HPOS): include or exclude products based on their presence in an order.', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
+                <strong><?php esc_html_e('Version 2.4.3 - 2025.10.28', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('JetEngine Query Builder: new WC Order HPOS Query Type with payment-method filtering and improved date handling.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Added WooCommerce order dynamic tags for JetEngine listings: Order ID (linkable), Order Date, Order Status, Order Link, Total Price, Order Items Count, Ordered Items (enhanced variation output), Order Customer, Order Payment Method.', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
+                <strong><?php esc_html_e('Version 2.4.2.1 - 2025.10.10', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('Fixed the Author archive Elementor template condition issue.', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
                 <strong><?php esc_html_e('Version 2.4.2 - 2025.10.09', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
                         <li><?php esc_html_e('Added two new LearnDash JetEngine Dynamic Visibility conditions: Lessons Completed and Quizzes Completed.', 'hw-elementor-woo-dynamic'); ?></li>
@@ -331,7 +346,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <li><?php esc_html_e('Fixed the Advanced price dynamic tag WC_Tax::calc_tax issue', 'hw-elementor-woo-dynamic'); ?></li>
                         <hr>
                     </ul>
-                    <strong><?php esc_html_e('Version 2.3 - 2025.02.11', 'hw-elementor-woo-dynamic'); ?></strong>
+                <strong><?php esc_html_e('Version 2.3 - 2025.02.11', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
                         <li><b><?php esc_html_e('Removed the WooCommerce dependency', 'hw-elementor-woo-dynamic'); ?></b></li>
                         <hr>
@@ -350,7 +365,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </ul>
                     </ul>
             </div>
-        </div><!-- .card -->
-
+        </div>
     </div><!-- .hw-grid-container -->
 </div><!-- .wrap -->

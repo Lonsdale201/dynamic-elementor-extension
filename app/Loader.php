@@ -5,6 +5,7 @@ namespace HelloWP\HWEleWooDynamic;
 use HelloWP\HWEleWooDynamic\Modules\EndPoints\InsertContent;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\CartHelper;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;
+use HelloWP\HWEleWooDynamic\Modules\Widgets\JetEngineListingGridSkeletonSettings;
 use YahnisElsts\PluginUpdateChecker\v5p0\PucFactory;
 
 final class Loader
@@ -78,8 +79,10 @@ final class Loader
     public function add_plugin_row_meta(array $links, string $file): array
     {
         if ($file === plugin_basename(HW_ELE_DYNAMIC_FILE)) {
-            $links[] = '<a href="https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Start-here">' .
-                __('Documentation', 'hw-ele-woo-dynamic') . '</a>';
+            $links[] = '<a href="https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/" target="_blank" rel="noopener noreferrer">' .
+                __('New Documentation', 'hw-ele-woo-dynamic') . '</a>';
+            $links[] = '<a href="https://github.com/Lonsdale201/dynamic-elementor-extension/issues" target="_blank" rel="noopener noreferrer">' .
+                __('Feature Requests / Issues', 'hw-ele-woo-dynamic') . '</a>';
         }
 
         return $links;
@@ -117,6 +120,7 @@ final class Loader
         if (class_exists('Jet_Engine')) {
             Modules\JEMacros\MacroManager::instance();
             Modules\Callbacks\CallbackManager::instance();
+            JetEngineListingGridSkeletonSettings::instance();
 
             if (Dependencies::is_woocommerce_active()) {
                 Modules\JEQuery\QueryManager::instance();
