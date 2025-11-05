@@ -293,6 +293,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
+                <strong><?php esc_html_e('Version 2.4.4.1 - 2025.11.05', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('Added new options for the Skeleton loader', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Disabled the standard Lisitng grid opacity effect if skeleton systems are used with loadmore and infinitescroll ', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
                 <strong><?php esc_html_e('Version 2.4.4 - 2025.11.04', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
                         <li><?php esc_html_e('JetEngine Listing Grid: full skeleton loading mechanism implemented with support for JetSmartFilters, pagination, load more, and infinite scroll.', 'hw-elementor-woo-dynamic'); ?></li>

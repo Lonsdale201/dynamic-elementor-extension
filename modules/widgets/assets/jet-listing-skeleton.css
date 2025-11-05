@@ -4,6 +4,7 @@
   --hw-skeleton-highlight-color: #f5f5f5;
   --hw-skeleton-radius: 10px;
   --hw-skeleton-animation-duration: 1.35s;
+  --hw-skeleton-z: 1;
 }
 
 /* Corners: allow overriding via class set from Elementor control */
@@ -30,6 +31,12 @@
   opacity: 1 !important;
 }
 
+/* Prevent JetEngine dimming on load more / infinite while skeleton is active */
+.jet-listing-grid.jet-listing-grid-loading .jet-listing-grid__items,
+.jet-listing-grid.jet-listing-grid-loading .jet-listing-grid__item {
+  opacity: 1 !important;
+}
+
 /* JS-driven loading state support */
 .jet-listing-grid.hw-js-skeleton-loading
   .hw-jet-listing-skeleton
@@ -46,14 +53,18 @@
 .jet-listing-grid.jet-listing-grid-loading
   .hw-jet-listing-skeleton
   .skeleton-loading
-  > *:not(.skeleton-loading) {
+  > *:not(.skeleton-loading):not(.skeleton-multitext-loading):not(
+    .skeleton-list-loading
+  ):not(.skeleton-keep) {
   opacity: 0;
 }
 
 .jet-listing-grid.hw-js-skeleton-loading
   .hw-jet-listing-skeleton
   .skeleton-loading
-  > *:not(.skeleton-loading) {
+  > *:not(.skeleton-loading):not(.skeleton-multitext-loading):not(
+    .skeleton-list-loading
+  ):not(.skeleton-keep) {
   opacity: 0;
 }
 .jet-listing-grid.jet-listing-grid-loading
@@ -99,7 +110,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: var(--hw-skeleton-z, 1);
   background-image: linear-gradient(
     90deg,
     var(--hw-skeleton-base-color, #e0e0e0) 0%,
@@ -119,7 +130,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: var(--hw-skeleton-z, 1);
   background-image: linear-gradient(
     90deg,
     var(--hw-skeleton-base-color, #e0e0e0) 0%,
@@ -209,7 +220,7 @@ TEXT EDITOR SKELETON - LINE OVERLAY
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease;
-  z-index: 1;
+  z-index: var(--hw-skeleton-z, 1);
 }
 
 .skeleton-multitext-loading.elementor-widget-text-editor
@@ -338,7 +349,7 @@ TEXT EDITOR SKELETON - LINE OVERLAY
 .jet-listing-grid.hw-js-skeleton-loading .skeleton-loading-justhide {
   visibility: hidden !important;
   opacity: 0 !important;
-  height: 0 !important;
+  /* height: 0 !important; */
   overflow: hidden !important;
 }
 
@@ -384,6 +395,57 @@ TEXT EDITOR SKELETON - LINE OVERLAY
   }
 }
 
+/* Z-index utility classes for skeleton stacking control */
+.skeleton-z-0 {
+  --hw-skeleton-z: 0;
+}
+.skeleton-z-1 {
+  --hw-skeleton-z: 1;
+}
+.skeleton-z-2 {
+  --hw-skeleton-z: 2;
+}
+.skeleton-z-3 {
+  --hw-skeleton-z: 3;
+}
+.skeleton-z-4 {
+  --hw-skeleton-z: 4;
+}
+.skeleton-z-5 {
+  --hw-skeleton-z: 5;
+}
+
+/* Put parent block shimmer strictly behind children (background mode) */
+.hw-jet-listing-skeleton .skeleton-loading.skeleton-z-bg {
+  --hw-skeleton-z: 0;
+}
+.hw-jet-listing-skeleton .skeleton-loading.skeleton-z-bg::after {
+  z-index: -1 !important;
+}
+.hw-jet-listing-skeleton .skeleton-loading.skeleton-z-bg::before {
+  z-index: -2 !important;
+}
+
+/* Utility: disable original widget background while skeleton is active */
+.jet-listing-grid.jet-listing-grid-loading
+  .hw-jet-listing-skeleton
+  .skeleton-loading.skeleton-off-bg,
+.jet-listing-grid.hw-js-skeleton-loading
+  .hw-jet-listing-skeleton
+  .skeleton-loading.skeleton-off-bg,
+.jet-listing-grid.jet-listing-grid-loading
+  .hw-jet-listing-skeleton
+  .skeleton-off-bg,
+.jet-listing-grid.hw-js-skeleton-loading
+  .hw-jet-listing-skeleton
+  .skeleton-off-bg {
+  background: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /* 
 ===========================================
 DYNAMIC FIELD SKELETON - LINE OVERLAY
@@ -408,7 +470,7 @@ DYNAMIC FIELD SKELETON - LINE OVERLAY
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease;
-  z-index: 1;
+  z-index: var(--hw-skeleton-z, 1);
 }
 
 /* Overlay lines */
@@ -562,7 +624,7 @@ HEADING (ELEMENTOR) SKELETON - LINE OVERLAY
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease;
-  z-index: 1;
+  z-index: var(--hw-skeleton-z, 1);
 }
 
 /* Overlay lines */

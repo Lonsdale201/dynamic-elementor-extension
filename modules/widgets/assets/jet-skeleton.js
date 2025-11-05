@@ -292,6 +292,10 @@
         return;
       }
 
+      // Ensure intermediate wrappers between the widget and the nearest skeleton container stay visible.
+      // Elementor often inserts extra divs (e.g., e-con-inner) without skeleton classes; mark them as keepers.
+      $widget.parentsUntil(".skeleton-loading").addClass("skeleton-keep");
+
       captureGridLayoutState($widget.closest(".jet-listing-grid"));
       observeParentGrid($widget);
       buildOverlay($widget);

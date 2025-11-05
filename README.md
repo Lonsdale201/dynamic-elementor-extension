@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.4.4
+Stable tag: 2.4.4.1
 
 This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -333,11 +333,19 @@ Other Theme Conditions
 
 ## CHANGELOG
 
+### V 2.4.4.1 _2025.11.05_
+
+- Added new options for the Skeleton loader (skeleton-off-bg, skeleton-z-bg).
+- Disabled the standard Lisitng grid opacity effect if skeleton systems are used with loadmore and infinitescroll
+- More informations: https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/jetengine-listing-skeleton-loading
+
+---
+
 ### V 2.4.4 _2025.11.05_
 
 - JetEngine Listing Grid: full skeleton loading mechanism implemented with support for JetSmartFilters, pagination, load more, and infinite scroll.
 - Added a new Dynamic Tag: Post Content.
-- Added a new Query Filter for JetEngine Query Builder (Woo HPOS): include or exclude products based on their presence in an order.
+- Added a new Query Filter for JetEngine Query Builder `WC Order HPOS`: include or exclude products based on their presence in an order.
 
 ---
 
