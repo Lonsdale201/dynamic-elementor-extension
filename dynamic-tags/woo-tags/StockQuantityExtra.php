@@ -65,6 +65,22 @@ class StockQuantityExtra extends Tag {
         );
 
         $this->add_control(
+            'label_position',
+            [
+                'label' => __('Label Position', 'hw-ele-woo-dynamic'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'after',
+                'options' => [
+                    'before' => esc_html__('Before quantity', 'hw-ele-woo-dynamic'),
+                    'after'  => esc_html__('After quantity', 'hw-ele-woo-dynamic'),
+                ],
+                'condition' => [
+                    'show_label' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'outofstock_text',
             [
                 'label' => __('Out Of Stock Text', 'hw-ele-woo-dynamic'),
@@ -91,6 +107,7 @@ class StockQuantityExtra extends Tag {
         $instock_text = $settings['instock_text'];
         $outofstock_text = $settings['outofstock_text'];
         $visibility = $settings['stock_visibility'];
+        $label_position = isset($settings['label_position']) ? $settings['label_position'] : 'after';
 
         if ('hide_if_not_specific' === $visibility && $stock_quantity === null) {
             return;
@@ -101,12 +118,26 @@ class StockQuantityExtra extends Tag {
         }
 
         if ('outofstock' === $stock_status) {
-            echo wp_kses_post(!empty($outofstock_text) ? $outofstock_text : esc_html__('Out of stock', 'woocommerce'));
+            $out_text = !empty($outofstock_text) ? $outofstock_text : esc_html__('Out of stock', 'woocommerce');
+            echo '<span class="hw-stock-quantity hw-out-of-stock">' . esc_html($out_text) . '</span>';
         } elseif ('instock' === $stock_status) {
             if ($stock_quantity !== null) {
-                echo wp_kses_post($show_label ? $stock_quantity . ' ' . $instock_text : $stock_quantity);
+                $quantity_display = wc_stock_amount($stock_quantity);
+                if ($show_label && $instock_text !== '') {
+                    $label = trim($instock_text);
+                    if ('before' === $label_position) {
+                        $output = $label . ' ' . $quantity_display;
+                    } else {
+                        $output = $quantity_display . ' ' . $label;
+                    }
+                } else {
+                    $output = (string) $quantity_display;
+                }
+                echo '<span class="hw-stock-quantity">' . esc_html(trim($output)) . '</span>';
             } else {
-                echo wp_kses_post(!empty($instock_text) ? $instock_text : esc_html__('In stock', 'woocommerce'));
+                $instock_label = $show_label ? $instock_text : '';
+                $fallback = !empty($instock_label) ? $instock_label : esc_html__('In stock', 'woocommerce');
+                echo '<span class="hw-stock-quantity">' . esc_html($fallback) . '</span>';
             }
         }
     }

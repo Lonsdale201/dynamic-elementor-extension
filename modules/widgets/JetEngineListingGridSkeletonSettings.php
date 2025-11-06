@@ -3,6 +3,7 @@ namespace HelloWP\HWEleWooDynamic\Modules\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Element_Base;
+use function sanitize_hex_color;
 
 class JetEngineListingGridSkeletonSettings {
 
@@ -107,6 +108,20 @@ class JetEngineListingGridSkeletonSettings {
             ]
         );
 
+        $element->add_control(
+            'hw_skeleton_auto_apply',
+            [
+                'label'              => __( 'Auto Apply Skeleton', 'hw-ele-woo-dynamic' ),
+                'type'               => Controls_Manager::SWITCHER,
+                'label_on'           => __( 'On', 'hw-ele-woo-dynamic' ),
+                'label_off'          => __( 'Off', 'hw-ele-woo-dynamic' ),
+                'return_value'       => 'yes',
+                'default'            => '',
+                'condition'          => [ 'hw_skeleton_loading' => 'yes' ],
+                'frontend_available' => true,
+            ]
+        );
+
         // Corners select (visible only when switcher is on)
         $element->add_control(
             'hw_skeleton_corners',
@@ -123,14 +138,111 @@ class JetEngineListingGridSkeletonSettings {
             ]
         );
 
+        // Radius slider (only when skeleton is on and corners are rounded)
+        $element->add_control(
+            'hw_skeleton_radius',
+            [
+                'label'              => __( 'Border Radius', 'hw-ele-woo-dynamic' ),
+                'type'               => Controls_Manager::SLIDER,
+                'size_units'         => [ 'px' ],
+                'range'              => [
+                    'px' => [ 'min' => 0, 'max' => 50, 'step' => 1 ],
+                ],
+                'default'            => [ 'size' => 10, 'unit' => 'px' ],
+                'condition'          => [
+                    'hw_skeleton_loading' => 'yes',
+                    'hw_skeleton_corners' => 'rounded',
+                ],
+                'frontend_available' => true,
+            ]
+        );
+
+        // Style select (animation variants)
+        $element->add_control(
+            'hw_skeleton_style',
+            [
+                'label'              => __( 'Animation Style', 'hw-ele-woo-dynamic' ),
+                'type'               => Controls_Manager::SELECT,
+                'options'            => [
+                    'shimmer' => __( 'Shimmer', 'hw-ele-woo-dynamic' ),
+                    'fade'    => __( 'Fade', 'hw-ele-woo-dynamic' ),
+                ],
+                'default'            => 'shimmer',
+                'condition'          => [ 'hw_skeleton_loading' => 'yes' ],
+                'frontend_available' => true,
+            ]
+        );
+
+        // Base color
+        $element->add_control(
+            'hw_skeleton_base_color',
+            [
+                'label'              => __( 'Base Color', 'hw-ele-woo-dynamic' ),
+                'type'               => Controls_Manager::COLOR,
+                'default'            => '#e0e0e0',
+                'condition'          => [ 'hw_skeleton_loading' => 'yes' ],
+                'frontend_available' => true,
+            ]
+        );
+
+        // Highlight color
+        $element->add_control(
+            'hw_skeleton_highlight_color',
+            [
+                'label'              => __( 'Highlight Color', 'hw-ele-woo-dynamic' ),
+                'type'               => Controls_Manager::COLOR,
+                'default'            => '#f5f5f5',
+                'condition'          => [ 'hw_skeleton_loading' => 'yes' ],
+                'frontend_available' => true,
+            ]
+        );
+
+        // Animation speed
+        $element->add_control(
+            'hw_skeleton_speed',
+            [
+                'label'              => __( 'Animation Speed', 'hw-ele-woo-dynamic' ),
+                'type'               => Controls_Manager::SLIDER,
+                'size_units'         => [ 's' ],
+                'range'              => [
+                    's' => [ 'min' => 0.5, 'max' => 5, 'step' => 0.1 ],
+                ],
+                'default'            => [ 'size' => 1.35, 'unit' => 's' ],
+                'condition'          => [ 'hw_skeleton_loading' => 'yes' ],
+                'frontend_available' => true,
+            ]
+        );
+
+        // Shimmer direction (only for shimmer style)
+        $element->add_control(
+            'hw_skeleton_direction',
+            [
+                'label'              => __( 'Shimmer Direction', 'hw-ele-woo-dynamic' ),
+                'type'               => Controls_Manager::SELECT,
+                'options'            => [
+                    'ltr' => __( 'Left to Right', 'hw-ele-woo-dynamic' ),
+                    'rtl' => __( 'Right to Left', 'hw-ele-woo-dynamic' ),
+                ],
+                'default'            => 'ltr',
+                'condition'          => [
+                    'hw_skeleton_loading' => 'yes',
+                    'hw_skeleton_style'   => 'shimmer',
+                ],
+                'frontend_available' => true,
+            ]
+        );
+
         // Helpful notices for editors while skeleton loading is enabled
         $element->add_control(
             'hw_skeleton_alert_usage',
             [
                 'type'      => Controls_Manager::ALERT,
-                'alert_type'=> 'info',
-                'heading'   => __( 'How to trigger the skeleton', 'hw-ele-woo-dynamic' ),
-                'content'   => __( 'Use the <code>skeleton-loading</code> class on any widget that should display the skeleton while the listing is loading.', 'hw-ele-woo-dynamic' ),
+                'alert_type'=> 'success',
+                'heading'   => __( 'Auto Apply function', 'hw-ele-woo-dynamic' ),
+                'content'   => sprintf(
+                    __( 'This automation currently supports a curated list of widgets. Review the full list and setup instructions here: <a href="%s" target="_blank" rel="noopener">Skeleton Loading Documentation</a>.', 'hw-ele-woo-dynamic' ),
+                    esc_url( 'https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/jetengine-listing-skeleton-loading' )
+                ),
                 'condition' => [ 'hw_skeleton_loading' => 'yes' ],
             ]
         );
@@ -151,19 +263,11 @@ class JetEngineListingGridSkeletonSettings {
             [
                 'type'      => Controls_Manager::ALERT,
                 'alert_type'=> 'info',
-                'heading'   => __( 'Multiline text support', 'hw-ele-woo-dynamic' ),
-                'content'   => __( 'Use <code>skeleton-multitext-loading</code> for multiline text polishing. Supported widgets: Elementor Text Editor, Headline, and JetEngine Dynamic Field.', 'hw-ele-woo-dynamic' ),
-                'condition' => [ 'hw_skeleton_loading' => 'yes' ],
-            ]
-        );
-
-        $element->add_control(
-            'hw_skeleton_alert_iconlist',
-            [
-                'type'      => Controls_Manager::ALERT,
-                'alert_type'=> 'info',
-                'heading'   => __( 'Icon List integration', 'hw-ele-woo-dynamic' ),
-                'content'   => __( 'Add <code>skeleton-list-loading</code> to Elementor Icon List widgets to animate each <code>&lt;li&gt;</code> item separately.', 'hw-ele-woo-dynamic' ),
+                'heading'   => __( 'Special skeleton split by widgets', 'hw-ele-woo-dynamic' ),
+                'content'   => sprintf(
+                    __( 'Certain widgets can display tailored skeleton shapes (image/title/lines). Learn how to apply them in the documentation: <a href="%s" target="_blank" rel="noopener">Skeleton Loading Documentation</a>.', 'hw-ele-woo-dynamic' ),
+                    esc_url( 'https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/jetengine-listing-skeleton-loading' )
+                ),
                 'condition' => [ 'hw_skeleton_loading' => 'yes' ],
             ]
         );
@@ -228,6 +332,20 @@ class JetEngineListingGridSkeletonSettings {
             }
         }
 
+        if ( ! empty( $settings['hw_skeleton_style'] ) ) {
+            $style = strtolower( (string) $settings['hw_skeleton_style'] );
+            if ( in_array( $style, [ 'shimmer', 'fade' ], true ) ) {
+                $classes[] = 'hw-skeleton-style-' . $style;
+            }
+        }
+
+        if ( ! empty( $settings['hw_skeleton_direction'] ) ) {
+            $dir = strtolower( (string) $settings['hw_skeleton_direction'] );
+            if ( in_array( $dir, [ 'ltr', 'rtl' ], true ) ) {
+                $classes[] = 'hw-skeleton-dir-' . $dir;
+            }
+        }
+
         return array_values( array_unique( $classes ) );
     }
 
@@ -247,6 +365,70 @@ class JetEngineListingGridSkeletonSettings {
 
         if ( ! empty( $settings['_element_id'] ) ) {
             $attributes[] = 'data-hw-query-id="' . esc_attr( $settings['_element_id'] ) . '"';
+        }
+
+        // Pass custom radius as data attribute; JS will apply CSS var to avoid style collisions
+        $style_fragments = [];
+        $radius_px      = null;
+        if ( ! empty( $settings['hw_skeleton_corners'] ) && 'rounded' === $settings['hw_skeleton_corners'] ) {
+            if ( isset( $settings['hw_skeleton_radius']['size'] ) && is_numeric( $settings['hw_skeleton_radius']['size'] ) ) {
+                $radius_px = max( 0, (int) $settings['hw_skeleton_radius']['size'] );
+            }
+        } else {
+            // Straight corners explicitly zero
+            $radius_px = 0;
+        }
+
+        if ( null !== $radius_px ) {
+            $attributes[] = 'data-hw-skeleton-radius="' . esc_attr( $radius_px ) . '"';
+            $style_fragments[] = '--hw-skeleton-radius: ' . esc_attr( $radius_px ) . 'px;';
+        }
+
+        $speed_seconds = null;
+        if ( isset( $settings['hw_skeleton_speed']['size'] ) && is_numeric( $settings['hw_skeleton_speed']['size'] ) ) {
+            $speed_val = max( 0.1, (float) $settings['hw_skeleton_speed']['size'] );
+            $speed_seconds = $speed_val;
+        }
+
+        if ( null !== $speed_seconds ) {
+            $style_fragments[] = '--hw-skeleton-animation-duration: ' . esc_attr( $speed_seconds ) . 's;';
+        }
+
+        if ( ! empty( $settings['hw_skeleton_base_color'] ) ) {
+            $base_color = sanitize_hex_color( $settings['hw_skeleton_base_color'] );
+            if ( $base_color ) {
+                $style_fragments[] = '--hw-skeleton-base-color: ' . $base_color . ';';
+            }
+        }
+
+        if ( ! empty( $settings['hw_skeleton_highlight_color'] ) ) {
+            $highlight_color = sanitize_hex_color( $settings['hw_skeleton_highlight_color'] );
+            if ( $highlight_color ) {
+                $style_fragments[] = '--hw-skeleton-highlight-color: ' . $highlight_color . ';';
+            }
+        }
+
+        if ( ! empty( $style_fragments ) ) {
+            // Append or create style attribute with collected fragments.
+            $style_attr_index = null;
+            foreach ( $attributes as $i => $attr ) {
+                if ( 0 === strpos( $attr, 'style=' ) ) {
+                    $style_attr_index = $i;
+                    break;
+                }
+            }
+
+            $style_snippet = implode( ' ', $style_fragments );
+
+            if ( null === $style_attr_index ) {
+                $attributes[] = 'style="' . $style_snippet . '"';
+            } else {
+                $attributes[ $style_attr_index ] = rtrim( substr( $attributes[ $style_attr_index ], 0, -1 ), '"' ) . ' ' . $style_snippet . '"';
+            }
+        }
+
+        if ( ! empty( $settings['hw_skeleton_auto_apply'] ) && 'yes' === $settings['hw_skeleton_auto_apply'] ) {
+            $attributes[] = 'data-hw-skeleton-auto="yes"';
         }
 
         return $attributes;
@@ -292,6 +474,34 @@ class JetEngineListingGridSkeletonSettings {
             $settings['hw_skeleton_corners'] = 'rounded';
         }
 
+        if ( ! array_key_exists( 'hw_skeleton_radius', $settings ) ) {
+            $settings['hw_skeleton_radius'] = [ 'size' => 10, 'unit' => 'px' ];
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_style', $settings ) ) {
+            $settings['hw_skeleton_style'] = 'shimmer';
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_speed', $settings ) ) {
+            $settings['hw_skeleton_speed'] = [ 'size' => 1.35, 'unit' => 's' ];
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_direction', $settings ) ) {
+            $settings['hw_skeleton_direction'] = 'ltr';
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_base_color', $settings ) ) {
+            $settings['hw_skeleton_base_color'] = '#e0e0e0';
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_highlight_color', $settings ) ) {
+            $settings['hw_skeleton_highlight_color'] = '#f5f5f5';
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_auto_apply', $settings ) ) {
+            $settings['hw_skeleton_auto_apply'] = '';
+        }
+
         return $settings;
     }
 
@@ -308,6 +518,48 @@ class JetEngineListingGridSkeletonSettings {
             $settings['hw_skeleton_corners'] = isset( $widget_settings['hw_skeleton_corners'] )
                 ? $widget_settings['hw_skeleton_corners']
                 : 'rounded';
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_radius', $settings ) ) {
+            $settings['hw_skeleton_radius'] = isset( $widget_settings['hw_skeleton_radius'] )
+                ? $widget_settings['hw_skeleton_radius']
+                : [ 'size' => 10, 'unit' => 'px' ];
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_style', $settings ) ) {
+            $settings['hw_skeleton_style'] = isset( $widget_settings['hw_skeleton_style'] )
+                ? $widget_settings['hw_skeleton_style']
+                : 'shimmer';
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_speed', $settings ) ) {
+            $settings['hw_skeleton_speed'] = isset( $widget_settings['hw_skeleton_speed'] )
+                ? $widget_settings['hw_skeleton_speed']
+                : [ 'size' => 1.35, 'unit' => 's' ];
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_direction', $settings ) ) {
+            $settings['hw_skeleton_direction'] = isset( $widget_settings['hw_skeleton_direction'] )
+                ? $widget_settings['hw_skeleton_direction']
+                : 'ltr';
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_base_color', $settings ) ) {
+            $settings['hw_skeleton_base_color'] = isset( $widget_settings['hw_skeleton_base_color'] )
+                ? $widget_settings['hw_skeleton_base_color']
+                : '#e0e0e0';
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_highlight_color', $settings ) ) {
+            $settings['hw_skeleton_highlight_color'] = isset( $widget_settings['hw_skeleton_highlight_color'] )
+                ? $widget_settings['hw_skeleton_highlight_color']
+                : '#f5f5f5';
+        }
+
+        if ( ! array_key_exists( 'hw_skeleton_auto_apply', $settings ) ) {
+            $settings['hw_skeleton_auto_apply'] = isset( $widget_settings['hw_skeleton_auto_apply'] )
+                ? $widget_settings['hw_skeleton_auto_apply']
+                : '';
         }
 
         return $settings;

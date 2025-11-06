@@ -45,6 +45,16 @@ class AdvancedStock extends Tag {
                 'description' => esc_html__('Display text when stock quantity is below this threshold.', 'hw-ele-woo-dynamic'),
             ]
         );
+
+        $this->add_control(
+            'outofstock_text',
+            [
+                'label' => esc_html__('Text if Out of Stock', 'hw-ele-woo-dynamic'),
+                'type' => Controls_Manager::TEXT,
+                'default' => '',
+                'description' => esc_html__('Shown instead of the stock text when quantity is zero or product is out of stock.', 'hw-ele-woo-dynamic'),
+            ]
+        );
     }
 
     public function render() {
@@ -57,10 +67,18 @@ class AdvancedStock extends Tag {
 
         $remaining_stock = $product->get_stock_quantity();
 
-        if (null === $remaining_stock || $remaining_stock > $settings['stock_threshold']) {
+        if ( (null === $remaining_stock || $remaining_stock > $settings['stock_threshold']) && $product->is_in_stock() ) {
             return;
         }
 
+        if (!$product->is_in_stock()) {
+            if (!empty($settings['outofstock_text'])) {
+                echo wp_kses_post($settings['outofstock_text']);
+            }
+            return;
+        }
+
+        $remaining_stock = (int) $remaining_stock;
         $replaced_text = str_replace('{remainingstock}', $remaining_stock, $settings['stock_text']);
         echo wp_kses_post($replaced_text);
     }

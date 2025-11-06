@@ -293,6 +293,13 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
+                 <strong><?php esc_html_e('Version 2.4.4.2 - 2025.11.06', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('New Auto Apply skeleton loader for Lisitng grid', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Now handle class additions more efficiently and have expanded the list of supported widgets with specific skeleton displays. ', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('FIxed how listing grid IDs are handled when using skeletons, and having multiple listing grids on the same page no longer causes issues. ', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Advanced stock, and Stock Quantity extra dynamic tag received additions. ', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
                 <strong><?php esc_html_e('Version 2.4.4.1 - 2025.11.05', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
                         <li><?php esc_html_e('Added new options for the Skeleton loader', 'hw-elementor-woo-dynamic'); ?></li>

@@ -1,8 +1,8 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.4.4.1
+Stable tag: 2.4.4.2
 
-This plugin adds over 50 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
+This plugin adds over 60 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
 
 ## Github updates
@@ -30,20 +30,17 @@ We've updated the full source codes of the plugin on github, so you can now alwa
 
 ## INSTRUCTIONS
 
-**How to download?**
+### How to use
 
-1, method In the right section the green button: **<>Code** click, and in the dropdown menu, select the **Download ZIP** option. The downloaded file just upload it, you can easily install the downloaded file as an plugin within wordpress.
-
-2, method You can download directly to the latest release. You can access this from the right sidebar in the release section.
+- Install and activate the plugin as you would any other WordPress plugin.
+- After activation open the **Dynamic Elements** menu in the WordPress admin. Here you can enable the dynamic tags you actually want to use. If a related integration (e.g. WooCommerce or LearnDash) is not active, the specific tag group simply will not appear.
+- Widgets, JetEngine Dynamic Visibility handlers, and macros are enabled automatically. If you do not need a widget, use Elementor’s built-in **Element Manager** to disable it.
 
 ---
 
 ## Tutorials, How to & help
 
-Full help and descriptions can be found on github WIki: https://github.com/Lonsdale201/dynamic-elementor-extension/wiki/Start-here
-
-> [!IMPORTANT]
-> New documentation website https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/
+Full help and descriptions can be found here: https://lonsdale201.github.io/lonsdale-plugins.github.io/dynamic-ele-ext/
 
 ---
 
@@ -51,21 +48,25 @@ Full help and descriptions can be found on github WIki: https://github.com/Lonsd
 
 - Dynamic Checkbox
 - Dynamic Bulk Add to cart
-- Woo membership plan card
 - Dynamic Calculation
 - Dynamic Opening Hours
 - Dynamic add to calendar
 
+WooCommerce / Membership specific
+
+- Membership Plan Card
+
 ---
 
-#### Global dynamic tags
+### Global dynamic tags
 
 _You can use anywhere on your site_
 
 - Dynamic Calculation
 - Dynamic Author URL (use in user listing)
+- Post content (post listing, post loop, single post templates)
 
-#### Woo Product specific dynamic tags
+### Woo Product specific dynamic tags
 
 _You can use with Loop / Listing, or single product templates_
 
@@ -94,7 +95,7 @@ _You can use with Loop / Listing, or single product templates_
 - Variable price
 - ACF Taxonomy Meta
 
-#### Woo Cart specific dynamic tags
+### Woo Cart specific dynamic tags
 
 _You can use it anywhere in your site_
 
@@ -102,7 +103,7 @@ _You can use it anywhere in your site_
 - Cart Tax Values
 - Free Shipping Amount
 
-#### Woo Customer specific Dynamic tags
+### Woo Customer specific Dynamic tags
 
 _You can use it anywhere in your site_
 
@@ -115,7 +116,7 @@ _You can use it anywhere in your site_
 - User Role
 - Customer logout (link)
 
-#### Woo Order specific Dynamic tags
+### Woo Order specific Dynamic tags
 
 _You can use with JetEngine Listing, + WC Order HPOS Query (Jetengine query builder)_
 
@@ -129,7 +130,7 @@ _You can use with JetEngine Listing, + WC Order HPOS Query (Jetengine query buil
 - Order Customer
 - Order Payment Method
 
-#### Woo membership
+### Woo membership
 
 _You can use it anywhere in your site_
 
@@ -140,7 +141,7 @@ _You can use it anywhere in your site_
 - Restricted Products View (beta)
 - Membership Myaccount link
 
-#### Woo Subscriptions
+### Woo Subscriptions
 
 _You can use it anywhere in your site_
 
@@ -148,7 +149,7 @@ _You can use it anywhere in your site_
 - Active Subscription Data
 - Subscriptions myaccount link
 
-#### LearnDash (Course)
+### LearnDash (Course)
 
 _You can use with Loop / Listing, or single post/course templates_
 
@@ -174,7 +175,7 @@ _You can use with Loop / Listing, or single post/course templates_
 - Course Content
 - Course Part of Groups
 
-#### LearnDash Global
+### LearnDash Global
 
 _You can use it anywhere in your site_
 
@@ -186,7 +187,9 @@ _You can use it anywhere in your site_
 
 ---
 
-#### JetEngine Dynamic Visibility
+### JetEngine Additions
+
+#### Dynamic Visibility
 
 **WooCommerce specific**
 
@@ -228,13 +231,15 @@ _You can use it anywhere in your site_
 
 ---
 
-#### JetEngine Callbacks (for dynamic field widget)
+### Callbacks (for dynamic field widget)
 
 - Convert Units
 
 ---
 
-#### JetEngine Macros
+### Macros
+
+- Current User Role
 
 - WC Current User Purchased Products
 - WC Membership Access Posts
@@ -254,19 +259,21 @@ _You can use it anywhere in your site_
 
 ---
 
-#### JetEngine Query Builder
+### Query Builder
 
 Query Type:
 
 - WC Order HPOS Query
 
-#### Elementor Finder
+### Lisitng Grid widget
 
-What is the Elementor finder?
-https://elementor.com/help/the-finder/
+- Skeleton loader (loadmore, infinite scorll, jetsmartfilter filters)
+
+### Elementor Finder
+
+_Press CMD + E or CTRL + E to open Finder_
 
 Type WooCommerce, and you will see a new WooCommerce management category with new actions like create new product, category, shipping zone, class etc. Also type Shipping, or Payment, and you will see all your available shipping and payment methods with status, and instance id
-![image](https://github.com/Lonsdale201/dynamic-elementor-extension/assets/23199033/f6c87169-cd74-42a1-b67e-d306e5b8ca5a)
 
 JetEngine & LearnDash specific finder elements:
 
@@ -290,18 +297,19 @@ For LearnDash
 
 ---
 
-#### Wp Toolbar product info
+### Wp Toolbar product info
 
-![image](https://github.com/Lonsdale201/dynamic-elementor-extension/assets/23199033/7762702e-8700-4d3e-9c9a-8ebf0095bd3d)
 This is a small addition that can be useful for development and testing. You can get more important information about a product without having to enter the editor or admin (obviously you have to be logged in to the toolbar)
 
-#### Wp Toolbar Learndash info
+### Wp Toolbar Learndash info
+
+This feature is enabled by default, but you can customize which elements appear in the WP top bar for LearnDash. The top bar items only show up when you’re viewing course content on the frontend. You can choose to display lessons, topics, and quizzes — each link takes you directly to the related editor page for quick access.
 
 ---
 
-#### Elementor Theme Conditions
+### Elementor Theme Conditions
 
-For product type template
+**For product type template**
 
 - Is Product Out Of Stock
 - Is Product Virtual
@@ -316,7 +324,7 @@ For product type template
 - Is product Bundle (Product Bundles for WooCommerce plugin)
 - Is Product Variable
 
-Other Theme Conditions
+**Other Theme Conditions**
 
 - Current User Not Have Active Subscriptions
 - User Logged In
@@ -332,6 +340,13 @@ Other Theme Conditions
 - [x] v2.4.0 New Widgets
 
 ## CHANGELOG
+
+### 2.4.4.2 _2025-11-06_
+
+- New Auto Apply skeleton loader for Listing Grid.
+- Improved class handling and expanded widget-specific skeleton displays.
+- Fixed Listing Grid ID handling so multiple grids on the same page work reliably with skeletons.
+- Advanced Stock and Stock Quantity Extra dynamic tags received enhancements.
 
 ### V 2.4.4.1 _2025.11.05_
 

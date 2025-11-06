@@ -14,7 +14,12 @@
 .hw-jet-listing-skeleton.hw-skeleton-rounded {
   --hw-skeleton-radius: 10px;
 }
-.jet-listing-grid.jet-listing-grid-loading
+/* Ensure the wrapper already has the final radius even before loading toggles,
+   to avoid any visible snap on widgets like Image where the child has its own radius. */
+.hw-jet-listing-skeleton .skeleton-loading {
+  border-radius: var(--hw-skeleton-radius, 10px);
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   .hw-jet-listing-skeleton
   .skeleton-loading {
   position: var(--hw-skeleton-original-position, relative);
@@ -26,31 +31,13 @@
   background-image: none !important;
   isolation: isolate;
 }
-
-.jet-listing-grid.hw-js-skeleton-loading .jet-listing-grid__items {
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .jet-listing-grid__items,
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .jet-listing-grid__item {
   opacity: 1 !important;
 }
-
-/* Prevent JetEngine dimming on load more / infinite while skeleton is active */
-.jet-listing-grid.jet-listing-grid-loading .jet-listing-grid__items,
-.jet-listing-grid.jet-listing-grid-loading .jet-listing-grid__item {
-  opacity: 1 !important;
-}
-
-/* JS-driven loading state support */
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-loading {
-  position: var(--hw-skeleton-original-position, relative);
-  overflow: hidden;
-  background-color: var(--hw-skeleton-base-color, #e0e0e0);
-  border-radius: var(--hw-skeleton-radius, 10px);
-  color: transparent !important;
-  pointer-events: none;
-  background-image: none !important;
-  isolation: isolate;
-}
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   .hw-jet-listing-skeleton
   .skeleton-loading
   > *:not(.skeleton-loading):not(.skeleton-multitext-loading):not(
@@ -58,53 +45,25 @@
   ):not(.skeleton-keep) {
   opacity: 0;
 }
-
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-loading
-  > *:not(.skeleton-loading):not(.skeleton-multitext-loading):not(
-    .skeleton-list-loading
-  ):not(.skeleton-keep) {
-  opacity: 0;
-}
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   .hw-jet-listing-skeleton
   .skeleton-loading
   img,
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   .hw-jet-listing-skeleton
   .skeleton-loading
   svg,
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   .hw-jet-listing-skeleton
   .skeleton-loading
   picture,
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   .hw-jet-listing-skeleton
   .skeleton-loading
   video {
   opacity: 0 !important;
 }
-
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-loading
-  img,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-loading
-  svg,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-loading
-  picture,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-loading
-  video {
-  opacity: 0 !important;
-}
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   .hw-jet-listing-skeleton
   .skeleton-loading::after {
   content: "";
@@ -123,27 +82,7 @@
   border-radius: inherit;
   pointer-events: none;
 }
-
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-loading::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: var(--hw-skeleton-z, 1);
-  background-image: linear-gradient(
-    90deg,
-    var(--hw-skeleton-base-color, #e0e0e0) 0%,
-    var(--hw-skeleton-highlight-color, #f5f5f5) 50%,
-    var(--hw-skeleton-base-color, #e0e0e0) 100%
-  );
-  background-size: 200% 100%;
-  animation: hw-skeleton-shimmer var(--hw-skeleton-animation-duration, 1.35s)
-    ease-in-out infinite;
-  border-radius: inherit;
-  pointer-events: none;
-}
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   .hw-jet-listing-skeleton
   .skeleton-loading::before {
   content: "";
@@ -153,26 +92,7 @@
   border-radius: inherit;
   z-index: 0;
 }
-
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-loading::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--hw-skeleton-base-color, #e0e0e0);
-  border-radius: inherit;
-  z-index: 0;
-}
-.jet-listing-grid.jet-listing-grid-loading
-  [data-hw-skeleton="true"]
-  ~ .jet-listing-grid__loader {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.jet-listing-grid.hw-js-skeleton-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-hw-skeleton="true"]
   ~ .jet-listing-grid__loader {
   opacity: 0;
@@ -180,18 +100,22 @@
   transition: opacity 0.2s ease;
 }
 @media (prefers-reduced-motion: reduce) {
-  .jet-listing-grid.jet-listing-grid-loading
+  .jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
     .hw-jet-listing-skeleton
-    .skeleton-loading::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-  }
-
-  .jet-listing-grid.hw-js-skeleton-loading
+    .skeleton-loading::after,
+  .jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
     .hw-jet-listing-skeleton
-    .skeleton-loading::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
+    .hw-skel-block::after,
+  .jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+    .hw-jet-listing-skeleton
+    .hw-skel-circle::after,
+  .jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+    .hw-jet-listing-skeleton
+    .hw-skel-list-item::after,
+  .jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+    .hw-jet-listing-skeleton
+    .hw-skeleton-overlay__line {
+    animation: none !important;
   }
 }
 @keyframes hw-skeleton-shimmer {
@@ -200,6 +124,18 @@
   }
   100% {
     background-position: -200% 0;
+  }
+}
+
+@keyframes hw-skeleton-fade {
+  0% {
+    opacity: 0.25;
+  }
+  45% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.25;
   }
 }
 
@@ -240,16 +176,12 @@ TEXT EDITOR SKELETON - LINE OVERLAY
     ease-in-out infinite;
 }
 
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
-  .hw-skeleton-overlay,
-.jet-listing-grid.hw-js-skeleton-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
   .hw-skeleton-overlay {
   opacity: 1;
 }
 
-/* Dev toggle: keep overlay visible without loading state */
 .hw-skeleton-dev .hw-skeleton-overlay {
   opacity: 1 !important;
 }
@@ -263,79 +195,51 @@ TEXT EDITOR SKELETON - LINE OVERLAY
 }
 
 /* Ensure no block-level shimmer/background on the widget while using line overlay */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor,
-.jet-listing-grid.hw-js-skeleton-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor {
   background: none !important;
   background-color: transparent !important;
 }
 
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
-  .elementor-widget-container,
-.jet-listing-grid.hw-js-skeleton-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
   .elementor-widget-container {
   background: none !important;
   background-color: transparent !important;
 }
 
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor::before,
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor::before,
-.jet-listing-grid.hw-js-skeleton-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor::after {
   content: none !important;
 }
 
 /* Neutralize any generic .skeleton-loading shimmer inside text-editor widget */
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor.skeleton-loading,
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
-  .skeleton-loading,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor.skeleton-loading,
-.jet-listing-grid.hw-js-skeleton-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
   .skeleton-loading {
   background: none !important;
   background-color: transparent !important;
 }
 
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor.skeleton-loading::before,
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor.skeleton-loading::after,
-.jet-listing-grid.jet-listing-grid-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
   .skeleton-loading::before,
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
-  .skeleton-loading::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor.skeleton-loading::before,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor.skeleton-loading::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
-  .skeleton-loading::before,
-.jet-listing-grid.hw-js-skeleton-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
   .skeleton-loading::after {
   content: none !important;
   background: none !important;
 }
 
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
-  .elementor-widget-container
-  > *:not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
   .elementor-widget-container
   > *:not(.hw-skeleton-overlay) {
@@ -345,18 +249,15 @@ TEXT EDITOR SKELETON - LINE OVERLAY
   pointer-events: none !important;
 }
 
-.jet-listing-grid.jet-listing-grid-loading .skeleton-loading-justhide,
-.jet-listing-grid.hw-js-skeleton-loading .skeleton-loading-justhide {
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .skeleton-loading-justhide {
   visibility: hidden !important;
   opacity: 0 !important;
-  /* height: 0 !important; */
   overflow: hidden !important;
+  height: 0;
 }
 
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
-  > *:not(.elementor-widget-container):not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   [data-widget_type="text-editor.default"].skeleton-multitext-loading.elementor-widget-text-editor
   > *:not(.elementor-widget-container):not(.hw-skeleton-overlay) {
   opacity: 0;
@@ -382,16 +283,9 @@ TEXT EDITOR SKELETON - LINE OVERLAY
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .jet-listing-grid.jet-listing-grid-loading
+  .jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
     [data-widget_type="text-editor.default"].skeleton-multitext-loading::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-  }
-
-  .jet-listing-grid.hw-js-skeleton-loading
-    [data-widget_type="text-editor.default"].skeleton-multitext-loading::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
+    animation: none !important;
   }
 }
 
@@ -415,6 +309,207 @@ TEXT EDITOR SKELETON - LINE OVERLAY
   --hw-skeleton-z: 5;
 }
 
+/*
+===========================================
+SHAPE UTILITIES (JS adapter)
+===========================================
+Generic shapes applied via JS to widget internals.
+They only take effect while the grid is loading.
+*/
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-block {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--hw-skeleton-base-color, #e0e0e0);
+  border-radius: var(--hw-skeleton-radius, 10px);
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-block
+  > * {
+  opacity: 0 !important;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-block::before,
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-block::before {
+  background-color: var(--hw-skeleton-base-color, #e0e0e0);
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-block::after {
+  z-index: var(--hw-skeleton-z, 1);
+  background-image: linear-gradient(
+    90deg,
+    var(--hw-skeleton-base-color, #e0e0e0) 0%,
+    var(--hw-skeleton-highlight-color, #f5f5f5) 50%,
+    var(--hw-skeleton-base-color, #e0e0e0) 100%
+  );
+  background-size: 200% 100%;
+  animation: hw-skeleton-shimmer var(--hw-skeleton-animation-duration, 1.35s)
+    ease-in-out infinite;
+}
+
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-circle {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--hw-skel-circle-radius, 50%);
+  background-color: var(--hw-skeleton-base-color, #e0e0e0);
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-circle
+  > * {
+  opacity: 0 !important;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-circle::before,
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-circle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-circle::before {
+  background-color: var(--hw-skeleton-base-color, #e0e0e0);
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-circle::after {
+  z-index: var(--hw-skeleton-z, 1);
+  background-image: linear-gradient(
+    90deg,
+    var(--hw-skeleton-base-color, #e0e0e0) 0%,
+    var(--hw-skeleton-highlight-color, #f5f5f5) 50%,
+    var(--hw-skeleton-base-color, #e0e0e0) 100%
+  );
+  background-size: 200% 100%;
+  animation: hw-skeleton-shimmer var(--hw-skeleton-animation-duration, 1.35s)
+    ease-in-out infinite;
+}
+
+/* List item (e.g., Icon List) */
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item {
+  position: relative;
+  overflow: hidden;
+  min-height: 14px;
+  line-height: 1.2;
+  border-radius: var(--hw-skeleton-radius, 10px);
+  background-color: var(--hw-skeleton-base-color, #e0e0e0);
+  color: transparent !important;
+  pointer-events: none;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item
+  > * {
+  opacity: 0 !important;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(
+    90deg,
+    var(--hw-skeleton-base-color, #e0e0e0) 0%,
+    var(--hw-skeleton-highlight-color, #f5f5f5) 50%,
+    var(--hw-skeleton-base-color, #e0e0e0) 100%
+  );
+  background-size: 200% 100%;
+  animation: hw-skeleton-shimmer var(--hw-skeleton-animation-duration, 1.35s)
+    ease-in-out infinite;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--hw-skeleton-base-color, #e0e0e0);
+  border-radius: inherit;
+  z-index: 0;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item:not(:first-child) {
+  margin-top: var(--hw-skeleton-list-gap, 6px);
+}
+
+/* Optional stagger for list shimmer */
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item:nth-child(1)::after {
+  animation-delay: 0s;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item:nth-child(2)::after {
+  animation-delay: 0.12s;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item:nth-child(3)::after {
+  animation-delay: 0.24s;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item:nth-child(4)::after {
+  animation-delay: 0.36s;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item:nth-child(5)::after {
+  animation-delay: 0.48s;
+}
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  .hw-skel-list-item:nth-child(6)::after {
+  animation-delay: 0.6s;
+}
+
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .skeleton-dynamice-sl-loading
+  .jet-engine-arrow.slick-arrow {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+    .hw-jet-listing-skeleton
+    .hw-skel-list-item::after {
+    animation: none !important;
+  }
+}
+
 /* Put parent block shimmer strictly behind children (background mode) */
 .hw-jet-listing-skeleton .skeleton-loading.skeleton-z-bg {
   --hw-skeleton-z: 0;
@@ -426,24 +521,64 @@ TEXT EDITOR SKELETON - LINE OVERLAY
   z-index: -2 !important;
 }
 
-/* Utility: disable original widget background while skeleton is active */
-.jet-listing-grid.jet-listing-grid-loading
+/* Fade style overrides */
+.hw-skeleton-style-fade.hw-jet-listing-skeleton .skeleton-loading::after,
+.hw-skeleton-style-fade.hw-jet-listing-skeleton .hw-skel-block::after,
+.hw-skeleton-style-fade.hw-jet-listing-skeleton .hw-skel-circle::after,
+.hw-skeleton-style-fade.hw-jet-listing-skeleton .hw-skel-list-item::after,
+.hw-skeleton-style-fade.hw-jet-listing-skeleton .hw-skeleton-overlay__line {
+  background-image: none !important;
+  background-color: var(--hw-skeleton-highlight-color, #f5f5f5);
+  animation: hw-skeleton-fade var(--hw-skeleton-animation-duration, 0.9s)
+    ease-in-out infinite !important;
+}
+
+/* Shimmer direction tweak */
+.hw-skeleton-style-shimmer.hw-skeleton-dir-rtl.hw-jet-listing-skeleton
+  .skeleton-loading::after,
+.hw-skeleton-style-shimmer.hw-skeleton-dir-rtl.hw-jet-listing-skeleton
+  .hw-skel-block::after,
+.hw-skeleton-style-shimmer.hw-skeleton-dir-rtl.hw-jet-listing-skeleton
+  .hw-skel-circle::after,
+.hw-skeleton-style-shimmer.hw-skeleton-dir-rtl.hw-jet-listing-skeleton
+  .hw-skel-list-item::after,
+.hw-skeleton-style-shimmer.hw-skeleton-dir-rtl.hw-jet-listing-skeleton
+  .hw-skeleton-overlay__line {
+  animation-direction: reverse;
+  background-position: -200% 0;
+}
+
+.hw-skeleton-style-shimmer.hw-skeleton-dir-ltr.hw-jet-listing-skeleton
+  .skeleton-loading::after,
+.hw-skeleton-style-shimmer.hw-skeleton-dir-ltr.hw-jet-listing-skeleton
+  .hw-skel-block::after,
+.hw-skeleton-style-shimmer.hw-skeleton-dir-ltr.hw-jet-listing-skeleton
+  .hw-skel-circle::after,
+.hw-skeleton-style-shimmer.hw-skeleton-dir-ltr.hw-jet-listing-skeleton
+  .hw-skel-list-item::after,
+.hw-skeleton-style-shimmer.hw-skeleton-dir-ltr.hw-jet-listing-skeleton
+  .hw-skeleton-overlay__line {
+  animation-direction: normal;
+  background-position: 200% 0;
+}
+
+/* Utility: silence background while skeleton is active */
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
   .hw-jet-listing-skeleton
-  .skeleton-loading.skeleton-off-bg,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-loading.skeleton-off-bg,
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  .skeleton-off-bg,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  .skeleton-off-bg {
+  :is(.skeleton-loading.skeleton-silent-bg, .skeleton-silent-bg) {
   background: none !important;
   background-image: none !important;
   background-color: transparent !important;
-  border: none !important;
   box-shadow: none !important;
+  transition: none !important;
+}
+
+/* Utility: silence border while skeleton is active (no transition flash) */
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  .hw-jet-listing-skeleton
+  :is(.skeleton-loading.skeleton-silent-border, .skeleton-silent-border) {
+  border-color: rgba(0, 0, 0, 0) !important;
+  transition: none !important;
 }
 
 /* 
@@ -494,86 +629,56 @@ DYNAMIC FIELD SKELETON - LINE OVERLAY
 }
 
 /* Show overlay during loading */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field
-  .hw-skeleton-overlay,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field
-  .hw-skeleton-overlay,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
-  .hw-skeleton-overlay,
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field,
+    .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+  )
   .hw-skeleton-overlay {
   opacity: 1;
 }
 
 /* Neutralize block-level shimmer/background on dynamic-field widget while using line overlay */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"],
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"] {
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field,
+    .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+  ) {
   background: none !important;
   background-color: transparent !important;
 }
 
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field
-  .elementor-widget-container,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field
-  .elementor-widget-container,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
-  .elementor-widget-container,
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field,
+    .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+  )
   .elementor-widget-container {
   background: none !important;
   background-color: transparent !important;
 }
 
 /* Remove generic shimmer pseudo-elements on the widget when multiline overlay active */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field::before,
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field::before,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field::after,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]::before,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]::before,
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]::after {
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field,
+    .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+  )::before,
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field,
+    .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+  )::after {
   content: none !important;
   background: none !important;
 }
 
 /* Hide real content while overlay visible */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field
-  .elementor-widget-container
-  > *:not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field
-  .elementor-widget-container
-  > *:not(.hw-skeleton-overlay),
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
-  .elementor-widget-container
-  > *:not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field,
+    .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+  )
   .elementor-widget-container
   > *:not(.hw-skeleton-overlay) {
   opacity: 0;
@@ -583,17 +688,11 @@ DYNAMIC FIELD SKELETON - LINE OVERLAY
 }
 
 /* Hide non-container immediate children too (rarely used by Elementor wrappers) */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field
-  > *:not(.elementor-widget-container):not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field
-  > *:not(.elementor-widget-container):not(.hw-skeleton-overlay),
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
-  > *:not(.elementor-widget-container):not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="jet-listing-dynamic-field.default"].skeleton-multitext-loading.elementor-widget-jet-listing-dynamic-field,
+    .skeleton-multitext-loading[data-widget_type="jet-listing-dynamic-field.default"]
+  )
   > *:not(.elementor-widget-container):not(.hw-skeleton-overlay) {
   opacity: 0;
   color: transparent !important;
@@ -647,86 +746,56 @@ HEADING (ELEMENTOR) SKELETON - LINE OVERLAY
 }
 
 /* Show overlay during loading */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading
-  .hw-skeleton-overlay,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading
-  .hw-skeleton-overlay,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]
-  .hw-skeleton-overlay,
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading,
+    .skeleton-multitext-loading[data-widget_type="heading.default"]
+  )
   .hw-skeleton-overlay {
   opacity: 1;
 }
 
 /* Neutralize block-level shimmer/background on heading while using line overlay */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"],
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"] {
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading,
+    .skeleton-multitext-loading[data-widget_type="heading.default"]
+  ) {
   background: none !important;
   background-color: transparent !important;
 }
 
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading
-  .elementor-widget-container,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading
-  .elementor-widget-container,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]
-  .elementor-widget-container,
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading,
+    .skeleton-multitext-loading[data-widget_type="heading.default"]
+  )
   .elementor-widget-container {
   background: none !important;
   background-color: transparent !important;
 }
 
 /* Remove generic shimmer pseudo-elements on the widget when multiline overlay active */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading::before,
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading::before,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading::after,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]::before,
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]::before,
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]::after {
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading,
+    .skeleton-multitext-loading[data-widget_type="heading.default"]
+  )::before,
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading,
+    .skeleton-multitext-loading[data-widget_type="heading.default"]
+  )::after {
   content: none !important;
   background: none !important;
 }
 
 /* Hide real content while overlay visible */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading
-  .elementor-widget-container
-  > *:not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading
-  .elementor-widget-container
-  > *:not(.hw-skeleton-overlay),
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]
-  .elementor-widget-container
-  > *:not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading,
+    .skeleton-multitext-loading[data-widget_type="heading.default"]
+  )
   .elementor-widget-container
   > *:not(.hw-skeleton-overlay) {
   opacity: 0;
@@ -736,202 +805,14 @@ HEADING (ELEMENTOR) SKELETON - LINE OVERLAY
 }
 
 /* Hide non-container immediate children too */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading
-  > *:not(.elementor-widget-container):not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading
-  > *:not(.elementor-widget-container):not(.hw-skeleton-overlay),
-.jet-listing-grid.jet-listing-grid-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]
-  > *:not(.elementor-widget-container):not(.hw-skeleton-overlay),
-.jet-listing-grid.hw-js-skeleton-loading
-  .skeleton-multitext-loading[data-widget_type="heading.default"]
+.jet-listing-grid:is(.jet-listing-grid-loading, .hw-js-skeleton-loading)
+  :is(
+    [data-widget_type="heading.default"].skeleton-multitext-loading.elementor-widget-heading,
+    .skeleton-multitext-loading[data-widget_type="heading.default"]
+  )
   > *:not(.elementor-widget-container):not(.hw-skeleton-overlay) {
   opacity: 0;
   color: transparent !important;
   -webkit-text-fill-color: transparent;
   pointer-events: none !important;
-}
-
-/* Semlegesítsük az esetleges globális .skeleton-loading hátteret a widgeten */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="icon-list.default"].skeleton-list-loading,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="icon-list.default"].skeleton-list-loading {
-  background: none !important;
-  background-color: transparent !important;
-}
-
-/* …és a belső .skeleton-loading elemeket is (ha véletlenül rákerülnek) */
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="icon-list.default"].skeleton-list-loading.skeleton-loading,
-.jet-listing-grid.jet-listing-grid-loading
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .skeleton-loading,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="icon-list.default"].skeleton-list-loading.skeleton-loading,
-.jet-listing-grid.hw-js-skeleton-loading
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .skeleton-loading {
-  background: none !important;
-  background-color: transparent !important;
-}
-
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item {
-  position: relative;
-  overflow: hidden;
-  min-height: 14px;
-  line-height: 1.2;
-  border-radius: var(--hw-skeleton-radius, 10px);
-  background-color: var(--hw-skeleton-base-color, #e0e0e0);
-  color: transparent !important;
-  pointer-events: none;
-}
-
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item
-  > *,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item
-  > * {
-  opacity: 0 !important;
-}
-
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-image: linear-gradient(
-    90deg,
-    var(--hw-skeleton-base-color, #e0e0e0) 0%,
-    var(--hw-skeleton-highlight-color, #f5f5f5) 50%,
-    var(--hw-skeleton-base-color, #e0e0e0) 100%
-  );
-  background-size: 200% 100%;
-  animation: hw-skeleton-shimmer var(--hw-skeleton-animation-duration, 1.35s)
-    ease-in-out infinite;
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item::before,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--hw-skeleton-base-color, #e0e0e0);
-  border-radius: inherit;
-  z-index: 0;
-}
-
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(1)::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(1)::after {
-  animation-delay: 0s;
-}
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(2)::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(2)::after {
-  animation-delay: 0.12s;
-}
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(3)::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(3)::after {
-  animation-delay: 0.24s;
-}
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(4)::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(4)::after {
-  animation-delay: 0.36s;
-}
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(5)::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(5)::after {
-  animation-delay: 0.48s;
-}
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(6)::after,
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:nth-child(6)::after {
-  animation-delay: 0.6s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .jet-listing-grid.jet-listing-grid-loading
-    .hw-jet-listing-skeleton
-    [data-widget_type="icon-list.default"].skeleton-list-loading
-    .elementor-icon-list-item::after,
-  .jet-listing-grid.hw-js-skeleton-loading
-    .hw-jet-listing-skeleton
-    [data-widget_type="icon-list.default"].skeleton-list-loading
-    .elementor-icon-list-item::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-  }
-}
-
-.jet-listing-grid.jet-listing-grid-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:not(:first-child),
-.jet-listing-grid.hw-js-skeleton-loading
-  .hw-jet-listing-skeleton
-  [data-widget_type="icon-list.default"].skeleton-list-loading
-  .elementor-icon-list-item:not(:first-child) {
-  margin-top: var(--hw-skeleton-list-gap, 6px);
 }

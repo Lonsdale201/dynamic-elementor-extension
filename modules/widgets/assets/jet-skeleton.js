@@ -7,6 +7,9 @@
   const LINE_CLASS = "hw-skeleton-overlay__line";
   const RESIZE_DEBOUNCE = 150;
   const GRID_OBSERVER_KEY = "__hwSkeletonGridObserver";
+  const AUTO_APPLY_ATTRIBUTE = "data-hw-skeleton-auto";
+  const AUTO_APPLY_MARK = "data-hw-skeleton-auto-applied";
+  const AUTO_SKIP_VALUES = ["false", "0", "no", "off", "skip"];
   let HW_SKELETON_DEV = false; // set true to keep shimmer always on for testing
   const SKELETON_STYLE_PROPS = [
     {
@@ -51,6 +54,13 @@
       dataKey: "hwSkeletonOriginalHeight",
       inlineKey: "hwSkeletonInlineHeight",
       skipValues: ["", "auto"],
+      useRect: true,
+    },
+    {
+      style: "minHeight",
+      dataKey: "hwSkeletonOriginalMinheight",
+      inlineKey: "hwSkeletonInlineMinheight",
+      skipValues: ["", "auto", "0px"],
       useRect: true,
     },
     {
@@ -150,6 +160,8 @@
       $container = $widget; // fallback to widget root
     }
 
+    $container.addClass("skeleton-keep");
+
     const containerEl = $container[0];
     const containerRect = containerEl.getBoundingClientRect();
 
@@ -172,7 +184,7 @@
     const rects = getLineRects(containerEl);
 
     const $overlay = $("<div/>", {
-      class: OVERLAY_CLASS,
+      class: `${OVERLAY_CLASS} skeleton-keep`,
       "aria-hidden": "true",
     });
 
@@ -215,7 +227,7 @@
       $container.append($overlay);
     } else {
       const $fallback = $("<div/>", {
-        class: OVERLAY_CLASS,
+        class: `${OVERLAY_CLASS} skeleton-keep`,
         "aria-hidden": "true",
       }).append(
         $("<div/>", {
@@ -304,7 +316,13 @@
   };
 
   const scheduleUpdate = (root = document) => {
-    requestAnimationFrame(() => updateTargets(root));
+    requestAnimationFrame(() => {
+      autoApplySkeletons(root);
+      updateTargets(root);
+      applyShapes(root);
+      applyDynamicGallery(root);
+      applyRadiusVars(root);
+    });
   };
 
   const bindEvents = () => {
@@ -368,23 +386,645 @@
     }
   };
 
-  function getProviderGrids(provider, queryId) {
-    const selectors = [];
+  // ===========================================
+  // JS adapter: registry -> shape classes
+  // Adds generic shape classes to targeted inner elements.
+  // Keeps CSS small and avoids widget-specific duplication.
+  // ===========================================
 
-    if (queryId) {
-      selectors.push(`.jet-listing-grid[data-hw-query-id="${queryId}"]`);
-      selectors.push(`.jet-listing-grid-${queryId}`);
-      selectors.push(`.jet-listing-grid[data-query-id="${queryId}"]`);
-      selectors.push(`.jet-listing-grid__items[data-hw-query-id="${queryId}"]`);
+  const HW_SKEL_REGISTRY = {
+    "icon-box.default": {
+      class: "skeleton-icon-box-loading",
+      targets: {
+        ".elementor-icon-box-icon .elementor-icon": "circle",
+        ".elementor-icon-box-title:not(:empty)": "block",
+        ".elementor-icon-box-description:not(:empty)": "block",
+      },
+    },
+    "icon.default": {
+      class: "skeleton-icon-loading",
+      targets: {
+        ".elementor-icon": "circle",
+      },
+    },
+    "icon-list.default": {
+      class: "skeleton-list-loading",
+      targets: {
+        ".elementor-icon-list-item:not(:empty)": "list",
+      },
+    },
+    "image-box.default": {
+      class: "skeleton-image-box-loading",
+      targets: {
+        ".elementor-image-box-img": "block",
+        ".elementor-image-box-title:not(:empty)": "block",
+        ".elementor-image-box-description:not(:empty)": "block",
+      },
+    },
+  };
+
+  const HW_AUTO_SKEL_REGISTRY = {
+    "text-editor.default": {
+      classes: ["skeleton-loading", "skeleton-multitext-loading"],
+    },
+    "heading.default": {
+      classes: ["skeleton-loading"],
+      classTargets: {
+        "skeleton-loading": ".elementor-heading-title",
+      },
+    },
+    "jet-listing-dynamic-field.default": {
+      classes: ["skeleton-loading", "skeleton-multitext-loading"],
+      onApply($widget) {
+        try {
+          const $slider = $widget.find(".jet-engine-gallery-slider");
+          const $grid = $widget.find(".jet-engine-gallery-grid");
+
+          if ($slider.length) {
+            $widget.removeClass("skeleton-multitext-loading skeleton-loading");
+            $widget.addClass("skeleton-dynamice-sl-loading");
+
+            $slider
+              .find(".jet-engine-gallery-slider__item-wrap")
+              .each(function () {
+                const $item = jQuery(this);
+                if ($item.data("hwSkelGalleryApplied") === "1") return;
+                ensureSkeletonItemHeight($item);
+                $item.addClass("skeleton-loading");
+                $item.data("hwSkelGalleryApplied", "1");
+              });
+            return;
+          }
+
+          if ($grid.length) {
+            $widget.removeClass("skeleton-multitext-loading skeleton-loading");
+            $widget.addClass("skeleton-dynamice-g-loading");
+
+            $grid.find(".jet-engine-gallery-grid__item-wrap").each(function () {
+              const $item = jQuery(this);
+              if ($item.data("hwSkelGalleryApplied") === "1") return;
+              ensureSkeletonItemHeight($item);
+              $item.addClass("skeleton-loading");
+              $item.data("hwSkelGalleryApplied", "1");
+            });
+          }
+        } catch (e) {}
+      },
+    },
+    "icon-box.default": {
+      classes: ["skeleton-icon-box-loading", "skeleton-silent-bg"],
+      classTargets: {
+        "skeleton-silent-bg": ".elementor-icon-box-wrapper",
+      },
+    },
+    "icon-list.default": {
+      classes: ["skeleton-list-loading"],
+    },
+    "image.default": {
+      classes: ["skeleton-loading", "skeleton-z-bg"],
+      selector:
+        '.elementor-widget-image[data-widget_type="image.default"] .elementor-image, .elementor-widget-image[data-widget_type="image.default"] img, .elementor-widget-image[data-widget_type="image.default"] picture',
+      onApply($widget) {
+        try {
+          // Ensure the outer widget acts as the skeleton target if we matched a child
+          const $owner = $widget.closest(
+            '.elementor-widget-image[data-widget_type="image.default"]'
+          );
+          if ($owner.length) {
+            $owner.addClass("skeleton-loading");
+          }
+        } catch (e) {}
+      },
+    },
+    "jet-listing-dynamic-image.default": {
+      classes: ["skeleton-loading", "skeleton-z-bg"],
+      selector:
+        '.elementor-widget-jet-listing-dynamic-image[data-widget_type="jet-listing-dynamic-image.default"] .jet-listing-dynamic-image__wrap, .elementor-widget-jet-listing-dynamic-image[data-widget_type="jet-listing-dynamic-image.default"] img, .elementor-widget-jet-listing-dynamic-image[data-widget_type="jet-listing-dynamic-image.default"] picture',
+      onApply($widget) {
+        try {
+          const $owner = $widget.closest(
+            '.elementor-widget-jet-listing-dynamic-image[data-widget_type="jet-listing-dynamic-image.default"]'
+          );
+          if ($owner.length) {
+            $owner.addClass("skeleton-loading");
+          }
+        } catch (e) {}
+      },
+    },
+    "dynamic-opening-hours.default": {
+      classes: ["skeleton-loading"],
+    },
+    "jet-listing-dynamic-terms.default": {
+      classes: ["skeleton-loading"],
+    },
+    "jet-listing-dynamic-link.default": {
+      classes: ["skeleton-loading"],
+    },
+    "jet-engine-data-store-button.default": {
+      classes: ["skeleton-loading"],
+    },
+    "button.default": {
+      classes: ["skeleton-loading"],
+    },
+    "icon.default": {
+      classes: ["skeleton-icon-loading"],
+      selector: '[data-widget_type="icon.default"]',
+    },
+    "video.default": {
+      classes: ["skeleton-loading", "skeleton-z-bg"],
+    },
+    "jet-video.default": {
+      classes: ["skeleton-loading"],
+    },
+    "jet-button.default": {
+      classes: ["skeleton-loading"],
+    },
+    "jet-headline.default": {
+      classes: ["skeleton-loading"],
+    },
+    "shortcode.default": {
+      classes: ["skeleton-loading"],
+    },
+    "image-box.default": {
+      classes: ["skeleton-image-box-loading", "skeleton-silent-bg"],
+      classTargets: {
+        "skeleton-silent-bg": ".elementor-image-box-wrapper",
+      },
+    },
+  };
+
+  function isAutoApplyOptOut(element) {
+    try {
+      if (!element || typeof element.getAttribute !== "function") {
+        return false;
+      }
+
+      const value = (
+        element.getAttribute(AUTO_APPLY_ATTRIBUTE) || ""
+      ).toLowerCase();
+
+      if (!value || value === "yes") {
+        return false;
+      }
+
+      return AUTO_SKIP_VALUES.indexOf(value) !== -1;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function markAutoApplied($widget, classes = []) {
+    try {
+      if (!$widget || !$widget.length) {
+        return;
+      }
+
+      const existing = ($widget.attr(AUTO_APPLY_MARK) || "")
+        .split(/\s+/)
+        .filter(Boolean);
+      const merged = Array.from(
+        new Set([...existing, ...classes.filter(Boolean)])
+      );
+
+      if (merged.length) {
+        $widget.attr(AUTO_APPLY_MARK, merged.join(" "));
+      } else if (!$widget.attr(AUTO_APPLY_MARK)) {
+        $widget.attr(AUTO_APPLY_MARK, "1");
+      }
+    } catch (e) {}
+  }
+
+  function ensureSkeletonItemHeight($item) {
+    try {
+      if (!$item || !$item.length) {
+        return;
+      }
+
+      const el = $item[0];
+      if (!el || typeof el.getBoundingClientRect !== "function") {
+        return;
+      }
+
+      const dataset = el.dataset || {};
+      if (!dataset.hwSkeletonInlineMinheight) {
+        dataset.hwSkeletonInlineMinheight = el.style.minHeight || "";
+      }
+
+      const isSlider = $item
+        .closest(".skeleton-dynamice-sl-loading")
+        .length > 0;
+
+      if (dataset.hwSkeletonOriginalMinheight) {
+        el.style.minHeight = dataset.hwSkeletonOriginalMinheight;
+        el.dataset = dataset;
+        return;
+      }
+
+      if (isSlider) {
+        dataset.hwSkeletonOriginalMinheight = "100%";
+        el.style.minHeight = "100%";
+        el.dataset = dataset;
+        return;
+      }
+
+      let height = Math.round($item.outerHeight());
+      if (!height || height <= 0) {
+        const rect = el.getBoundingClientRect();
+        if (rect && rect.height > 0) {
+          height = Math.round(rect.height);
+        }
+      }
+
+      if (height && height > 0) {
+        dataset.hwSkeletonOriginalMinheight = height + "px";
+        el.style.minHeight = dataset.hwSkeletonOriginalMinheight;
+      }
+
+      el.dataset = dataset;
+    } catch (e) {}
+  }
+
+  function autoApplySkeletons(root = document) {
+    try {
+      const containers = new Set();
+      const $root = jQuery(root || document);
+
+      if ($root.length) {
+        $root.each(function () {
+          const node = this;
+
+          if (node === document) {
+            document
+              .querySelectorAll(`[${AUTO_APPLY_ATTRIBUTE}="yes"]`)
+              .forEach((el) => containers.add(el));
+            return;
+          }
+
+          if (!node || node.nodeType !== 1) {
+            return;
+          }
+
+          if (
+            typeof node.getAttribute === "function" &&
+            node.getAttribute(AUTO_APPLY_ATTRIBUTE) === "yes"
+          ) {
+            containers.add(node);
+          }
+
+          if (node.querySelectorAll) {
+            node
+              .querySelectorAll(`[${AUTO_APPLY_ATTRIBUTE}="yes"]`)
+              .forEach((el) => containers.add(el));
+          }
+
+          if (node.closest) {
+            const parent = node.closest(`[${AUTO_APPLY_ATTRIBUTE}="yes"]`);
+            if (parent) {
+              containers.add(parent);
+            }
+          }
+        });
+      }
+
+      if (!containers.size) {
+        document
+          .querySelectorAll(`[${AUTO_APPLY_ATTRIBUTE}="yes"]`)
+          .forEach((el) => containers.add(el));
+      }
+
+      if (!containers.size) {
+        return;
+      }
+
+      containers.forEach((container) => {
+        const $container = jQuery(container);
+
+        Object.entries(HW_AUTO_SKEL_REGISTRY).forEach(
+          ([widgetType, config]) => {
+            const selector =
+              config.selector || `[data-widget_type="${widgetType}"]`;
+            const $widgets = $container.find(selector);
+
+            if (!$widgets.length) {
+              return;
+            }
+
+            $widgets.each(function () {
+              if (isAutoApplyOptOut(this)) {
+                return;
+              }
+
+              const $widget = jQuery(this);
+              const classes = Array.isArray(config.classes)
+                ? config.classes
+                : [];
+              const classTargets = config.classTargets || {};
+              const applied = [];
+
+              classes.forEach((cls) => {
+                if (!cls) {
+                  return;
+                }
+
+                const targetSpec = Object.prototype.hasOwnProperty.call(
+                  classTargets,
+                  cls
+                )
+                  ? classTargets[cls]
+                  : null;
+
+                const applyTo = [];
+
+                const pushTargets = ($targets) => {
+                  if ($targets && $targets.length) {
+                    $targets.each(function () {
+                      applyTo.push(jQuery(this));
+                    });
+                  }
+                };
+
+                if (
+                  !targetSpec ||
+                  targetSpec === "self" ||
+                  targetSpec === "widget"
+                ) {
+                  pushTargets($widget);
+                } else if (targetSpec === false || targetSpec === "none") {
+                  // skip applying this class
+                  return;
+                } else {
+                  const selectors = Array.isArray(targetSpec)
+                    ? targetSpec
+                    : [targetSpec];
+                  selectors.forEach((sel) => {
+                    if (typeof sel === "string" && sel.trim().length) {
+                      pushTargets($widget.find(sel));
+                    }
+                  });
+                }
+
+                if (!applyTo.length) {
+                  pushTargets($widget);
+                }
+
+                applyTo.forEach(($target) => {
+                  if (!$target.hasClass(cls)) {
+                    $target.addClass(cls);
+                    applied.push(cls);
+                  }
+                });
+              });
+
+              if (typeof config.onApply === "function") {
+                try {
+                  config.onApply($widget, $container);
+                } catch (e) {}
+              }
+
+              if (classes.length || applied.length) {
+                markAutoApplied($widget, classes.length ? classes : applied);
+              }
+            });
+          }
+        );
+      });
+    } catch (e) {}
+  }
+
+  // Manual or post-auto handler for dynamic gallery skeleton
+  function applyDynamicGallery(root = document) {
+    try {
+      const $root = jQuery(root || document);
+      const configs = [
+        {
+          widgetClass: "skeleton-dynamice-g-loading",
+          container: ".jet-engine-gallery-grid",
+          items: ".jet-engine-gallery-grid__item-wrap",
+        },
+        {
+          widgetClass: "skeleton-dynamice-sl-loading",
+          container: ".jet-engine-gallery-slider",
+          items: ".jet-engine-gallery-slider__item-wrap",
+        },
+      ];
+
+      configs.forEach(({ widgetClass, container, items }) => {
+        const selector =
+          '[data-widget_type="jet-listing-dynamic-field.default"].' +
+          widgetClass;
+        const $widgets = $root
+          .find(selector)
+          .add($root.is(selector) ? $root : []);
+
+        if (!$widgets.length) {
+          return;
+        }
+
+        $widgets.each(function () {
+          const $widget = jQuery(this);
+          const $container = $widget.find(container);
+          if (!$container.length) {
+            return;
+          }
+
+          $container.find(items).each(function () {
+            const $item = jQuery(this);
+            if ($item.data("hwSkelGalleryApplied") === "1") {
+              return;
+            }
+            ensureSkeletonItemHeight($item);
+            $item.addClass("skeleton-loading");
+            $item.data("hwSkelGalleryApplied", "1");
+          });
+        });
+      });
+    } catch (e) {}
+  }
+
+  const SHAPES_CLASS = {
+    block: "hw-skel-block",
+    circle: "hw-skel-circle",
+    list: "hw-skel-list-item",
+  };
+
+  function readCircleRadius(el) {
+    try {
+      const cs = window.getComputedStyle(el);
+      if (!cs) {
+        return null;
+      }
+
+      const radius = cs.borderRadius;
+      if (!radius) {
+        return null;
+      }
+
+      return radius.trim();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getEffectiveCircleRadius(el) {
+    const direct = readCircleRadius(el);
+    if (direct) {
+      return direct;
     }
 
-    selectors.push('.jet-listing-grid:has([data-hw-skeleton="true"])');
+    const innerIcon =
+      el.querySelector &&
+      el.querySelector(
+        ".elementor-icon, .elementor-icon-wrap, .elementor-icon-box-icon-inner"
+      );
 
-    const $result = $(selectors.join(", ")).filter(".jet-listing-grid");
+    if (innerIcon) {
+      const innerRadius = readCircleRadius(innerIcon);
+      if (innerRadius) {
+        return innerRadius;
+      }
+    }
 
-    return $result.length
-      ? $result
-      : $('[data-hw-skeleton="true"]').closest(".jet-listing-grid");
+    return null;
+  }
+
+  function applyCircleRadius($element, radius) {
+    try {
+      if (!$element || !$element.length || !radius) {
+        return;
+      }
+
+      $element.css("--hw-skel-circle-radius", radius);
+    } catch (e) {}
+  }
+
+  function applyShapeClasses($widget) {
+    try {
+      if (!$widget || !$widget.length) return;
+      if ($widget.data("hwSkelShapesApplied") === "1") return;
+
+      const type = $widget.attr("data-widget_type");
+      const cfg = HW_SKEL_REGISTRY[type];
+      if (!cfg) return;
+      if (!$widget.hasClass(cfg.class)) return;
+
+      Object.entries(cfg.targets).forEach(([sel, shape]) => {
+        const cls = SHAPES_CLASS[shape];
+        if (!cls) return;
+        $widget.find(sel).each(function () {
+          const $target = jQuery(this);
+          let originalRadius = null;
+
+          if (shape === "circle") {
+            originalRadius = getEffectiveCircleRadius(this);
+            if (originalRadius !== null) {
+              applyCircleRadius($target, originalRadius);
+            }
+          }
+          // Skip empty image wrapper for Image Box (no media, no bg)
+          try {
+            if (shape === "block" && $target.is(".elementor-image-box-img")) {
+              const hasMedia =
+                $target.find("img, picture, svg, video, source").length > 0;
+              let hasBg = false;
+              try {
+                const cs = window.getComputedStyle(this);
+                hasBg =
+                  !!cs && cs.backgroundImage && cs.backgroundImage !== "none";
+              } catch (e) {}
+              if (!hasMedia && !hasBg) {
+                return; // do not add shape
+              }
+            }
+          } catch (e) {}
+
+          $target.addClass(cls);
+
+          if (shape === "circle" && originalRadius === null) {
+            applyCircleRadius($target, "50%");
+          }
+        });
+      });
+
+      $widget.data("hwSkelShapesApplied", "1");
+    } catch (e) {}
+  }
+
+  const SHAPED_SELECTOR = [
+    '[data-widget_type="icon-box.default"].skeleton-icon-box-loading',
+    '[data-widget_type="icon-list.default"].skeleton-list-loading',
+    '[data-widget_type="image-box.default"].skeleton-image-box-loading',
+    '[data-widget_type="icon.default"].skeleton-icon-loading',
+  ].join(",");
+
+  function applyShapes(root = document) {
+    try {
+      const $root = jQuery(root);
+      $root.find(SHAPED_SELECTOR).each(function () {
+        applyShapeClasses(jQuery(this));
+      });
+    } catch (e) {}
+  }
+
+  function applyRadiusVars(root = document) {
+    try {
+      const $root = jQuery(root);
+      const $containers = $root
+        .find('[data-hw-skeleton="true"]')
+        .add($root.is('[data-hw-skeleton="true"]') ? $root : []);
+      $containers.each(function () {
+        const el = this;
+        const radius = el.getAttribute("data-hw-skeleton-radius");
+        if (radius !== null && radius !== undefined && radius !== "") {
+          const v = Math.max(0, parseInt(radius, 10)) + "px";
+          el.style.setProperty("--hw-skeleton-radius", v);
+        }
+      });
+    } catch (e) {}
+  }
+
+  function getProviderGrids(provider, queryId) {
+    let $result = $();
+
+    if (queryId) {
+      const selectors = [
+        `.jet-listing-grid[data-hw-query-id="${queryId}"]`,
+        `.jet-listing-grid-${queryId}`,
+        `.jet-listing-grid[data-query-id="${queryId}"]`,
+      ];
+
+      $result = $(selectors.join(", ")).filter(".jet-listing-grid");
+
+      if (!$result.length) {
+        const $items = $(
+          `.jet-listing-grid__items[data-hw-query-id="${queryId}"], .jet-listing-grid__items[data-query-id="${queryId}"]`
+        );
+        if ($items.length) {
+          $result = $items.closest(".jet-listing-grid");
+        }
+      }
+    }
+
+    if (!$result.length && provider) {
+      try {
+        const candidate =
+          provider.$provider ||
+          provider.container ||
+          provider.$container ||
+          provider;
+
+        const $candidate = candidate ? $(candidate) : $();
+
+        if ($candidate.length) {
+          if ($candidate.is(".jet-listing-grid")) {
+            $result = $candidate;
+          } else {
+            $result = $candidate.closest(".jet-listing-grid");
+          }
+        }
+      } catch (e) {}
+    }
+
+    return $result;
   }
 
   function captureGridLayoutState($grids) {
@@ -551,48 +1191,9 @@
     } catch (e) {}
   }
 
-  // ===== JetEngine Load More/Infinite patch  — START =====
-  // const patchJetEngineAjax = () => {
-  //   try {
-  //     if (
-  //       !window.JetEngine ||
-  //       typeof window.JetEngine.ajaxGetListing !== 'function' ||
-  //       window.JetEngine.ajaxGetListing.__hwSkeletonPatched
-  //     ) {
-  //       return false;
-  //     }
-
-  //     const original = window.JetEngine.ajaxGetListing;
-
-  //     window.JetEngine.ajaxGetListing = function(options, done, fail) {
-  //       try {
-  //         if (options && options.container) {
-  //           const $container = options.container.jquery ? options.container : jQuery(options.container);
-  //           const $grid = $container.closest('.jet-listing-grid.hw-jet-listing-skeleton');
-
-  //           if ($grid.length) {
-  //
-  //             captureGridLayoutState($grid);
-  //             applyGridLayoutState($grid);
-  //           }
-  //         }
-  //       } catch (e) {}
-
-  //       return original.apply(this, arguments);
-  //     };
-
-  //     window.JetEngine.ajaxGetListing.__hwSkeletonPatched = true;
-  //     return true;
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // };
-  // ===== JetEngine Load More/Infinite patch — END =====
-
   const init = () => {
     scheduleUpdate();
     bindEvents();
-    // patchJetEngineAjax();
 
     // Retry patch if JetEngine loads later
     if (

@@ -493,23 +493,10 @@ class DynamicSettings {
             if ( $tag_id === 'global_post_content' ) {
                 $badge_html = ' <sup class="badge-new-feature">New</sup>';
             }
-            if ( $tag_id === 'product_shipping_class' ) {
+            if ( $tag_id === 'advanced_stock' ) {
                 $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
             }
-            if ( $tag_id === 'product_height' ) {
-                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
-            }
-            if ( $tag_id === 'product_width' ) {
-                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
-            }
-            if ( $tag_id === 'product_lenght' ) {
-                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
-            }
-            if ( $tag_id === 'product_attributes' ) {
-                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
-            }
-
-            if ( $tag_id === 'course-resume' ) {
+            if ( $tag_id === 'stock_quantity_extra' ) {
                 $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
             }
 
