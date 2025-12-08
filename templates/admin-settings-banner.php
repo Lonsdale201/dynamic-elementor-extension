@@ -293,6 +293,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
+                <strong><?php esc_html_e('Version 2.4.5 - 2025.12.08', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('New Widget: Dynamic text editor', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Fixed a bug that occurred when Elementor Pro was not installed, causing an infinite editor loading error.', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
                  <strong><?php esc_html_e('Version 2.4.4.2 - 2025.11.06', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
                         <li><?php esc_html_e('New Auto Apply skeleton loader for Lisitng grid', 'hw-elementor-woo-dynamic'); ?></li>

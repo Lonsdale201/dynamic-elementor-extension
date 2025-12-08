@@ -13,6 +13,7 @@ use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicCalculationWidget;
 use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicCheckboxWidget;
 use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicOpeningHoursWidget;
 use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\MemberShipCardWidget;
+use HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicTextEditorWidget;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;    
 
 class WidgetManager {
@@ -65,6 +66,10 @@ class WidgetManager {
 
         if ( class_exists( \HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicOpeningHoursWidget::class ) ) {
             $widgets_manager->register( new DynamicOpeningHoursWidget() );
+        }
+
+        if ( class_exists( \HelloWP\HWEleWooDynamic\Modules\Widgets\Dynamic\DynamicTextEditorWidget::class ) ) {
+            $widgets_manager->register( new DynamicTextEditorWidget() );
         }
     }
 

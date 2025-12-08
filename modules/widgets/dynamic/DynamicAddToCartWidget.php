@@ -40,6 +40,18 @@ class DynamicAddToCartWidget extends Widget_Base {
         return [ 'hw-ele-woo-dynamic-css' ];
     }
 
+    private function has_query_control_support(): bool {
+        return class_exists( QueryControlModule::class );
+    }
+
+    private function get_product_id_control_type(): string {
+        if ( $this->has_query_control_support() ) {
+            return QueryControlModule::QUERY_CONTROL_ID;
+        }
+
+        return Controls_Manager::TEXT;
+    }
+
     protected function get_upsale_data(): array {
         return [
             'condition'   => true,
@@ -165,20 +177,25 @@ class DynamicAddToCartWidget extends Widget_Base {
 
         // Manual repeater
         $repeater = new Repeater();
-        $repeater->add_control(
-            'product_id',
-            [
-                'label'        => __( 'Product', 'hw-ele-woo-dynamic' ),
-                'type'         => QueryControlModule::QUERY_CONTROL_ID,
-                'autocomplete' => [
-                    'object'   => QueryControlModule::QUERY_OBJECT_POST,
-                    'query'    => [ 'post_type'=>'product','posts_per_page'=>-1 ],
-                    'display'  => 'minimal',
-                    'by_field' => 'ID',
-                ],
-                'multiple'=> false,
-            ]
-        );
+
+        $manual_product_control = [
+            'label'     => __( 'Product', 'hw-ele-woo-dynamic' ),
+            'type'      => $this->get_product_id_control_type(),
+            'multiple'  => false,
+        ];
+
+        if ( $this->has_query_control_support() ) {
+            $manual_product_control['autocomplete'] = [
+                'object'   => QueryControlModule::QUERY_OBJECT_POST,
+                'query'    => [ 'post_type' => 'product', 'posts_per_page' => -1 ],
+                'display'  => 'minimal',
+                'by_field' => 'ID',
+            ];
+        } else {
+            $manual_product_control['description'] = __( 'Enter the WooCommerce Product ID manually. Activate Elementor Pro to enable the autocomplete picker.', 'hw-ele-woo-dynamic' );
+        }
+
+        $repeater->add_control( 'product_id', $manual_product_control );
         $repeater->add_control(
             'quantity',
             [

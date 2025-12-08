@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.4.4.2
+Stable tag: 2.4.5
 
 This plugin adds over 60 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -50,7 +50,8 @@ Full help and descriptions can be found here: https://lonsdale201.github.io/lons
 - Dynamic Bulk Add to cart
 - Dynamic Calculation
 - Dynamic Opening Hours
-- Dynamic add to calendar
+- Dynamic Add To Calendar
+- Dynamic Text Edtior
 
 WooCommerce / Membership specific
 
@@ -340,6 +341,11 @@ This feature is enabled by default, but you can customize which elements appear 
 - [x] v2.4.0 New Widgets
 
 ## CHANGELOG
+
+### 2.4.5 _2025-12-08_
+
+- Fixed a bug that occurred when Elementor Pro was not installed, causing an infinite editor loading error.
+- New widget: Dynamic text Editor
 
 ### 2.4.4.2 _2025-11-06_
 
