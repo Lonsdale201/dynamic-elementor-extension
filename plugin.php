@@ -2,13 +2,13 @@
 /**
  * Plugin Name: Dynamic Elementor Extension
  * Description: Extra dynamic tags and other useful functions (conditionally for WooCommerce, Memberships, Subscriptions, and LearnDash).
- * Version: 2.4.5
+ * Version: 2.4.5.1
  * Author: Soczó Kristóf
  * Author URI: https://github.com/Lonsdale201?tab=repositories
  * Plugin URI: https://github.com/Lonsdale201/dynamic-elementor-extension
  * Text Domain: hw-ele-woo-dynamic
- * Elementor tested up to: 3.32.4
- * Elementor Pro tested up to: 3.32.2
+ * Elementor tested up to: 3.33.4
+ * Elementor Pro tested up to: 3.33.2
  * Requires at least: 6.0
  * Requires PHP: 8.0
  * License: GPLv2 or later
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'HW_ELE_DYNAMIC_VERSION' ) ) {
-	define( 'HW_ELE_DYNAMIC_VERSION', '2.4.5' );
+	define( 'HW_ELE_DYNAMIC_VERSION', '2.4.5.1' );
 }
 
 define( 'HW_ELE_DYNAMIC_FILE', __FILE__ );

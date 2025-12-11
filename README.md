@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.4.5
+Stable tag: 2.4.5.1
 
 This plugin adds over 60 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -342,10 +342,16 @@ This feature is enabled by default, but you can customize which elements appear 
 
 ## CHANGELOG
 
+### 2.4.5.1 _2025-12-11_
+
+- Fixed the Check URL Path JetEngine Dynamic Visibility, now can handle multiple values with (,)
+
 ### 2.4.5 _2025-12-08_
 
 - Fixed a bug that occurred when Elementor Pro was not installed, causing an infinite editor loading error.
 - New widget: Dynamic text Editor
+
+---
 
 ### 2.4.4.2 _2025-11-06_
 
@@ -353,6 +359,8 @@ This feature is enabled by default, but you can customize which elements appear 
 - Improved class handling and expanded widget-specific skeleton displays.
 - Fixed Listing Grid ID handling so multiple grids on the same page work reliably with skeletons.
 - Advanced Stock and Stock Quantity Extra dynamic tags received enhancements.
+
+---
 
 ### V 2.4.4.1 _2025.11.05_
 

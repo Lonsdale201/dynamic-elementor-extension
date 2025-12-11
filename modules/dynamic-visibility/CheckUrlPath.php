@@ -40,16 +40,37 @@ class CheckUrlPath extends Base {
      * @return bool True if the value is found and the condition is set to "show", false otherwise.
      */
     public function check($args = []) {
-        $value_to_check = isset( $args['value'] ) ? $args['value'] : '';
-        $current_url = isset( $_SERVER['REQUEST_URI'] ) 
-            ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) 
+        $raw_value = isset( $args['value'] ) ? (string) $args['value'] : '';
+        $current_url = isset( $_SERVER['REQUEST_URI'] )
+            ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) )
             : '';
 
         $type = isset( $args['type'] ) ? $args['type'] : 'show';
-        $is_param_present = strpos( $current_url, $value_to_check ) !== false;
+
+        $needle_list = preg_split( '/[\r\n,]+/', $raw_value );
+        if ( ! is_array( $needle_list ) || empty( array_filter( $needle_list, 'strlen' ) ) ) {
+            $needle_list = [ $raw_value ];
+        }
+
+        $needle_list = array_filter(
+            array_map(
+                static function ( $needle ) {
+                    $needle = trim( (string) $needle );
+                    return '' !== $needle ? sanitize_text_field( $needle ) : '';
+                },
+                $needle_list
+            )
+        );
+
+        $is_param_present = false;
+        foreach ( $needle_list as $needle ) {
+            if ( false !== strpos( $current_url, $needle ) ) {
+                $is_param_present = true;
+                break;
+            }
+        }
 
         return ( 'hide' === $type ) ? ! $is_param_present : $is_param_present;
-
     }
 
     /**
