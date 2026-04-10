@@ -41,6 +41,7 @@ class VisibilityManager {
         if ( Dependencies::is_woocommerce_active() ) {
             $conditions_manager->register_condition(new WCProductReviewed());
             $conditions_manager->register_condition(new ProductTabEmpty());
+            $conditions_manager->register_condition(new WCPurchasedProducts());
         }
 
         // Register other custom conditions
@@ -63,6 +64,7 @@ class VisibilityManager {
         // Register WooCommerce Subscriptions conditions
         if ( Dependencies::is_subscriptions_active() ) {
             $conditions_manager->register_condition(new WooSubscriptionsActive());
+            $conditions_manager->register_condition(new WCSelectedSubscriptionsActive());
         }
 
         // Register LearnDash-related conditions

@@ -3,6 +3,7 @@
 namespace HelloWP\HWEleWooDynamic;
 
 use HelloWP\HWEleWooDynamic\Modules\EndPoints\InsertContent;
+use HelloWP\HWEleWooDynamic\Modules\Helpers\CartAjaxRefresh;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\CartHelper;
 use HelloWP\HWEleWooDynamic\Modules\Helpers\Dependencies;
 use HelloWP\HWEleWooDynamic\Modules\Widgets\JetEngineListingGridSkeletonSettings;
@@ -115,6 +116,7 @@ final class Loader
                 $this->insertContentInstance = new InsertContent();
             }
             CartHelper::init();
+            CartAjaxRefresh::init();
         }
 
         if (class_exists('Jet_Engine')) {

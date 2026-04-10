@@ -229,15 +229,27 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
-                <!-- Fluent Extend Triggers and Actions -->
+                <!-- FluentCRM Subscriptions for JetFormBuilder -->
                 <li style="margin-bottom: 1em;">
                     <strong>
-                        <a href="#" target="_blank">Fluent Extend Triggers and Actions</a>
+                        <a href="https://github.com/Lonsdale201/fluentcrm-subscriptions-for-jetformbuilder" target="_blank">FluentCRM Subscriptions for JetFormBuilder</a>
                     </strong><br/>
                     <em>
-                        <?php esc_html_e('Extra triggers, actions and others for WooCommerce, WordPress, JetFormBuilder, and Jetreviews', 'hw-elementor-woo-dynamic'); ?>
+                        <?php esc_html_e('Adds subscription functionality to FluentCRM through JetFormBuilder forms.', 'hw-elementor-woo-dynamic'); ?>
                     </em><br/>
-                    <a href="https://github.com/Lonsdale201/fluent-extend-triggers-and-actions" target="_blank">
+                    <a href="https://github.com/Lonsdale201/fluentcrm-subscriptions-for-jetformbuilder" target="_blank">
+                        <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
+                    </a>
+                </li>
+                <!-- Discord for JetFormBuilder -->
+                <li style="margin-bottom: 1em;">
+                    <strong>
+                        <a href="https://github.com/Lonsdale201/discord-for-jetformbuilder" target="_blank">Discord for JetFormBuilder</a>
+                    </strong><br/>
+                    <em>
+                        <?php esc_html_e('Send notifications to Discord when a submission is received from JetFormBuilder.', 'hw-elementor-woo-dynamic'); ?>
+                    </em><br/>
+                    <a href="https://github.com/Lonsdale201/discord-for-jetformbuilder" target="_blank">
                         <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
@@ -293,6 +305,14 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
+                <strong><?php esc_html_e('Version 2.4.5.2 - 2026.04.10', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('Cart Values and Cart Tax Values dynamic tags now refresh via AJAX on cart events (no page reload needed).', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New JetEngine Dynamic Visibility condition: Purchased Products (WooCommerce) — checks if the current user has purchased any of the selected products.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('New JetEngine Dynamic Visibility condition: Has Selected Subscription Active (Woo Subscriptions) — checks if the user has an active subscription for the selected products.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Free Shipping Amount tag: new Advanced Mode with {freeamount} and {remainingamount} macros, and AJAX refresh support.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('WC Order HPOS Query Builder: added Include/Exclude Categories filters and macro support for all include/exclude fields.', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
                 <strong><?php esc_html_e('Version 2.4.5 - 2025.12.08', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
                         <li><?php esc_html_e('New Widget: Dynamic text editor', 'hw-elementor-woo-dynamic'); ?></li>

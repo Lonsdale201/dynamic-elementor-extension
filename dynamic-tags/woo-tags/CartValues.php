@@ -108,23 +108,33 @@ class CartValues extends Tag {
         $settings = $this->get_settings();
         $cart = WC()->cart;
 
-        if ('yes' === $settings['hide_if_cart_empty'] && $cart->is_empty()) {
-            return; 
+        $refresh_data = wp_json_encode([
+            'cart_value_type'    => $settings['cart_value_type'],
+            'delimiter'          => $settings['delimiter'] ?? ', ',
+            'show_price_symbol'  => $settings['show_price_symbol'] ?? 'no',
+            'include_tax'        => $settings['include_tax'] ?? 'no',
+            'hide_if_cart_empty' => $settings['hide_if_cart_empty'] ?? 'no',
+        ]);
+
+        echo '<span class="hw-cart-dynamic" data-tag="cart-values" data-settings="' . esc_attr($refresh_data) . '">';
+
+        if ( ! ('yes' === $settings['hide_if_cart_empty'] && $cart->is_empty()) ) {
+            $cart_value_type = $settings['cart_value_type'];
+
+            switch ($cart_value_type) {
+                case 'return_items':
+                    $this->render_cart_items($settings['delimiter']);
+                    break;
+                case 'cart_total':
+                    $this->render_cart_total();
+                    break;
+                case 'items_count':
+                    $this->render_items_count();
+                    break;
+            }
         }
 
-        $cart_value_type = $settings['cart_value_type'];
-
-        switch ($cart_value_type) {
-            case 'return_items':
-                $this->render_cart_items($settings['delimiter']);
-                break;
-            case 'cart_total':
-                $this->render_cart_total();
-                break;
-            case 'items_count':
-                $this->render_items_count();
-                break;
-        }
+        echo '</span>';
     }
 
     private function render_cart_items($delimiter) {

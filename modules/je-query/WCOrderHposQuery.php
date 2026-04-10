@@ -23,6 +23,12 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
     /** @var int[] */
     private array $exclude_products = [];
 
+    /** @var int[] */
+    private array $include_categories = [];
+
+    /** @var int[] */
+    private array $exclude_categories = [];
+
     public function _get_items()
     {
         $results = $this->get_results();
@@ -148,6 +154,12 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
             case 'exclude_products':
                 $this->final_query['exclude_products'] = $this->normalize_product_ids($value);
                 break;
+            case 'include_categories':
+                $this->final_query['include_categories'] = $this->normalize_product_ids($value);
+                break;
+            case 'exclude_categories':
+                $this->final_query['exclude_categories'] = $this->normalize_product_ids($value);
+                break;
             default:
                 $this->merge_default_props($prop, $value);
                 break;
@@ -158,7 +170,7 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
 
     public function get_args_to_dynamic()
     {
-        return ['customer', 'payment_methods', 'date_after', 'date_before', 'offset'];
+        return ['customer', 'payment_methods', 'date_after', 'date_before', 'offset', 'include_products', 'exclude_products', 'include_categories', 'exclude_categories'];
     }
 
     public function get_args_to_explode()
@@ -182,6 +194,10 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
 
         $this->include_products = $this->parse_product_ids($args['include_products'] ?? '');
         $this->exclude_products = $this->parse_product_ids($args['exclude_products'] ?? '');
+        $this->include_categories = $this->parse_product_ids($args['include_categories'] ?? '');
+        $this->exclude_categories = $this->parse_product_ids($args['exclude_categories'] ?? '');
+
+        $this->merge_category_products();
 
         $paginate = $this->prepare_paginate_flag($args['paginate'] ?? true);
         $per_page = $this->prepare_per_page($args['per_page'] ?? null);
@@ -455,6 +471,61 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
         }, preg_split('/[\s,]+/', $value, -1, PREG_SPLIT_NO_EMPTY)));
 
         return array_values(array_unique(array_filter($ids)));
+    }
+
+    /**
+     * Resolve category IDs to product IDs and merge into include/exclude product lists.
+     */
+    private function merge_category_products(): void
+    {
+        if (!empty($this->include_categories)) {
+            $cat_products = $this->get_product_ids_for_categories($this->include_categories);
+
+            if (empty($cat_products)) {
+                $this->include_products = [0];
+            } elseif (!empty($this->include_products)) {
+                $this->include_products = array_values(array_unique(array_merge($this->include_products, $cat_products)));
+            } else {
+                $this->include_products = $cat_products;
+            }
+        }
+
+        if (!empty($this->exclude_categories)) {
+            $cat_products = $this->get_product_ids_for_categories($this->exclude_categories);
+
+            if (!empty($cat_products)) {
+                $this->exclude_products = array_values(array_unique(array_merge($this->exclude_products, $cat_products)));
+            }
+        }
+    }
+
+    /**
+     * @param int[] $category_ids Product category term IDs.
+     * @return int[] Product IDs belonging to those categories.
+     */
+    private function get_product_ids_for_categories(array $category_ids): array
+    {
+        $category_ids = array_values(array_unique(array_filter(array_map('absint', $category_ids))));
+
+        if (empty($category_ids)) {
+            return [];
+        }
+
+        $product_ids = get_posts([
+            'post_type'      => 'product',
+            'post_status'    => 'any',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'tax_query'      => [
+                [
+                    'taxonomy' => 'product_cat',
+                    'field'    => 'term_id',
+                    'terms'    => $category_ids,
+                ],
+            ],
+        ]);
+
+        return array_values(array_map('absint', $product_ids));
     }
 
     private function apply_product_filters(array $query_args): array

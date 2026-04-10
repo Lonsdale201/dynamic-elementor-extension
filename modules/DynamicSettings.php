@@ -493,10 +493,7 @@ class DynamicSettings {
             if ( $tag_id === 'global_post_content' ) {
                 $badge_html = ' <sup class="badge-new-feature">New</sup>';
             }
-            if ( $tag_id === 'advanced_stock' ) {
-                $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
-            }
-            if ( $tag_id === 'stock_quantity_extra' ) {
+            if ( in_array( $tag_id, [ 'cart_values', 'cart_tax_values', 'free_shipping_amount' ], true ) ) {
                 $badge_html = ' <sup class="badge-improvements">Improvements</sup>';
             }
 

@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.4.5.1
+Stable tag: 2.4.5.2
 
 This plugin adds over 60 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -100,9 +100,9 @@ _You can use with Loop / Listing, or single product templates_
 
 _You can use it anywhere in your site_
 
-- Cart Values
-- Cart Tax Values
-- Free Shipping Amount
+- Cart Values _(AJAX refresh)_
+- Cart Tax Values _(AJAX refresh)_
+- Free Shipping Amount _(Advanced Mode with macros & AJAX refresh)_
 
 ### Woo Customer specific Dynamic tags
 
@@ -195,12 +195,14 @@ _You can use it anywhere in your site_
 **WooCommerce specific**
 
 - Product tab empty
+- Purchased Products _(new)_
 
 _You can use it anywhere in your site_
 
 - Access Memberships (Woo Membership)
 - Current Membership Expired (Woo Membership) (only for JetEngine listing)
-- Has Active Subscriptions With Selected Statuses (Woo Subscriptions) (Improved!)
+- Has Active Subscriptions With Selected Statuses (Woo Subscriptions)
+- Has Selected Subscription Active (Woo Subscriptions) _(new)_
 - User Membership Access Can View (Woo Membership)
 - User Reviewed Product
 - User Registration Time Elapsed
@@ -264,7 +266,7 @@ _You can use it anywhere in your site_
 
 Query Type:
 
-- WC Order HPOS Query
+- WC Order HPOS Query _(Include/Exclude Categories, macro support for all include/exclude fields)_
 
 ### Lisitng Grid widget
 
@@ -342,6 +344,16 @@ This feature is enabled by default, but you can customize which elements appear 
 
 ## CHANGELOG
 
+### 2.4.5.2 _2026-04-10_
+
+- Cart Values and Cart Tax Values dynamic tags now refresh via AJAX on cart events (no page reload needed).
+- New JetEngine Dynamic Visibility condition: Purchased Products (WooCommerce) — checks if the current user has purchased any of the selected products.
+- New JetEngine Dynamic Visibility condition: Has Selected Subscription Active (Woo Subscriptions) — checks if the user has an active subscription for the selected products.
+- Free Shipping Amount tag: new Advanced Mode with `{freeamount}` and `{remainingamount}` macros, and AJAX refresh support.
+- WC Order HPOS Query Builder: added Include/Exclude Categories filters and macro support for all include/exclude fields.
+
+---
+
 ### 2.4.5.1 _2025-12-11_
 
 - Fixed the Check URL Path JetEngine Dynamic Visibility, now can handle multiple values with (,)
@@ -412,7 +424,6 @@ Download the plugin from github to get new updates automatically again.
 ### V 2.4.0 _2025.06.08_
 
 - New Widgets:
-
   - Dynamic Checkbox (For jetengine, and acf)
   - Dynamic Bulk add to cart (jetengine relation compatibility)
   - Woo Membership Plan card

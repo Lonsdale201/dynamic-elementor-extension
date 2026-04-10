@@ -5,6 +5,7 @@ namespace HelloWP\HWEleWooDynamic\WooTags;
 use Elementor\Core\DynamicTags\Tag;
 use Elementor\Modules\DynamicTags\Module;
 use Elementor\Controls_Manager;
+use HelloWP\HWEleWooDynamic\Modules\Helpers\CartAjaxRefresh;
 
 class FreeShippingAmount extends Tag {
 
@@ -24,34 +25,68 @@ class FreeShippingAmount extends Tag {
         return [Module::NUMBER_CATEGORY, Module::TEXT_CATEGORY];
     }
 
-    private function get_free_shipping_min_amount() {
-        $free_shipping_methods = [];
-    
-        $shipping_zones = \WC_Shipping_Zones::get_zones();
-        foreach ($shipping_zones as $zone) {
-            foreach ($zone['shipping_methods'] as $method) {
-                if ('free_shipping' === $method->id && 'yes' === $method->enabled) {
-                    if (!empty($method->min_amount)) {
-                        $cleaned_amount = preg_replace('/[^0-9.]+/', '', $method->min_amount);
-                        $free_shipping_methods[] = $cleaned_amount;
-                    }
-                }
-            }
-        }
-    
-        if (!empty($free_shipping_methods)) {
-            return min($free_shipping_methods);
-        }
-    
-        return false;
+    protected function _register_controls() {
+        $this->add_control(
+            'advanced_mode',
+            [
+                'label'        => esc_html__('Advanced Mode', 'hw-ele-woo-dynamic'),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__('Yes', 'hw-ele-woo-dynamic'),
+                'label_off'    => esc_html__('No', 'hw-ele-woo-dynamic'),
+                'return_value' => 'yes',
+                'default'      => '',
+            ]
+        );
+
+        $this->add_control(
+            'template',
+            [
+                'label'       => esc_html__('Template', 'hw-ele-woo-dynamic'),
+                'type'        => Controls_Manager::TEXTAREA,
+                'default'     => '{freeamount}',
+                'description' => esc_html__('Macros: {freeamount} = free shipping threshold, {remainingamount} = amount still needed (AJAX refreshed).', 'hw-ele-woo-dynamic'),
+                'condition'   => [
+                    'advanced_mode' => 'yes',
+                ],
+            ]
+        );
     }
-    
+
     public function render() {
-        $min_amount = $this->get_free_shipping_min_amount();
-    
-        if ($min_amount !== false) {
-            echo wp_kses_post(wc_price($min_amount));
+        $min_amount = CartAjaxRefresh::get_free_shipping_min_amount();
+
+        if ($min_amount === false) {
+            return;
         }
+
+        $settings = $this->get_settings();
+
+        if ('yes' !== ($settings['advanced_mode'] ?? '')) {
+            echo wp_kses_post(wc_price($min_amount));
+            return;
+        }
+
+        if (null === WC()->cart) {
+            wc_load_cart();
+        }
+
+        $template   = $settings['template'] ?? '{freeamount}';
+        $cart_total = CartAjaxRefresh::get_cart_subtotal_for_shipping();
+        $remaining  = max(0, $min_amount - $cart_total);
+
+        $output = str_replace(
+            ['{freeamount}', '{remainingamount}'],
+            [wp_kses_post(wc_price($min_amount)), wp_kses_post(wc_price($remaining))],
+            $template
+        );
+
+        $refresh_data = wp_json_encode([
+            'advanced_mode' => 'yes',
+            'template'      => $template,
+        ]);
+
+        echo '<span class="hw-cart-dynamic" data-tag="free-shipping-amount" data-settings="' . esc_attr($refresh_data) . '">';
+        echo wp_kses_post($output);
+        echo '</span>';
     }
-    
 }

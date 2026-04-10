@@ -61,21 +61,49 @@
 					label="<?php esc_html_e('Include Products', 'hw-ele-woo-dynamic'); ?>"
 					description="<?php esc_html_e('Comma separated product IDs. Orders must contain at least one of these products.', 'hw-ele-woo-dynamic'); ?>"
 					type="text"
-					:wrapper-css="[ 'equalwidth' ]"
+					:wrapper-css="[ 'equalwidth', 'has-macros' ]"
 					size="fullwidth"
 					name="query_include_products"
 					v-model="query.include_products"
-				></cx-vui-input>
+				>
+					<jet-query-dynamic-args v-model="dynamicQuery.include_products"></jet-query-dynamic-args>
+				</cx-vui-input>
 
 				<cx-vui-input
 					label="<?php esc_html_e('Exclude Products', 'hw-ele-woo-dynamic'); ?>"
 					description="<?php esc_html_e('Comma separated product IDs. Orders containing any of these products will be excluded.', 'hw-ele-woo-dynamic'); ?>"
 					type="text"
-					:wrapper-css="[ 'equalwidth' ]"
+					:wrapper-css="[ 'equalwidth', 'has-macros' ]"
 					size="fullwidth"
 					name="query_exclude_products"
 					v-model="query.exclude_products"
-				></cx-vui-input>
+				>
+					<jet-query-dynamic-args v-model="dynamicQuery.exclude_products"></jet-query-dynamic-args>
+				</cx-vui-input>
+
+				<cx-vui-input
+					label="<?php esc_html_e('Include Categories', 'hw-ele-woo-dynamic'); ?>"
+					description="<?php esc_html_e('Comma separated product category IDs. Only orders containing products from these categories will be returned.', 'hw-ele-woo-dynamic'); ?>"
+					type="text"
+					:wrapper-css="[ 'equalwidth', 'has-macros' ]"
+					size="fullwidth"
+					name="query_include_categories"
+					v-model="query.include_categories"
+				>
+					<jet-query-dynamic-args v-model="dynamicQuery.include_categories"></jet-query-dynamic-args>
+				</cx-vui-input>
+
+				<cx-vui-input
+					label="<?php esc_html_e('Exclude Categories', 'hw-ele-woo-dynamic'); ?>"
+					description="<?php esc_html_e('Comma separated product category IDs. Orders containing products from these categories will be excluded.', 'hw-ele-woo-dynamic'); ?>"
+					type="text"
+					:wrapper-css="[ 'equalwidth', 'has-macros' ]"
+					size="fullwidth"
+					name="query_exclude_categories"
+					v-model="query.exclude_categories"
+				>
+					<jet-query-dynamic-args v-model="dynamicQuery.exclude_categories"></jet-query-dynamic-args>
+				</cx-vui-input>
 			</cx-vui-tabs-panel>
 
 			<cx-vui-tabs-panel

@@ -48,6 +48,30 @@
 				this.$set( this.query, 'exclude_products', '' );
 			}
 
+			if ( typeof this.query.include_categories === 'undefined' ) {
+				this.$set( this.query, 'include_categories', '' );
+			}
+
+			if ( typeof this.query.exclude_categories === 'undefined' ) {
+				this.$set( this.query, 'exclude_categories', '' );
+			}
+
+			if ( typeof this.dynamicQuery.include_products === 'undefined' ) {
+				this.$set( this.dynamicQuery, 'include_products', '' );
+			}
+
+			if ( typeof this.dynamicQuery.exclude_products === 'undefined' ) {
+				this.$set( this.dynamicQuery, 'exclude_products', '' );
+			}
+
+			if ( typeof this.dynamicQuery.include_categories === 'undefined' ) {
+				this.$set( this.dynamicQuery, 'include_categories', '' );
+			}
+
+			if ( typeof this.dynamicQuery.exclude_categories === 'undefined' ) {
+				this.$set( this.dynamicQuery, 'exclude_categories', '' );
+			}
+
 			if ( typeof this.query.per_page === 'undefined' || ! this.query.per_page ) {
 				this.$set( this.query, 'per_page', this.defaultPerPage );
 			}
@@ -91,7 +115,7 @@
 			return [ 'customer', 'statuses', 'payment_methods' ];
 		},
 		includeExcludeProps: function() {
-			return [ 'include_products', 'exclude_products' ];
+			return [ 'include_products', 'exclude_products', 'include_categories', 'exclude_categories' ];
 		},
 		paginationProps: function() {
 			return [ 'paginate', 'per_page', 'offset' ];

@@ -43,20 +43,30 @@ class CartTaxValues extends Tag {
         if ( ! function_exists( 'WC' ) ) {
             return;
         }
-        
+
         if ( null === WC()->cart ) {
             wc_load_cart();
         }
 
+        $settings = $this->get_settings();
+
+        $refresh_data = wp_json_encode([
+            'show_price_symbol' => $settings['show_price_symbol'] ?? 'no',
+        ]);
+
+        echo '<span class="hw-cart-dynamic" data-tag="cart-tax-values" data-settings="' . esc_attr($refresh_data) . '">';
+
         $cart = WC()->cart;
         $cart_tax_total = floatval($cart->get_taxes_total());
-        
-        $show_price_symbol = $this->get_settings('show_price_symbol');
+
+        $show_price_symbol = $settings['show_price_symbol'];
 
         if ( 'yes' === $show_price_symbol ) {
             echo wp_kses_post( wc_price( $cart_tax_total ) );
         } else {
             echo wp_kses_post( number_format( $cart_tax_total, wc_get_price_decimals(), wc_get_price_decimal_separator(), wc_get_price_thousand_separator() ) );
         }
+
+        echo '</span>';
     }
 }
