@@ -21,7 +21,7 @@ class CourseResumeLink extends Tag {
 	public function get_group() { return 'ld_extras_courses'; }
 	public function get_categories() { return [ Module::URL_CATEGORY ]; }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->add_control(
 			'not_started_behaviour',

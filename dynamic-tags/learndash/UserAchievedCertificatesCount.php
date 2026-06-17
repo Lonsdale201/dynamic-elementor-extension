@@ -34,7 +34,7 @@ class UserAchievedCertificatesCount extends Tag {
     /**
      * Register controls for Elementor editor.
      */
-    protected function _register_controls() {
+    protected function register_controls() {
         // No additional controls required for this tag.
     }
 

@@ -25,7 +25,7 @@ class PreviousProduct extends Tag {
         return [Module::URL_CATEGORY, Module::TEXT_CATEGORY];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         $this->add_control(
             'display_type',
             [

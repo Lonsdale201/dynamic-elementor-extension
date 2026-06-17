@@ -1,6 +1,6 @@
 # Dynamic Elementor extension
 
-Stable tag: 2.4.5.2
+Stable tag: 2.4.5.3
 
 This plugin adds over 60 dynamic tags to Elementor, covering WooCommerce, Woo Membership, Woo Subscriptions, and LearnDash.
 In addition to tags, it extends JetEngine's dynamic visibility conditions and introduces several new macros. It also registers new Elementor theme conditions, mostly focused on WooCommerce product specifics, with some more general conditions included as well. As a bonus, it enhances the Elementor Finder with new quick-access features.
@@ -266,7 +266,7 @@ _You can use it anywhere in your site_
 
 Query Type:
 
-- WC Order HPOS Query _(Include/Exclude Categories, macro support for all include/exclude fields)_
+- WC Order HPOS Query _(Include/Exclude Products, Categories & Brands; Payment & Shipping Methods filters; macro support for all include/exclude fields)_
 
 ### Lisitng Grid widget
 
@@ -342,7 +342,39 @@ This feature is enabled by default, but you can customize which elements appear 
 - [x] v2.3.0 Removed the WooCommerce dependency
 - [x] v2.4.0 New Widgets
 
+## WP-CLI (for developers)
+
+The plugin registers a `wp dynamic-ext` command namespace, available only when WP-CLI is running (no effect on normal web requests). Handy for staging↔production parity, provisioning many sites, CI, and support diagnostics.
+
+| Command | Description |
+| --- | --- |
+| `wp dynamic-ext status` | Environment diagnostics: Elementor / Elementor Pro versions, whether the AJAX query control is available, detected integrations (WooCommerce, Memberships, Subscriptions, LearnDash, JetEngine) and enabled / effective / available tag counts. Supports `--format=table\|csv\|json\|yaml`. |
+| `wp dynamic-ext tags list` | List the dynamic tags in the catalog with their enabled / available state. Flags: `--enabled`, `--available`, `--group=<section>`, `--format=table\|csv\|json\|yaml\|count`. |
+| `wp dynamic-ext tags enable <tag>... [--all]` | Enable one or more tags (same switches as the settings page). |
+| `wp dynamic-ext tags disable <tag>... [--all]` | Disable one or more tags. |
+| `wp dynamic-ext settings export [--file=<path>]` | Export the plugin settings as JSON (stdout or a file). |
+| `wp dynamic-ext settings import <file> [--yes]` | Import settings from a JSON file (merges over current settings). |
+
+Tag identifiers are the values shown in the `tag` column of `wp dynamic-ext tags list` (e.g. `woo_extras_product_attributes`).
+
+```bash
+wp dynamic-ext status
+wp dynamic-ext tags list --enabled --format=table
+wp dynamic-ext tags enable global_tags_global_post_content woo_extras_advanced-price
+wp dynamic-ext settings export --file=dynamic-ext.json
+```
+
+---
+
 ## CHANGELOG
+
+### 2.4.5.3 _2026-06-17_
+
+- New: **WP-CLI support** — manage the plugin from the terminal via `wp dynamic-ext` (status diagnostics, enable/disable dynamic tags, export/import settings). See the **WP-CLI (for developers)** section above.
+- **WC Order HPOS Query Builder**: new Include/Exclude **Brands** filters, and a **Shipping Methods** filter in the General tab.
+- Improved dynamic tag registration — migrated to Elementor's modern `elementor/dynamic_tags/register` API and `register_controls()`, away from the deprecated `register_tags` hook.
+
+---
 
 ### 2.4.5.2 _2026-04-10_
 

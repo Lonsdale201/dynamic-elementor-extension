@@ -64,7 +64,7 @@ class EnrolledUsersCount extends Tag {
      *
      * @return void
      */
-    protected function _register_controls() {
+    protected function register_controls() {
         $this->add_control(
             'visibility',
             [

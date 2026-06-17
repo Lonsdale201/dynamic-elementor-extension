@@ -61,7 +61,7 @@ class CourseStatus extends Tag {
      *
      * @return void
      */
-    protected function _register_controls() {
+    protected function register_controls() {
         // Custom text switcher control
         $this->add_control(
             'use_custom_text',

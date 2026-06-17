@@ -24,7 +24,7 @@ class MyAccountEndpoints extends Tag {
         return [Module::URL_CATEGORY];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         $menu_items = wc_get_account_menu_items();
 
         $options = [];

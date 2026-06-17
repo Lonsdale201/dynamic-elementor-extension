@@ -16,6 +16,7 @@
 				dynamicQuery: {},
 				statuses: localized.statuses || [],
 				paymentMethods: localized.payment_methods || [],
+				shippingMethods: localized.shipping_methods || [],
 				defaultPerPage: localized.default_per_page || 10,
 				defaultOffset: 0,
 			};
@@ -34,6 +35,10 @@
 
 			if ( ! Array.isArray( this.query.payment_methods ) ) {
 				this.$set( this.query, 'payment_methods', [] );
+			}
+
+			if ( ! Array.isArray( this.query.shipping_methods ) ) {
+				this.$set( this.query, 'shipping_methods', [] );
 			}
 
 			if ( typeof this.query.paginate === 'undefined' ) {
@@ -56,6 +61,14 @@
 				this.$set( this.query, 'exclude_categories', '' );
 			}
 
+			if ( typeof this.query.include_brands === 'undefined' ) {
+				this.$set( this.query, 'include_brands', '' );
+			}
+
+			if ( typeof this.query.exclude_brands === 'undefined' ) {
+				this.$set( this.query, 'exclude_brands', '' );
+			}
+
 			if ( typeof this.dynamicQuery.include_products === 'undefined' ) {
 				this.$set( this.dynamicQuery, 'include_products', '' );
 			}
@@ -70,6 +83,14 @@
 
 			if ( typeof this.dynamicQuery.exclude_categories === 'undefined' ) {
 				this.$set( this.dynamicQuery, 'exclude_categories', '' );
+			}
+
+			if ( typeof this.dynamicQuery.include_brands === 'undefined' ) {
+				this.$set( this.dynamicQuery, 'include_brands', '' );
+			}
+
+			if ( typeof this.dynamicQuery.exclude_brands === 'undefined' ) {
+				this.$set( this.dynamicQuery, 'exclude_brands', '' );
 			}
 
 			if ( typeof this.query.per_page === 'undefined' || ! this.query.per_page ) {
@@ -111,11 +132,14 @@
 			paymentMethodOptions: function() {
 				return this.paymentMethods;
 			},
+			shippingMethodOptions: function() {
+				return this.shippingMethods;
+			},
 			generalProps: function() {
-			return [ 'customer', 'statuses', 'payment_methods' ];
+			return [ 'customer', 'statuses', 'payment_methods', 'shipping_methods' ];
 		},
 		includeExcludeProps: function() {
-			return [ 'include_products', 'exclude_products', 'include_categories', 'exclude_categories' ];
+			return [ 'include_products', 'exclude_products', 'include_categories', 'exclude_categories', 'include_brands', 'exclude_brands' ];
 		},
 		paginationProps: function() {
 			return [ 'paginate', 'per_page', 'offset' ];

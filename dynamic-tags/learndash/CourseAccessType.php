@@ -61,7 +61,7 @@ class CourseAccessType extends Tag {
      *
      * @return void
      */
-    protected function _register_controls() {
+    protected function register_controls() {
         // Control for choosing the format type between default or custom.
         $this->add_control(
             'format_type',

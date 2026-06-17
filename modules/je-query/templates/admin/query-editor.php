@@ -50,6 +50,17 @@
 					name="query_payment_methods"
 					v-model="query.payment_methods"
 				></cx-vui-f-select>
+
+				<cx-vui-f-select
+					label="<?php esc_html_e('Shipping Methods', 'hw-ele-woo-dynamic'); ?>"
+					description="<?php esc_html_e('Limit orders to specific shipping methods. Leave empty for all.', 'hw-ele-woo-dynamic'); ?>"
+					:wrapper-css="[ 'equalwidth' ]"
+					:multiple="true"
+					:options-list="shippingMethodOptions"
+					size="fullwidth"
+					name="query_shipping_methods"
+					v-model="query.shipping_methods"
+				></cx-vui-f-select>
 			</cx-vui-tabs-panel>
 
 			<cx-vui-tabs-panel
@@ -103,6 +114,30 @@
 					v-model="query.exclude_categories"
 				>
 					<jet-query-dynamic-args v-model="dynamicQuery.exclude_categories"></jet-query-dynamic-args>
+				</cx-vui-input>
+
+				<cx-vui-input
+					label="<?php esc_html_e('Include Brands', 'hw-ele-woo-dynamic'); ?>"
+					description="<?php esc_html_e('Comma separated product brand term IDs. Only orders containing products from these brands will be returned.', 'hw-ele-woo-dynamic'); ?>"
+					type="text"
+					:wrapper-css="[ 'equalwidth', 'has-macros' ]"
+					size="fullwidth"
+					name="query_include_brands"
+					v-model="query.include_brands"
+				>
+					<jet-query-dynamic-args v-model="dynamicQuery.include_brands"></jet-query-dynamic-args>
+				</cx-vui-input>
+
+				<cx-vui-input
+					label="<?php esc_html_e('Exclude Brands', 'hw-ele-woo-dynamic'); ?>"
+					description="<?php esc_html_e('Comma separated product brand term IDs. Orders containing products from these brands will be excluded.', 'hw-ele-woo-dynamic'); ?>"
+					type="text"
+					:wrapper-css="[ 'equalwidth', 'has-macros' ]"
+					size="fullwidth"
+					name="query_exclude_brands"
+					v-model="query.exclude_brands"
+				>
+					<jet-query-dynamic-args v-model="dynamicQuery.exclude_brands"></jet-query-dynamic-args>
 				</cx-vui-input>
 			</cx-vui-tabs-panel>
 

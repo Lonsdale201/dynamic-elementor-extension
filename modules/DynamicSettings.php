@@ -236,29 +236,11 @@ class DynamicSettings {
 
         foreach ( $this->sections as $id => $data ) {
 
-            // WooCommerce-based sections
-            if ( 'global_tags' !== $id && (
-                ( $id === 'woo_extras' && ! Dependencies::is_woocommerce_active() ) ||
-                ( $id === 'global' && ! Dependencies::is_woocommerce_active() ) ||
-                ( $id === 'cart_value' && ! Dependencies::is_woocommerce_active() ) ||
-                ( $id === 'customer_specific' && ! Dependencies::is_woocommerce_active() ) ||
-                ( $id === 'customer_specific_orders_hpos' && ! Dependencies::is_woocommerce_active() ) ||
-                ( $id === 'my_account_dashboard' && ! Dependencies::is_woocommerce_active() ) ||
-                ( $id === 'my_account_orders' && ! Dependencies::is_woocommerce_active() ) ||
-                ( $id === 'wp_bar_products_informations' && ! Dependencies::is_woocommerce_active() ) ||
-
-                // WooCommerce Membership
-                ( $id === 'woo_membership' && ( ! Dependencies::is_woocommerce_active() || ! Dependencies::is_memberships_active() ) ) ||
-                // WooCommerce Subscriptions
-                ( $id === 'woo_subscriptions' && ( ! Dependencies::is_woocommerce_active() || ! Dependencies::is_subscriptions_active() ) ) ||
-
-                // LearnDash
-                ( $id === 'ld_extras_courses' && ! Dependencies::is_learndash_active() ) ||
-                ( $id === 'ld_extras_global' && ! Dependencies::is_learndash_active() ) ||
-                ( $id === 'wp_bar_learndash_informations' && ! Dependencies::is_learndash_active() )
-                ) ) {
-                    continue;
-                }
+            // Skip sections whose plugin dependencies aren't met.
+            // is_section_available() is the shared rule used by the CLI too.
+            if ( 'global_tags' !== $id && ! self::is_section_available( $id ) ) {
+                continue;
+            }
 
             // Add the settings section
             add_settings_section(
@@ -279,7 +261,17 @@ class DynamicSettings {
      * Initializes the array of tags for each section (used by add_settings_to_sections()).
      */
     private function initialize_tags_config() {
-        $this->tags_config = [
+        $this->tags_config = self::get_tags_config();
+    }
+
+    /**
+     * Canonical tag catalog: [ section_id => [ tag_id => Label ] ].
+     *
+     * Single source of truth shared by the settings page AND the WP-CLI
+     * commands (HelloWP\HWEleWooDynamic\Modules\Cli\*), so the two never drift.
+     */
+    public static function get_tags_config(): array {
+        return [
             'global_tags' => [
                 'global_dynamic_calculation'    => __( 'Dynamic Calculation', 'hw-elementor-woo-dynamic' ),
                 'global_author_url'             => __( 'Author URL', 'hw-elementor-woo-dynamic' ),
@@ -398,6 +390,76 @@ class DynamicSettings {
                 'ld_bar_quizes'  => __( 'Quiz', 'hw-elementor-woo-dynamic' ),
             ],
         ];
+    }
+
+    /**
+     * Flat catalog keyed by the stored option key ( "{section}_{tag_id}" ),
+     * which is exactly the key used in dynamic_extension_settings['enabled_tags']
+     * and in TagManager::map_tag_class(). Convenience for the WP-CLI commands.
+     *
+     * @return array<string,array{label:string,section:string,tag:string}>
+     */
+    public static function get_flat_tag_catalog(): array {
+        $flat = [];
+
+        foreach ( self::get_tags_config() as $section => $tags ) {
+            foreach ( $tags as $tag_id => $label ) {
+                $flat[ $section . '_' . $tag_id ] = [
+                    'label'   => $label,
+                    'section' => $section,
+                    'tag'     => $tag_id,
+                ];
+            }
+        }
+
+        return $flat;
+    }
+
+    /**
+     * Text (HTML) settings stored alongside enabled_tags. Shared by
+     * validate_settings() and the CLI importer so sanitisation stays in sync.
+     *
+     * @return string[]
+     */
+    public static function get_text_field_keys(): array {
+        return [ 'dashboard_before_content', 'dashboard_after_content', 'orders_before_table', 'orders_after_table' ];
+    }
+
+    /**
+     * Whether a settings section's plugin dependencies are met.
+     *
+     * Mirrors the gating logic in register_settings() so the CLI ("available"
+     * column / enable warnings) and the admin UI agree on what is usable.
+     */
+    public static function is_section_available( string $section_id ): bool {
+        switch ( $section_id ) {
+            case 'global_tags':
+                return true;
+
+            case 'woo_extras':
+            case 'global':
+            case 'cart_value':
+            case 'customer_specific':
+            case 'customer_specific_orders_hpos':
+            case 'my_account_dashboard':
+            case 'my_account_orders':
+            case 'wp_bar_products_informations':
+                return Dependencies::is_woocommerce_active();
+
+            case 'woo_membership':
+                return Dependencies::is_woocommerce_active() && Dependencies::is_memberships_active();
+
+            case 'woo_subscriptions':
+                return Dependencies::is_woocommerce_active() && Dependencies::is_subscriptions_active();
+
+            case 'ld_extras_courses':
+            case 'ld_extras_global':
+            case 'wp_bar_learndash_informations':
+                return Dependencies::is_learndash_active();
+
+            default:
+                return true;
+        }
     }
 
     /**
@@ -536,7 +598,7 @@ class DynamicSettings {
         }
 
         // Validate textareas for dashboard/orders inserts (wp_kses_post).
-        $text_fields = [ 'dashboard_before_content', 'dashboard_after_content', 'orders_before_table', 'orders_after_table' ];
+        $text_fields = self::get_text_field_keys();
         foreach ( $text_fields as $field ) {
             if ( isset( $inputs[ $field ] ) ) {
                 $validated[ $field ] = wp_kses_post( $inputs[ $field ] );

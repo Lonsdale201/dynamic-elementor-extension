@@ -29,6 +29,15 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
     /** @var int[] */
     private array $exclude_categories = [];
 
+    /** @var int[] */
+    private array $include_brands = [];
+
+    /** @var int[] */
+    private array $exclude_brands = [];
+
+    /** @var string[] */
+    private array $shipping_methods = [];
+
     public function _get_items()
     {
         $results = $this->get_results();
@@ -160,6 +169,15 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
             case 'exclude_categories':
                 $this->final_query['exclude_categories'] = $this->normalize_product_ids($value);
                 break;
+            case 'include_brands':
+                $this->final_query['include_brands'] = $this->normalize_product_ids($value);
+                break;
+            case 'exclude_brands':
+                $this->final_query['exclude_brands'] = $this->normalize_product_ids($value);
+                break;
+            case 'shipping_methods':
+                $this->final_query['shipping_methods'] = (array) $value;
+                break;
             default:
                 $this->merge_default_props($prop, $value);
                 break;
@@ -170,7 +188,7 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
 
     public function get_args_to_dynamic()
     {
-        return ['customer', 'payment_methods', 'date_after', 'date_before', 'offset', 'include_products', 'exclude_products', 'include_categories', 'exclude_categories'];
+        return ['customer', 'payment_methods', 'shipping_methods', 'date_after', 'date_before', 'offset', 'include_products', 'exclude_products', 'include_categories', 'exclude_categories', 'include_brands', 'exclude_brands'];
     }
 
     public function get_args_to_explode()
@@ -196,8 +214,12 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
         $this->exclude_products = $this->parse_product_ids($args['exclude_products'] ?? '');
         $this->include_categories = $this->parse_product_ids($args['include_categories'] ?? '');
         $this->exclude_categories = $this->parse_product_ids($args['exclude_categories'] ?? '');
+        $this->include_brands = $this->parse_product_ids($args['include_brands'] ?? '');
+        $this->exclude_brands = $this->parse_product_ids($args['exclude_brands'] ?? '');
+        $this->shipping_methods = $this->prepare_shipping_methods($args['shipping_methods'] ?? []);
 
         $this->merge_category_products();
+        $this->merge_brand_products();
 
         $paginate = $this->prepare_paginate_flag($args['paginate'] ?? true);
         $per_page = $this->prepare_per_page($args['per_page'] ?? null);
@@ -269,6 +291,7 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
         }
 
         $query_args = $this->apply_product_filters($query_args);
+        $query_args = $this->apply_shipping_method_filter($query_args);
 
         $this->is_paginated = $paginate;
         $this->items_per_page = $per_page === -1 ? 0 : $per_page;
@@ -593,6 +616,181 @@ class WCOrderHposQuery extends \Jet_Engine\Query_Builder\Queries\Base_Query
             )";
 
         $prepared = $wpdb->prepare($sql, array_merge($product_ids, $product_ids));
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+        $results = $wpdb->get_col($prepared);
+
+        return array_values(array_unique(array_map('absint', $results)));
+    }
+
+    /**
+     * Resolve brand term IDs to product IDs and merge into include/exclude product lists.
+     * Mirrors merge_category_products() but uses the active product-brand taxonomy.
+     */
+    private function merge_brand_products(): void
+    {
+        if (!empty($this->include_brands)) {
+            $brand_products = $this->get_product_ids_for_brands($this->include_brands);
+
+            if (empty($brand_products)) {
+                $this->include_products = [0];
+            } elseif (!empty($this->include_products)) {
+                $this->include_products = array_values(array_unique(array_merge($this->include_products, $brand_products)));
+            } else {
+                $this->include_products = $brand_products;
+            }
+        }
+
+        if (!empty($this->exclude_brands)) {
+            $brand_products = $this->get_product_ids_for_brands($this->exclude_brands);
+
+            if (!empty($brand_products)) {
+                $this->exclude_products = array_values(array_unique(array_merge($this->exclude_products, $brand_products)));
+            }
+        }
+    }
+
+    /**
+     * @param int[] $brand_ids Product brand term IDs.
+     * @return int[] Product IDs belonging to those brands.
+     */
+    private function get_product_ids_for_brands(array $brand_ids): array
+    {
+        $brand_ids = array_values(array_unique(array_filter(array_map('absint', $brand_ids))));
+
+        if (empty($brand_ids)) {
+            return [];
+        }
+
+        $taxonomy = $this->get_brand_taxonomy();
+
+        if ('' === $taxonomy) {
+            return [];
+        }
+
+        $product_ids = get_posts([
+            'post_type'      => 'product',
+            'post_status'    => 'any',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'tax_query'      => [
+                [
+                    'taxonomy' => $taxonomy,
+                    'field'    => 'term_id',
+                    'terms'    => $brand_ids,
+                ],
+            ],
+        ]);
+
+        return array_values(array_map('absint', $product_ids));
+    }
+
+    /**
+     * First registered product-brand taxonomy. Covers WooCommerce core Brands
+     * (`product_brand`) and the common third-party brand plugins; filterable.
+     */
+    private function get_brand_taxonomy(): string
+    {
+        $candidates = ['product_brand', 'pwb-brand', 'yith_product_brand', 'berocket_brand', 'pa_brand'];
+
+        /**
+         * Filter the candidate brand taxonomies (first registered one wins).
+         *
+         * @param string[] $candidates Ordered taxonomy slugs.
+         */
+        $candidates = apply_filters('hw_ele_woo_dynamic/query-builder/wc-order-hpos/brand_taxonomies', $candidates);
+
+        foreach ((array) $candidates as $taxonomy) {
+            if (is_string($taxonomy) && '' !== $taxonomy && taxonomy_exists($taxonomy)) {
+                return $taxonomy;
+            }
+        }
+
+        return '';
+    }
+
+    /**
+     * Normalize a shipping-methods setting to a clean list of method id strings.
+     *
+     * @param string|array $methods
+     * @return string[]
+     */
+    private function prepare_shipping_methods($methods): array
+    {
+        if (empty($methods)) {
+            return [];
+        }
+
+        $methods = array_filter(array_map(static function ($method) {
+            if (is_array($method) && isset($method['value'])) {
+                $method = $method['value'];
+            }
+
+            return is_string($method) || is_numeric($method) ? trim((string) $method) : '';
+        }, (array) $methods));
+
+        return array_values(array_unique($methods));
+    }
+
+    /**
+     * Limit the query to orders that used one of the selected shipping methods.
+     * Shipping method is an order item (not an HPOS column), so we resolve the
+     * matching order IDs via the order-items tables and apply them as post__in,
+     * intersecting with any product-include result already present.
+     */
+    private function apply_shipping_method_filter(array $query_args): array
+    {
+        if (empty($this->shipping_methods)) {
+            return $query_args;
+        }
+
+        global $wpdb;
+
+        $order_ids = $this->get_order_ids_for_shipping_methods($this->shipping_methods, $wpdb);
+
+        if (empty($order_ids)) {
+            $query_args['post__in'] = [0];
+
+            return $query_args;
+        }
+
+        $existing = isset($query_args['post__in']) ? array_map('absint', (array) $query_args['post__in']) : [];
+
+        if (! empty($existing)) {
+            $order_ids = array_values(array_intersect($existing, $order_ids));
+        }
+
+        $query_args['post__in'] = ! empty($order_ids) ? $order_ids : [0];
+
+        return $query_args;
+    }
+
+    /**
+     * @param string[] $method_ids
+     */
+    private function get_order_ids_for_shipping_methods(array $method_ids, \wpdb $wpdb): array
+    {
+        $method_ids = array_values(array_unique(array_filter(array_map(static function ($id) {
+            return is_string($id) || is_numeric($id) ? trim((string) $id) : '';
+        }, $method_ids))));
+
+        if (empty($method_ids)) {
+            return [];
+        }
+
+        $placeholders = implode(',', array_fill(0, count($method_ids), '%s'));
+        $table_items  = $wpdb->prefix . 'woocommerce_order_items';
+        $table_meta   = $wpdb->prefix . 'woocommerce_order_itemmeta';
+
+        // method_id meta stores the base id ('flat_rate') in modern data, or the
+        // legacy 'flat_rate:3' form. SUBSTRING_INDEX(...,':',1) matches both.
+        $sql = "SELECT DISTINCT oi.order_id
+            FROM {$table_items} AS oi
+            INNER JOIN {$table_meta} AS oim ON oi.order_item_id = oim.order_item_id
+            WHERE oi.order_item_type = 'shipping'
+            AND oim.meta_key = 'method_id'
+            AND SUBSTRING_INDEX(oim.meta_value, ':', 1) IN ({$placeholders})";
+
+        $prepared = $wpdb->prepare($sql, $method_ids);
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
         $results = $wpdb->get_col($prepared);
 

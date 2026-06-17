@@ -35,7 +35,7 @@ class ProductShippingClass extends Tag {
         return [ Module::TEXT_CATEGORY ];
     }
 
-    protected function _register_controls(): void {
+    protected function register_controls(): void {
         $this->add_control(
             'return_value',
             [

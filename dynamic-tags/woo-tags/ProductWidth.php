@@ -13,7 +13,7 @@ class ProductWidth extends Tag {
     public function get_group()      { return 'woo-extras'; }
     public function get_categories() { return [ Module::TEXT_CATEGORY ]; }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         $units = [
             ''   => esc_html__('Store unit (no conversion)', 'hw-ele-woo-dynamic'),
             'mm' => 'mm',

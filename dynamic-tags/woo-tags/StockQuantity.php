@@ -25,7 +25,7 @@ class StockQuantity extends Tag {
         return [Module::TEXT_CATEGORY, Module::NUMBER_CATEGORY];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
     }
 

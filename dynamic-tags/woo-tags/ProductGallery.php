@@ -24,7 +24,7 @@ class ProductGallery extends Data_Tag {
         return [ Module::IMAGE_CATEGORY ];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         $this->add_control(
             'image_index',
             [

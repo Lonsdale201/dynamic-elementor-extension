@@ -42,7 +42,7 @@ class TagManager {
      * Private constructor to ensure only one instance.
      */
     private function __construct() {
-        add_action( 'elementor/dynamic_tags/register_tags', [ $this, 'register_tags' ] );
+        add_action( 'elementor/dynamic_tags/register', [ $this, 'register_tags' ] );
     }
 
     /**
@@ -106,7 +106,7 @@ class TagManager {
                 continue;
             }
 
-            $dynamic_tags->register_tag( $tag_class );
+            $dynamic_tags->register( new $tag_class() );
         }
     }
 

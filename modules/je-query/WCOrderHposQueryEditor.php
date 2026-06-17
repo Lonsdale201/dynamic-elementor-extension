@@ -35,6 +35,7 @@ class WCOrderHposQueryEditor extends \Jet_Engine\Query_Builder\Query_Editor\Base
             'statuses' => $options,
             'default_per_page' => absint(get_option('posts_per_page', 10)),
             'payment_methods' => $this->get_payment_methods_for_js(),
+            'shipping_methods' => $this->get_shipping_methods_for_js(),
         ];
     }
 
@@ -70,6 +71,40 @@ class WCOrderHposQueryEditor extends \Jet_Engine\Query_Builder\Query_Editor\Base
             $options[] = [
                 'value' => (string) $gateway_id,
                 'label' => $title ? (string) $title : (string) $gateway_id,
+            ];
+        }
+
+        return $options;
+    }
+
+    private function get_shipping_methods_for_js(): array
+    {
+        if (! function_exists('WC') || ! WC()->shipping()) {
+            return [];
+        }
+
+        $methods = WC()->shipping()->get_shipping_methods();
+
+        if (! $methods) {
+            return [];
+        }
+
+        $options = [];
+
+        foreach ($methods as $method_id => $method) {
+            $title = '';
+
+            if (is_object($method) && method_exists($method, 'get_method_title')) {
+                $title = (string) $method->get_method_title();
+            }
+
+            if ('' === $title && is_object($method) && isset($method->method_title)) {
+                $title = (string) $method->method_title;
+            }
+
+            $options[] = [
+                'value' => (string) $method_id,
+                'label' => '' !== $title ? $title : (string) $method_id,
             ];
         }
 

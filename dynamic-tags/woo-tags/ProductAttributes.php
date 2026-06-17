@@ -25,7 +25,7 @@ class ProductAttributes extends Tag {
         return [ Module::TEXT_CATEGORY ];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         // Display type
         $this->add_control('display_type', [
             'label'   => esc_html__('Display Type', 'hw-ele-woo-dynamic'),

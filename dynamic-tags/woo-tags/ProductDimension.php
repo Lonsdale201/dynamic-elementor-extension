@@ -28,7 +28,7 @@ class ProductDimension extends Tag {
         return [ Module::TEXT_CATEGORY ];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         // Convert From unit
         $this->add_control(
             'convert_from',

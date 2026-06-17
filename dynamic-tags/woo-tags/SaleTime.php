@@ -25,7 +25,7 @@ class SaleTime extends Tag {
         return [Module::DATETIME_CATEGORY];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
     }
 
     public function render() {

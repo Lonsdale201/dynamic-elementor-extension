@@ -24,7 +24,7 @@ class ProductTabs extends Tag {
         return [Module::TEXT_CATEGORY];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         $tab_source_options = [
             'default' => __('Default Tabs', 'hw-ele-woo-dynamic')
         ];

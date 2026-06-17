@@ -60,7 +60,7 @@ class QuizNumbers extends Tag {
      *
      * @return void
      */
-    protected function _register_controls() {
+    protected function register_controls() {
         // Visibility control setting, using visibility options defined in LDQuery
         $this->add_control(
             'visibility',

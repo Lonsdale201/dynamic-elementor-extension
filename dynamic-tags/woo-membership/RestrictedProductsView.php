@@ -20,7 +20,7 @@ class RestrictedProductsView extends Tag {
         return 'woo-extras-user';
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         $this->add_control(
             'product_viewing_restricted_purchase_required_message',
             [

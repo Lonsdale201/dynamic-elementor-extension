@@ -33,6 +33,12 @@ final class Loader
         add_action('plugins_loaded', [$this, 'init_updater'], 1);
         add_filter('plugin_action_links_' . plugin_basename(HW_ELE_DYNAMIC_FILE), [$this, 'add_plugin_action_links']);
         add_filter('plugin_row_meta', [$this, 'add_plugin_row_meta'], 10, 2);
+
+        // WP-CLI surface (wp dynamic-ext ...). Registered regardless of Elementor
+        // so `status` can still diagnose a misconfigured site. No-op on web requests.
+        if ( defined( 'WP_CLI' ) && WP_CLI ) {
+            Modules\Cli\CliManager::register();
+        }
     }
 
     public function load_textdomain(): void

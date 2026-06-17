@@ -61,7 +61,7 @@ class CourseStartDate extends Tag {
      *
      * @return void
      */
-    protected function _register_controls() {
+    protected function register_controls() {
         // Visibility control for limiting display based on user status
         $this->add_control(
             'visibility',

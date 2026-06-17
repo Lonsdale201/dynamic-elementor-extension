@@ -27,7 +27,7 @@ class ActiveMembershipData extends Tag {
         ];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         $options = [];
         $plans = wc_memberships_get_membership_plans();
         foreach ($plans as $plan) {

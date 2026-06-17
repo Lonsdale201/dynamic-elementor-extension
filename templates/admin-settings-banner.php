@@ -207,28 +207,48 @@ if ( ! defined( 'ABSPATH' ) ) {
             </ul>
         </div><!-- .card -->
 
-        <!-- 5) My Other Plugins -->
+        <!-- 5) My Other Useful Works -->
         <div class="card" style="padding: 1rem;">
             <h2 style="margin-top: 0;">
-                <?php esc_html_e('My Other Plugins', 'hw-elementor-woo-dynamic'); ?>
+                <?php esc_html_e('My Other Useful Works', 'hw-elementor-woo-dynamic'); ?>
             </h2>
             <p class="description">
-                <?php esc_html_e('Check out some of my other WordPress plugin projects:', 'hw-elementor-woo-dynamic'); ?>
+                <?php esc_html_e('Other projects of mine you might find useful:', 'hw-elementor-woo-dynamic'); ?>
             </p>
             <hr />
             <ul style="list-style: none; padding-left: 0; margin: 0;">
-                <!-- Simple Steam Fetch Plugin -->
+                <!-- WP Agent Skills (not a plugin) -->
                 <li style="margin-bottom: 1em;">
                     <strong>
-                        <a href="#" target="_blank">Simple Steam Fetch</a>
-                    </strong><br/>
+                        <a href="https://github.com/Lonsdale201/wp-agent-skills" target="_blank">WP Agent Skills</a>
+                    </strong>
+                    <em>(<?php esc_html_e('Not a plugin', 'hw-elementor-woo-dynamic'); ?>)</em><br/>
                     <em>
-                        <?php esc_html_e('Fetch and import game data from the Steam API. Automatically create custom posts with detailed descriptions, screenshots, and pricing information. Compatible with JetEngine.', 'hw-elementor-woo-dynamic'); ?>
+                        <?php esc_html_e('More than 300 AI agent skills for more than 12 plugins.', 'hw-elementor-woo-dynamic'); ?>
                     </em><br/>
-                    <a href="https://github.com/Lonsdale201/Simple-Steam-Fetch" target="_blank">
-                        <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
+                    <a href="https://github.com/Lonsdale201/wp-agent-skills" target="_blank">
+                        <?php esc_html_e('View on GitHub', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
+
+                <!-- Better Route (PHP library) -->
+                <li style="margin-bottom: 1em;">
+                    <strong>
+                        <a href="https://github.com/Lonsdale201/better-route" target="_blank">Better Route</a>
+                    </strong>
+                    <em>(<?php esc_html_e('PHP library, not a plugin', 'hw-elementor-woo-dynamic'); ?>)</em><br/>
+                    <em>
+                        <?php esc_html_e('A PHP library for WordPress to build typed, validated REST APIs — fluent router, resource CRUD, auth / rate-limit / idempotency middleware and OpenAPI export. A dedicated AI agent skill set is available for it.', 'hw-elementor-woo-dynamic'); ?>
+                    </em><br/>
+                    <a href="https://github.com/Lonsdale201/better-route" target="_blank">
+                        <?php esc_html_e('GitHub', 'hw-elementor-woo-dynamic'); ?>
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="https://lonsdale201.github.io/better-docs/docs/better-route/getting-started/installation/" target="_blank">
+                        <?php esc_html_e('Documentation', 'hw-elementor-woo-dynamic'); ?>
+                    </a>
+                </li>
+
                 <!-- FluentCRM Subscriptions for JetFormBuilder -->
                 <li style="margin-bottom: 1em;">
                     <strong>
@@ -241,54 +261,29 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
-                <!-- Discord for JetFormBuilder -->
+
+                <!-- AI for JetFormBuilder -->
                 <li style="margin-bottom: 1em;">
                     <strong>
-                        <a href="https://github.com/Lonsdale201/discord-for-jetformbuilder" target="_blank">Discord for JetFormBuilder</a>
+                        <a href="https://github.com/Lonsdale201/ai-for-jetformbuilder" target="_blank">AI for JetFormBuilder</a>
                     </strong><br/>
                     <em>
-                        <?php esc_html_e('Send notifications to Discord when a submission is received from JetFormBuilder.', 'hw-elementor-woo-dynamic'); ?>
+                        <?php esc_html_e('Add AI-powered actions to JetFormBuilder — process form submissions with an AI service.', 'hw-elementor-woo-dynamic'); ?>
                     </em><br/>
-                    <a href="https://github.com/Lonsdale201/discord-for-jetformbuilder" target="_blank">
+                    <a href="https://github.com/Lonsdale201/ai-for-jetformbuilder" target="_blank">
                         <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
 
-                <!-- Simple Loyalty Program for WooCommerce -->
+                <!-- Google Sheet for JetFormBuilder -->
                 <li style="margin-bottom: 1em;">
                     <strong>
-                        <a href="#" target="_blank">Simple Loyalty Program for WooCommerce</a>
+                        <a href="https://github.com/Lonsdale201/google-sheet-for-jetformbuilder" target="_blank">Google Sheet for JetFormBuilder</a>
                     </strong><br/>
                     <em>
-                        <?php esc_html_e('This plugin adds customizable loyalty features to WooCommerce, offering various settings for a tailored experience.', 'hw-elementor-woo-dynamic'); ?>
+                        <?php esc_html_e('Send JetFormBuilder form submissions straight to Google Sheets.', 'hw-elementor-woo-dynamic'); ?>
                     </em><br/>
-                    <a href="https://github.com/Lonsdale201/fluent-extend-triggers-and-actions" target="_blank">
-                        <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
-                    </a>
-                </li>
-
-                <!-- Simple My menu -->
-                <li style="margin-bottom: 1em;">
-                    <strong>
-                        <a href="#" target="_blank">Simple My menu</a>
-                    </strong><br/>
-                    <em>
-                        <?php esc_html_e('A simple plugin that allows you to create monograms for the users, create and display a custom account menu, and extend other menus with visibility settings, badges, icons, etc.', 'hw-elementor-woo-dynamic'); ?>
-                    </em><br/>
-                    <a href="https://github.com/Lonsdale201/wp-mymenu" target="_blank">
-                        <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
-                    </a>
-                </li>
-
-                <!-- Unity WebGL Integration -->
-                <li style="margin-bottom: 1em;">
-                    <strong>
-                        <a href="#" target="_blank">Unity WebGL Integration</a>
-                    </strong><br/>
-                    <em>
-                        <?php esc_html_e('Simple loader and initializer plugin for WordPress + Unity + WebGL projects.', 'hw-elementor-woo-dynamic'); ?>
-                    </em><br/>
-                    <a href="https://github.com/Lonsdale201/unity-for-wp" target="_blank">
+                    <a href="https://github.com/Lonsdale201/google-sheet-for-jetformbuilder" target="_blank">
                         <?php esc_html_e('Download Link', 'hw-elementor-woo-dynamic'); ?>
                     </a>
                 </li>
@@ -305,6 +300,12 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <hr />
             <div style="max-height: 350px; overflow-y: auto;">
+                <strong><?php esc_html_e('Version 2.4.5.3 - 2026.06.17', 'hw-elementor-woo-dynamic'); ?></strong>
+                    <ul style="list-style: square; margin-left: 1.2rem;">
+                        <li><?php esc_html_e('New: WP-CLI support — manage the plugin from the terminal via `wp dynamic-ext` (status diagnostics, enable / disable dynamic tags, export / import settings).', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('WC Order HPOS Query Builder: new Include / Exclude Brands filters, and a Shipping Methods filter in the General tab.', 'hw-elementor-woo-dynamic'); ?></li>
+                        <li><?php esc_html_e('Improved dynamic tag registration (migrated to Elementor’s modern dynamic_tags/register API).', 'hw-elementor-woo-dynamic'); ?></li>
+                    </ul>
                 <strong><?php esc_html_e('Version 2.4.5.2 - 2026.04.10', 'hw-elementor-woo-dynamic'); ?></strong>
                     <ul style="list-style: square; margin-left: 1.2rem;">
                         <li><?php esc_html_e('Cart Values and Cart Tax Values dynamic tags now refresh via AJAX on cart events (no page reload needed).', 'hw-elementor-woo-dynamic'); ?></li>

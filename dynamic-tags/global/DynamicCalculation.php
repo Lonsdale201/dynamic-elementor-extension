@@ -17,7 +17,7 @@ class DynamicCalculation extends Tag {
 
 	/* ========== CONTROLS ========= */
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		// ­— képlet típusa
 		$this->add_control( 'formula_type', [
